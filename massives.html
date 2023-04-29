@@ -1,0 +1,1800 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords"
+		content="Обучение JavaScript, основы JavaScript, JS для начинающих, массивы в JS, методы массивов">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. В этом разделе вы узнаете о подвиде объектов - массивах и их методах.">
+	<title>JavaScript. Массивы</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+			<h2 class="section__title">Массивы в JavaScript</h2>
+			<section class="section" id="arrays">
+				<h3 class="section__subtitle">Массивы. Синтаксис</h3>
+				<div class="section__text-block">
+					<p><span class="color-pink">Массив</span> – это особый
+						<span class="color-pink">подвид объектов</span>, предназначенный <u>для хранения</u>
+						<em>упорядоченных коллекций данных</em>.
+					</p>
+					<p><u>Cинтаксис для создания</u> <span class="color-pink">пустого массива</span>:
+						<span class="color-red">let</span> <span class="color-pink">arr</span> =
+						[<span class="color-gold">элемент-1, элемент-2, ...элемент-n</span>];
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = [<span class="color-gold">'Мазда'</span>, <span class="color-gold">'БМВ'</span>, <span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Лада'</span>,];
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-gold">Элементы</span> <span class="color-pink">массива</span>
+						<u>нумеруются начиная <em>с нуля</em></u>. Мы <u>можем получить</u> <span
+							class="color-gold">элемент</span>, <u>указав</u>
+						<span class="color-aqua">его номер</span> в <em>квадратных скобках</em>
+						<span class="color-blue">[]</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Мазда'</span>, <span class="color-gold">'БМВ'</span>, 
+						<span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Лада'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - выведет [<span class="color-gold">'Мазда'</span>, 
+						<span class="color-gold">'БМВ'</span>, <span class="color-gold">'Мерседес'</span>, 
+						<span class="color-gold">'Лада'</span>]</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>[<span class="color-aqua">0</span>]);
+						<span class="section__code-comment">// - получим <span class="color-gold">Мазда</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>[<span class="color-aqua">1</span>]);
+						<span class="section__code-comment">// - получим <span class="color-gold">БМВ</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Мы <u>можем заменить</u> 
+						<span class="color-gold">элемент</span> в <span class="color-pink">массиве</span>, 
+						<u>указав</u> в <em>квадратных скобках</em> <span class="color-blue">[]</span> его
+						<em>индекс</em>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">cars</span>[<span class="color-aqua">2</span>] = 
+						<span class="color-gold">'Порше'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">МЫ <u>можем добавить</u> 
+						<span class="color-gold">новый элемент</span> к 
+						<span class="color-pink">существующему массиву</span>, <u>указав</u> 
+						<em>несуществующий индекс</em></span>.
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">cars</span>[<span class="color-aqua">4</span>] = 
+						<span class="color-gold">'Ферарри'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - <span class="color-pink">массив</span> теперь:
+						[<span class="color-gold">'Мазда'</span>, <span class="color-gold">'БМВ'</span>, 
+						<span class="color-gold">'Порше'</span>, <span class="color-gold">'Лада'</span>, 
+						<span class="color-gold">'Ферарри'</span>]</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Общее число</em> <span class="color-gold">элементов</span>
+						<span class="color-pink">массива</span> <u>содержится</u> в <em>его свойстве</em>
+						<span class="color-aqua">length</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - <span class="color-pink">массив</span> из 
+						<em>5</em> <span class="color-gold">элементов</span>: [<span class="color-gold">'Мазда'</span>, 
+						<span class="color-gold">'БМВ'</span>, <span class="color-gold">'Порше'</span>, 
+						<span class="color-gold">'Лада'</span>, <span class="color-gold">'Ферарри'</span>]</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span><span class="color-aqua">.length</span>); <span class="section__code-comment">// - получим <span class="color-gold">5</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Cамый <u>простой способ очистить</u> <span class="color-pink">массив</span> – <u>указать</u>, что
+						<em>длина массива</em> <u>равна</u> <em>нулю</em>:
+						<span class="color-pink">arr</span><span class="color-aqua">.length</span> =
+						<span class="color-gold">0</span>
+					</p>
+					<p><span class="color-pink">Массивы</span> <u>могут содержать</u>
+						<span class="color-gold">элементы</span>, которые тоже <u>являются</u>
+						<span class="color-pink">массивами</span>, называется
+						(<span class="color-pink">многомерный массив</span>).
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">arr</span> = 
+						[[<span class="color-gold">1</span>, <span class="color-gold">2</span>, 
+						<span class="color-gold">3</span>], [<span class="color-gold">'a'</span>, 
+						<span class="color-gold">'b'</span>, <span class="color-gold">'c'</span>]];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">arr</span>
+						[<span class="color-gold">1</span>][<span class="color-gold">2</span>]);
+						<span class="section__code-comment">// - получим <span class="color-gold">c</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>В <span class="color-pink">массиве</span> <u>могут храниться</u>
+						<span class="color-gold">элементы любого типа</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">arr</span> = 
+						[<span class="color-gold">'Джон'</span>, {<span class="color-aqua">address</span>: 
+						<span class="color-gold">'Москва, ул. Ленина, д.32, кв. 77'</span>}, 
+						<span class="color-gold">31</span>, 
+						<span class="color-red">function</span>() { <span class="color-red">alert</span>
+						(`<span class="color-gold">привет</span>, ${<span class="color-pink">arr</span>[0]}`)}];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span> 
+						(<span class="color-pink">arr</span>[<span class="color-aqua">1</span>].
+						<span class="color-aqua">address</span> ); <span class="section__code-comment">// - <u>получить</u> <span class="color-gold">значение</span> 
+						<span class="color-gold">свойства</span> <span class="color-pink">объекта</span>, который <u>хранится</u> под <em>индексом</em> <span class="color-aqua">1</span></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">arr</span>[<span class="color-aqua">3</span>]();
+						<span class="section__code-comment">// - <u>получить</u> 
+						<span class="color-gold">элемент</span> с <em>индексом</em> <span class="color-aqua">3</span>, который является <span class="color-red">функцией</span> и <u>выполнить</u> 
+						<span class="color-red">её</span>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Чтобы <u>получить</u> <span class="color-gold">последний элемент</span>
+						<span class="color-pink">массива</span> <u>нужно использовать</u>
+						<span class="color-red">метод</span>
+						<span class="color-pink">arr</span>.<span class="color-red">at</span>(
+						<span class="color-gold">-1</span>).
+					</p>
+					<p><span class="color-pink">Массив</span> <u>копируется</u> по <em>ссылке</em> <u>также</u>, как и
+						<span class="color-pink">объект</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Мазда'</span>, <span class="color-gold">'БМВ'</span>, 
+						<span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Лада'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">auto</span> = 
+						<span class="color-pink">cars</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">auto</span>[<span class="color-aqua">3</span>] = 
+						<span class="color-gold">'Волга'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>[<span class="color-aqua">3</span>]);
+						<span class="section__code-comment">// - вернёт <span class="color-gold">'Волга'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">auto</span>[<span class="color-aqua">3</span>]);
+						<span class="section__code-comment">// - вернёт <span class="color-gold">'Волга'</span></span>
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="methods">
+				<h2 class="section__title">Методы массивов</h2>
+				<h3 class="section__subtitle">Методы pop / push, shift / unshift</h3>
+				<div class="section__text-block">
+					<p><strong>Очередь</strong> – <em>упорядоченная коллекция элементов</em>, один из самых
+						распространённых <u>вариантов применения</u> <span class="color-pink">массива</span>.
+					</p>
+					<p><span class="color-pink">Массивы</span> <u>поддерживают</u> <em>два типа доступа</em> к
+						<span class="color-gold">элементам</span>: <strong>очередь</strong> - <u>работает</u> с
+						<em>началом массива</em> и <strong>стек</strong> - <u>работает</u> с <em>концом массива</em>.
+					</p>
+					<p><u>Работать</u> <em>с концом массива</em> <u>быстрее</u>, чем <em>с началом массива</em>.</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Методы, работающие с концом массива:</h3>
+				<div class="section__text-block">
+					<p><span class="color-pink">arr</span>.<span class="color-red">pop</span>( ) - <u>удаляет</u>
+						<span class="color-gold">последний элемент</span> из <span class="color-pink">массива</span> и
+						<u>возвращает</u> <span class="color-gold">его</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Мазда'</span>, <span class="color-gold">'БМВ'</span>, 
+						<span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Лада'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>.<span class="color-red">pop</span>()); 
+						<span class="section__code-comment">// - <u>удаляем</u> <span class="color-gold">Лада</span> и <u>выводим</u> <span class="color-gold">его</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - получим ['<span class="color-gold">Мазда</span>', <span class="color-gold">'БМВ'</span>, <span class="color-gold">'Мерседес'</span>,]</span> 
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">И 
+						<span class="color-pink">cars</span>.<span class="color-red">pop</span>() и 
+						<span class="color-pink">cars</span>.<span class="color-red">at</span>
+						(<span class="color-gold">-1</span>) <u>возвращают</u> 
+						<span class="color-gold">последний элемент</span> <span class="color-pink">массива</span>, но <span class="color-pink">cars</span>.<span class="color-red">pop</span>() также <u>изменяет</u> <span class="color-pink">массив</span>, <u>удаляя</u> <span class="color-pink">его</span>
+						<span class="color-gold">последний элемент</span>.</span> 
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-pink">arr</span>.<span class="color-red">push</span>( ) - <u>добавляет</u>
+						<span class="color-gold">элемент</span> <u>в конец</u> <span class="color-pink">массива</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Мазда'</span>, <span class="color-gold">'БМВ'</span>, 
+						<span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Лада'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">cars</span>.<span class="color-red">push</span>
+						(<span class="color-gold">'Рено'</span>); <span class="section__code-comment">// - 
+						<u>добавили</u> <span class="color-gold">элемент</span> <u>в конец</u> 
+						<span class="color-pink">массива</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - <span class="color-pink">массив</span> 
+						<u>изменился</u>: [<span class="color-gold">'Мазда'</span>, 
+						<span class="color-gold">'БМВ'</span>, <span class="color-gold">'Мерседес'</span>, 
+						<span class="color-gold">'Лада'</span>, <span class="color-gold">'Рено'</span>];</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Методы, работающие с началом массива:</h3>
+				<div class="section__text-block">
+					<p><span class="color-pink">arr</span>.<span class="color-red">shift</span>( ) - <u>удаляет</u> из
+						<span class="color-pink">массива</span> <span class="color-gold">первый элемент</span> и
+						<u>возвращает</u> <span class="color-gold">его</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Мазда'</span>, <span class="color-gold">'БМВ'</span>, <span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Лада'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>.<span class="color-red">shift</span>());
+						<span class="section__code-comment">// - <u>удаляем</u> 
+						<span class="color-gold">первый элемент</span> <span class="color-pink">массива</span> и <u>возвращаем</u> <span class="color-gold">его</span> 
+						<span class="color-gold">'Мазда'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>); <span class="section__code-comment">
+						// - <span class="color-pink">массив</span> <u>изменился</u>, теперь 
+						[<span class="color-gold">'БМВ'</span>, <span class="color-gold">'Мерседес'</span>, 
+						<span class="color-gold">'Лада'</span>]</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-pink">arr</span>.<span class="color-red">unshift</span>( ) - <u>добавляет</u>
+						<span class="color-gold">элемент</span> <u>в начало</u> <span class="color-pink">массива</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Мазда'</span>,  <span class="color-gold">'БМВ'</span>, 
+						<span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Лада'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">cars</span>.<span class="color-red">unshift</span>
+						(<span class="color-gold">'Ламборджини'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - <span class="color-pink">массив</span> 
+						<u>изменился</u>, теперь [<span class="color-gold">'Ламборджини'</span>, 
+						<span class="color-gold">'Мазда'</span>, <span class="color-gold">'БМВ'</span>, 
+						<span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Лада'</span>]
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Методы</em> <span class="color-red">push</span>() и <span class="color-red">unshift</span>()
+						<u>могут добавлять</u> <span class="color-gold">сразу несколько элементов</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Лада'</span>];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">cars</span>.<span class="color-red">unshift</span>
+						(<span class="color-gold">'Порше'</span>, <span class="color-gold">'БМВ'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">cars</span>.<span class="color-red">push</span>
+						(<span class="color-gold">'Мазда'</span>, <span class="color-gold">'Ниссан'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - <u>добавили</u> 
+						<span class="color-gold">элементы</span> <u>в начало</u> и <u>конец</u> 
+						<span class="color-pink">массива</span>, теперь [<span class="color-gold">'Порше'</span>, 
+						<span class="color-gold">'БМВ'</span>, <span class="color-gold">'Лада'</span>, 
+						<span class="color-gold">'Мазда'</span>, <span class="color-gold">'Ниссан'</span>]</span>
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="add-delete-copy">
+				<h3 class="section__subtitle">Добавлениe / удалениe / копирование</h3>
+				<h3 class="section__subtitle section__subtitle_small">splice</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Метод</span>
+						<span class="color-pink">arr</span>.<span class="color-red">splice</span>
+						(<em>args...</em>) умеет всё: <u>добавлять</u>, <u>удалять</u> и
+						<u>заменять</u> <span class="color-gold">элементы</span>
+						<span class="color-pink">массива</span>. <u>Его синтаксис</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">arr</span>.<span class="color-red">splice</span>
+						(<span class="color-aqua">начальный индекс</span>, 
+						<span class="color-gold">количество удаляемых элементов</span>, 
+						<span class="color-gold">elem-1</span>, <span class="color-gold">elem-2</span>, ...
+						<span class="color-gold">elem-n</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>начиная</u> с позиции 
+						<span class="color-aqua">начальный индекс</span>, <u>удаляем</u> 
+						<span class="color-gold">количество элементов</span> и <u>вставляем</u> 
+						<span class="color-gold">elem-1</span>, <span class="color-gold">elem-2</span>, ...
+						<span class="color-gold">elem-n</span> <u>вместо</u> <span class="color-gold">них</span>.
+						<span class="color-red">splice</span>() <u>также возвращает</u> 
+						<span class="color-pink">массив из удалённых элементов</span>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Удаление</u> <span class="color-gold">определенного элемента</span>
+						<span class="color-pink">массива</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Порше'</span>, <span class="color-gold">'Майбах'</span>, 
+						<span class="color-gold">'Митсубиси'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">cars</span>.<span class="color-red">splice</span>
+						(<span class="color-aqua">1</span>, <span class="color-gold">1</span>); 
+						<span class="section__code-comment">// - <u>начиная</u> с 
+						<span class="color-aqua">позиции 1</span>, <u>удалить</u> 
+						<span class="color-gold">1 элемент</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - <span class="color-pink">массив</span> 
+						<u>изменился</u>, теперь [<span class="color-gold">'Порше'</span>, 
+						<span class="color-gold">'Митсубиси'</span>]</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<u>Удаление</u> <span class="color-gold">нескольких элементов</span>
+					<span class="color-pink">массива</span> и <u>замена</u> <em>их</em>
+					<span class="color-gold">другими элементами</span>:
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'Порше'</span>, <span class="color-gold">'Майбах'</span>, 
+						<span class="color-gold">'Митсубиси'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">cars</span>.<span class="color-red">splice</span>
+						(<span class="color-aqua">0</span>, <span class="color-gold">2</span>, 
+						<span class="color-gold">'Лада'</span>, <span class="color-gold">'Тойота'</span>, 
+						<span class="color-gold">'Ниссан'</span>, <span class="color-gold">'Хендай'</span>);
+						<span class="section__code-comment">// - <u>начиная</u> с 
+						<span class="color-aqua">позиции 0</span>, <u>удалить</u> 
+						<span class="color-gold">2 элемента</span> и <u>заменить</u> <em>их</em> 
+						<span class="color-gold">другими элементами</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - <span class="color-pink">массив</span> 
+						<u>изменился</u>, теперь [<span class="color-gold">'Лада'</span>, 
+						<span class="color-gold">'Тойота'</span>, <span class="color-gold">'Ниссан'</span>, 
+						<span class="color-gold">'Хендай'</span>, <span class="color-gold">'Митсубиси'</span>];</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">deleteElements</span> = 
+						<span class="color-pink">cars</span>.<span class="color-red">splice</span>
+						(<span class="color-aqua">0</span>, <span class="color-gold">2</span>);
+						<span class="section__code-comment">// - <u>создаем</u> 
+						<span class="color-pink">новый массив</span> с 
+						<span class="color-gold">удаленными элементами</span> <em>массива</em> 
+						<span class="color-pink">cars</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">deleteElements</span>);
+						<span class="section__code-comment">// - <u>смотрим</u> на 
+						<span class="color-pink">новый массив</span> из ранее 
+						<span class="color-gold">удаленных элементов</span>: выведет 
+						[<span class="color-gold">'Лада'</span>, <span class="color-gold">'Тойота'</span>]</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">cars</span>);
+						<span class="section__code-comment">// - <span class="color-pink">массив</span> 
+						<u>изменился</u>, теперь [<span class="color-gold">'Ниссан'</span>, 
+						<span class="color-gold">'Хендай'</span>, <span class="color-gold">'Митсубиси'</span>]</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Добавление</u> <span class="color-gold">элементов</span> в
+						<span class="color-pink">массив</span> <u>без удаления</u>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">text</span> = 
+						[<span class="color-gold">'Я'</span>, <span class="color-gold">'люблю'</span>, 
+						<span class="color-gold">'JavaScript'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">text</span>.<span class="color-red">splice</span>
+						(<span class="color-aqua">1</span>, <span class="color-gold">0</span>, 
+						<span class="color-gold">'не'</span>); <span class="section__code-comment">// - <u>начиная</u> с <span class="color-aqua">позиции 1</span>, <u>удалить</u> 
+						<span class="color-gold">0 элементов</span>, <u>добавить</u> <em>элемент</em> 
+						<span class="color-gold">'не'</span> <u>после</u> 
+						<span class="color-aqua">позиции 1</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">text</span>.<span class="color-red">splice</span>
+						(<span class="color-aqua">4</span>, <span class="color-gold">0</span>, 
+						<span class="color-gold">'он'</span>, <span class="color-gold">'сложный'</span>); 
+						<span class="section__code-comment">// - начиная с <span class="color-aqua">позиции 4</span>, <u>удалить</u> <span class="color-gold">0 элементов</span>, <u>добавить</u> 
+						<span class="color-gold">'он'</span>, <span class="color-gold">'сложный'</span> <u>после</u> 
+						<span class="color-aqua">позиции 4</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">text</span>);
+						<span class="section__code-comment">// - <span class="color-pink">массив</span> 
+						<u>изменился</u>, теперь [<span class="color-gold">'Я'</span>, 
+						<span class="color-gold">'не'</span>, <span class="color-gold">'люблю'</span>, 
+						<span class="color-gold">'JavaScript'</span>, <span class="color-gold">'он'</span>, <span class="color-gold">'сложный'</span>];</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>В <span class="color-red">этом</span> и в <span class="color-red">других методах</span>
+						<span class="color-pink">массива</span> <u>допускается использование</u>
+						<span class="color-aqua">отрицательного индекса</span>, что позволит <u>начать отсчёт</u>
+						<span class="color-gold">элементов</span> <u>с конца</u>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">slice, concat</h3>
+				<div class="section__text-block">
+					<p><em>Метод</em> <span class="color-red">slice</span>( ) <u>возвращает</u>
+						<span class="color-pink">новый массив</span>, в который <u>копирует</u>
+						<span class="color-gold">элементы</span>, <u>начиная</u> с
+						<span class="color-aqua">индекса start</span> и <u>до</u> (<u>не включая</u>)
+						<span class="color-aqua">end</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">footballClubs</span> = 
+						[<span class="color-gold">'Манчестер Сити'</span>, <span class="color-gold">'Ливерпуль'</span>, <span class="color-gold">'Челси'</span>, <span class="color-gold">'Арсенал'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">footballClubs</span>.<span class="color-red">slice</span>
+						(<span class="color-aqua">1</span>, <span class="color-aqua">3</span>));
+						<span class="section__code-comment">// - <u>вернет</u> 
+						<span class="color-pink">новый массив</span> [<span class="color-gold">'Ливерпуль'</span>, <span class="color-gold">'Челси'</span>]</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Оба индекса <span class="color-aqua">start</span> и <span class="color-aqua">end</span>
+						<u>могут быть</u> <span class="color-aqua">отрицательными</span>. В таком случае
+						<u>отсчёт будет осуществляться с конца</u> <span class="color-pink">массива</span>.
+					</p>
+					<p><u>Можно вызвать</u> <span class="color-red">slice</span>( ) и вообще <u>без</u>
+						<em>аргументов</em>: <span class="color-pink">arr</span>.<span class="color-red">slice</span>()
+						- <u>создаcт</u> <span class="color-pink">копию массива arr</span>.
+					</p>
+					<p>Метод <span class="color-pink">arr</span>.<span class="color-red">concat</span>( ) <u>создаёт</u>
+						<span class="color-pink">новый массив</span>, в который <u>копирует</u>
+						<span class="color-gold">данные</span> из <span class="color-pink">других массивов</span> и
+						<span class="color-gold">дополнительные значения</span>. <span class="color-red">Он</span>
+						<u>принимает</u> <em>любое количество аргументов</em>, которые <u>могут быть</u> как
+						<span class="color-pink">массивами</span>, так и
+						<span class="color-gold">простыми значениями</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">planets</span> = 
+						[<span class="color-gold">'Земля'</span>, <span class="color-gold">'Марс'</span>, 
+						<span class="color-gold">'Сатурн'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">allPlanets</span> = 
+						<span class="color-pink">planets</span>.<span class="color-red">concat</span>
+						(<span class="color-gold">'Венера'</span>, <span class="color-gold">'Юпитер'</span>, 
+						<span class="color-gold">'Нептун'</span>,);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">allPlanets</span>);
+						<span class="section__code-comment">// - <u>создали</u> <em>копию массива</em>
+						<span class="color-pink">planets</span> и <u>добавили</u> в 
+						<span class="color-pink">этот массив</span> <span class="color-gold">новые элементы</span>, <em>которые</em> <u>передали</u> как <em>аргументы в метода</em> 
+						<span class="color-red">concat</span>(), <u>результат</u>: 
+						[<span class="color-gold">'Земля'</span>, <span class="color-gold">'Марс'</span>, 
+						<span class="color-gold">'Сатурн'</span>, <span class="color-gold">'Венера'</span>, 
+						<span class="color-gold">'Юпитер'</span>, <span class="color-gold">'Нептун'</span>]</span>
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="iterating">
+				<h3 class="section__subtitle">Перебор элементов</h3>
+				<h3 class="section__subtitle section__subtitle_small">Перебор: for..of</h3>
+				<div class="section__text-block">
+					<p>Одним из самых <u>старых способов перебора</u> <span class="color-gold">элементов</span>
+						<span class="color-pink">массива</span> <u>является</u> <em>цикл</em>
+						<span class="color-red">for</span> по <span class="color-aqua">цифровым индексам</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = 
+						[<span class="color-gold">'БВМ'</span>, <span class="color-gold">'Порше'</span>, 
+						<span class="color-gold">'Мерседес'</span>, <span class="color-gold">'Ауди'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">for</span> (<span class="color-red">let</span> 
+						<span class="color-pink">i</span> = <span class="color-gold">0</span>; 
+						<span class="color-pink">i</span> < 
+						<span class="color-pink">cars</span>.<span class="color-aqua">length</span>; 
+						<span class="color-pink">i</span>++) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>[<span class="color-pink">i</span>]);
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p>Но для <span class="color-pink">массивов</span> <u>возможен</u> и <em>другой вариант цикла</em>,
+						<span class="color-red">for</span>..<span class="color-red">of</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = ['<span class="color-gold">БВМ</span>', '<span class="color-gold">Порше</span>', '<span class="color-gold">Мерседес</span>', '<span class="color-gold">Ауди</span>'];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">for</span> (<span class="color-red">let</span> <span class="color-pink">car</span> <span class="color-red">of</span> <span class="color-pink">cars</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">car</span>);
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p>Цикл <span class="color-red">for</span>..<span class="color-red">of</span> <u>не предоставляет
+							доступа</u> к <span class="color-gold">номеру текущего элемента</span>, <u>только</u> к
+						<span class="color-gold">его значению</span>, но в большинстве случаев этого достаточно.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Перебор: forEach</h3>
+				<div class="section__text-block">
+					<p>Метод <span class="color-pink">arr</span>.<span class="color-red">forEach</span>( )
+						<u>позволяет запускать</u> <span class="color-red">функцию</span> для
+						<span class="color-gold">каждого элемента</span> <span class="color-pink">массива</span>. <u>Его
+							синтаксис</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">arr</span>.<span class="color-red">forEach</span>
+						(<span class="color-red">function</span>(<span class="color-pink">элемент</span>, 
+						<span class="color-pink">индекс</span>, <span class="color-pink">массив</span>) {
+					</span>
+  					<span class="section__code-row">// ... <u>делать что-то</u> с <span class="color-gold">элементом</span></span>
+					<span class="section__code-row">});</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">games</span> = 
+						[<span class="color-gold">'Футбол'</span>, <span class="color-gold">'Баскетбол'</span>, 
+						<span class="color-gold">'Волейбол'</span>, <span class="color-gold">'Теннис'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <span class="color-red">forEach</span>()
+						<u>выведет в консоль</u> <span class="color-gold">каждый элемент</span> 
+						<span class="color-pink">массива</span> и <u>покажет</u> 
+						<span class="color-aqua">свою позицию</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">games</span>.<span class="color-red">forEach</span>
+						((<span class="color-pink">item</span>, <span class="color-pink">index</span>, 
+						<span class="color-pink">arr</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span> (`${<span class="color-pink">item</span>} 
+						<span class="color-gold">имеет позицию</span>: ${<span class="color-pink">index</span>}
+						<span class="color-gold">в массиве</span>: ${<span class="color-pink">arr</span>}`);
+					</span>		
+					<span class="section__code-row">});</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Результат</u> <span class="color-red">функции</span> (если она вообще что-то возвращает)
+						<u>отбрасывается</u> и <u>игнорируется</u>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="search">
+				<h3 class="section__subtitle">Поиск элементов</h3>
+				<h3 class="section__subtitle section__subtitle_small">indexOf / lastIndexOf и includes</h3>
+				<div class="section__text-block">
+					<p><span class="color-pink">arr</span>.<span class="color-red">indexOf</span>
+						(<span class="color-pink">item</span>, <span class="color-aqua">from</span>) <u>ищет</u>
+						<span class="color-pink">item</span>, <u>начиная</u> с
+						<span class="color-aqua">индекса from</span>, и <u>возвращает</u>
+						<span class="color-aqua">индекс</span>, на котором <u>был найден</u>
+						<span class="color-gold">искомый элемент</span>, в <u>противном случае</u>
+						<span class="color-gold">-1</span>.
+					</p>
+					<p><span class="color-pink">arr</span>.<span class="color-red">lastIndexOf</span>
+						(<span class="color-pink">item</span>, <span class="color-aqua">from</span>) – то же самое, но
+						<u>ищет справа налево</u>.
+					</p>
+					<p><span class="color-pink">arr</span>.<span class="color-red">includes</span>
+						(<span class="color-pink">item</span>, <span class="color-aqua">from</span>) – <u>ищет</u>
+						<span class="color-pink">item</span>, <u>начиная</u> с
+						<span class="color-aqua">индекса from</span>, и <u>возвращает</u>
+						<span class="color-gold">true</span>, если <u>поиск успешен</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">cars</span> = [<span class="color-gold">'Порше'</span>, <span class="color-gold">'Мерседес'</span>, <span class="color-gold">'БМВ'</span>, <span class="color-gold">'Опель'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>.<span class="color-red">indexOf</span>
+						(<span class="color-gold">'Опель'</span>));
+						<span class="section__code-comment">// - <u>пытаемся найти</u> 
+						<span class="color-gold">указанный элемент</span>, <u>результат вернёт</u> 
+						<span class="color-aqua">позицию</span> <span class="color-gold">элемента</span> в 
+						<span class="color-pink">массиве</span> - <span class="color-gold">3</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">cars</span>.<span class="color-red">includes</span>
+						(<span class="color-gold">'БВМ'</span>)); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">true</span> (<span class="color-gold">указанный элемент</span> <u>есть</u> в <span class="color-pink">массиве</span>)</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Если мы хотим <u>проверить наличие</u> <span class="color-gold">элемента</span>, и
+						<u>нет необходимости знать</u> его <span class="color-aqua">точный индекс</span>, тогда
+						<u>предпочтительным является</u>
+						<span class="color-pink">arr</span>.<span class="color-red">includes</span>( ).
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">find / findIndex / filter</h3>
+				<div class="section__text-block">
+					<p>Метод <span class="color-pink">arr</span>.<span class="color-red">find</span>( )
+						<u>используют для поиска</u> в <span class="color-pink">массиве</span> из
+						<span class="color-pink">объектов</span> с <em>определенным условием</em>.
+						<u>Принцип его работы</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">result</span> = 
+						<span class="color-pink">arr</span>.<span class="color-red">find</span>
+						(<span class="color-red">function</span>(<span class="color-pink">item</span>, 
+						<span class="color-pink">index</span>, <span class="color-pink">array</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">- Запускается цикл (перебор всех элементов).
+							<span class="color-red">Функция</span> <u>вызывается по очереди</u> для 
+							<span class="color-gold">каждого элемента</span> <span class="color-pink">массива</span>:
+							<span class="color-pink">item</span> – <span class="color-gold">очередной элемент</span>
+							<span class="color-pink">index</span> – его <span class="color-aqua">индекс</span>
+							<span class="color-pink">array</span> – <span class="color-pink">сам массив</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">- если <span class="color-pink">искомый элемент</span> <u>соответствует</u> <em>условию поиска</em>, то <u>возвращается</u> 
+						<span class="color-gold">текущий элемент</span> (<span class="color-pink">item</span>) и <u>перебор прерывается</u></span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">- если <u>все итерации</u> 
+						<span class="color-gold">оказались ложными</span>, <u>возвращается</u> 
+						<span class="color-gold">undefined</span></span>
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						<u>Например</u>, у нас есть <span class="color-pink">массив пользователей</span>, каждый из которых имеет поля <span class="color-aqua">id</span> и <span class="color-gold">name</span>. <u>Попробуем найти</u> того, кто с <span class="color-aqua">id</span> == 
+						<span class="color-gold">1</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">users</span> = [
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">id</span>: <span class="color-gold">1</span>, 
+						<span class="color-aqua">name</span>: <span class="color-gold">'Вася'</span>},
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">id</span>: <span class="color-gold">2</span>, 
+						<span class="color-aqua">name</span>: <span class="color-gold">'Петя'</span>},
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">id</span>: <span class="color-gold">3</span>, <span class="color-aqua">name</span>: <span class="color-gold">'Маша'</span>}
+					</span>
+					<span class="section__code-row">];</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">user</span> = 
+						<span class="color-pink">users</span>.<span class="color-red">find</span>
+						(<span class="color-gold">item</span> => 
+						<span class="color-pink">item</span>.<span class="color-aqua">id</span> == 
+						<span class="color-gold">1</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">user</span>.<span class="color-aqua">name</span>); 
+						<span class="section__code-comment">// - <u>получим только</u> 
+						<span class="color-gold">первый найденный элемент</span>, <em>который</em> <u>соответствует</u> <em>заданному условию поиска</em> - <span class="color-gold">Вася</span>. Если бы 
+						<span class="color-gold">элементов соответствующих условию</span> <u>было несколько</u>, всё равно <u>вернулся бы только</u> <em>один элемент</em> - 
+						<span class="color-gold">самый первый</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Аналогичная запись</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">user</span> = 
+						<span class="color-pink">users</span>.<span class="color-red">find</span>
+						(<span class="color-red">function</span>(<span class="color-pink">item</span>, 
+						<span class="color-pink">index</span>, <span class="color-pink">array</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> 
+						<span class="color-pink">item</span>.<span class="color-pink">name</span> === 
+						<span class="color-gold">'Петя'</span>;
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">user</span>);
+						<span class="section__code-comment">// - <u>получили в результат</u> 
+							<span class="color-gold">элемент массива</span> - <span class="color-pink">объект</span>, <u>соответствующий</u> <em>условию поиска</em> {<span class="color-aqua">id</span>: 
+							<span class="color-gold">2</span>, <span class="color-aqua">name</span>: 
+							<span class="color-gold">'Петя'</span>}</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Метод <span class="color-pink">arr</span>.<span class="color-red">findIndex</span>( ) – по сути,
+						то же самое, но <u>возвращает</u> <span class="color-aqua">индекс (позицию в массиве)</span>, на
+						котором <u>был найден</u> <span class="color-gold">искомый элемент</span>, а
+						<span class="color-gold">не сам элемент</span>, если <u>ничего не найдено</u>, то <u>вернёт</u>
+						<span class="color-gold">-1</span>.
+					</p>
+					<p>Метод <span class="color-red">find</span>( ) <u>ищет</u>
+						<span class="color-gold">один элемент (первый соответствующий условию поиска)</span>, на котором
+						<span class="color-red">функция-колбэк</span> <u>вернёт</u>
+						<span class="color-gold">true</span>.
+					</p>
+					<p>Метод <span class="color-pink">arr</span>.<span class="color-red">filter</span>( )
+						<u>используется когда нужно отфильтровать</u> <span class="color-pink">массив</span>.
+						<u>Принимает</u> в <em>качестве параметра</em> <span class="color-red">функцию-фильтр</span>.
+						<span class="color-red">Она</span> <u>получает информацию</u> о
+						<span class="color-gold">текущем элементе</span>, <u>проводится проверка и возвращается</u>
+						<span class="color-gold">true</span> или <span class="color-gold">false</span>. Если для
+						<span class="color-gold">элемента</span> <u>вернется</u> <span class="color-gold">true</span> —
+						<span class="color-gold">элемент</span> <u>будет добавлен</u> в
+						<span class="color-pink">результирующий массив</span>, если
+						<span class="color-gold">false</span> — <u>исключен</u> из <span class="color-pink">него</span>.
+					</p>
+					<p>На тот случай, если <span class="color-gold">найденных элементов</span> <u>может быть много</u>,
+						<u>предусмотрен</u> <em>метод</em>
+						<span class="color-pink">arr</span>.<span class="color-red">filter</span>(
+						<span class="color-red">function</span>(<span class="color-pink">item</span>,
+						<span class="color-pink">index</span>, <span class="color-pink">arr</span>)). <em>Метод</em>
+						<span class="color-red">filter</span>( ) <u>возвращает</u>
+						<span class="color-pink">новый массив</span> из
+						<span class="color-gold">всех подходящих элементов</span>. <u>Пример работы</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">users</span> = [
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">id</span>: <span class="color-gold">1</span>, 
+						<span class="color-aqua">name</span>: <span class="color-gold">'Вася'</span>},
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">id</span>: <span class="color-gold">2</span>, 
+						<span class="color-aqua">name</span>: <span class="color-gold">'Петя'</span>},
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">id</span>: <span class="color-gold">3</span>, 
+						<span class="color-aqua">name</span>: <span class="color-gold">'Маша'</span>},
+					</span>
+					<span class="section__code-row">];</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">someUsers</span> = 
+						<span class="color-pink">users</span>.<span class="color-red">filter</span>(
+						<span class="color-pink">item</span> => 
+						<span class="color-pink">item</span>.<span class="color-aqua">id</span> < 
+						<span class="color-gold">3</span>); <span class="section__code-comment">// - <u>вернёт</u> <span class="color-pink">массив</span>, состоящий 
+						<span class="color-gold">из двух первых пользователей</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">someUsers</span>.<span class="color-aqua">length</span>); 
+						<span class="section__code-comment">// - <u>проверили работу</u> 
+						<span class="color-red">метода</span>, <em>длина массива</em> равна 
+						<span class="color-gold">2</span></span>
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">userInfo</span> = [
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">name</span>: <span class="color-gold">'Петя'</span>, 
+						<span class="color-aqua">age</span>: <span class="color-gold">18</span>, 
+						<span class="color-aqua">gender</span>: <span class="color-gold">'мужчина'</span>,},
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">name</span>: <span class="color-gold">'Оля'</span>, 
+						<span class="color-aqua">age</span>: <span class="color-gold">25</span>, 
+						<span class="color-aqua">gender</span>: <span class="color-gold">'женщина'</span>,},
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">name</span>: <span class="color-gold">'Артём'</span>, 
+						<span class="color-aqua">age</span>: <span class="color-gold">30</span>, 
+						<span class="color-aqua">gender</span>: <span class="color-gold">'мужчина'</span>,},
+					</span>
+					<span class="section__code-row">
+						{<span class="color-aqua">name</span>: <span class="color-gold">'Саша'</span>, 
+						<span class="color-aqua">age</span>: <span class="color-gold">35</span>, 
+						<span class="color-aqua">gender</span>: <span class="color-gold">'женщина'</span>,},
+					</span>
+					<span class="section__code-row">]</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">findUser</span> = 
+						<span class="color-pink">userInfo</span>.<span class="color-red">filter</span>
+						(<span class="color-pink">item</span> => 
+						<span class="color-pink">item</span>.<span class="color-aqua">gender</span> === 
+						<span class="color-gold">'женщина'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">findUser</span>);
+						<span class="section__code-comment">// - <u>вернёт</u> 
+						<span class="color-pink">новый массив</span>, <u>содержащий в себе</u> 
+						<span class="color-gold">элементы</span> - <span class="color-pink">объекты</span>, которые <u>соответствуют условию</u></span> 
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="transformation">
+				<h3 class="section__subtitle">Преобразование элементов</h3>
+				<h3 class="section__subtitle section__subtitle_small">sort</h3>
+				<div class="section__text-block">
+					<p><u>Вызов</u> <span class="color-pink">arr</span>.<span class="color-red">sort</span>( )
+						<u>сортирует на месте</u> <span class="color-pink">массив</span>, <u>меняя</u> в
+						<span class="color-pink">нём</span> <em>порядок элементов</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">names</span> = [
+						<span class="color-gold">'Максим'</span>, <span class="color-gold">'Руслан'</span>, 
+						<span class="color-gold">'Андрей'</span>, <span class="color-gold">'Евгений'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">names</span>.<span class="color-red">sort</span>( );
+						<span class="section__code-comment">// - <em>метод</em> <span class="color-red">sort</span> <u>отсортирует</u> <span class="color-gold">элементы</span> <em>массива</em> 
+						<span class="color-pink">names</span> <u>по алфавиту</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>( <span class="color-pink">names</span> );
+						<span class="section__code-comment">// - <u>изменит</u> <em>порядок элементов</em> в 
+						<span class="color-pink">массиве</span>, теперь: [<span class="color-gold">'Андрей'</span>, 
+						<span class="color-gold">'Евгений'</span>, <span class="color-gold">'Максим'</span>, 
+						<span class="color-gold">'Руслан'</span>]</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-gold">Числа</span> <u>сортируются по умолчанию</u> как
+						<span class="color-gold">строки</span>, поэтому <em>привычный порядок</em>
+						<u>может быть нарушен</u>. Чтобы <u>использовать</u>
+						<em>собственный порядок сортировки</em>, <u>нужно предоставить</u> <em>методу</em>
+						<span class="color-red">sort</span>() в <em>качестве аргумента</em>
+						<span class="color-red">функцию</span>, <u>определяющую</u> <em>порядок</em>,
+						<span class="color-red">которая</span> <u>знает как сравнивать</u>
+						<span class="color-gold">его элементы</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">numbers</span> = [ 
+						<span class="color-gold">1</span>, <span class="color-gold">2</span>, 
+						<span class="color-gold">15</span>, <span class="color-gold">7</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">numbers</span>.<span class="color-red">sort</span>(); 
+						<span class="section__code-comment">// - <u>отсортирует</u> 
+						<span class="color-gold">числа</span> в <span class="color-pink">массиве</span>, как 
+						<span class="color-gold">строки</span>, что нам <u>не подходит</u>, т.к. 
+						<em>порядок элементов</em> <u>будет нарушен</u>, <u>результат</u>: [1, 15, 2, 7]</span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">numbers</span>.<span class="color-red">sort</span>
+						(<span class="color-red">function</span>(<span class="color-pink">a</span>, 
+						<span class="color-pink">b</span>) {
+					</span> 
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">a</span> - 
+						<span class="color-pink">b</span>;
+					</span>	
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Чтобы <u>работал</u> <em>нужный нам порядок сортировки</em> <span class="color-gold">чисел</span>, <u>передаём</u> <em>методу</em> 
+						<span class="color-red">sort</span>( ) <span class="color-red">функцию</span> в 
+						<em>качестве аргумента</em>.
+						<span class="color-red">sort</span>(<span class="color-red">функция сортировки</span>)</span>
+					</span>	
+					<span class="section__code-row">
+						<span class="section__code-comment">аналогичная запись:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">numbers</span>.<span class="color-red">sort</span>
+						((<span class="color-pink">a</span>, <span class="color-pink">b</span>) => 
+						<span class="color-pink">a</span> - <span class="color-pink">b</span>);
+						<span class="section__code-comment">// - <u>переписали</u> на 
+						<span class="color-red">стрелочную функцию</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">numbers</span>);
+						<span class="section__code-comment">// - теперь <em>привычный порядок элементов</em> 
+						в <span class="color-pink">numbers</span>. [<span class="color-gold">1</span>, 
+						<span class="color-gold">2</span>, <span class="color-gold">7</span>,
+						<span class="color-gold">15</span>]</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">reverse</h3>
+				<div class="section__text-block">
+					<p>Метод <span class="color-pink">arr</span>.<span class="color-red">reverse</span>( )
+						<u>меняет</u> <em>порядок элементов</em> в <span class="color-pink">массиве</span> на
+						<em>обратный</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">arr</span> = 
+						[<span class="color-gold">1</span>, <span class="color-gold">2</span>, 
+						<span class="color-gold">3</span>, <span class="color-gold">4</span>, 
+						<span class="color-gold">5</span>];
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">arr</span>.<span class="color-red">reverse</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">arr</span>);
+						<span class="section__code-comment">// - <u>изменит</u> на <em>обратный порядок элементов</em> в <span class="color-pink">массиве</span>. [<span class="color-gold">5</span>, 
+						<span class="color-gold">4</span>, <span class="color-gold">3</span>, 
+						<span class="color-gold">2</span>, <span class="color-gold">1</span>]</span> 
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">map</h3>
+				<div class="section__text-block">
+					<p>Метод <span class="color-pink">arr</span>.<span class="color-red">map</span>( ) <u>вызывает</u>
+						<span class="color-red">функцию</span> для <span class="color-gold">каждого элемента</span>
+						<span class="color-pink">массива</span> и <u>возвращает</u>
+						<span class="color-pink">новый массив</span> <u>с результатами выполнения</u>
+						<span class="color-red">этой функции</span> для <span class="color-gold">каждого элемента</span>
+						<span class="color-pink">исходного массива</span></u>. Метод <span
+							class="color-pink">arr</span>.<span class="color-red">map</span>( ) <u>используют для
+							трансформации</u>
+						<span class="color-pink">массива</span>.
+					</p>
+					<p><span class="color-pink">arr</span>.<span class="color-red">forEach</span>( ) <u>перебирает</u>
+						<span class="color-gold">элементы</span>;
+						<span class="color-pink">arr</span>.<span class="color-red">map</span>( ) <u>трансформирует</u>
+						<span class="color-gold">элементы</span> и <u>возвращает</u>
+						<span class="color-pink">новый массив</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">result</span> = 
+						<span class="color-pink">arr</span>.<span class="color-red">map</span>
+						(<span class="color-red">function</span>(<span class="color-pink">item</span>, 
+						<span class="color-pink">index</span>, <span class="color-pink">array</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>возвращается</u> 
+						<span class="color-gold">новое значение</span> <u>вместо</u> 
+						<span class="color-gold">элемента</span></span>
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Например</u>, здесь мы <u>преобразуем</u>
+						<span class="color-gold">каждый элемент</span> в <em>его длину</em>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">lengths</span> = 
+						[<span class="color-gold">'Bilbo'</span>, <span class="color-gold">'Gandalf'</span>, 
+						<span class="color-gold">'Nazgul'</span>].
+						<span class="color-red">map</span>(<span class="color-pink">item</span> => 
+						<span class="color-pink">item</span>.<span class="color-aqua">length</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">lengths</span>); 
+						<span class="section__code-comment">// - получим [<span class="color-gold">5</span>, 
+						<span class="color-gold">7</span>, <span class="color-gold">6</span>]</span>
+					</span>
+				</code>
+				<div class="section__image section__image_medium">
+					<img class="img-adaptive" src="./img/array-metod-filter-metod-map.png" alt="primer">
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">split / join</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Метод</span>
+						<span class="color-pink">string</span>.<span class="color-red">split</span>
+						(<em>разделитель</em>) <u>разбивает</u> <span class="color-gold">строку</span> на
+						<span class="color-pink">массив</span> <u>по заданному</u> <em>разделителю</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">В <u>примере ниже</u> 
+							<span class="color-gold">разделителем</span> <u>является</u> 
+							<span class="color-gold">строка</span> из <em>запятой и пробела</em>.
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">string</span> = 
+						<span class="color-gold">'Вася, Петя, Маша'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">names</span> = 
+						<span class="color-pink">string</span>.<span class="color-red">split</span>
+						('<span class="color-gold">, </span>');
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">names</span>);
+						<span class="section__code-comment">// - <u>получим</u> <span class="color-pink">массив</span> из <span class="color-gold">строки</span>. Результат: [<span class="color-gold">'Вася'</span>, 
+						<span class="color-gold">'Петя'</span>, <span class="color-gold">'Маша'</span>]</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>У <em>метода</em> <span class="color-red">split</span>( ) <u>есть</u>
+						<em>необязательный второй числовой аргумент</em> – <u>ограничение на количество</u>
+						<span class="color-gold">элементов</span> в <span class="color-pink">массиве</span>. Если
+						<span class="color-gold">элементов</span> <u>больше чем указано</u>, то
+						<span class="color-pink">остаток массива</span> <u>будет отброшен</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">arr</span> = 
+						<span class="color-gold">'Вася, Петя, Маша, Саша'</span>.<span class="color-red">split</span>('<span class="color-gold">, </span>', <span class="color-gold">2</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">arr</span>);
+						<span class="section__code-comment">// - <u>получим всего</u> 
+						<span class="color-gold"><em>2</em> элемента</span> в <span class="color-pink">массив</span>, <u>результат</u>: [<span class="color-gold">'Вася'</span>, 
+						<span class="color-gold">'Петя'</span>]</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Разбивка по буквам</u>. <u>Вызов</u>
+						<span class="color-red">split</span>(<span class="color-gold">''</span>) с
+						<em>пустым аргументом</em> <u>разбивает</u> <span class="color-gold">строку</span> на
+						<span class="color-pink">массив букв</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">str</span> = <span class="color-gold">'тест'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">str</span>.<span class="color-red">split</span>
+						(<span class="color-gold">''</span>)); <span class="section__code-comment">// - <u>получим</u> 
+						<span class="color-pink">массив букв</span> [<span class="color-gold">'т'</span>, 
+						<span class="color-gold">'е'</span>, <span class="color-gold">'с'</span>, 
+						<span class="color-gold">'т'</span>]</span> 
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Вызов</u> <span class="color-pink">arr</span>.<span class="color-red">join</span>
+						('<span class="color-gold">склеивающий элемент</span>')
+						<u>делает в точности противоположное</u> <span class="color-red">split</span>( ). Метод
+						<span class="color-red">join</span>() <u>создаёт</u> <span class="color-gold">строку</span> из
+						<span class="color-gold">элементов</span> <span class="color-pink">массива</span>,
+						<u>вставляя</u> <span class="color-gold">склеивающий элемент</span> <u>между</u>
+						<span class="color-gold">элементами</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">arr</span> = 
+						[<span class="color-gold">'Вася'</span>, <span class="color-gold">'Петя'</span>, 
+						<span class="color-gold">'Маша'</span>,];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">str</span> = 
+						<span class="color-pink">arr</span>.<span class="color-red">join</span>
+						('<span class="color-gold">; </span>'); <span class="section__code-comment">// - 
+						<u>получим</u> <span class="color-gold">строку</span> из 
+						<span class="color-gold">элементов</span> <span class="color-pink">массива</span>, 
+						<u>вставляя между</u> <em>ними</em> <em>склеивающий элемент</em> 
+						( <span class="color-gold">; </span>)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">str</span>); 
+						<span class="section__code-comment">// - <u>результат работы</u> <em>метода</em>
+						<span class="color-red">join</span>(): <span class="color-gold">'Вася; Петя; Маша'</span></span>
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="othermethods">
+				<h3 class="section__subtitle">Прочие методы</h3>
+				<h3 class="section__subtitle section__subtitle_small">some / every</h3>
+				<div class="section__image section__image_big">
+					<img class="img-adaptive" src="./img/array-metod-filter-metod-every-some.png" alt="primer">
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">reduce</h3>
+				<div class="section__text-block">
+					<p><span class="color-pink">arr</span>.<span class="color-red">reduce</span>( ) - <u>вычисляет</u>
+						<span class="color-gold">одно единое значение</span> <u>на основе всего</u>
+						<span class="color-pink">массива</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">numberList</span> = 
+						[<span class="color-gold">10, 20, 30, 40, 50</span>]; <span class="section__code-comment">// - <u>создаем</u> <span class="color-pink">массив</span> из 
+						<span class="color-gold">чисел</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<em>метод</em> <span class="section__code-comment"><span class="color-red">reduce</span> <u>вычисляет</u> <span class="color-gold">одно значение</span> <u>на основе всего</u> 
+						<span class="color-pink">массива</span>, <u>вызывая</u> <span class="color-red">функцию</span> для <span class="color-gold">каждого элемента</span> и <u>передаёт</u> 
+						<em>промежуточный результат</em> <u>между вызовами</u>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">numSumResult</span> = 
+						<span class="color-pink">numberList</span>.<span class="color-red">reduce</span>
+						(<span class="color-red">function</span>(<span class="color-pink">akk</span>, 
+						<span class="color-pink">item</span>, <span class="color-pink">index</span>, 
+						<span class="color-pink">array</span>) { 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">akk</span> += 
+						<span class="color-pink">item</span>;
+					</span>
+					<span class="section__code-row">
+						}, <span class="color-gold">0</span>); <span class="section__code-comment">// - 
+						<u>указываем</u> <span class="color-gold">начальное значение</span>, <u>если не указано</u>, то <span class="color-gold">начальным значением</span> <u>будет</u> 
+						<span class="color-gold">первый элемент массива</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">numSummResult</span>);
+						<span class="section__code-comment">// - <u>результат</u>: <em>единое значение</em> 
+						<span class="color-gold">150</span> (<u>сумма</u> 
+						<span class="color-gold">всех элементов массива</span>).</span>
+					</span>
+				</code>
+				<p>Ещё <u>пример применения</u> <em>метода</em> <span class="color-red">reduce</span>( ) :</p>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="./img/primer-reduce.png" alt="reduce">
+				</div>
+				<div class="section__text-block">
+					<p><span class="color-pink">Array</span>.<span class="color-red">isArray</span>
+						(<em>value</em>) - <u>возвращает</u> <span class="color-gold">true</span>, если <em>value</em>
+						<u>является</u> <span class="color-pink">массивом</span>, и
+						<span class="color-gold">false</span>, если <u>не является</u>
+						<span class="color-pink">массивом</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">Array</span>.<span class="color-red">isArray</span>({})); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">false</span>, 
+						<u>указали</u> <span class="color-pink">пустой объект.</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">Array</span>.<span class="color-red">isArray</span>([]));
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span>, <u>указали</u> <span class="color-pink">пустой массив</span>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>!!! <em>методы</em> <span class="color-red">sort</span>( ),
+						<span class="color-red">reverse</span>( ), <span class="color-red">splice</span>( )
+						<u>изменяют</u> <span class="color-pink">исходный массив</span>.
+					</p>
+					<p><u>Варианты неправильного применения</u> <span class="color-pink">массива</span>:</p>
+					<ul class="section__list">
+						<li class="section__list-item"><u>Добавление</u>
+							<span class="color-aqua">нечислового свойства</span>, <u>например</u>:
+							<span class="color-pink">arr</span>.<span class="color-aqua">test</span> =
+							<span class="color-gold">5</span>.
+						</li>
+						<li class="section__list-item"><u>Создание «дыр»</u>, <u>например</u>: <u>добавление</u>
+							<span class="color-pink">arr</span>[<span class="color-aqua">0</span>], <u>затем</u>
+							<span class="color-pink">arr</span>[<span class="color-aqua">1000</span>] -
+							(между ними ничего нет).
+						</li>
+						<li class="section__list-item"><u>Заполнение</u> <span class="color-pink">массива</span>
+							<u>в обратном порядке</u>, <u>например</u>:
+							<span class="color-pink">arr</span>[<span class="color-aqua">1000</span>],
+							<span class="color-pink">arr</span>[<span class="color-aqua">999</span>] и т.д.
+						</li>
+						<li class="section__list-item"><span class="color-pink">Массивы</span> тщательно
+							<u>настроены</u> в движках <em>JavaScript</em> <u>для работы</u> с
+							<span class="color-gold">однотипными упорядоченными данными</span>, поэтому,
+							<u>используйте</u> <span class="color-pink">их</span> именно в таких случаях.
+							<u>Если вам нужны</u> <span class="color-aqua">произвольные ключи</span>,
+							<u>лучше подойдёт</u> <span class="color-pink">обычный объект</span>.
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="./objects.html">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="./map, set, json.html">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">
+							Решение задач JS
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+
+	</div>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

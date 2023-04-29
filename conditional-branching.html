@@ -1,0 +1,1073 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords"
+		content="Обучение JavaScript, основы JavaScript, JS для начинающих, условное ветвлениe, switch, тернарный оператор">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. Данный раздел про условное ветвлениe и конструкцию 'switch' и условный (тернарный) оператор">
+	<title>JavaScript. Условное ветвление</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+
+			<section class="section">
+				<h2 class="section__title">Условное ветвлениe в JavaScript</h2>
+				<div class="section__text-block">
+					<p><em>Оператор</em> <span class="color-red">if</span> и <em>условный оператор</em>
+						<span class="color-red">?</span> - <u>выполняют различные действия в зависимости</u> от
+						<em>условий</em>.
+					</p>
+				</div>
+				<section class="section" id="if">
+					<h3 class="section__subtitle">Оператор «if»</h3>
+					<div class="section__text-block">
+						<p>Оператор <span class="color-red">if</span>(<em>условие</em>>) <u>вычисляет</u>
+							<em>условие в скобках</em> и, если <u>результат</u> <span class="color-gold">true</span>, то
+							<u>выполняет</u> <em>блок кода</em>. В <em>условии</em> <u>может быть</u>
+							<em>любое выражение</em>, <u>результат</u> <em>которого</em> <u>можно привести</u> к
+							<span class="color-gold">true</span> или <span class="color-gold">false</span>.
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">year</span> = 
+							<span class="color-red">prompt</span>(<span class="color-gold">'В каком году была опубликована спецификация ECMAScript-2015?'</span>, <span class="color-gold">''</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-pink">year</span> == 
+							<span class="color-gold">2015</span>) 
+							<span class="color-red">alert</span>(<span class="color-gold">'Вы правы!'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="section__code-comment">В <u>примере выше</u>, <em>условие</em> – это простая <u>проверка на равенство</u> (<span class="color-pink">year</span> == 
+							<span class="color-gold">2015</span>), но <em>оно</em> <u>может быть</u> и сложнее.</span>
+						</span>
+						<span class="section__code-row">
+							<span class="section__code-comment">Если мы хотим <u>выполнить более одной</u> <em>инструкции</em>, то <u>нужно заключить</u> <em>блок кода</em> в фигурные скобки <span class="color-red">{ }</span>:</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-pink">year</span> == 
+							<span class="color-gold">2015</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">"Правильно!"</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">"Вы такой умный!"</span>);
+						</span>
+						<span class="section__code-row">}</span>
+					</code>
+					<div class="section__text-block">
+						<p><u>Рекомендуется использовать</u> <em>фигурные скобки</em> <span class="color-red">{ }</span>
+							<u>всегда</u>, когда вы используете <em>инструкцию</em> <span class="color-red">if</span>,
+							даже если выполняется только <em>одна команда</em>.
+						</p>
+						<p><em>Инструкция</em> <span class="color-red">if</span> (<em>условие</em>) <u>вычисляет</u>
+							<em>выражение в скобках</em> и <u>преобразует результат</u> к
+							<span class="color-gold">логическому типу</span>.
+						</p>
+						<p>Вспомним <strong>правила преобразования типов</strong>:</p>
+						<p>Число <span class="color-gold">0</span>, пустая строка <span class="color-gold">""</span>,
+							<span class="color-gold">null</span>, <span class="color-gold">undefined</span> и
+							<span class="color-gold">NaN</span> <u>становятся</u> <span class="color-gold">false</span>.
+							Из-за этого их называют <span class="color-gold">«ложными» значениями</span>
+							(<em>«falsy»</em>).
+						</p>
+						<p><span class="color-gold">Остальные значения</span> <u>становятся</u>
+							<span class="color-gold">true</span>. Поэтому их называют
+							<span class="color-gold">«правдивыми» значениями</span> (<em>«truthy»</em>).
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="section__code-comment">Т.о., при таком условии <u>код никогда не выполнится	
+							</u>:</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-gold">0</span>) { 
+							<span class="section__code-comment">// - <span class="color-gold">0</span> is falsy</span>
+						</span>
+						<span class="section__code-row">}</span>
+						<span class="section__code-row">
+							<span class="section__code-comment">…а при таком – <u>код выполнится всегда</u>:</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-gold">1</span>) { 
+							<span class="section__code-comment">// - <span class="color-gold">1</span> is truthy</span>
+						</span>
+						<span class="section__code-row">}</span>
+					</code>
+					<div class="section__text-block">
+						<p>Мы также <u>можем передать заранее вычисленное</u> <span class="color-gold">логическое в
+								<span class="color-pink">переменной</span> значение</span> в <span
+								class="color-red">if</span>,
+							<u>например так:</u>
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">year</span> = 
+							+<span class="color-red">prompt</span>('<span class="color-gold">В каком году была олимпиада в Сочи?</span>', '<span class="color-gold">2014</span>');
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">condition</span> = 
+							(<span class="color-pink">year</span> === <span class="color-gold">2014</span>); 
+							<span class="section__code-comment">// - преобразуется к true или false</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-pink">condition</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>('<span class="color-gold">Правильно!</span>');
+						</span>
+						<span class="section__code-row">} <span class="color-red">else</span> { </span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>('<span class="color-gold">Неправильно!</span>');
+						</span>
+						<span class="section__code-row">}</span>
+					</code>
+				</section>
+
+				<section class="section" id="else">
+					<h3 class="section__subtitle">Блок «else»</h3>
+					<div class="section__text-block">
+						<p><em>Инструкция</em> <span class="color-red">if</span> <u>может содержать</u> необязательный
+							блок «<span class="color-red">else</span>» (<em>«иначе»</em>). <em>Он</em>
+							<u>выполняется</u>, когда <em>условие</em> <span class="color-gold">ложно</span>.
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">year</span> = 
+							<span class="color-red">prompt</span>(<span class="color-gold">'В каком году была опубликована спецификация ECMAScript-2015?'</span>, <span class="color-gold">''</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-pink">year</span> == 
+							<span class="color-gold">2015</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Да вы знаток!'</span>);
+						</span>
+						<span class="section__code-row">} <span class="color-red">else</span> {</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span> 
+							(<span class="color-gold">'А вот и неправильно!'</span>); 
+							<span class="section__code-comment">// -  любое значение, кроме 2015</span>
+						</span>
+						<span class="section__code-row">}</span>
+					</code>
+					<h3 class="section__subtitle section__subtitle_small">Несколько условий: «else if»</h3>
+					<div class="section__text-block">
+						<p>Иногда, нужно <u>проверить несколько вариантов условия</u>. Для этого <u>используется</u>
+							блок <span class="color-red">else if</span>.
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">year</span> = 
+							<span class="color-red">prompt</span>(<span class="color-gold">'В каком году была опубликована спецификация ECMAScript-2015?'</span>, <span class="color-gold">''</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-pink">year</span> < <span class="color-gold">2015</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Это слишком рано...'</span>);
+						</span>
+						<span class="section__code-row">
+							} <span class="color-red">else if</span> (<span class="color-pink">year</span> > 
+							<span class="color-gold">2015</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Это поздновато'</span>);
+						</span>
+						<span class="section__code-row">
+							} <span class="color-red">else</span> {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Верно!'</span>);
+						</span>
+						<span class="section__code-row">}</span>
+					</code>
+					<div class="section__text-block">
+						<p>Присутствие блока <span class="color-red">else</span> <u>не является обязательным</u>.</p>
+					</div>
+				</section>
+
+				<section class="section" id="ternary">
+					<h3 class="section__subtitle">Условный оператор „?“</h3>
+					<div class="section__text-block">
+						<p>Иногда нам <u>нужно определить</u> <span class="color-pink">переменную</span> в
+							<u>зависимости от условия</u>.
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">accessAllowed</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">age</span> = 
+							<span class="color-red">prompt</span>(<span class="color-gold">'Сколько вам лет?'</span>, <span class="color-gold">''</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-pink">age</span> > 
+							<span class="color-gold">18</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">accessAllowed</span> =
+							<span class="color-gold">true</span>;
+						</span>
+						<span class="section__code-row">} <span class="color-red">else</span> {</span>
+						<span class="section__code-row">
+							<span class="color-pink">accessAllowed</span> = <span class="color-gold">false</span>;
+						</span>
+						<span class="section__code-row">}</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-pink">accessAllowed</span>);
+						</span>
+					</code>
+					<div class="section__text-block">
+						<p>Так называемый <em>«условный» оператор</em> «вопросительный знак»
+							<span class="color-red">?</span> <u>позволяет сделать</u> <em>это</em> более коротким и
+							<u>простым способом</u>.
+						</p>
+						<p><em>Его</em> <u>также называют</u> <em>«тернарный»</em>, так как этот <em>оператор</em> -
+							единственный в своём роде, <u>имеет</u> <em>три аргумента</em>.
+						</p>
+						<p><em>Первым операндом</em> <u>является</u> <em>условие</em>, <em>вторым</em> <u>является</u>
+							<span class="color-gold">возвращаемое значение</span> при
+							<span class="color-gold">истинном значении условия</span>, а <em>третьим операндом</em>
+							<u>является</u> <span class="color-gold">возвращаемое значение</span> при
+							<span class="color-godl">ложном значении условия</span>. <em>Тернарный оператор</em>
+							<u>можно использовать</u> для <u>быстрого присвоения значения при условии</u>.
+						</p>
+						<p><u>Синтаксис</u>: <span class="color-red">let</span> <span class="color-pink">result</span> =
+							<em>условие</em> <span class="color-red">?</span>
+							<span class="color-gold">значение1</span> (если условие истинно)
+							<span class="color-red">:</span> <span class="color-gold">значение2</span> (если условие
+							истинно);
+						</p>
+						<p><u>Сначала вычисляется</u> <em>условие</em>: если <em>оно</em>
+							<span class="color-gold">истинно</span>, тогда <u>возвращается</u>
+							<span class="color-gold">значение1</span>, в <u>противном случае</u> –
+							<span class="color-gold">значение2</span>. <u>Например</u>:
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">accessAllowed</span> = 
+							(<span class="color-gold">age</span> > <span class="color-gold">18</span>) ? 
+							<span class="color-gold">truthy</span> : <span class="color-gold">falsy</span>;
+						</span>
+					</code>
+					<h3 class="section__subtitle section__subtitle_small">Несколько операторов „?“</h3>
+					<div class="section__text-block">
+						<p><em>Последовательность операторов</em> вопросительного знака <span class="color-red">?</span>
+							<u>позволяет вернуть</u> <span class="color-gold">значение</span>, которое зависит от
+							<u>более чем одного условия</u>.
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">age</span> = 
+							<span class="color-red">prompt</span>(<span class="color-gold">'Возраст?'</span>, 
+							<span class="color-gold">18</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">message</span> = 
+							(<span class="color-pink">age</span> < <span class="color-gold">3</span>) ? 
+							<span class="color-gold">'Здравствуй, малыш!'</span> :
+						</span>
+						<span class="section__code-row">
+							(<span class="color-pink">age</span> < <span class="color-gold">18</span>) ? 
+							<span class="color-gold">'Привет!'</span> :
+						</span>
+						<span class="section__code-row">
+							(<span class="color-pink">age</span> < <span class="color-gold">100</span>) ? 
+							<span class="color-gold">'Здравствуйте!'</span> :
+						</span>
+						<span class="section__code-row">
+							<span class="color-gold">'Какой необычный возраст!'</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-pink">message</span>);
+						</span>
+					</code>
+					<div class="section__text-block">
+						<p>Вот как это выглядит при использовании <span class="color-red">if</span><span
+								class="color-gold">..</span><span class="color-red">else</span>:
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-pink">age</span> < 
+							<span class="color-gold">3</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">message</span> = 
+							<span class="color-gold">'Здравствуй, малыш!'</span>;
+						</span>
+						<span class="section__code-row">
+							} <span class="color-red">else if</span> (<span class="color-pink">age</span> < 
+							<span class="color-gold">18</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">message</span> = <span class="color-gold">'Привет!'</span>;
+						</span>
+						<span class="section__code-row">
+							} <span class="color-red">else if</span> (<span class="color-pink">age</span> < 
+							<span class="color-gold">100</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">message</span> = <span class="color-gold">'Здравствуйте!'</span>;
+						</span>
+						<span class="section__code-row">} <span class="color-red">else</span> {</span>
+						<span class="section__code-row">
+							<span class="color-pink">message</span> = 
+							<span class="color-gold">'Какой необычный возраст!'</span>;
+						</span>
+						<span class="section__code-row">}</span>
+					</code>
+					<div class="section__text-block">
+						<p><u>Смысл</u> <em>оператора «вопросительный знак»</em> <span class="color-red">?</span> –
+							<u>вернуть</u> <span class="color-gold">то</span> или
+							<span class="color-gold">иное значение</span>, <u>в зависимости</u> от <em>условия</em>.
+							Когда нам <u>нужно выполнить</u> <em>разные ветви кода</em> – <u>используйте</u>
+							<span class="color-red">if</span>.
+						</p>
+					</div>
+				</section>
+
+				<section class="section" id="switch">
+					<h3 class="section__title">Конструкция "switch"</h3>
+					<div class="section__text-block">
+						<p><em>Конструкция</em> <span class="color-red">switch</span>
+							<u>заменяет собой сразу несколько</u> <span class="color-red">if</span>. <em>Она</em>
+							<u>представляет собой</u> более <em>наглядный способ</em> <u>сравнить</u> <em>выражение</em>
+							сразу с несколькими вариантами.
+						</p>
+						<p><em>Конструкция</em> <span class="color-red">switch</span> <u>имеет</u> <em>один</em> или
+							<em>более блок</em> <span class="color-red">case</span> и <em>необязательный блок</em>
+							<span class="color-red">default</span>.
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">switch</span>(<span class="color-pink">x</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-gold">'value1'</span>:
+							<span class="section__code-comment">// - аналогично <span class="color-red">if</span> (<span class="color-pink">x</span> === <span class="color-gold">'value1'</span>)</span>
+						</span>
+						<span  class="section__code-row">
+							[<span class="color-red">break</span>]
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-gold">'value2'</span>:
+							<span class="section__code-comment">// - аналогично <span class="color-red">if</span> (<span class="color-pink">x</span> === <span class="color-gold">'value2'</span>)</span>
+						</span>
+						<span class="section__code-row">
+							[<span class="color-red">break</span>]
+						</span>
+						<span  class="section__code-row">
+							<span class="color-red">default:</span>
+						</span>
+						<span class="section__code-row">
+							[<span class="color-red">break</span>]
+						</span>
+						<span class="section__code-row">}</span>
+					</code>
+					<div class="section__text-block">
+						<p><em>Переменная</em> <span class="color-pink">x</span> <u>проверяется</u> на
+							<em>строгое равенство</em> <span class="color-gold">первому значению</span>
+							(<em>value1</em>), <u>затем</u> <span class="color-gold">второму значению</span>
+							(<em>value2</em>) и <u>так далее</u>.
+						</p>
+						<p>Если <u>соответствие установлено</u> – <span class="color-red">switch</span>
+							<u>начинает выполняться</u> от соответствующей директивы <span class="color-red">case</span>
+							и далее, до ближайшего <span class="color-red">break</span> (или до конца
+							<span class="color-red">switch</span>).
+						</p>
+						<p>Если ни один <span class="color-red">case</span> <u>не совпал</u> – <u>выполняется</u> (если
+							есть) вариант <span class="color-red">default</span>.
+						</p>
+						<p>Пример работы:</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">a</span> = 
+							<span class="color-gold">2</span> + <span class="color-gold">2</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">switch</span> (<span class="color-pink">a</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-gold">3</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Маловато'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">break</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-gold">4</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'В точку!'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">break</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-gold">5</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Перебор'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">break</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">default:</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">"Нет таких значений"</span>);
+						</span>
+						<span class="section__code-row">}</span>
+					</code>
+					<div class="section__text-block">
+						<p>Здесь <em>оператор</em> <span class="color-red">switch</span> <u>последовательно сравнит</u>
+							<span class="color-pink">a</span> со <span class="color-gold">всеми вариантами</span> из
+							<span class="color-red">case</span>.
+						</p>
+						<p><u>Сначала</u> <span class="color-gold">3</span>, <u>затем</u> – так как нет совпадения –
+							<span class="color-gold">4</span>. <u>Совпадение найдено</u>, <u>будет выполнен</u>
+							<span class="color-gold">этот вариант</span>, со строки
+							<span class="color-red">alert</span>(<span class="color-gold">'В точку!'</span>) и далее, до
+							ближайшего <span class="color-red">break</span>, который <u>прервёт выполнение</u>.
+						</p>
+						<p>Если <span class="color-red">break</span> <u>нет</u>, то <u>выполнение пойдёт</u> ниже по
+							следующим <span class="color-red">case</span>, при этом
+							<u>остальные проверки игнорируются</u>.
+						</p>
+						<p><u>Пример без</u> <span class="color-red">break</span>:</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">a</span> = 
+							<span class="color-gold">2</span> + <span class="color-gold">2</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">switch</span> (<span class="color-pink">a</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-gold">3</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Маловато'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-gold">4</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'В точку!'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-gold">5</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Перебор'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">default</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">"Нет таких значений"</span>);
+						</span>
+						<span class="section__code-row">}</span>
+						<span class="section__code-row">
+							<span class="section__code-comment"><u>В примере выше последовательно выполнятся</u> 
+							<span class="color-red">три alert</span>:</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'В точку!'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">'Перебор'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">"Нет таких значений"</span>);
+						</span>
+					</code>
+					<div class="section__text-block">
+						<p>И <span class="color-red">switch</span> и <span class="color-red">case</span>
+							<u>допускают</u> <em>любое выражение</em> в качестве <em>аргумента</em>.
+						</p>
+					</div>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">a</span> = 
+							<span class="color-gold">"1"</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">b</span> = 
+							<span class="color-gold">0</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">switch</span> (+<span class="color-pink">a</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">case</span> <span class="color-pink">b</span> + 
+							<span class="color-gold">1</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="section__code-comment">
+							<span class="color-red">alert</span>(<u>Выполнится</u>, т.к. 
+							<span class="color-gold">значением</span> <span class="color-red">+</span>
+							<span class="color-pink">a</span> будет <span class="color-gold">1</span>, что 
+							<u>в точности равно</u> <span class="color-pink">b</span> <span class="color-red">+</span> <span class="color-gold">1</span>");</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">break</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">default</span>:
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-gold">"Это не выполнится"</span>);
+						</span>
+						<span class="section__code-row">}</span>
+						<span class="section__code-row">
+							<span class="section__code-comment"><u>В этом примере</u> выражение <span class="color-red">+</span><span class="color-pink">a</span> <u>вычисляется</u> в 
+							<span class="color-gold">1</span>, что <u>совпадает</u> с выражением 
+							<span class="color-pink">b</span> <span class="color-red">+</span> 
+							<span class="color-gold">1</span> в <span class="color-red">case</span>, и следовательно,<u>код в этом блоке будет выполнен</u>.</span>
+						</span>
+					</code>
+				</section>
+
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="./logic-operators.html">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="./cycles.html">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">Решение задач JS</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

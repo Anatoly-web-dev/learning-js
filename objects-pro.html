@@ -1,0 +1,2393 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords"
+		content="Обучение JavaScript, основы JavaScript, JS для начинающих, объекты в JS, this, ООП, конструктор, классы, прототипы">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. В этом разделе узнаем подробнее об объектах. Узнаем про прототипное наследование, основы ООП, классы, функцию-конструктор, контекст (this)">
+	<title>JavaScript. Объекты Pro</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+			<h2 class="section__title">Продвинутая работа с объектами</h2>
+			<section class="section" id="destructurization">
+				<h3 class="section__subtitle">Деструктурирующее присваивание</h3>
+				<div class="section__text-block">
+					<p><strong>Деструктурирующее присваивание</strong> – это <em>специальный синтаксис</em>, который
+						<u>позволяет «распаковать»</u> <span class="color-pink">массивы</span> или
+						<span class="color-pink">объекты</span> в <span class="color-pink">кучу переменных</span>, так
+						как иногда они более удобны. <strong>Деструктуризация</strong> также <u>прекрасно работает</u>
+						со <span class="color-red">сложными функциями</span>, которые <u>имеют</u>
+						<em>много параметров</em>, <span class="color-gold">значений по умолчанию</span> и так далее.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Деструктуризация массива</h3>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">arr</span> = 
+						[<span class="color-gold">'Иван'</span>, <span class="color-gold">'Иванов'</span>]
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> [<span class="color-pink">firstName</span>, 
+						<span class="color-pink">surname</span>] = <span class="color-pink">arr</span>; 
+						<span class="section__code-comment">// - <u>записывает</u> 
+						<span class="color-pink">firstName</span> = 
+						<span class="color-pink">arr</span>[<span class="color-aqua">0</span>], 
+						<span class="color-pink">surname</span> = 
+						<span class="color-pink">arr</span>[<span class="color-aqua">1</span>]</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">firstName</span>);
+						<span class="section__code-comment">// - получим <span class="color-gold">Иван</span></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">surname</span>);
+						<span class="section__code-comment">// - получим <span class="color-gold">Иванов</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Теперь мы <u>можем использовать</u> 
+						<span class="color-pink">переменные</span> <u>вместо</u> 
+						<span class="color-gold">элементов массива</span>. <u>Отлично смотрится в сочетании</u> со <span class="color-red">split</span>( ) или <span class="color-red">другими методами</span>, <u>возвращающими</u> <span class="color-pink">массив</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> [<span class="color-pink">firstName</span>, 
+						<span class="color-pink">surname</span>] = 
+						<span class="color-gold">'Иван Иванов'</span>.<span class="color-red">split</span>
+						(<span class="color-gold">''</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-gold">Ненужные элементы</span> <span class="color-pink">массива</span>
+						<u>могут быть отброшены</u> <em>через запятую</em>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> [<span class="color-pink">firstName</span>, , 
+						<span class="color-pink">title</span>] = [<span class="color-gold">'Julius'</span>, 
+						<span class="color-gold">'Caesar'</span>, <span class="color-gold">'Consul'</span>, 
+						<span class="color-gold">'of the Roman Republic'</span>]; <span class="section__code-comment">
+							// - <span class="color-gold">второй элемент</span> <u>не нужен</u></span> 	
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>( <span class="color-pink">title</span> );
+						<span class="section__code-comment">// - выведет <span class="color-gold">Consul</span></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">В <u>примере выше</u> 
+						<span class="color-gold">второй элемент</span> <span class="color-pink">массива</span> <u>пропускается</u>, а <span class="color-gold">третий</span> <u>присваивается</u> <em>переменной</em> <span class="color-pink">title</span>, 
+						<span class="color-gold">оставшиеся элементы</span> <span class="color-pink">массива</span> также <u>пропускаются</u> (так как для <span class="color-gold">них</span> <u>нет</u> 
+						<span class="color-pink">переменных</span>)</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Мы <u>можем использовать</u> <span class="color-pink">любой перебираемый объект</span>,
+						<u>не только</u> <span class="color-pink">массивы</span>
+					</p>
+					<p>Мы <u>можем использовать</u> <span class="color-pink">что угодно «присваивающее»</span>
+						<u>с левой стороны</u>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Остаточные параметры «…»</h3>
+				<div class="section__text-block">
+					<p>Если мы хотим <u>не просто получить</u> <span class="color-gold">первые значения</span>, но и
+						<u>собрать</u> <span class="color-gold">все остальные</span>, то мы <u>можем добавить</u>
+						<em>ещё один параметр</em>, который <u>получает</u>
+						<span class="color-gold">остальные значения</span>, <u>используя</u> <em>оператор</em>
+						<em>«остаточные параметры»</em> – троеточие (<span class="color-blue">...</span>)
+					</p>
+					<p><em>Переменная</em> <span class="color-pink">rest</span> <u>является</u>
+						<span class="color-pink">массивом</span> из
+						<span class="color-gold">оставшихся элементов</span>. <u>Вместо</u>
+						<span class="color-pink">rest</span> <u>можно использовать</u>
+						<span class="color-pink">любое другое название переменной</span>, просто убедитесь, что
+						<u>перед</u> <span class="color-pink">переменной</span> <u>есть</u>
+						<em>три точки</em> (<span class="color-blue">...</span>) и <span class="color-pink">она</span>
+						<u>стоит на последнем месте</u> в <em>деструктурирующем присваивании</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> [<span class="color-pink">name1</span>, 
+						<span class="color-pink">name2</span>, 
+						<span class="color-red">...</span><span class="color-pink">rest</span>] = 
+						[<span class="color-gold">'Julius'</span>, <span class="color-gold">'Caesar'</span>, 
+						<span class="color-gold">'Consul'</span>, 
+						<span class="color-gold">'of the Roman Republic'</span>];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">name1</span>);
+						<span class="section__code-comment">// - выведет <span class="color-gold">'Julius'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">name2</span>);
+						<span class="section__code-comment">// - выведет <span class="color-gold">'Caesar'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <em>переменная</em> 
+						<span class="color-pink">rest</span> <u>является</u> 
+						<span class="color-pink">массивом</span> из 
+						<span class="color-gold">оставшихся элементов</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">rest</span>[<span class="color-aqua">0</span>]); 
+						<span class="section__code-comment">// - выведет <span class="color-gold">'Consul'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">rest</span>[<span class="color-aqua">1</span>]);
+						<span class="section__code-comment">// выведет 
+						<span class="color-gold">'of the Roman Republic'</span></span> 
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Значения по умолчанию</h3>
+				<div class="section__text-block">
+					<p>Если в <span class="color-pink">массиве</span> <u>меньше</u>
+						<span class="color-gold">значений</span>, <u>чем в присваивании</u>,
+						<span class="color-gold">отсутствующие значения</span> <u>считаются неопределёнными</u>.
+					</p>
+					<p>Если нам <u>необходимо указать</u> <span class="color-gold">значения по умолчанию</span>, то мы
+						<u>можем использовать</u> <em>оператор присваивания</em> (<span class="color-blue">=</span>):
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> [<span class="color-pink">name</span> = 
+						<span class="color-gold">'Guest'</span>, <span class="color-pink">surname</span> = 
+						<span class="color-gold">'Anonymous'</span>] = [<span class="color-gold">'Julius'</span>];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">name</span>);
+						<span class="section__code-comment">// - выведет <span class="color-gold">Julius</span> 
+						(из <span class="color-pink">массива</span>)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">surname</span>);
+						<span class="section__code-comment">// - <span class="color-gold">Anonymous</span> 
+						(значение по умолчанию)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-gold">Значения по умолчанию</span> <u>могут быть</u> гораздо более <em>сложными выражениями</em> или даже 
+						<span class="color-red">функциями</span>. <em>Они</em> <u>выполняются</u>, только <u>если</u> <span class="color-gold">значения</span> <u>отсутствуют</u>. <u>Например</u>, здесь мы <u>используем</u> <em>функцию</em> <span class="color-red">prompt</span> <u>для указания</u>
+						<span class="color-gold">двух значений по умолчанию</span>. Но 
+						<span class="color-red">она</span> <u>будет запущена только для</u>
+						<span class="color-gold">отсутствующего значения</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> [<span class="color-pink">name</span> = 
+						<span class="color-red">prompt</span>(<span class="color-gold">'name?'</span>), 
+						<span class="color-pink">surname</span> = 
+						<span class="color-red">prompt</span>(<span class="color-gold">'surname?'</span>)] = 
+						[<span class="color-gold">'Julius'</span>]; <span class="section__code-comment">// - 
+						<span class="color-red">prompt</span>( ) <u>запустится только для</u>  
+						<span class="color-pink">surname</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">name</span>);
+						<span class="section__code-comment">// - вернёт <span class="color-gold">Julius</span> 
+						(из <span class="color-pink">массива</span>)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">surname</span>);
+						<span class="section__code-comment">// - <u>результат</u> 
+						<span class="color-red">prompt</span>( )</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle">Деструктуризация объекта</h3>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Синтаксис</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> {<span class="color-pink">var1</span>, 
+						<span class="color-pink">var2</span>} = 
+						{<span class="color-aqua">var1</span>:<span class="color-gold">'value1'</span>, 
+						<span class="color-aqua">var2</span>:<span class="color-gold">'value2'</span>}
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>У нас есть <span class="color-pink">существующий объект</span> с <em>правой стороны</em>, который
+						мы <u>хотим разделить</u> на <span class="color-pink">переменные</span>. <em>Левая сторона</em>
+						<u>содержит</u> «шаблон» для <span class="color-gold">соответствующих свойств</span>. В
+						<u>простом случае </u>это <span class="color-pink">список названий переменных</span> в
+						<em>фигурных скобках</em> <span class="color-blue">{}</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">options</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">title</span>: <span class="color-gold">'Menu</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">width</span>: <span class="color-gold">100</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">height</span>: <span class="color-gold">200</span>,
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> {<span class="color-pink">title</span>, 
+						<span class="color-pink">width</span>, <span class="color-pink">height</span>} = 
+						<span class="color-pink">options</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">title</span>);
+						<span class="section__code-comment">// - получим <span class="color-gold">'Menu'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">width</span>);
+						<span class="section__code-comment">// - получим // <span class="color-gold">100</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">height</span>);
+						<span class="section__code-comment">// - получим // <span class="color-gold">200</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">Свойства</span> 
+						<span class="color-pink">options</span>.<span class="color-aqua">title</span>, 
+						<span class="color-pink">options</span>.<span class="color-aqua">width</span> и 
+						<span class="color-pink">options</span>.<span class="color-aqua">height</span> <u>присваиваются</u> <span class="color-pink">соответствующим переменным</span>.
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Если мы хотим <u>присвоить</u> 
+						<span class="color-aqua">свойство</span> <span class="color-pink">объекта</span> 
+						<span class="color-pink">переменной с другим названием</span>, <u>например</u>, 
+						<span class="color-aqua">свойство</span> 
+						<span class="color-pink">options</span>.<span class="color-aqua">width</span> 
+						<u>присвоить</u> <em>переменной</em> <span class="color-pink">w</span>, то мы 
+						<u>можем использовать</u> <em>двоеточие</em> <span class="color-blue">(:)</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">options</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">title</span>: <span class="color-gold">'Menu'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">width</span>: <span class="color-gold">100</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">height</span>: <span class="color-gold">200</span>,
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> {<span class="color-aqua">width</span>: 
+						<span class="color-pink">w</span>, <span class="color-aqua">height</span>: 
+						<span class="color-pink">h</span>, <span class="color-aqua">title</span>} = 
+						<span class="color-pink">options</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">title</span>);
+						<span class="section__code-comment">// - получим <span class="color-gold">'Menu'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">w</span>);
+						<span class="section__code-comment">// - получим <span class="color-gold">100</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">h</span>);
+						<span class="section__code-comment">// - получим <span class="color-gold">200</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						<em>Двоеточие</em> <u>показывает</u> <span class="color-aqua">«что</span> : 
+						<span class="color-pink">куда идёт</span>». В <u>примере выше</u> 
+						<em>свойство</em> <span class="color-aqua">width</span> <u>сохраняется</u> в 
+						<em>переменную</em> <span class="color-pink">w</span>, <em>свойство</em> 
+						<span class="color-aqua">height</span> <u>сохраняется</u> в <span class="color-pink">h</span>, а <span class="color-aqua">title</span> <u>присваивается</u> 
+						<span class="color-pink">одноимённой переменной</span>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Для <span class="color-aqua">потенциально отсутствующих свойств</span> мы
+						<u>можем установить</u> <span class="color-gold">значения по умолчанию</span>, используя
+						<em>оператор присваивания</em> (<span class="color-blue">=</span>)
+					</p>
+					<p><span class="color-gold">Значениями по умолчанию</span> <u>могут быть</u>
+						<em>любые выражения</em> или даже <span class="color-red">функции</span>, <em>которые</em>
+						<u>выполнятся</u>, если <span class="color-gold">значения</span> <u>отсутствуют</u>.
+					</p>
+					<p>Можем <u>использовать</u> <em>троеточие</em>, если в <span class="color-pink">объекте</span>
+						<em>больше</em> <span class="color-gold">свойств</span>, чем у нас
+						<span class="color-pink">переменных</span>.
+					</p>
+					<p>Можем <u>извлекать</u> <em>данные</em> из <span class="color-pink">вложенных объектов</span> и
+						<span class="color-pink">массивов</span>, <u>для этого</u> <em>левая сторона</em>
+						<u>должна иметь ту же структуру</u>, что и <em>правая</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">options</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">size</span>: {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">width</span>: <span class="color-gold">100</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">height</span>: <span class="color-gold">200</span>
+					</span>
+					<span class="section__code-row">},</span>
+					<span class="section__code-row">
+						<span class="color-aqua">items</span>: [<span class="color-gold">'Cake'</span>, 
+						<span class="color-gold">'Donut'</span>],
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">extra</span>: <span class="color-gold">true</span>
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> { <span class="section__code-comment">// - <em>деструктуризация</em> разбита на несколько строк для ясности</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">size</span>: { <span class="section__code-comment">// -
+						положим <span class="color-aqua">size</span> сюда</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">width</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">height</span>
+					</span>
+					<span class="section__code-row">},</span>
+					<span class="section__code-row">
+						<span class="color-aqua">items</span>: [<span class="color-pink">item1</span>, 
+						<span class="color-pink">item2</span>], <span class="section__code-comment">// - <u>добавим</u> <span class="color-gold">элементы</span> к <span class="color-pink">items</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">title</span> = <span class="color-gold">'Menu'</span>
+						<span class="section__code-comment">// - <u>отсутствует</u> в 
+						<span class="color-pink">объекте</span> (<u>используется</u> 
+						<span class="color-gold">значение по умолчанию</span>)</span>
+					</span>
+					<span class="section__code-row">
+						} = <span class="color-pink">options</span>;
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="global-object">
+				<h3 class="section__subtitle">Глобальный объект</h3>
+				<div class="section__text-block">
+					<p><span class="color-pink">Глобальный объект</span> <u>предоставляет</u>
+						<span class="color-pink">переменные</span> и <span class="color-red">функции</span>,
+						<u>доступные в любом месте</u> <em>программы</em>. <u>По умолчанию</u> это
+						<span class="color-pink">те</span>, что <u>встроены</u> в <em>язык</em> или
+						<em>среду исполнения</em>. В <em>браузере</em> <span class="color-pink">он</span>
+						<u>называется</u> <span class="color-pink">window</span>, в <em>Node.js</em> —
+						<span class="color-pink">global</span>. Ко <span class="color-aqua">всем свойствам</span>
+						<span class="color-pink">глобального объекта</span> <u>можно обращаться напрямую</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Привет'</span>);
+						<span class="section__code-comment">// -  это <u>то же самое</u>, что и</span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">window</span>.<span class="color-red">alert</span>
+						(<span class="color-gold">'Привет'</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>В <em>браузере</em> <span class="color-red">глобальные функции</span> и
+						<span class="color-pink">переменные</span>, <u>объявленные с помощью</u>
+						<span class="color-red">var</span> (<u>не</u> <span class="color-red">let</span> /
+						<span class="color-red">const</span>!), <u>становятся</u>
+						<span class="color-aqua">свойствами</span> <span class="color-pink">глобального объекта</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">var</span> <span class="color-pink">gVar</span> = 
+						<span class="color-gold">5</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>
+						(<span class="color-pink">window</span>.<span class="color-aqua">gVar</span>);
+						<span class="section__code-comment">// - выведет <span class="color-gold">5</span>, (<u>становится</u> <span class="color-aqua">свойством</span> 
+						<span class="color-pink">глобального объекта</span>)</span> 
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>То же самое касается <span class="color-red">функций</span>, <u>объявленных с помощью</u>
+						синтаксиса <em>Function Declaration</em> (<em>выражения</em> с <em>ключевым словом</em>
+						<span class="color-red">function</span> в <em>основном потоке кода</em>, <u>не</u>
+						<em>Function Expression</em>). Если <span class="color-aqua">свойство настолько важное</span>,
+						что вы <u>хотите сделать</u> <span class="color-aqua">его</span>
+						<u>доступным для всей программы</u>, <u>запишите</u> <span class="color-aqua">его</span> в
+						<span class="color-pink">глобальный объект</span> <u>напрямую</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>сделать</u> информацию о текущем пользователе <u>глобальной</u>, для <u>предоставления доступа</u> <em>всем скриптам</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">window</span>.<span class="color-aqua">currentUser</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">name</span>: <span class="color-gold">'John'</span>
+					</span>
+					<span class="section__code-row">};</span>
+				</code>
+				<div class="section__text-block">
+					<p>При этом обычно <u>не рекомендуется использовать</u>
+						<span class="color-pink">глобальные переменные</span>. <em>Дизайн кода</em>, <u>при котором</u>
+						<span class="color-red">функция</span> <u>получает</u> <em>входные параметры</em> и
+						<u>выдаёт определённый результат</u>, <em>чище</em>, <em>надёжнее</em> и <em>удобнее</em>,
+						<u>чем когда используются</u> <span class="color-pink">внешние</span>, а тем более
+						<span class="color-pink">глобальные переменные</span>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="prototype">
+				<h3 class="section__subtitle">Прототип и конструктор объекта</h3>
+				<div class="section__text-block">
+					<p><strong>Прототип</strong> (<span class="color-pink">Prototype</span>) — это
+						<span class="color-pink">объект</span>, который <u>служит</u>
+						<span class="color-pink">вспомогательным объектом</span> (<em>делегатом</em>), к
+						<em>характеристикам</em> которого <u>может обратиться</u>
+						<span class="color-pink">оригинальный объект</span> в случае, <u>если</u> сам
+						<span class="color-pink">оригинальный объект</span> <u>не обладает</u>
+						<em>нужной характеристикой</em>.
+					</p>
+					<p><span class="color-pink">Прототип</span> <u>хранит</u> <em>общий функционал</em> и
+						<u>предоставляет к <em>нему</em> совместный доступ</u>
+						<span class="color-pink">множеству объектов</span>. <u>Не нужно повторять</u>
+						<em>один и тот же функционал</em> в <span class="color-pink">каждом объекте</span>.
+						<span class="color-red">Общие методы</span> <u>можно вынести</u> в
+						<span class="color-pink">отдельный объект</span> и <u>через механизм</u>
+						<span class="color-pink">прототипа</span> <u>обеспечить к <em>нему</em> совместный доступ</u>.
+					</p>
+					<p><span class="color-pink">Каждый объект</span> <u>имеет</u> <em>ноль</em> или <em>несколько</em>
+						<span class="color-aqua">свойств</span>, которые <u>называются</u>
+						<span class="color-aqua">собственными</span> (<em>own</em>) и
+						<em>единственную внутреннюю ссылку</em> на <span class="color-pink">прототип</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">person</span> = {
+					</span>
+					<span span class="section__code-row">
+						<span class="color-aqua">city</span>: <span class="color-gold">'Moscow'</span>
+					</span>
+					<span span class="section__code-row">}</span>
+					<span span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">student</span> = 
+						<span class="color-pink">Object</span>.<span class="color-red">create</span>
+						(<span class="color-pink">person</span>); <span class="section__code-comment">// - 
+						<u>создаем</u> <span class="color-pink">объект с прототипом</span></span>
+					</span>
+					<span span class="section__code-row">
+						<span class="color-pink">student</span>.<span class="color-aqua">ownCity</span> = 
+						<span class="color-gold">'Piter'</span>; <span class="section__code-comment">// - 
+						<u>добавляем</u> <span class="color-aqua">собственное свойство</span> <em>объекту</em> 
+						<span class="color-pink">student</span></span>
+					</span>
+					<span span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pibk">student</span>.<span class="color-aqua">city</span>); 
+						<span class="section__code-comment">// - <u>обращаемся</u> к 
+						<span class="color-aqua">свойству</span>, <u>которого нет</u> в <em>объекте</em> 
+						<span class="color-pink">student</span>, но <u>есть</u> в <em>его прототипе</em> 
+						<span class="color-pink">person</span>, получим <span class="color-gold">'Moscow'</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Cвойство</em> <span class="color-aqua">__proto__</span> <u>содержит</u>
+						<em>внутреннюю ссылку</em> на <span class="color-pink">прототип объекта</span>.
+						<span class="color-aqua">Это свойство</span> <u>есть</u> абсолютно у
+						<span class="color-pink">всех объектов</span> в <em>JavaScript</em>. <u>При создании</u>
+						<span class="color-pink">объекта</span> <u>через литерал</u> <span class="color-blue">{}</span>,
+						<span class="color-pink">его прототипом</span> <u>автоматически становится</u>
+						<span class="color-pink">специальный built-in объект</span>, который <u>уже содержит</u>
+						<span class="color-red">ряд методов</span> <u>для работы</u> с
+						<span class="color-pink">объектом</span>. <span class="color-pink">Данный прототип</span>
+						<u>единственный</u> и <u>будет предоставлять доступ</u> к
+						<span class="color-red">своим методам</span> <span class="color-pink">всем объектам</span>,
+						<u>созданным</u> в <em>программе</em>.
+					</p>
+					<p>Таким образом, через <span class="color-aqua">__proto__</span>, <u>можно обращаться</u> ТОЛЬКО
+						<em>через консоль</em>. В <em>программах</em> <u>так писать нельзя</u>!
+						<span class="color-aqua">__proto__</span> <u>является</u> <em>скрытым системным</em>, и такое
+						<u>обращение является ошибкой</u>. Чтобы <u>получить доступ</u> к
+						<span class="color-aqua">__proto__</span> <u>можно использовать</u> <em>метод</em>
+						<span class="color-pink">Object</span>.<span class="color-red">getPrototypeOf</span>
+						(<span class="color-pink"></span>).
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">Object</span>.<span class="color-red">getPrototypeOf</span>
+						(<span class="color-pink">student</span>); <span class="section__code-comment">// - получим <span class="color-pink">person</span> - <em>прототип объекта</em> 
+						<span class="color-pink">student</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Чтобы <u>вывести</u> 
+						<span class="color-aqua">только собственные свойства</span> 
+						<span class="color-pink">объекта</span>, <u>можно использовать</u> <em>метод</em> 
+						<span class="color-red">hasOwnProperty</span>( ).</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">for</span> (<span class="color-red">let</span> 
+						<span class="color-pink">key</span> <span class="color-red">in</span> 
+						<span class="color-pink">student</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">student</span>.<span class="color-red">hasOwnProperty</span>
+						(<span class="color-pink">key</span>)) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">key</span>);
+						<span class="section__code-comment">// - <u>получим только</u> 
+						<span class="color-aqua">собственные свойства</span> <span class="color-pink">объекта</span> - <span class="color-aqua">ownCity</span></span> 
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p>В <em>JavaScript</em> есть одна особенность. Несмотря на то, что
+						<u>проверка на <span class="color-gold">тип данных</span></u>
+						<span class="color-red">typeof</span> <span class="color-red">функции</span> <u>выдаст</u>
+						<span class="color-gold">'function'</span>, <span class="color-red">функция</span> в
+						<em>JavaScript</em> это — тоже <span class="color-pink">объект</span>! <u>Можно создавать</u>
+						<span class="color-aqua">свойства</span> как в <span class="color-pink">обычном объекте</span>
+						(исп. редко).
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-blue">funcName</span> = 
+						<span class="color-red">function</span>(){}
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">funcName</span>.<span class="color-aqua">static</span> = 
+						<span class="color-gold">1000</span>;
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>У любой <span class="color-red">функции</span> <u>есть</u> <em>свойство</em>
+						<span class="color-aqua">Prototype</span>, <span class="color-aqua">оно</span>
+						<u>по умолчанию является</u> <span class="color-pink">объектом</span> с
+						<em>единственным свойством</em> <span class="color-aqua">constructor</span>,
+						<span class="color-aqua">которое</span> <u>ссылается</u> на
+						<span class="color-red">саму функцию</span>.
+					</p>
+					<p><em>Свойство</em> <span class="color-aqua">Prototype</span> <u>используется</u>, когда
+						<span class="color-red">функция-конструктор</span> <u>вызывается через</u>
+						<em>ключевое слово</em> <span class="color-red">new</span>.
+					</p>
+					<p>Когда мы <u>хотим прочитать</u> <span class="color-aqua">свойство</span> из
+						<span class="color-pink">object</span>, а <span class="color-aqua">оно</span>
+						<u>отсутствует</u>, <em>JavaScript</em> <u>автоматически берёт</u>
+						<span class="color-aqua">его</span> из <span class="color-pink">прототипа</span>. В
+						<em>программировании</em> <u>такой механизм называется</u>
+						<strong>«прототипным наследованием»</strong>.
+						<span class="color-aqua">Свойство</span> <span class="color-aqua">Prototype</span>
+						<u>является <em>внутренним</em> и <em>скрытым</em></u>, но <u>есть много способов задать</u>
+						<span class="color-aqua">его</span>. <u>Одним из них является</u> использование
+						<span class="color-aqua">__proto__</span>. <span class="color-gold">Значение</span>
+						<span class="color-aqua">__proto__</span> <u>может быть</u>
+						<span class="color-pink">объектом</span> или <span class="color-gold">null</span>.
+						<span class="color-gold">Другие типы</span> <u>игнорируются</u>.
+					</p>
+					<p><u>Может быть только один</u> <span class="color-aqua">Prototype</span>.
+						<span class="color-pink">Объект</span> <u>не может наследоваться</u> от
+						<span class="color-pink">двух других объектов</span>.
+					</p>
+					<p><u>Неважно</u>, <u>где находится</u> <span class="color-red">метод</span>: в
+						<span class="color-pink">объекте</span> или <span class="color-pink">его прототипе</span>.
+						<u>При вызове</u> <span class="color-red">метода</span> <span class="color-pink">this</span> —
+						<u>всегда</u> <span class="color-pink">объект перед точкой</span>. Т.о.,
+						<span class="color-red">методы</span> <u>всегда работают</u> с
+						<span class="color-pink">текущим объектом</span>, <u>даже если</u>
+						<span class="color-red">они</span> <u>наследуются</u>.
+					</p>
+					<p><em>Цикл</em> <span class="color-red">for..in</span> <u>проходит не только</u> по
+						<span class="color-aqua">собственным</span>, но и по
+						<span class="color-aqua">унаследованным свойствам</span>
+						<span class="color-pink">объекта</span>. Почти
+						<span class="color-red">все остальные методы</span>, <u>получающие</u>
+						<span class="color-aqua">ключи</span> / <span class="color-gold">значения</span>, такие как
+						<span class="color-pink">Object</span>.<span class="color-red">keys</span>( ),
+						<span class="color-pink">Object</span>.<span class="color-red">values</span>( ) и
+						<span class="color-red">другие</span> – <u>игнорируют</u>
+						<span class="color-aqua">унаследованные свойства</span>.
+						<span class="color-red">Эти методы</span> <u>учитывают только</u>
+						<span class="color-aqua">свойства</span> <span class="color-pink">самого объекта</span>,
+						<span class="color-pink"><u>не</u> его прототипа</span>.
+					</p>
+					<p><span class="color-red">let</span> <span class="color-pink">obj</span> =
+						<span class="color-blue">{ }</span> – это то же самое, что и
+						<span class="color-red">let</span> <span class="color-pink">obj</span> =
+						<span class="color-red">new</span> <span class="color-pink">Object</span>( ), где
+						<span class="color-pink">Object</span> –
+						<span class="color-red">встроенная функция-конструктор</span> <u>для</u>
+						<span class="color-pink">объектов</span> с
+						<span class="color-aqua">собственным свойством prototype</span>,
+						<span class="color-aqua">которое</span> <u>ссылается</u> на
+						<span class="color-pink">огромный объект</span> с <em>методом</em>
+						<span class="color-red">toString</span>( ) и <span class="color-red">другими</span>.
+					</p>
+					<p><span class="color-pink">Другие встроенные объекты</span>, такие как
+						<span class="color-pink">Array</span>, <span class="color-pink">Date</span>,
+						<span class="color-pink">Function</span> и др., также <u>хранят</u>
+						<span class="color-red">свои методы</span> в <span class="color-pink">прототипах</span>.
+						Согласно <em>спецификации</em>, <u>наверху иерархии</u>
+						<span class="color-pink">встроенных прототипов</span> <u>находится</u>
+						<span class="color-pink">Object</span>.<span class="color-aqua">prototype</span>. Поэтому иногда
+						говорят, что «<u>всё наследует от</u> <span class="color-pink">объектов»</span>. Даже <span
+							class="color-red">функции</span> – они <span class="color-pink">объекты</span>
+						<em>встроенного конструктора</em> <span class="color-pink">Function</span>, и все
+						<span class="color-pink">их</span> <span class="color-red">методы</span>
+						(<span class="color-red">call</span>( ) , <span class="color-red">apply</span>( ) и
+						<span class="color-red">другие</span>) <u>берутся</u> из
+						<span class="color-pink">Function</span>.<span class="color-aqua">prototype</span>. Также у
+						<span class="color-red">функций</span> <u>есть</u> <em>свой метод</em>
+						<span class="color-red">toString</span>( ).
+					</p>
+					<p>Если мы <u>попытаемся получить доступ</u> к <span class="color-aqua">свойствам</span>
+						<span class="color-gold">строк</span>, <span class="color-gold">чисeл</span> и
+						<span class="color-gold">булевыx значений</span>, то тогда <u>будет создан</u>
+						<span class="color-pink">временный объект-обёртка</span> <u>с использованием</u>
+						<span class="color-red">встроенных конструкторов</span> <span class="color-pink">String</span>,
+						<span class="color-pink">Number</span> и <span class="color-pink">Boolean</span>,
+						<span class="color-pink">который</span> <u>предоставит</u>
+						<span class="color-red">методы</span> и <u>после этого исчезнет</u>.
+						<span class="color-red">Методы</span> <span class="color-pink">этих объектов</span> также
+						<u>находятся</u> в <span class="color-pink">прототипах</span>, <u>доступных</u> как
+						<span class="color-pink">String</span>.<span class="color-aqua">prototype</span>,
+						<span class="color-pink">Number</span>.<span class="color-aqua">prototype</span> и
+						<span class="color-pink">Boolean</span>.<span class="color-aqua">prototype</span>. <em>Значения
+						</em> <span class="color-gold">null</span> и <span class="color-gold">undefined</span>
+						<u>не имеют</u> <span class="color-pink">объектов-обёрток</span>, так что
+						<span class="color-red">методы</span> и <span class="color-aqua">свойства</span>
+						<span class="color-gold">им</span> <u>недоступны</u>. Также у
+						<span class="color-gold">null / undefined</span> <u>нет</u>
+						<span class="color-pink">прототипов</span>.
+					</p>
+					<p><u>Важно</u>! <u>Изменение</u> <span class="color-pink">встроенных прототипов</span>
+						<u>считается плохой идеей</u>. Есть <u>только</u> <em>один случай</em>, в <em>котором</em>
+						<u>одобряется</u> <u>изменение</u> <span class="color-pink">встроенных прототипов</span>. Это
+						<u>создание</u> <em>полифилов</em>. <strong>Полифил</strong> – это термин, который
+						<u>означает</u> <span class="color-red">эмуляцию метода</span>, <em>который</em>
+						<u>существует</u> в <em>спецификации JavaScript</em>, но ещё <u>не поддерживается</u>
+						<em>текущим движком JavaScript</em>.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p><u>Итого</u>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-aqua">Prototype</span> <u>есть только</u> у
+						<span class="color-red">функций</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">__proto__</span> <u>есть</u> у
+						<span class="color-pink">всех объектов</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">Prototype</span> <u>НЕ РАВНО</u>
+						<span class="color-aqua">__proto__</span>
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><span class="color-red">Методы</span> <u>для работы</u> с
+						<span class="color-pink">объектами</span> и <span class="color-pink">их прототипами</span>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-red">const</span> <span class="color-pink">prototype</span> =
+						{<span class="color-aqua">key</span>: <span class="color-gold">'value'</span>}
+					</li>
+					<li class="section__list-item">
+						<span class="color-red">const</span> <span class="color-pink">object</span> =
+						<span class="color-pink">Object</span>.<span class="color-red">create</span>
+						(<span class="color-pink">prototype</span>); <span class="section__code-comment">// -
+							<u>создаем</u> <span class="color-pink">объект с прототипом</span></span>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">object</span>.<span class="color-red">hasOwnProperty</span>
+						(<span class="color-aqua">key</span>); - <u>проверка</u> является ли
+						<span class="color-aqua">свойство собственным</span> <u>для</u>
+						<span class="color-pink">объекта</span>, <u>вернёт</u> <em>булевое значение</em>
+						(<span class="color-gold">true</span> / <span class="color-gold">false</span>)
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Object</span>.<span class="color-red">getPrototypeOf</span>
+						(<span class="color-pink">object</span>); - <u>получить доступ</u> к
+						<span class="color-aqua">__proto__</span>
+						<span class="color-pink">прототипу указанного объекта</span>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Object</span>.<span class="color-red">setPrototypeOf</span>
+						(<span class="color-pink">obj</span>, <span class="color-pink">prototype</span>) –
+						<u>создает</u> <span class="color-pink">объект</span> со <em>свойствами</em> и <em>методами</em>
+						<span class="color-pink">указанного прототипа</span>. (Аналог <em>метода</em>
+						<span class="color-pink">Object</span>.<span class="color-red">create</span>( ))
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p>Ещё <span class="color-red">методы</span>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">Object</span>.<span class="color-red">keys</span>
+						(<span class="color-pink">obj</span>) - <u>возвращает</u>
+						<span class="color-pink">массив</span>
+						<span class="color-aqua">всех перечисляемых собственных строковых ключей</span>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Object</span>.<span class="color-red">values</span>
+						(<span class="color-pink">obj</span>) - <u>возвращает</u>
+						<span class="color-pink">массив</span>
+						<span class="color-gold">всех перечисляемых собственных строковых значений</span>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Object</span>.<span class="color-red">entries</span>
+						(<span class="color-pink">obj</span>) - <u>возвращает</u>
+						<span class="color-pink">массив</span> <em>всех перечисляемых собственных строковых пар</em>
+						<span class="color-aqua">ключ</span> - <span class="color-gold">значение</span>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Object</span>.<span
+							class="color-red">getOwnPropertySymbols</span>(<span class="color-pink">obj</span>) –
+						<u>возвращает</u>
+						<span class="color-pink">массив</span>
+						<span class="color-aqua">всех собственных символьных ключей</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Object</span>.<span class="color-red">getOwnPropertyNames</span>
+						(<span class="color-pink">obj</span>) – <u>возвращает</u>
+						<span class="color-pink">массив</span>
+						<span class="color-aqua">всех собственных строковых ключей</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Reflect</span>.<span class="color-red">ownKeys</span>
+						(<span class="color-pink">obj</span>) – <u>возвращает</u>
+						<span class="color-pink">массив</span> <span class="color-aqua">всех собственных ключей</span>.
+					</li>
+				</ul>
+				<h3 class="section__subtitle section__subtitle_small">
+					Встроеные методы функций: bind( ) / call( ) / apply( )
+				</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Функции</span> в <em>JavaScript</em> также <u>являются</u>
+						<span class="color-pink">объектами</span>, и у <span class="color-red">них</span> <u>есть</u>
+						<span class="color-red">встроенный методы</span>, такие как
+						<span class="color-red">bind</span>( ), <span class="color-red">call</span>( ),
+						<span class="color-red">apply</span>( )
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">ivan</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">name</span>: <span class="color-gold">'Иван'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">age</span>: <span class="color-gold">30</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">getUserInfo</span>: <span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">this</span>.<span class="color-aqua">name</span>, 
+						<span class="color-pink">this</span>.<span class="color-aqua">age</span>)
+					</span>
+					<span class="section__code-row">
+						}
+					</span>
+					<span class="section__code-row">
+						}
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>создадим</u> еще один 
+						<span class="color-pink">объект</span>, у <em>которого</em> <u>нет</u> 
+						<span class="color-red">собственного метода</span> 
+						<span class="color-blue">getUserInfo</span>( )</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">petr</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">name</span>: <span class="color-gold">'Петя'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">age</span>: <span class="color-gold">20</span>,
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Чтобы <em>объекту</em> <span class="color-pink">petr</span> <u>воспользоваться</u> <u>остутствующим</u> у <span class="color-pink">него</span>
+						<span class="color-red">методом</span> <span class="color-blue">getUserInfo</span>( ), но 
+						<span class="color-red">который</span> <u>есть</u> у <em>объекта</em> 
+						<span class="color-pink">ivan</span>, <u>нужно воспользоваться</u> 
+						<em>встроенным методом для функций</em> <span class="color-red">bind</span>( ).</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">ivan</span>.<span class="color-blue">getUserInfo</span>.
+						<span class="color-red">bind</span>(<span class="color-pink">petr</span>)( ); 
+						<span class="section__code-comment">// - !обратите внимание на <u>наличие</u> 
+						<em>круглые скобок</em> <span class="color-blue">()</span> <u>после</u> 
+						<span class="color-red">bind</span>(<span class="color-pink">petr</span>)( ). В данном случае <span class="color-red">метод</span> <u>сразу вызывается</u> в <em>контексте объекта</em> 
+						<span class="color-pink">ivan</span></span>	
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">ivan</span>.<span class="color-blue">getUserInfo</span>.
+						<span class="color-red">bind</span>(<span class="color-pink">petr</span>); 
+						<span class="section__code-comment">// - !обратите внимание на <u>остутствие</u> 
+						<em>круглых скобок</em> <span class="color-blue">()</span> <u>после</u> 
+						<span class="color-red">bind</span>(<span class="color-pink">petr</span>). В данном случае <u>вернется</u> <span class="color-red">функция</span>, которая <u>содержит</u>
+						<em>указанный контекст</em> (<span class="color-pink">объект</span>), мы <u>сможем вызвать</u> её когда это будет нужно</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> getInfo = <span class="color-pink">ivan</span>.
+						<span class="color-blue">getUserInfo</span>.<span class="color-red">bind</span>
+						(<span class="color-pink">petr</span>); <span class="section__code-comment">// - 
+						<u>создаем</u> <span class="color-red">новую функцию</span>, <u>передаем</u> в 
+						<em>её контекст</em> <span class="color-pink">указанный объект</span> (<u>без вызова</u> 
+						<span class="color-red">этой функции</span>).</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">getInfo</span>() <span class="section__code-comment">// - 
+						<u>вызываем</u> <span class="color-red">функцию</span>, когда нам будет это нужно</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">мы <u>можем передать</u> <em>параметры</em> в 
+						<span class="color-red">функцию</span> <u>двумя способами</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">getInfo</span>(<span class="color-pink">пар-1</span>, 
+						<span class="color-pink">пар-2</span>, <span class="color-pink">пар-n</span>); 
+						<span class="section__code-comment">// - <u>при вызове</u> 
+						<span class="color-red">функции</span> <u>на отдельной</u> <em>строке кода</em></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-blue">getInfo</span> = 
+						<span class="color-pink">ivan</span>.<span class="color-blue">getUserInfo</span>.
+						<span class="color-red">bind</span>(<span class="color-pink">petr</span>, 
+						<span class="color-pink">пар-1</span>, <span class="color-pink">пар-2</span>, 
+						<span class="color-pink">пар-n</span>); <span class="section__code-comment">// - 
+						<u>при использовании</u> <em>метода</em> <span class="color-red">bind</span>( ). <u>После</u> <span class="color-pink">указанного объекта</span>, которому <u>будем передавать</u> <em>контекст</em>, <u>через запятую</u> <span class="color-blue">(,)</span> <u>в той же</u> <em>строке кода</em></span> 
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>В отличии</u> от <em>метода</em> <span class="color-red">bind</span>( ) <em>метод</em>
+						<span class="color-red">call</span>( ) <u>сразу вызывает</u>
+						<span class="color-red">новую функцию</span> с <em>указанным контекстом</em>.
+					</p>
+					<p><em>Метод</em> <span class="color-red">call</span>( ) и <span class="color-red">apply</span>( )
+						<u>похожи</u>, <span class="color-red">они оба</span> <u>сразу вызывают</u>
+						<span class="color-red">новую функцию</span>. <u>Отличаются только</u>
+						<em>способом передачи</em> <span class="color-pink">параметров</span>, у <em>метода</em>
+						<span class="color-red">apply</span>(<span class="color-pink">obj</span>,
+						[<span class="color-pink">'пар-1'</span>, <span class="color-pink">'пар-2'</span>,
+						<span class="color-pink">'пар-n'</span>]) <span class="color-pink">параметры</span>
+						<u>передаются в виде</u> <span class="color-pink">массива</span>.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p><u>Отличия в синтаксисе</u> <em>методов</em> <span class="color-red">bind</span>( ),
+						<span class="color-red">call</span>( ), <span class="color-red">apply</span>( ).
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<u>Синтаксис</u> <span class="color-red">bind</span>( ):
+						<span class="color-pink">obj1</span>.<span class="color-blue">methodName</span>.
+						<span class="color-red">bind</span> (<span class="color-pink">obj2</span>,
+						<span class="color-pink">пар-1</span>, <span class="color-pink">пар-2</span>,
+						<span class="color-pink">пар-n</span>); - <u>сохранит в пямяти</u> <em>контекст</em>,
+						<u>для вызова нужно указать</u> <em>круглые скобки</em> <span class="color-blue">()</span>
+						<span class="color-pink">obj1</span>.<span class="color-blue">methodName</span>.
+						<span class="color-red">bind</span>(<span class="color-pink">obj2</span>,
+						<span class="color-pink">пар-1</span>, <span class="color-pink">пар-2</span>,
+						<span class="color-pink">пар-n</span>)().
+					</li>
+					<li class="section__list-item">
+						<u>Синтаксис</u> <span class="color-red">call</span>( ):
+						<span class="color-pink">obj1</span>.<span class="color-blue">methodName</span>.
+						<span class="color-red">call</span> (<span class="color-pink">obj2</span>,
+						<span class="color-pink">пар-1</span>, <span class="color-pink">пар-2</span>,
+						<span class="color-pink">пар-n</span>) - <u>вызывает сразу</u>
+						<span class="color-red">новую функцию</span> (<em>круглые скобки</em>
+						<span class="color-blue">()</span> <u>не нужны</u>).
+					</li>
+					<li class="section__list-item">
+						<u>Синтаксис</u> <span class="color-red">apply</span>( ):
+						<span class="color-pink">obj1</span>.<span class="color-blue">methodName</span>.
+						<span class="color-red">apply</span>(<span class="color-pink">obj2</span>,
+						[<span class="color-pink">пар-1</span>, <span class="color-pink">пар-2</span>,
+						<span class="color-pink">пар-n</span>]) (<em>круглые скобки</em>
+						<span class="color-blue">()</span> <u>не нужны</u>).
+					</li>
+				</ul>
+				<h3 class="section__subtitle section__subtitle_small">Конструкторы, создание объектов через "new"</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Функция-конструктор</span> <u>используется</u> для того
+						<u>чтобы создавать</u> <span class="color-pink">множество однотипных объектов</span>,
+						<u>обладающих</u> <span class="color-aqua">определенными свойствами</span>.
+						<span class="color-red">Функции-конструкторы</span> <u>могут иметь</u> <em>параметры</em>,
+						<u>определяющие</u>, <u>как создавать</u> <span class="color-pink">объект</span> и <u>что</u> в
+						<span class="color-pink">него</span> <u>записывать</u>. Мы <u>можем добавить</u> к
+						<span class="color-pink">this</span> <u>не только</u> <span class="color-aqua">свойства</span>,
+						но и <span class="color-red">методы</span>.
+					</p>
+					<p><span class="color-red">Функции-конструкторы</span> <u>являются</u>
+						<span class="color-red">обычными функциями</span>. Но <u>есть</u> <em>два соглашения</em>:
+					</p>
+					<p><span class="color-blue">Имя</span> <span class="color-red">функции-конструктора</span>
+						<u>должно начинаться</u> с <span class="color-blue">БольшойБуквы</span>.
+					</p>
+					<p><span class="color-red">Функция-конструктор</span> <u>должна вызываться при помощи</u>
+						<em>оператора</em> <span class="color-red">new</span>.
+					</p>
+					<p><span class="color-red">Функцией-конcтруктором</span> <u>может быть</u>
+						<span class="color-red">любая функция</span> в <em>JavaScript</em>, <u>кроме</u>
+						<span class="color-red">стрелочной</span>.
+					</p>
+					<p><span class="color-red">Функция</span>, <u>запущенная через</u>
+						<span class="color-red">new</span>, <u>делает следующее</u>:
+					</p>
+				</div>
+				<ol class="section__list">
+					<li class="section__list-item">
+						<u>Создаёт</u> <span class="color-pink">новый пустой объект</span>.
+					</li>
+					<li class="section__list-item">
+						<em>Ключевое слово</em> <span class="color-pink">this</span> <u>получает ссылку</u> на
+						<span class="color-pink">этот объект</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-red">Функция</span> <u>выполняется</u>. Как правило,
+						<span class="color-red">она</span> <u>модифицирует</u> <span class="color-pink">this</span> (то
+						есть этот <span class="color-pink">новый объект</span>), <u>добавляет</u>
+						<span class="color-red">методы</span>, <span class="color-aqua">свойства</span>.
+					</li>
+					<li class="section__list-item">
+						<u>Возвращается</u> <span class="color-pink">this</span>.
+					</li>
+				</ol>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">User</span>(<span class="color-pink">name</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">name</span> = 
+						<span class="color-pink">name</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">isAdmin</span> = 
+						<span class="color-gold">false</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">user</span> = 
+						<span class="color-red">new</span> <span class="color-blue">User</span>
+						(<span class="color-gold">'Вася'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">user</span>.<span class="color-aqua">name</span>); 
+						<span class="section__code-comment">// - выведет <span class="color-gold">Вася</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">user</span>.<span class="color-aqua">isAdmin</span>);
+						<span class="section__code-comment">// - выведет <span class="color-gold">false</span></span> 
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>вызов</u> <span class="color-red">new</span> 
+						<span class="color-blue">User</span>( ) <u>делает примерно вот что</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">User</span>(<span class="color-pink">name</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - создаёт <span class="color-pink">пустой объект</span> (<u>неявно</u>) <span class="color-pink">this</span> = { };</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>добавляет</u> 
+							<span class="color-aqua">свойства</span> к <span class="color-pink">this</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">name</span> = 
+						<span class="color-pink">name</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">isAdmin</span> = 
+						<span class="color-gold">false</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">this</span>;
+						<span class="section__code-comment">// - возвращает 
+						<span class="color-pink">текущий объект</span> (<u>неявно</u>)</span>
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Теперь, когда нам необходимо будет <u>создать</u>
+						<em>других пользователей</em>, мы <u>можем использовать</u> <span class="color-red">new</span> <span class="color-blue">User</span>(<span class="color-gold">'Маша'</span>), 
+						<span class="color-red">new</span> 
+						<span class="color-blue">User</span>(<span class="color-gold">'Даша'</span>) и т.д.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Данная конструкция</em> гораздо <u>удобнее</u> и <u>читабельнее</u>, чем каждый раз
+						<u>создавать</u> <em>литерал объекта</em>. Это и <u>является основной целью</u>
+						<span class="color-red">конструкторов</span> – <u>удобное повторное создание</u>
+						<span class="color-pink">однотипных объектов</span>.
+					</p>
+					<p><u>Можно передавать</u> <span class="color-red">конструктору</span>
+						<em>параметры</em>, <u>определяющие как создавать</u> <span class="color-pink">объект</span>, и
+						<u>что записывать</u> в <span class="color-pink">него</span>. В
+						<span class="color-pink">this</span> мы <u>можем добавлять не только</u>
+						<span class="color-aqua">свойства</span>, но и <span class="color-red">методы</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						<u>Например</u>, <span class="color-red">new</span> 
+						<span class="color-blue">User</span>(<span class="color-pink">name</span>) <u>создаёт</u> 
+						<span class="color-pink">объект</span> с именем <span class="color-pink">name</span> и 
+						<span class="color-red">методом</span> <span class="color-blue">sayHi</span>( ):</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">User</span>(<span class="color-aqua">name</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">name</span> = 
+						<span class="color-gold">name</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-blue">sayHi</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Меня зовут:'</span> + <span class="color-pink">this</span>.<span class="color-aqua">name</span>);
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">vasya</span> = 
+						<span class="color-red">new</span> 
+						<span class="color-blue">User</span>(<span class="color-gold">'Вася'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">vasya</span>.<span class="color-blue">sayHi</span>();
+						<span class="section__code-comment">// - результат: 
+							<span class="color-gold">'Меня зовут: Вася'</span></span> 
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Ещё <u>пример</u>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">Candy</span>(<span class="color-pink">weight</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">tasty</span> = 
+						<span class="color-gold">'delicious'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">getWeight</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(`<span class="color-gold">Weight is</span> 
+						${<span class="color-pink">weight</span>} <span class="color-gold">g</span>`)
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">twix</span> = 
+						<span class="color-red">new</span> 
+						<span class="color-blue">Candy</span>(<span class="color-gold">47</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">snickers</span> = 
+						<span class="color-red">new</span> 
+						<span class="color-blue">Candy</span>(<span class="color-gold">50</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">twix</span>.<span class="color-red">getWeight</span>();
+						<span class="section__code-comment">// - <em>метод</em> 
+						<span class="color-blue">getWeight</span>( ) <u>появился</u> и у 
+						<span class="color-pink">нашего объекта</span>, <u>получим</u> <em>строку</em> 
+						<span class="color-gold">'Weight is 47 g'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">snikers</span>.<span class="color-red">getWeight</span>();
+						<span class="section__code-comment">// - <em>метод</em> 
+						<span class="color-blue">getWeight</span>( ) <u>появился</u> и у 
+						<span class="color-pink">нашего объекта</span>, <u>получим</u> <em>строку</em> 
+						<span class="color-gold">'Weight is 50 g'</span></span>
+					</span>
+				</code>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="./img/prototype.png" alt="prototype">
+				</div>
+			</section>
+
+			<section class="section" id="oop-basics">
+				<h3 class="section__subtitle">Основные принципы ООП</h3>
+				<div class="section__text-block">
+					<p><u>Идеология</u> <em>объектно-ориентированного программирования</em> <u>разрабатывалась</u> как
+						попытка связать поведение определенной сущности (<span class="color-pink">объекта</span>) с тем,
+						к какому <em>классу</em> <span class="color-pink">он</span> <u>принадлежит</u>. И также причина
+						задумки такого подхода в том, что нам проще воспринимать окружающий нас мир как
+						<span class="color-pink">объекты</span>, которые <u>поддаются</u>
+						<em>определенной классификации</em>.
+					</p>
+					<p><em>Основу ООП</em> <u>составляют</u> два понятия — <span class="color-pink">классы</span> и
+						<span class="color-pink">объекты</span>. Когда мы говорим о <em>классе</em>, мы имеем в виду то,
+						какими <span class="color-aqua">свойствами</span> и
+						<span class="color-red">поведением</span> <u>будет обладать</u>
+						<span class="color-pink">объект</span>. В <em>программировании</em> мы <u>создаем</u>
+						<em>классы</em>, то есть <u>описываем</u> <span class="color-aqua">свойства</span>, которыми
+						<u>будут обладать</u> <span class="color-pink">объекты</span>, <u>принадлежащие</u>
+						<em>этому классу</em>.
+					</p>
+					<p><em>Основная идея ООП</em> — <u>использовать</u> <span class="color-pink">объекты</span> для
+						<u>отображения</u> <em>моделей</em> из реального мира в <em>программах</em> и/или
+						<u>упрощения доступа</u> к <span class="color-red">функциям</span>, которые в противном случае
+						было бы трудно или невозможно использовать.
+					</p>
+					<p><span class="color-pink">Объект</span> <u>может содержать</u> следующую информацию:
+						<em>что это</em> за модель, какие должны быть <em>функциональные возможности</em>,
+						<em>поведение модели</em>.
+					</p>
+					<p>
+						<sptrong>Инкапсуляция</sptrong> <u>определяется</u> как <u>связывание</u>
+						<span class="color-aqua">данных</span> и <span class="color-red">методов</span>
+						<em>в единое целое</em> <u>для защиты от доступа извне</u>. В <em>контексте класса</em>
+						к <span class="color-aqua">некоторым свойствам</span>
+						<u>нельзя получить прямой доступ извне</u> <em>класса</em> и <u>необходимо вызвать</u>
+						<span class="color-red">соответствующий метод</span> <u>для</u>
+						<span class="color-red">этих свойств</span>. (Это прежде всего <em>замыкание</em> и
+						<em>область видимости</em>).
+					</p>
+					<p><strong>Инкапсуляция</strong> <u>препятствует</u> <em>прямому обращению</em> к
+						<span class="color-aqua">свойству</span> или <span class="color-red">методу</span>. А вместо
+						этого, <u>создаются</u> <span class="color-aqua">посреднические свойства</span> или
+						<span class="color-red">методы</span>, через которые и б<u>удет осуществляться доступ</u> к
+						<em>оригиналам</em>. <u>Попытка обратится</u> к
+						<span class="color-aqua"><em>инкапсулированным</em> (скрытым свойствам)</span>,
+						<u>вызовет ошибку</u>. <span class="color-gold">Инкапсулированные данные</span>
+						<u>можно увидеть</u> в <em>коде</em>, но к <em>ним</em> <u>нельзя напрямую обратится</u> и
+						<u>получить</u> <em>их</em>.
+					</p>
+					<p><strong>Наследование</strong> - <em>один класс</em> <u>получает</u>
+						<span class="color-aqua">свойства</span> и <span class="color-red">методы</span>
+						<em>другого класса</em>. <u>Преимуществом</u> <strong>наследования</strong> является
+						<u>возможность повторного использования</u> <em>написанного кода</em>. Когда
+						<em>дочерний класс</em> <u>наследует</u> <span class="color-red">методы</span> от
+						<em>родительского класса</em>, нам <u>не нужно переписывать</u>
+						<span class="color-red">уже написанные методы</span>, которые <u>были</u> в
+						<em>родительском классе</em>.
+						(<span class="color-red">Функция конструктор</span> и <em>классы</em>).
+					</p>
+					<p><strong>Полиморфизм</strong> - <u>возможность использовать</u>
+						<span class="color-blue">одинаковые имена</span> (<span class="color-pink">переменных</span>,
+						<span class="color-red">методов</span>) <u>без ущерба</u> для нашей <em>программы</em>.
+						<u>Уменьшает дублирование</u> участков <em>кода</em>.
+					</p>
+					<p><strong>Абстракция</strong> - <u>демонстрация только</u> <em>основных вещей</em> и
+						<u>сокрытие</u> <em>внутренней реализации</em>.
+					</p>
+					<p><u>Основа</u> <em>JavaScript</em> — это <span class="color-pink">объекты</span>.
+						<span class="color-pink">Все сложные структуры данных</span>, включая
+						<span class="color-red">функции</span>, — это <span class="color-pink">объекты</span>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="this">
+				<h3 class="section__subtitle">Методы объекта, "this"</h3>
+				<h3 class="section__subtitle section__subtitle_small">Контекст (this)</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Функцию</span>, которая <u>является</u>
+						<span class="color-aqua">свойством</span> <span class="color-pink">объекта</span>,
+						<u>называют</u> <span class="color-red">методом</span>
+						<span class="color-pink">этого объекта</span>.
+					<p>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">user</span> = {
+							</span>
+							<span class="section__code-row">
+								<span class="color-aqua">name</span>: <span class="color-gold">'Джон'</span>,
+							</span>
+							<span class="section__code-row">
+								<span class="color-aqua">age</span>: <span class="color-gold">30</span>,
+							</span>
+							<span class="section__code-row">};</span>
+							<span class="section__code-row">
+								<span class="color-pink">user</span>.<span class="color-blue">sayHi</span> = 
+								<span class="color-red">function</span>() { <span class="section__code-comment">// -
+								<u>создали</u> <span class="color-red">функцию</span> и <u>присвоили</u> 
+								<span class="color-red">её</span> <span class="color-aqua">свойству</span> 
+								<span class="color-red">объекта</span>.</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-gold">'Привет!'</span>);
+							</span>
+							<span class="section__code-row">};</span>
+							<span class="section__code-row">
+								<span class="color-pink">user</span>.<span class="color-blue">sayHi</span>( );
+								<span class="section__code-comment">// - результат: <span class="color-gold">Привет!</span>. Итак, мы <u>получили</u> <span class="color-red">метод</span> 
+								<span class="color-blue">sayHi</span>( ) <em>объекта</em> <span class="color-pink">user</span>.
+							</span> 
+							</span>
+						</code>
+					<p>Что если у нас <span class="color-pink">много объектов</span> и
+						<span class="color-pink">все</span> с <span class="color-red">одинаковым методом</span>?
+						<u>Непрактично писать</u> <span class="color-red">функцию</span> <u>по каждому</u>
+						<span class="color-pink">объекту</span>. Нам <u>поможет</u> <em>ключевое слово</em>
+						<span class="color-pink">this</span> <u>используется</u> для обозначения
+						<span class="color-pink">текущего объекта</span>, с которым ведется работа.
+					</p>
+					<p>Для <u>доступа к информации внутри</u> <span class="color-pink">объекта</span>
+						<span class="color-red">метод</span> <u>может использовать</u> <em>ключевое слово</em>
+						<span class="color-pink">this</span>. Значение <span class="color-pink">this</span> – это
+						<span class="color-pink">объект «перед точкой»</span>, который
+						<u>использовался для вызова</u> <span class="color-red">метода</span>.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p>Если мы <u>решим скопировать</u> <em>ссылку на объект</em> <span class="color-pink">user</span> в
+						<span class="color-pink">другую переменную</span>, <u>например</u>,
+						<span class="color-pink">admin</span> = <span class="color-pink">user</span>, и
+						<u>перезапишем</u> <em>переменную</em> <span class="color-pink">user</span> чем-то другим, тогда
+						<u>будет осуществлён доступ</u> к <span class="color-pink">неправильному объекту</span> <u>при
+							вызове</u> <span class="color-red">метода</span> из
+						<span class="color-pink">admin</span>. Если мы <u>используем</u>
+						<span class="color-pink">this</span>.<span class="color-aqua">name</span> <u>вместо</u>
+						<span class="color-pink">user</span>.<span class="color-aqua">name</span>, тогда этот
+						<em>код</em> <u>будет работать</u>.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p><span class="color-pink">this</span> называют <span class="color-pink">контекстом</span>.
+						<span class="color-pink">this</span> <u>является</u> <span class="color-pink">объектом</span>,
+						который <u>ссылается</u> <span class="color-red">на саму функцию</span>. Т.е. мы
+						<u>записываем</u> в <span class="color-red">функцию</span>
+						<span class="color-aqua">свойства</span>, <span class="color-aqua">которые</span>
+						<u>затем можно передать</u> <span class="color-pink">новому экземпляру</span>,
+						<u>созданному через</u> <span class="color-red">new</span>.
+					</p>
+					<p><span class="color-pink">this</span> <u>указывает</u> на
+						<span class="color-pink">текущий контекст</span> <u>вызова</u>
+						<span class="color-red">функции</span>. <span class="color-pink">Контекст</span>
+						<u>есть только</u> у <span class="color-red">функций</span> (в том числе,
+						<span class="color-red">методов</span> <span class="color-pink">объекта</span>,
+						<span class="color-red">функций–конструкторов</span>).
+					</p>
+					<p><span class="color-pink">Контекст</span>
+						<uy>нужен для доступа</uy> к <em>информации</em> <u>внутри</u>
+						<span class="color-pink">объекта</span>. Если <u>внутри</u>
+						<span class="color-red">функции</span> <u>есть обращение</u> к
+						<span class="color-pink">this</span> — ожидается, что <span class="color-red">функция</span>
+						<u>вызвана</u> в <span class="color-pink">контексте какого–то объекта</span>.
+					</p>
+					<p><span class="color-pink">Контекст</span> <u>не статичен</u> — он
+						<u>определяется в момент выполнения</u> <span class="color-red">функции</span>.
+						<span class="color-pink">Его</span> называют <u>динамическим</u>.
+					</p>
+					<p><em>Ключевое слово</em> <span class="color-pink">this</span> <u>во время вызова</u>
+						<span class="color-red">функции</span> <u>хранит</u> <em>ссылку</em> на
+						<span class="color-pink">объект</span>, для <span class="color-pink">которого</span>
+						<span class="color-red">эта функция</span> <u>была вызвана в качестве</u>
+						<span class="color-red">метода</span>. Так <u>можно получить доступ</u> к
+						<span class="color-aqua">другим свойствам</span> <span class="color-pink">этого объекта</span>.
+					</p>
+					<p>В случае, <u>когда</u> <span class="color-red">функция</span> <u>вызывается сама по себе</u>, а
+						<u>не как</u> <span class="color-red">метод</span> <span class="color-pink">объекта</span>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<em>Ключевое слово</em> <span class="color-pink">this</span> <u>будет ссылаться</u> на
+							<em>глобальный объект</em> <span class="color-pink">window</span>.
+						</li>
+						<li class="section__list-item">
+							<u>Если используется</u> <em>строгий режим</em> ('<em>use strict</em>'), то
+							<span class="color-pink">this</span> <u>будет иметь</u> <em>значение</em>
+							<span class="color-gold">undefined</span>.
+						</li>
+					</ul>
+				</div>
+				<div class="section__text-block">
+					<p><u>ВАЖНО</u>! <span class="color-red">Стрелочные функции</span> <u>не содержат</u>
+						<em>собственный контекст</em> <span class="color-pink">this</span>, а <u>используют</u>
+						<em>значение</em> <span class="color-pink">this</span> <em>окружающего контекста</em>. Поэтому
+						<span class="color-red">стрелочная функция</span> <u>не может быть</u>
+						<span class="color-red">функцией-конструктором</span>.
+					</p>
+					<p>Когда мы <u>хотим создать</u> <span class="color-pink">экземпляр какого-то объекта</span>, мы
+						<u>можем создать</u> <span class="color-pink">его</span> <u>через</u>
+						<span class="color-pink">Object</span>.<span class="color-red">create</span>( ) и
+						<u>передать туда</u> <span class="color-pink">прототип</span>, а <u>затем расширить</u>, как это
+						делалось ранее.
+					</p>
+					<p><em>Наиболее распространенным способом</em> <u>создавать</u>
+						<span class="color-pink">экземпляры объекта</span> <u>является использование</u>
+						<span class="color-red">функции-конструктора</span>.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p><u>Создаем <em>делегирующую связь</em> между</u> <span class="color-red">функциями</span>
+						<em>основного абстрактного класса</em> и <em>подкласса</em>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="classes">
+				<h3 class="section__subtitle">Классы</h3>
+				<div class="section__text-block">
+					<p>В <strong>ООП</strong> <span class="color-red">класс</span> – это
+						<em>расширяемый шаблон кода</em> <u>для создания</u> <span class="color-pink">объектов</span>,
+						который <u>устанавливает</u> в <span class="color-pink">них</span> <em>начальные значения</em>
+						(<span class="color-aqua">свойства</span>) и <em>реализацию поведения</em>
+						(<span class="color-red">методы</span>). <span class="color-red">Класс</span> – это
+						<u>разновидность</u> <span class="color-red">функции</span>.
+					</p>
+					<p>В <em>JavaScript</em> <u>есть</u> <em>более продвинутая конструкция</em>, чем
+						<span class="color-red">функция конструктор</span> (<span class="color-red">new</span>
+						<span class="color-blue">Function</span>) - <span class="color-red">class</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">class</span> <span class="color-blue">MyClass</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Когда <u>вызывается</u> <span class="color-red">new</span>
+						<span class="color-blue">MyClass</span>( ), <u>cоздаётся</u>
+						<span class="color-pink">новый объект</span>;
+						<span class="color-red">constructor</span> <u>запускается</u> с
+						<em>заданным аргументом</em> и <u>сохраняет</u> <em>его</em> в
+						<span class="color-pink">this</span>.<span class="color-aqua">property</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">constructor</span>(<span class="color-pink">arg</span>) {
+					</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">property</span> = 
+						<span class="color-pink">arg</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">method1</span>() {
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">method2</span>() {
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Классы</span> — это лишь <em>синтаксический сахар</em>* над обычным
+						<em>прототипным наследованием</em>, но <u>есть и отличия</u>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-red">Методы класса</span> <u>являются неперечислимыми</u>;
+						</li>
+						<li class="section__list-item">
+							<span class="color-red">Классы</span> <u>всегда используют</u> <em>'use strict'</em>.
+						</li>
+					</ul>
+					<p>*<strong>Синтаксический сахар</strong> — это <em>синтаксические возможности</em>, применение
+						которых <u>не влияет</u> на <em>поведение программы</em>, но <u>делает использование</u>
+						<em>языка</em> <u>более удобным</u> для человека.
+					</p>
+					<p>Итак, <em>ключевое слово</em> <span class="color-red">class</span> <u>определяет</u>
+						<span class="color-blue">экземпляр</span>. <u>Принято именовать</u>
+						<span class="color-blue">их</span> с <span class="color-blue">БольшойБуквы</span>.
+						<em>Ключевое слово</em> <span class="color-red">class</span> <u>идентифицирует</u>
+						<em>блок</em>, <em>содержимое которого</em> <u>определяет</u>
+						<span class="color-red">функции</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">class</span> <span class="color-blue">Parent</span> {
+							<span class="section__code-comment">// - <u>создает</u> 
+							<span class="color-red">специальную функцию</span> с <en>именем</en> 
+							<span class="color-blue">Parent</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>определяет</u> <em>сигнатуру</em> 
+						<span class="color-red">функции</span> и <em>ее тело</em> (то, что записывалось через 
+						<span class="color-pink">this</span>.<span class="color-aqua">property</span> для
+						<span class="color-red">функции-конструктора</span>)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">constructor</span>(<span class="color-pink">ownCity</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">ownCity</span> = 
+						<span class="color-pink">ownCity</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">hasFlat</span> = 
+						<span class="color-gold">true</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">getInfo</span>(){
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(`<span class="color-gold">I live in the</span> 
+						${<span class="color-pink">this</span>.<span class="color-aqua">ownCity</span>}`)
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Сравним</u> <em>аналогичную запись</em> для
+						<span class="color-red">функции-конструктора</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">Parent</span>(<span class="color-pink">ownCity</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">ownCity</span> = 
+						<span class="color-pink">ownCity</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">hasFlat</span> = 
+						<span class="color-gold">true</span>;
+					</span>
+					<span class="section__code-row">
+						}
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">Parent</span>.<span class="color-aqua">prototype</span>.
+						<span class="color-blue">getInfo</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(`<span class="color-gold">I live in the</span> ${<span class="color-pink">this</span>.<span class="color-aqua">ownCity</span>}`)
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Создание</u> <span class="color-pink">нового экземпляра</span> в
+						<u>обоих случаях происходит с использованием</u> <em>ключевого слова</em>
+						<span class="color-red">new</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">obj</span> = 
+						<span class="color-red">new</span> 
+						<span class="color-blue">MyClass</span>(<span class="color-pink">arg</span>);
+						<span class="section__code-comment">// - для <u>создания</u> 
+						<span class="color-pink">нового объекта</span> со всеми
+						<span class="color-red">перечисленными методами</span>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Классы</span> <u>не поднимаются</u> как
+						<span class="color-red">функции</span>. <u>Прежде чем создавать</u>
+						<span class="color-pink">экземпляры</span>, <u>объявите</u> <em>конструкцию</em>.
+						Как и <span class="color-red">функции</span>, <span class="color-red">классы</span>
+						<u>можно определять внутри</u> <em>другого выражения</em>, <u>передавать</u>, <u>возвращать</u>,
+						<u>присваивать</u>. Как и в <span class="color-pink">литеральных объектах</span>, в
+						<span class="color-red">классах</span> <u>можно объявлять</u>
+						<span class="color-aqua">вычисляемые свойства</span>, <em>геттеры</em> / <em>сеттеры</em>
+						(<span class="color-red">get</span> / <span class="color-red">set</span>)
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Наследование классов</h3>
+				<div class="section__text-block">
+					<p><u><em>Наследование</em></u> <span class="color-red">классов</span> – это
+						<u>способ расширения</u> <span class="color-red">одного класса другим классом</span>, т.о., мы
+						<u>можем добавить</u> <em>новый функционал</em> к <em>уже существующему</em>.
+					</p>
+					<p>Чтобы <u>установить <em>делегирующую связь</em> между</u>
+						<span class="color-red">двумя прототипами функции</span>, <u>используют</u>
+						<em>ключевое слово</em> <span class="color-red">extends</span>.
+					</p>
+					<p><u>Синтаксис для расширения</u> <span class="color-red">другого класса</span>:
+						<span class="color-red">class</span> <span class="color-blue">Child</span>
+						<span class="color-red">extends</span> <span class="color-blue">Parent</span>
+						<span class="color-blue">{ }</span>
+					</p>
+					<p>У <span class="color-red">классов</span> <u>есть</u> <em>ключевое слово</em>
+						<span class="color-pink">super</span> <u>для обращения</u> к
+						<span class="color-pink">прототипу</span> (<span class="color-red">родительскому классу</span>):
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">super</span>.<span class="color-blue">method</span>( ) <u>вызывает</u>
+						<span class="color-red">родительский метод</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">super</span> <u>для вызова</u>
+						<span class="color-red">родительского конструктора</span> (<u>работает только внутри</u>
+						<span class="color-red">нашего конструктора</span>).
+					</li>
+					<li class="section__list-item">
+						У <span class="color-red">стрелочных функций</span> <u>нет</u>
+						<span class="color-pink">super</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-red">Конструкторы</span> в
+						<span class="color-red">наследуемых классах</span> <u>должны обязательно вызывать</u>
+						<span class="color-pink">super</span> <u>перед использованием</u>
+						<span class="color-pink">this</span>, если мы <u>создаём</u>
+						<span class="color-red">собственный конструктор</span>, в <u>противном случае</u>
+						<span class="color-pink">объект</span> для <span class="color-pink">this</span>
+						<u>не будет создан</u>, и мы <u>получим <em>ошибку</em></u>.
+					</li>
+				</ul>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">class</span> <span class="color-blue">Animal</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">constructor</span>(<span class="color-pink">name</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">speed</span> = 
+						<span class="color-gold">0</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">name</span> = 
+						<span class="color-pink">name</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						---------------
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">class</span> <span class="color-blue">Rabbit</span> 
+						<span class="color-red">extends</span> <span class="color-blue">Animal</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">constructor</span>(<span class="color-pink">name</span>, 
+						<span class="color-pink">earLength</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">super</span>(<span class="color-pink">name</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">earLength</span> = 
+						<span class="color-pink">earLength</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p>В <em>слово</em> <span class="color-pink">super</span> <u>были внесены</u>
+						<span class="color-aqua">свойства</span> <span class="color-pink">родителя</span>.
+						<span class="color-pink">super</span> <u>автоматически ссылается</u> на
+						<span class="color-blue">родительский конструктор</span>, а <u>внутри</u>
+						<span class="color-red">себя</span> <u>ссылается</u> на
+						<span class="color-pink">родительский объект</span>, чтобы <u>получить доступ</u> к
+						<span class="color-red">методу</span> или <span class="color-aqua">свойству</span>.
+					</p>
+					<p><u>При обращении</u> к <span class="color-red">методу</span> через
+						<span class="color-pink">super</span>.<span class="color-blue">method</span>( )
+						<u>получается то же самое</u>, что и <u>при обращении</u> к
+						<span class="color-blue">Parent</span>.<span class="color-aqua">prototype</span>. В
+						<em>конструкторе</em> <span class="color-pink">super</span> <u>указывает</u> на
+						<span class="color-pink">объект Parent</span>.
+					</p>
+					<p>Чтобы <u>определить</u>, от какого <span class="color-blue">класса</span> <u>унаследован</u>
+						<span class="color-pink">потомок</span>, <u>существует</u> <em>оператор</em>
+						<span class="color-red">instanceof</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-blue">Child</span> 
+						<span class="color-red">instanseof</span> <span class="color-blue">Parent</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Ключевое слово</em> <span class="color-red">static</span> <u>позволяет объявить</u>
+						<span class="color-red">статические методы</span> и <span class="color-aqua">свойства</span> в
+						<span class="color-red">классе</span>. <em>Они</em> <u>добавляются</u> непосредственно в
+						<span class="color-red">объект-функцию</span>, а не в
+						<span class="color-pink">объект-прототип</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">class</span> <span class="color-blue">MyClass</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">static</span> <span class="color-aqua">property</span> = 
+						<span class="color-gold">value</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">static</span> <span class="color-blue">staticMethod</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">… свойства</span> 
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-gold">Значением</span> <span class="color-pink">this</span> <u>при вызове</u>
+						<span class="color-blue">User</span>.<span class="color-red">staticMethod</span>( )
+						<u>является</u> <em>сам конструктор класса</em> <span class="color-blue">User</span>.
+					</p>
+					<p>Обычно <span class="color-red">статические методы</span> <u>используются для реализации</u>
+						<span class="color-red">функций</span>, <u>принадлежащих целиком</u>
+						<span class="color-red">классу</span>, вообще, и при этом <u>не относящимся</u> к каким-то
+						<span class="color-pink">отдельным объектам</span>.
+						<span class="color-aqua">Статические свойства</span> <u>используются</u> в тех случаях, когда мы
+						хотели бы <u>сохранить данные на уровне <span class="color-red">класса</span></u>, а
+						<span class="color-pink">не какого-то одного объекта</span>.
+					</p>
+					<p>Технически, <u><em>статическое</em> объявление</u> – это <u>то же самое</u>, что и
+						<u>присвоение</u> <span class="color-red">классу</span>:
+					</p>
+					<p><span class="color-blue">MyClass</span>.<span class="color-aqua">property</span> =
+						<span class="color-gold">value</span>;
+					</p>
+					<p><span class="color-blue">MyClass</span>.<span class="color-blue">method</span> =
+						<span class="color-red">function</span>( ){ };
+					</p>
+					<p><span class="color-aqua">Статические свойства</span> и
+						<span class="color-red">статические методы</span> <u>наследуются</u>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="iteration--objects">
+				<h3 class="section__subtitle">Перебираемые объекты</h3>
+				<div class="section__text-block">
+					<p>Чтобы <u>сделать</u> <span class="color-pink">объект итерируемым</span>
+						(и <u>позволить</u> <span class="color-red">for..of</span> работать с ним), нам
+						<u>нужно добавить</u> в <span class="color-pink">объект</span>
+						<span class="color-red">метод</span> с именем
+						<span class="color-pink">Symbol</span>.<span class="color-red">iterator</span>( )
+						(<u>специальный встроенный</u> <span class="color-pink">Symbol</span>,
+						<u>созданный для этого</u>).
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						Когда <em>цикл</em> <span class="color-red">for..of</span> <u>запускается</u>, <em>он</em>
+						<u>вызывает</u> <span class="color-red">этот метод</span> <u>один раз</u> (или
+						<u>выдаёт ошибку</u>, если <span class="color-red">этот метод</span> <u>не найден</u>).
+						<span class="color-red">этот метод</span> <u>должен вернуть</u>
+						<span class="color-pink"><em>итератор</em> - объект</span> с
+						<em>методом</em> <span class="color-red">next</span>( ).
+					</li>
+					<li class="section__list-item">
+						Дальше <span class="color-red">for..of</span> <u>работает только</u>
+						с <span class="color-pink">этим возвращённым объектом</span>.
+					</li>
+					<li class="section__list-item"> - Когда <span class="color-red">for..of</span> <u>хочет получить</u>
+						<span class="color-gold">следующее значение</span>, <span class="color-red">он</span>
+						<u>вызывает</u> <em>метод</em> <span class="color-red">next</span>( )
+						<span class="color-pink">этого объекта</span>.
+					</li>
+					<li class="section__list-item"> - <u>Результат вызова</u> <span class="color-red">next</span>( )
+						должен <u>иметь вид</u> { <span class="color-aqua">done</span>:
+						<span class="color-gold">значение Boolean</span>, <span class="color-aqua">value</span>:
+						<span class="color-gold">any</span>}, где <span class="color-aqua">done</span> =
+						<span class="color-gold">true</span> <u>означает</u>, что <em>цикл</em> <u>завершён</u>,
+						<u>в противном случае</u> <span class="color-aqua">value</span> <u>содержит</u>
+						<span class="color-gold">очередное значение</span>.
+					</li>
+				</ul>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">range</span> = { 
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">from</span>: <span class="color-gold">1</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">to</span>: <span class="color-gold">5</span>
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>1 шаг</u>: <u>вызов</u> 
+						<span class="color-red">for..of</span> <u>сначала вызывает</u> 
+						<span class="color-red">эту функцию</span>, ...<span class="color-red">она</span> <u>возвращает</u> <span class="color-pink">объект итератора</span></span>
+					</span>				 
+					<span class="section__code-row">
+						<span class="color-pink">range</span>
+						[<span class="color-pink">Symbol</span>.<span class="color-red">iterator</span>] = 
+						<span class="color-red">function</span>() { 
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>2 шаг</u>: <span class="color-red">for..of</span> <u>работает только</u> с <span class="color-pink">этим итератором</span>, <u>запрашивая</u> у <em>него</em> <span class="color-gold">новые значения</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> { 
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">current</span>: 
+						<span class="color-pink">this</span>.<span class="color-aqua">from</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">last</span>: 
+						<span class="color-pink">this</span>.<span class="color-aqua">to</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>3 шаг</u>: <span class="color-red">next</span>( ) <u>вызывается</u> на <em>каждой итерации цикла</em> <span class="color-red">for..of</span>
+						</span>
+					</span>
+					<span class="section__code-row">
+							<span class="color-red">next</span>() { 
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>4 шаг</u>: <span class="color-red">next</span>() <u>должен вернуть</u> <span class="color-gold">значение</span> 
+						<span class="color-pink">в виде объекта</span> 
+						{<span class="color-aqua">done</span>:<span class="color-gold">...</span>, 
+						<span class="color-aqua">value</span> :<span class="color-gold">...</span>} </span>
+					</span>
+					<span class="section__code-row">
+							<span class="color-red">if</span> 
+							(<span class="color-pink">this</span>.<span class="color-aqua">current</span> <= 
+							<span class="color-pink">this</span>.<span class="color-aqua">last</span>) { 
+						
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> {<span class="color-aqua">done</span>: 
+						<span class="color-gold">false</span>, <span class="color-aqua">value</span>: 
+						<span class="color-pink">this</span>.<span class="color-aqua">current</span>++};
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> {<span class="color-aqua">done</span>: 
+						<span class="color-gold">true</span>};
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">for</span> (<span class="color-red">let</span> 
+						<span class="color-pink">num</span> <span class="color-red">of</span> 
+						<span class="color-pink">range</span>) { <span class="section__code-comment">// - 
+							теперь <em>цикл</em> <span class="color-red">for...of</span> <u>работает</u> с 
+							<span class="color-pink">нашим объектом</span>!</span>
+						</span>	 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">num</span>);
+						<span class="section__code-comment">// - выведет 
+						<span class="color-gold">1</span>, затем <span class="color-gold">2</span>, 
+						<span class="color-gold">3</span>, <span class="color-gold">4</span>, 
+						<span class="color-gold">5</span></span>
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Array.from</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Универсальный метод</span>
+						<span class="color-pink">Array</span>.<span class="color-red">from</span>( )
+						<u>принимает</u> <span class="color-pink">итерируемый объект</span> или
+						<span class="color-pink">псевдомассив</span> и <u>делает из <em>него</em></u>
+						<span class="color-pink">«настоящий» Array</span>. <u>После этого можем использовать</u>
+						<span class="color-red">встроенные методы массивов</span>.
+					</p>
+					<p><span class="color-pink">Объекты</span>, <u>имеющие</u>
+						<span class="color-aqua">индексированные свойства</span> и <em>свойство</em>
+						<span class="color-aqua">length</span>, <u>называются</u> <strong>псевдомассивами</strong>.
+						<span class="color-pink">Псевдомассивы</span> также <u>могут иметь</u>
+						<span class="color-aqua">другие свойства</span> и <span class="color-red">методы</span>, но у
+						<span class="color-pink">них</span> <u>нет</u>
+						<span class="color-red">встроенных методов массивов</span>.
+					</p>
+					<p><span class="color-pink">Array</span>.<span class="color-red">from</span>( ) <u>принимает</u>
+						<span class="color-pink">объект</span>, <u>проверяет</u>, является ли он
+						<span class="color-red">итерируемым</span> <span class="color-pink">объектом</span> или
+						<span class="color-pink">псевдомассивом</span>, затем <u>создаёт</u>
+						<span class="color-pink">новый массив</span> и <u>копирует</u> туда
+						<span class="color-gold">все элементы</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">arrayLike</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">0</span>: <span class="color-gold">'Hello'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">1</span>: <span class="color-gold">'World'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">length</span>: <span class="color-gold">2</span>
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">arr</span> = 
+						<span class="color-pink">Array</span>.<span class="color-red">from</span>
+						(<span class="color-pink">arrayLike</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">arr</span>.<span class="color-red">pop</span>( )); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">'World'</span> 
+						(<span class="color-red">встроенный метод массивов</span> <u>работает</u>)</span> 
+					</span>
+				</code>
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="./map, set, json.html">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="./function-pro.html">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">Решение задач JS</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+
+	</div>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

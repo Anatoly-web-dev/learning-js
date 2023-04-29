@@ -1,0 +1,1950 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords"
+		content="Обучение JavaScript, основы JavaScript, JS для начинающих, базовые операторы, операторы сравнения, приоритет операторов">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. Данный раздел про базовые операторы, а также инкремент и декремент.Узнаете про операторы сравнения и приоритет выполнения операторов">
+	<title>JavaScript. Базовые операторы</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+
+			<section class="section" id="basic-math">
+				<h2 class="section__title">Операторы в JavaScript</h2>
+				<div class="section__text-block">
+					<p><strong>Операнд</strong> – то, к чему <u>применяется</u> <em>оператор</em>. <u>Например</u>, в
+						<u>умножении</u> <span class="color-gold">5</span> *</span> <span class="color-gold">2</span>
+						есть <em>два операнда</em>: <em>левый</em> равен <span class="color-gold">5</span>, а
+						<em>правый</em> равен <span class="color-gold">2</span>.
+					</p>
+					<p><strong>Унарный оператор</strong> <u>применяется</u> к <em>одному операнду</em>. <u>Например</u>,
+						оператор <em>унарный минус</em> "<span class="color-red">-</span>"
+						<u>меняет на противоположный</u> <span class="color-gold">знак числа</span>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">x</span> = 
+						<span class="color-gold">1</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">x</span> = -<span class="color-pink">x</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">x</span>); 
+						<span class="section__code-comment">// - применили унарный минус, <u>результат</u>
+						<span class="color-gold">-1</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><strong>Бинарный оператор</strong> <u>применяется</u> к <em>двум операндам</em>. Тот же
+						<em>минус</em> <u>существует</u> и в <em>бинарной форме</em>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">x</span> = 
+						<span class="color-gold">1</span>, 
+						<span class="color-pink">y</span> = <span class="color-gold">3</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">y</span> - 
+						<span class="color-pink">x</span> ); <span class="section__code-comment">
+						// - <em>бинарный минус</em> <u>вычитает</u> <span class="color-gold">значения</span>, <u>результат</u> <span class="color-gold">2</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>В <em>JavaScript</em> есть <em>много различных операторов</em>, они обозначают <em>операцию</em>,
+						которую нужно произвести.
+					</p>
+					<p><u>Например</u>: <span class="color-red">*, /, +, -, =</span> и т.д.</p>
+					<p>Отдельно стоит поговорить про <em>математические операторы</em>:</p>
+					<p> - <strong>Взятие остатка от деления</strong> <span class="color-red">%</span> несмотря на
+						обозначение, никакого отношения к <em>процентам</em> <u>не имеет</u>.
+					</p>
+					<p>Результат <span class="color-gold">число a</span> <span class="color-red">%</span>
+						<span class="color-gold">число b</span> – это <em><u>остаток от целочисленного деления</u></em>
+						<span class="color-gold">числа a</span> на <span class="color-gold">число b</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">5</span> % 
+						<span class="color-gold">2</span>); <span class="section__code-comment">
+						// - <span class="color-gold">1</span>, остаток от деления 5 на 2</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">8</span> % 
+						<span class="color-gold">3</span>);<span class="section__code-comment">
+						 // - <span class="color-gold">2</span>, остаток от деления 8 на 3</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p> - <strong>Возведение в степень</strong> <span class="color-red">**</span> в выражении
+						<span class="color-gold">число a</span> <span class="color-red">**</span>
+						<span class="color-gold">степень b</span> оператор <span class="color-red">**</span>
+						<u>умножает</u> <span class="color-gold">число a</span> на <span class="color-gold">само
+							себя</span> <span class="color-gold">b раз</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">2</span> ** 
+						<span class="color-gold">3</span>); <span class="section__code-comment">
+						// - <span class="color-gold">8</span> (2 * 2 * 2, 3 раза)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">2</span> ** 
+						<span class="color-gold">4</span>); <span class="section__code-comment">
+						// - <span class="color-gold">16</span> (2 * 2 * 2 * 2, 4 раза)</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><strong>Возведение в степень</strong> <span class="color-red">**</span> <u>работает</u>
+						и для <soan class="color-gold">нецелых чисел</soan>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="plus">
+				<h3 class="section__subtitle section__subtitle_small">Сложение строк при помощи бинарного +</h3>
+				<div class="section__text-block">
+					<p><em>Операция</em>, когда мы <u>«склеиваем»</u>
+						<span class="color-gold">несколько значений</span>, называется <strong>конкатенацией</strong> и
+						в <em>JavaScript</em> <u>выполняется</u> с помощью <em>знака плюс</em>
+						<span class="color-red">+</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">name</span> = 
+						'<span class="color-gold">Борис</span>';
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">paragraph</span>.<span class="color-aqua">textContent</span> = 
+						'<span class="color-gold">Вас зовут</span>' + <span class="color-pink">name</span> + 
+						'<span class="color-gold">. Хорошего дня!</span>';
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">paragraph</span>.<span class="color-aqua">textContent</span>);
+						<span class="section__code-comment">// - <u>выведет</u>: 
+						<span class="color-gold">Вас зовут Борис. Хорошего дня!</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Если <em>бинарный оператор</em> '<span class="color-red">+</span>' <u>применить</u> к
+						<span class="color-gold">строкам</span>, то он их <u>объединяет в одну</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">s</span> = 
+						"<span class="color-gold">моя</span>" + "<span class="color-gold">строка</span>";
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">s</span>); 
+						<span class="section__code-comment">// - <span class="color-gold">моястрока</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Правило сложения <span class="color-gold">строк</span></u> :Если хотя бы <em>один операнд</em>
+						является <span class="color-gold">строкой</span>, то <em>второй операнд</em>
+						<u>будет также преобразован</u> в <span class="color-gold">строку</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'1'</span> + 
+						<span class="color-gold">2</span>); <span class="section__code-comment">
+						// - получим <span class="color-gold">"12"</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">2</span> + 
+						<span class="color-gold">2</span> + <span class="color-gold">'1'</span>); 
+						<span class="section__code-comment">// - получим <span class="color-gold">"41"</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Сложение</em> и <em>преобразование</em> <span class="color-gold">строк</span> — это
+						<u>особенность</u> <em>бинарного плюса</em> <span class="color-red">+</span>. Другие
+						<em>арифметические операторы</em> <u>работают только</u> с
+						<span class="color-gold">числами</span> и всегда <u>преобразуют</u> <em>операнды</em> в
+						<span class="color-gold">числа</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">6</span> - 
+						<span class="color-gold">'2'</span>); <span class="section__code-comment">// - <u>результат</u>
+						<span class="color-gold">4</span>; <span class="color-gold">'2'</span> <u>приводится</u> к <span class="color-gold">числу</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'6'</span> / 
+						<span class="color-gold">'2'</span>); <span class="section__code-comment">// - <u>результат</u>
+						<span class="color-gold">3</span>; оба операнда <u>приводятся</u> к 
+						<span class="color-gold">числам</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Приведение к числу, унарный +</h3>
+				<div class="section__text-block">
+					<p>Плюс <span class="color-red">+</span> <u>существует в двух формах</u>: <em>бинарной</em>,
+						которую мы использовали выше, и <em>унарной</em>.
+					</p>
+					<p><em>Унарный плюс</em>, то есть <u>применённый</u> к
+						<span class="color-gold">одному значению</span>, <span class="color-red">+</span> ничего не
+						делает с <span class="color-gold">числами</span>. Но если <em>операнд</em>
+						<span class="color-gold">не число</span>, <em>унарный плюс</em> <u>преобразует</u>
+						<span class="color-gold">это значение</span> в <span class="color-gold">число</span>.
+					</p>
+					<p>Примеры:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">x</span> = 
+						<span class="color-gold">1</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(+<span class="color-pink">x</span>); 
+						<span class="section__code-comment">// - <u>не влияет</u> на числа; результат 
+						<span class="color-gold">1</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">y</span> = -
+						<span class="color-gold">2</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(+<span class="color-pink">y</span>); 
+						<span class="section__code-comment">// - <u>не влияет</u> на числа; результат 
+						<span class="color-gold">-2</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(+<span class="color-gold">true</span> ); 
+						<span class="section__code-comment">// - <u>преобразует</u> не числа в числа; результат 
+							<span class="color-gold">1</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(+<span class="color-gold">""</span>);   
+						<span class="section__code-comment">// - <u>преобразует</u> не числа в числа; результат 
+						<span class="color-gold">0</span></span> 	
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>На самом деле это <u>то же самое</u>, что и <span class="color-red">Number</span>
+						(<span class="color-gold">value</span>), только короче.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">apples</span> = 
+						<span class="color-gold">"2"</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">oranges</span> = 
+						<span class="color-gold">"3"</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">apples</span> + 
+						<span class="color-pink">oranges</span>); <span class="section__code-comment">// - результат <span class="color-gold">"23"</span>, так как <u>бинарный плюс объединяет строки</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(+<span class="color-pink">apples</span> + 
+						+<span class="color-pink">oranges</span>); <span class="section__code-comment">//- результат
+						<span class="color-gold">5</span>, т.к. оба операнда <u>предварительно преобразованы в числа</u>
+						. <u>Cначала выполнятся</u> унарные плюсы, которые <u>приведут</u> 
+						<span class="color-gold">строки</span> к <span class="color-gold">числам</span>, а <u>затем</u> бинарный '+' <span class="color-gold">их</span> <u>сложит</u>.</span>
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="priority">
+				<h3 class="section__subtitle section__subtitle_small">Приоритет операторов</h3>
+				<div class="section__text-block">
+					<p>В <em>JavaScript</em> много <em>операторов</em>. Каждый <em>оператор</em> <u>имеет</u>
+						соответствующий <em>номер приоритета</em>. Тот, у кого этот <em>номер приоритета больше</г>
+							– <u>выполнится раньше</u>. Если <u>приоритет одинаковый</u>, то <u>порядок выполнения</u> –
+							<em>слева - направо</em>.
+					</p>
+					<p><em>Приоритет унарных операторов</em> <u>выше</u>, чем соответствующих<em>бинарных</em>.</p>
+					<p><a class="section__link" href="https://developer.mozilla.org/ru/
+							docs/Web/JavaScript/Reference/Operators/Operator_Precedence">
+							Таблица приоритетов операторов в JavaScript</a>
+					</p>
+					<p>У <em>оператора присваивания</em> <span class="color-red">=</span> один из
+						<em>наименьших приоритетов</em>. Именно поэтому, когда
+						<span class="color-pink">переменной</span> что-либо <u>присваивают</u>, например,
+						<span class="color-pink">x</span> = <span class="color-gold">2</span> *
+						<span class="color-gold">2</span> + <span class="color-gold">1</span>, то
+						<u>сначала выполнится</u> <em>арифметика</em>, а уже <u>затем произойдёт</u>
+						<em>присваивание =</em> с <u>сохранением результата</u> в <span class="color-pink">x</span>.
+					</p>
+					<p><em>Присваивание</em> <span class="color-red">=</span> <u>возвращает</u>
+						<span class="color-gold">значение</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">a</span> = 
+						<span class="color-pink">b</span> = <span class="color-pink">c</span> = 
+						<span class="color-gold">2</span> + <span class="color-gold">2</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						Такое <em>присваивание</em> <u>работает справа налево</u>. <u>Сначала вычисляется</u> самое правое выражение <span class="color-gold">2</span> + <span class="color-gold">2</span>, и <u>затем результат</u> <span class="color-pink">переменным</span> слева:
+						<span class="color-pink">c, b, a</span>. У <span class="color-pink">всех переменных</span>
+						<u>в конце будет</u> одно значение <span class="color-gold">4</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">чтобы код читался легче, лучше разделять подобные конструкции на несколько строчек:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">c</span> = <span class="color-gold">2</span> + 
+						<span class="color-gold">2</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">b</span> = <span class="color-pink">c</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">a</span> = <span class="color-pink">c</span>;
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="increment-decrement">
+				<h3 class="section__subtitle section__subtitle_small">Инкремент / декремент</h3>
+				<div class="section__text-block">
+					<p><strong>Инкремент</strong> <span class="color-red">++</span> <u>увеличивает</u>
+						<span class="color-pink">переменную</span> на <em>1</em>. <strong>Декремент</strong>
+						<span class="color-red">++</span> <u>уменьшает</u> <span class="color-pink">переменную</span>
+						на <em>1</em>:
+					</p>
+				</div>
+
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">counter</span> = 
+						<span class="color-gold">2</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">counter</span>++;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">counter</span>); 
+						<span class="section__code-comment">// - получим <span class="color-gold">3</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">counter</span> = <span class="color-gold">5</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">counter</span>--;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">counter</span>); 
+						<span class="section__code-comment">// - получим <span class="color-gold">4</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Инкремент</em> / <strong>декремент</strong> <u>можно применить только</u> к
+						<span class="color-pink">переменной</span>. <u>Попытка использовать</u> <em>его</em> на
+						<span class="color-gold">значении</span>, типа <span class="color-gold">5</span>
+						<span class="color-red">++</span>, <u>приведёт к ошибке</u>.
+					</p>
+					<p>Когда <em>оператор</em> <u>идёт после</u> <span class="color-pink">переменной</span> — это
+						«<strong>постфиксная форма</strong>»: <span class="color-pink">counter</span>
+						<span class="color-red">++</span>. «<strong>Префиксная форма</strong>» — это когда
+						<em>оператор</em> <u>идёт перед</u> <span class="color-pink">переменной</span>:
+						<span class="color-red">++</span><span class="color-pink">counter</span>. Обе
+						<em>эти инструкции</em> <u>делают одно</u> и то же: <u>увеличивают</u>
+						<span class="color-pink">counter</span> на <em>1</em>. <u>Разница будет</u> только если будем
+						<u>использовать</u> <span class="color-gold">значение</span>, которое <u>возвращает</u>
+						<span class="color-red">++</span> / <span class="color-red">--</span>.
+						<em>Префиксная форма</em> <u>возвращает</u> <span class="color-gold">новое значение</span>, в то
+						время как <em>постфиксная форма</em> <u>возвращает</u>
+						<span class="color-gold">старое значение</span> (до увеличения / уменьшения числа).
+					</p>
+					<p>Операторы <span class="color-red">++</span>/<span class="color-red">--</span> могут также
+						<u>использоваться внутри</u> <em>выражений</em>. Их <em>приоритет выше</em>, чем у большинства
+						других <em>арифметических операций</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">counter</span> = 
+						<span class="color-gold">1</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">2</span> * 
+						++<span class="color-pink">counter</span>); <span class="section__code-comment"> // - получим 
+						<span class="color-gold">4</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">counter</span> = <span class="color-gold">1</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">2</span> * 
+						<span class="color-pink">counter</span>++); <span class="section__code-comment"> // - получим 
+						<span class="color-gold">2</span>, потому что counter++ возвращает "старое" значение.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Лучше использовать</u> стиль «одна строка – одно действие»:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">counter</span> = 
+						<span class="color-gold">1</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">2</span> * 
+						<span class="color-pink">counter</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">counter</span>++;
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="bitwise">
+				<h2 class="section__subtitle section__subtitle_small">Побитовые операторы</h2>
+				<div class="section__text-block">
+					<p><strong>Побитовые операторы</strong> работают с 32-разрядными целыми числами на уровне их
+						внутреннего двоичного представления.
+					</p>
+					<p>Они <u>используются редко</u>, когда возникает необходимость оперировать с числами на очень
+						низком (побитовом) уровне.
+					</p>
+					<p>Оператор «запятая» (<span class="color-red">,</span>) редко применяется и является одним из
+						самых необычных.
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item"><em>И</em> - <span class="color-red">AND</span> /
+							<span class="color-red">&</span>;
+						</li>
+						<li class="section__list-item"><em>ИЛИ</em> - <span class="color-red">OR</span> / <span
+								class="color-red">|</span>;
+						</li>
+						<li class="section__list-item"><em>Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ</em> -
+							<span class="color-red">XOR</span>
+						</li>
+						<li class="section__list-item"><em>NOT(НЕ)</em> - <span class="color-red">^</span> /
+							<span class="color-red">~</span>;
+						</li>
+						<li class="section__list-item">и т.д.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="section" id="comparison">
+				<h2 class="section__title">Операторы сравнения</h2>
+				<div class="section__text-block">
+					<p>В <em>JavaScript</em> бывавют следующие <em>операторы сравнения</em>: <u>классические</u>
+						<em>Больше</em>, <em>Меньше</em>, <em>Больше или равно</em>, <em>Меньше или равно</em>, а также
+						<em>Равно</em> <span class="color-red">==</span> , <em>Не равно</em>
+						<span class="color-red">!=</span>, <em>Тождественно равно</em>
+						<span class="color-red">===</span>, <em>Тождественно не равно</em>
+						<span class="color-red">!==</span> и др.
+					</p>
+					<p>Все <em>операторы сравнения</em> <u>возвращают</u>
+						<span class="color-gold">значение логического типа</span>:
+					</p>
+					<p><span class="color-gold">true</span> – означает «да», «верно», «истина» или
+						<span class="color-gold">false</span> – означает «нет», «неверно», «ложь».
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">2</span> > 
+						<span class="color-gold">1</span>); <span class="section__code-comment"> 
+						// - получим <span class="color-gold">true</span> (верно)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>( <span class="color-gold">2</span> == 
+						<span class="color-gold">1</span> ); <span class="section__code-comment">
+						// - получим <span class="color-gold">false</span> (неверно)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>( <span class="color-gold">2</span> != 
+						<span class="color-gold">1</span> ); <span class="section__code-comment"> 
+						// - получим <span class="color-gold">true</span> (верно)</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Результат сравнения</em> <u>можно присвоить</u> <span class="color-pink">переменной</span>,
+						как и <span class="color-gold">любое значение</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle_small">Сравнение строк</h3>
+				<div class="section__text-block">
+					<p>Чтобы <u>определить</u>, что <span class="color-gold">одна строка</span> <u>больше</u>
+						<span class="color-gold">другой</span>, <em>JavaScript</em> <u>использует</u>
+						<em>«алфавитный»</em> или <em>«лексикографический» порядок</em>. Другими словами,
+						<span class="color-gold">строки</span> <u>сравниваются</u> <em>посимвольно</em>.
+					</p>
+					<p><u>Алгоритм сравнения</u> <span class="color-gold">двух строк</span> довольно прост:</p>
+				</div>
+				<ol class="section__list">
+					<li class="section__list-item">Сначала <u>сравниваются</u>
+						<span class="color-gold">первые символы строк</span>.
+					</li>
+					<li class="section__list-item">Если
+						<span class="color-gold">первый символ первой строки</span> <u>больше / меньше</u>, чем
+						<span class="color-gold">первый символ второй строки</span>, то
+						<span class="color-gold">первая строка</span> <u>больше / меньше</u>
+						<span class="color-gold">второй</span>. <u>Сравнение завершено</u>.
+					</li>
+					<li class="section__list-item">Если <span class="color-gold">первые символы</span> <u>равны</u>, то
+						таким же образом <u>сравниваются</u> уже <span class="color-gold">вторые символы строк</span>
+					</li>
+					<li class="section__list-item"><u>Сравнение продолжается</u>, пока <u>не закончится</u>
+						<span class="color-gold">одна из строк</span>.
+					</li>
+					<li class="section__list-item">Если <span class="color-gold">обе строки</span>
+						<u>заканчиваются одновременно</u>, то <span class="color-gold">они</span> <u>равны</u>. Иначе,
+						<u>большей считается</u> <span class="color-gold">более длинная строка</span>.
+					</li>
+				</ol>
+				<div class="section__text-block">
+					<p><u>Сравнение</u> <span class="color-gold">'Я'</span> <span class="color-red">></span>
+						<span class="color-gold">'А'</span> <u>завершится на первом шаге</u>, тогда как
+						<span class="color-gold">строки</span> <span class="color-gold">'Кот'</span>
+						<span class="color-red">></span> <span class="color-gold">'Код'</span>
+						<u>будут сравниваться посимвольно</u>:
+					</p>
+					<p>В <em>JavaScript</em> <u>имеет значение</u> <em>регистр символов</em>. Заглавная буква
+						<span class="color-gold">"A"</span> <u>не равна</u> строчной
+						<span class="color-gold">"a"</span>. Какая же <span class="color-gold">из них</span>
+						<u>больше</u>? - <span class="color-gold">Строчная "a"</span>, потому что
+						<span class="color-gold">строчные буквы</span> <u>имеют больший код</u> во
+						<em>внутренней таблице кодирования</em> (<em>Unicode</em>), которую использует
+						<em>JavaScript</em>
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Сравнение разных типов</h3>
+				<div class="section__text-block">
+					<p>При <u>сравнении</u> <span class="color-gold">значений разных типов</span> <em>JavaScript</em>
+						<u>приводит</u> каждое из них <span class="color-gold">к числу</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>('2' > 1); <span class="section__code-comment"> 
+						// - вернёт <span class="color-gold">true</span>, строка '2' <u>становится</u> числом 2</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>('01' == 1 ); <span class="section__code-comment"> 
+						// - вернёт <span class="color-gold">true</span>, строка '01' <u>становится</u> числом 1</span> 
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Логическое значение</em> <span class="color-gold">true</span> <u>становится</u>
+						<span class="color-gold">1</span>, а <span class="color-gold">false</span> <u>становится</u>
+						<span class="color-gold">0</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle_small">Строгое сравнение</h3>
+				<div class="section__text-block">
+					<p>Использование <em>обычного сравнения</em> <span class="color-red">==</span>
+						<u>может вызывать проблемы</u>.<u>Например</u>, <em>оно</em> <u>не отличает</u>
+						<span class="color-gold">0</span> от <span class="color-gold">false</span>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">0</span> == 
+						<span class="color-gold">false</span>); <span class="section__code-comment">
+						// - вернёт <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Та же проблема с пустой строкой:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">''</span> ==
+						<span class="color-gold">false</span>); <span class="section__code-comment">
+						// - вернёт <span class="color-gold">true</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Это происходит</u> из-за того, что <em>операнды</em>
+						<span class="color-gold">разных типов</span> <u>преобразуются</u> оператором
+						<span class="color-red">==</span> к <span class="color-gold">числу</span>. <u>В итоге</u>, и
+						<span class="color-gold">пустая строка</span>, и <span class="color-gold">false</span>
+						<u>становятся</u> <span class="color-gold">нулём</span>.
+					</p>
+					<p><em>Оператор строгого равенства</em> <span class="color-red">===</span>
+						<u>проверяет равенство без приведения типов</u>. Другими словами, если
+						<span class="color-pink">a</span> и <span class="color-pink">b</span> <u>имеют</u>
+						<span class="color-gold">разные типы</span>, то <u>проверка</u>
+						<span class="color-pink">a</span> <span class="color-red">===</span>
+						<span class="color-pink">b</span> <u>немедленно возвращает</u>
+						<span class="color-gold">false</span> <u>без попытки преобразования</u>
+						<span class="color-pink">их</span>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>( <span class="color-gold">0</span> === 
+						<span class="color-gold">false</span> ); <span class="section__code-comment">
+						// - вернёт <span class="color-gold">false</span>, т.к. <u>сравниваются</u> 
+						<span class="color-gold">разные типы</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Ещё есть <em>оператор строгого неравенства</em> <span class="color-red">!==</span>, аналогичный
+						<span class="color-red">!=</span>. <em>Оператор строгого равенства</em> дольше писать, но он
+						делает код более очевидным и <u>оставляет меньше места для ошибок</u>.
+					</p>
+				</div>
+				<h3 class="section__subtitle_small">Сравнение с null и undefined</h3>
+				<div class="section__text-block">
+					<p>При <em>строгом равенстве</em> <span class="color-red">===</span>
+						<span class="color-gold">эти значения</span> <u>различны</u>, т.к. <u>различны</u>
+						<span class="color-gold">их типы</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">null</span> === 
+						<span class="color-gold">undefined</span>); <span class="section__code-comment">
+						// - вернёт <span class="color-gold">false</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>При <em>нестрогом равенстве</em> <span class="color-red">==</span>
+						<span class="color-gold">эти значения</span> <u>равны</u>
+						<span class="color-gold">друг другу</span> и <u>не равны</u>
+						<span class="color-gold">никаким другим значениям</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">null</span> == 
+						<span class="color-gold">undefined</span>); <span class="section__code-comment">
+						// - вернёт <span class="color-gold">true</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>При использовании <em>математических операторов</em> и других
+						<em>операторов сравнения</em>, значения <span class="color-gold">null</span> /
+						<span class="color-gold">undefined</span> <u>преобразуются</u>
+						<span class="color-gold">к числам</span>: <span class="color-gold">null</span>
+						<u>становится</u> <span class="color-gold">0</span>, а <span class="color-gold">undefined</span>
+						<u>становится</u> <span class="color-gold">NaN</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Странный результат сравнения</u> 
+							<span class="color-gold">null</span> и <span class="color-gold">0</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">null</span> > 
+						<span class="color-gold">0</span>); <span class="section__code-comment">
+						// - вернёт <span class="color-gold">false</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>( <span class="color-gold">null</span> == 
+						<span class="color-gold">0</span> ); <span class="section__code-comment">
+						// - вернёт <span class="color-gold">false</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">null</span> >= 
+						<span class="color-gold">0</span>); <span class="section__code-comment">
+						// - вернёт <span class="color-gold">true</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Значение <span class="color-gold">undefined</span> <u>несравнимо</u> с
+						<span class="color-gold">другими значениями</span>:
+					</p>
+					<p>Относитесь очень осторожно к <u>любому сравнению</u> с
+						<span class="color-gold">undefined / null</span>, <u>кроме случаев</u>
+						<em>строгого равенства</em> <span class="color-red">===</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-gold">5</span> > <span class="color-gold">4</span>;
+						<span class="section__code-comment">// - вернёт очевидно <span class="color-gold">true</span> 
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">"ананас"</span> > <span class="color-gold">"яблоко"</span>;
+						<span class="section__code-comment">// - вернёт <span class="color-gold">false</span> 
+						т.к. используется посимвольное сравнение</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">"2"</span> > <span class="color-gold">"12"</span>; 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span>, т.к. эти значения сравниваются посимвольно, как строки.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">undefined</span> == <span class="color-gold">null</span>;
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span> 
+						т.к. значения null и undefined равны только друг другу при нестрогом сравнении.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">undefined</span> === <span class="color-gold">null</span>;
+						<span class="section__code-comment">// - вернёт <span class="color-gold">false</span>, 
+						т.к. строгое сравнение разных типов</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">null</span> == <span class="color-gold">"\n0\n"</span>;
+						<span class="section__code-comment">// - вернёт <span class="color-gold">false</span> т.к. null равен только undefined</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">null</span> === +<span class="color-gold">"\n0\n"</span>;
+						<span class="section__code-comment">// - вернёт <span class="color-gold">false</span> т.к строгое сравнение разных типов.</span>
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="logic-operators">
+				<h2 class="section__title">Логические операторы</h2>
+				<div class="section__text-block">
+					<p>В <em>JavaScript</em> есть <u>три <strong>логических оператора</strong></u>:
+						<span class="color-red">||</span> (ИЛИ), <span class="color-red">&&</span> (И) и
+						<span class="color-red">!</span> (НЕ).
+					</p>
+					<p>В <em>алгебре логики</em> <u>рассматривается</u> <em>три основные операции</em>:</p>
+					<p><strong>Отрицание</strong> - <em>оператор НЕ</em> <span class="color-red">!</span>
+						<u>изменяет</u> <span class="color-gold">значение</span> <u>на противоположное</u>.
+					</p>
+					<p><strong>Конъюнкция</strong> - <em>оператор И</em> <span class="color-red">&&</span>.
+						<u>Результат операции будет</u> <span class="color-gold">истинным</span> тогда и только тогда,
+						когда <em>все (два) операнды конъюнкции</em> <span class="color-gold">истинны</span>.
+						<em>Конъюнкция</em> <u>останавливается при нахождении</u>
+						<span class="color-gold">первого ложного значения</span>.
+					</p>
+					<p><strong>Дизъюнкция</strong> - <em>оператор ИЛИ</em> <span class="color-red">||</span>
+						<u>Результат операции будет</u> <span class="color-gold">ложным</span> тогда и только тогда,
+						когда все <em>(два) операнды дизъюнкции</em> <span class="color-gold">ложны</span>: При этом
+						<em>оператор ИЛИ</em> <u>возвращает</u> то <span class="color-gold">значение</span>, на котором
+						<u>остановились вычисления</u>, <u>без преобразования</u> к
+						<span class="color-gold">логическому типу</span>. Один из наиболее распространенных способов
+						<u>использования</u> <em>этого свойства</em> — <u>задание</u>
+						<span class="color-gold">значения по умолчанию</span>, если нет
+						<span class="color-gold">установленного</span>.
+					</p>
+					<p>И <em>две константы</em>: <span class="color-gold">0</span> и <span class="color-gold">1</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>условие</u>: Если текущая страница главная и пользователь авторизован; (состоит из 2 условий)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>действие</u>: Вывод информации о последних операциях.
+						</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><strong>Закон противоречия</strong> гласит, что <em>два противоположных выражения</em>
+						<u>не могут быть одновременно</u> <span class="color-gold">истинными</span>.
+					</p>
+					<p><strong>Закон исключения третьего</strong> гласит, что
+						<span class="color-gold">два противоположных значения</span> <u>не могут быть одновременно</u>
+						<span class="color-gold">ложными</span>.
+					</p>
+					<p><strong>Закон двойного отрицания</strong> гласит, что <u>двойное отрицание</u> какого-то
+						<span class="color-gold">логического значения</span> <u>даёт</u>
+						<span class="color-gold">само значение</span>.
+					</p>
+					<p><strong>Законы де Моргана</strong>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item"><em>Отрицание конъюнкции</em> есть <em>дизъюнкция отрицаний</em>;
+					</li>
+					<li class="section__list-item"><em>Отрицание дизъюнкции</em> есть <em>конъюнкция отрицаний</em>.
+					</li>
+				</ul>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-green">Конъюнкция</span>: isAdmin && isActive
+					</span>
+					<span class="section__code-row">
+						<span class="color-green">Дизъюнкция</span>: isAdmin || isActive
+					</span>
+					<span class="section__code-row">
+						<span class="color-green">Отрицание конъюнкции</span>: !(isAdmin && isActive)
+					</span>
+					<span class="section__code-row">
+						<span class="color-green">Отрицание дизъюнкции</span>: !(isAdmin || isActive)
+					</span>
+					<span class="section__code-row">
+						<span class="color-green">Конъюнкция отрицаний</span>: !isAdmin && !isActive
+					</span>
+					<span class="section__code-row">
+						<span class="color-green">Дизъюнкция отрицаний</span>: !isAdmin || !isActive
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>В соответствии с <strong>законами де Моргана</strong>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">!(<span class="color-pink">isAdmin</span> &&
+						<span class="color-pink">isActive</span>) имеет всегда те же значения, что и
+						!<span class="color-pink">isAdmin</span> || !<span class="color-pink">isActive</span>;
+					</li>
+					<li class="section__list-item">!(<span class="color-pink">isAdmin</span> ||
+						<span class="color-pink">isActive</span>) имеет всегда те же значения, что и
+						!<span class="color-pink">isAdmin</span> && !<span class="color-pink">isActive</span>
+					</li>
+				</ul>
+			</section>
+
+			<section class="section" id="or">
+				<h3 class="section__subtitle">|| (ИЛИ)</h3>
+				<div class="section__text-block">
+					<p>Существует всего <u>четыре возможные логические комбинации</u> с
+						<span class="color-gold">булевыми значениями</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">true</span> 
+						<span class="color-red">||</span> <span class="color-gold">true</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">false</span> 
+						<span class="color-red">||</span> <span class="color-gold">true</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">true</span> 
+						<span class="color-red">||</span> <span class="color-gold">false</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">false</span> 
+						<span class="color-red">||</span> <span class="color-gold">false</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">false</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Результат операций всегда равен</u> <span class="color-gold">true</span>, за исключением
+						случая, когда <em>оба аргумента</em> <span class="color-gold">false</span>. Если
+						<span class="color-gold">значение не логического типа</span>, то
+						<span class="color-gold">оно</span> к <span class="color-gold">нему</span> <u>приводится</u> в
+						целях вычислений. <u>Например</u>, число <span class="color-gold">1</span>
+						<u>будет воспринято</u> как <span class="color-gold">true</span>, а
+						<span class="color-gold">0</span> – как <span class="color-gold">false</span>.
+					</p>
+					<p>Обычно <em>оператор</em> <span class="color-red">||</span> <u>используется</u> в
+						<span class="color-red">if</span> для <u>проверки истинности</u> любого из
+						<em>заданных условий</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">hour</span> =
+						<span class="color-gold">9</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">hour</span> < 
+						<span class="color-gold">10</span> || <span class="color-pink">hour</span> > 
+						<span class="color-gold">18</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Офис закрыт.'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">-------------------</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">time</span> = 
+						<span class="color-gold">12</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">isWeekend</span> = 
+						<span class="color-gold">true</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">time</span> < 
+						<span class="color-gold">10</span> || <span class="color-pink">time</span> > 
+						<span class="color-gold">18</span> || <span class="color-pink">isWeekend</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Офис закрыт.'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>ИЛИ</em> <span class="color-red">||</span> <u>находит</u>
+						<span class="color-gold">первое истинное значение</span>
+					</p>
+					<p><u>При выполнении</u> <em>ИЛИ</em> <span class="color-red">||</span> с
+						<span class="color-gold">несколькими значениями</span>: <span class="color-red">let</span>
+						<span class="color-pink">result</span> = <span class="color-gold">value1</span>
+						<span class="color-red">||</span> <span class="color-gold">value2</span>
+						<span class="color-red">||</span> <span class="color-gold">value3</span>, <em>оператор</em>
+						<span class="color-red">||</span> <u>выполняет следующие действия</u>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item"><u>Вычисляет</u> <em>операнды</em> <u>слева направо</u>.</li>
+					<li class="section__list-item"><em>Каждый операнд</em> <u>конвертирует</u> в
+						<span class="color-gold">логическое значение</span>. Если <u>результат</u>
+						<span class="color-gold">true</span>, <u>останавливается и возвращает</u>
+						<span class="color-gold">исходное значение этого операнда</span>.
+					</li>
+					<li class="section__list-item">- Если <span class="color-gold">все операнды</span> являются ложными
+						(<span class="color-gold">false</span>), <span class="color-red">возвращает</span> <span
+							class="color-gold">последний из них</span>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><span class="color-gold">Значение</span> <u>возвращается</u> в исходном виде,
+						<u>без преобразования</u>.
+					</p>
+					<p>Другими словами, <em>цепочка ИЛИ</em> <span class="color-red">||</span> <u>возвращает</u>
+						<span class="color-gold">первое истинное значение</span> или
+						<span class="color-gold">последнее значение</span>, если
+						<span class="color-gold">такое значение</span> <u>не найдено</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">1</span> || 
+						<span class="color-gold">0</span>); <span class="section__code-comment">// - 
+						вернёт <span class="color-gold">1</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">true</span> || 
+						<span class="color-gold">'no matter what'</span>); <span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">null</span> || 
+						<span class="color-gold">1</span>); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">1</span> (первое истинное значение)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">null</span> || 
+						<span class="color-gold">0</span> || <span class="color-gold">1</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">1</span> (первое истинное значение)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">undefined</span> || 
+						<span class="color-gold">null</span> || <span class="color-gold">0</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">0</span> (поскольку все ложно, возвращается последнее значение)</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Применение оператора ||</h3>
+				<div class="section__text-block">
+					<p><b>1.</b> <u>Получение</u> <span class="color-gold">первого истинного значения</span> из
+						<span class="color-pink">списка переменных</span> или <em>выражений</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Представим, что у нас имеется <span class="color-pink">ряд переменных</span>, которые <u>могут содержать</u> <span class="color-gold">данные</span> или быть <span class="color-gold">null / undefined</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">currentUser</span> = 
+						<span class="color-gold">null</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">defaultUser</span> = 
+						<span class="color-gold">"John"</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">name</span> = 
+						<span class="color-pink">currentUser</span> || <span class="color-pink">defaultUser</span> || <span class="color-gold">"unnamed"</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">name</span>); 
+						<span class="section__code-comment">// - <u>получим</u> <span class="color-gold">"John"</span> – первое истинное значение</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Если бы и <span class="color-pink">currentUser</span>, и <span class="color-pink">defaultUser</span> были <span class="color-gold">ложными</span>, в  <u>результате</u> был бы <span class="color-gold">"unnamed"</span></span>
+				</code>
+				<div class="section__text-block">
+					<p><b>2.</b> Сокращённое вычисление.</p>
+					<p><em>Операндами</em> <u>могут быть</u> как <span class="color-gold">отдельные значения</span>, так
+						и <em>произвольные выражения</em>. <em>ИЛИ</em> <span class="color-red">||</span>
+						<u>вычисляет их слева направо</u>. <u>Вычисление останавливается</u> при достижении
+						<span class="color-gold">первого истинного значения</span>. <u>Этот процесс</u> называется
+						<strong>«сокращённым вычислением»</strong>, поскольку <em>второй операнд</em> <u>вычисляется</u>
+						только в том случае, если <em>первого</em> <u>недостаточно для вычисления</u>
+						<em>всего выражения</em>. Это хорошо заметно, когда <em>выражение</em>, <u>указанное</u> в
+						качестве <em>второго аргумента</em>, <u>имеет</u> побочный эффект, например, <u>изменение</u>
+						<span class="color-pink">переменной</span>.
+					</p>
+					<p>В приведённом ниже примере <span class="color-pink">переменная</span> <u>не изменяется</u>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">x</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">true</span> || (<span class="color-pink">x</span> = 
+						<span class="color-gold">1</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">x</span>); 
+						<span class="section__code-comment"> // - получим <span class="color-gold">undefined</span>, потому что (<span class="color-pink">x</span> = <span class="color-gold">1</span>) 
+						<u>не вычисляется</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Если бы <u>первый аргумент имел значение</u> 
+						<span class="color-gold">false</span>, то <span class="color-red">||</span> <u>приступил бы к вычислению второго</u> и <u>выполнил операцию присваивания</u></span>
+					</span>
+					<span class="section__code-row">-------------------</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">x</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">false</span> || (<span class="color-pink">x</span> = 
+						<span class="color-gold">1</span>);
+					</span>				
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">x</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">1</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Как мы видим, этот <u>вариант использования</u> <span class="color-red">||</span>
+						<u>является</u> "аналогом <span class="color-red">if</span>". <em>Первый операнд</em>
+						<u>преобразуется</u> в <span class="color-gold">логический</span>. Если <em>он</em>
+						<u>оказывается</u> <span class="color-gold">ложным</span>, <u>начинается вычисление</u>
+						<em>второго</em>. В большинстве случаев <u>лучше использовать</u> «обычный»
+						<span class="color-red">if</span>, чтобы облегчить понимание кода, но иногда это может быть
+						удобно.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="and">
+				<h3 class="section__subtitle">&& (И)</h3>
+				<div class="section__text-block">
+					<p>В <em>традиционном программировании</em> <em>И</em> <u>возвращает</u>
+						<span class="color-gold">true</span>, если <em>оба аргумента</em>
+						<span class="color-gold">истинны</span>, а <u>иначе</u> – <span class="color-gold">false</span>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">true</span> && 
+						<span class="color-gold">true</span> ); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">false</span> && 
+						<span class="color-gold">true</span> ); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">false</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">true</span> && 
+						<span class="color-gold">false</span> ); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">false</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">false</span> && 
+						<span class="color-gold">false</span> ); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">false</span></span>
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">hour</span> = 
+						<span class="color-gold">12</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">minute</span> = 
+						<span class="color-gold">30</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span>(<span class="color-pink">hour</span> == 
+						<span class="color-gold">12</span> && <span class="color-pink">minute</span> == 
+						<span class="color-gold">30</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'The time is 12:30'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Как и в случае с <span class="color-red">||</span>, 
+						<span class="color-gold">любое значение</span> <u>допускается</u> в качестве операнда 
+						<span class="color-red">&&</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-gold">1</span> && 
+						<span class="color-gold">0</span>) { <span class="section__code-comment">// <u>вычисляется</u> как <span class="color-gold">true</span> && <span class="color-gold">false</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>("<u>не сработает</u>, так как результат 
+						<span class="color-gold">ложный</span>");
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>И</em> «<span class="color-red">&&</span>» <u>находит</u>
+						<span class="color-gold">первое ложное значение</span>
+					</p>
+					<p>При нескольких подряд операторах <span class="color-red">И</span>:
+						<span class="color-pink">result</span> = <span class="color-pink">value1</span>
+						<span class="color-red">&&</span> <span class="color-pink">value2</span>
+						<span class="color-red">&&</span> <span class="color-pink">value3</span>; Оператор
+						<span class="color-red">&&</span> <u>выполняет следующие действия</u>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item"><span class="color-red">Вычисляет</span> <em>операнды</em>
+						<u>слева направо</u>.
+					</li>
+					<li class="section__list-item"><em>Каждый операнд</em> <u>преобразует</u> в
+						<span class="color-gold">логическое значение</span>. Если <u>результат</u>
+						<span class="color-gold">false</span>, <u>останавливается</u> и <u>возвращает</u>
+						<span class="color-gold">исходное значение этого операнда</span>.
+					</li>
+					<li class="section__list-item">Если <em>все операнды</em> <u>были</u>
+						<span class="color-gold">истинными</span>, <u>возвращается</u> <em>последний операнд</span>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p>Другими словами, <em>И</em> <u>возвращает</u>
+						<span class="color-gold">первое ложное значение</span> или
+						<span class="color-gold">последнее</span>, если <u>ничего не найдено</u>.
+					</p>
+					<p><em>Эти правила</em> <u>схожи</u> с поведением <em>ИЛИ</em>, <u>разница</u> в том, что <em>И</em>
+						<u>возвращает</u> <span class="color-gold">первое ложное значение</span>, а <em>ИЛИ</em> –
+						<span class="color-gold">первое истинное значение</span>. <u>Примеры</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Если первый операнд 
+						<span class="color-gold">истинный</span>, <span class="color-red">&&</span> <u>возвращает</u> второй:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">1</span> && 
+						<span class="color-gold">0</span>); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">0</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">1</span> && 
+						<span class="color-gold">5</span>); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">5</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Если первый операнд <span class="color-gold">ложный</span>, <span class="color-red">&&</span> <u>возвращает</u> его. Второй операнд <u>игнорируется</u>
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">null</span> && 
+						<span class="color-gold">5</span>); <span class="section__code-comment">// - вернёт 
+						<span class="color-gold">null</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">0</span> && 
+						<span class="color-gold">"no matter what"</span>); <span class="section__code-comment">// - вернёт <span class="color-gold">0</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Можно <u>передать</u> несколько значений подряд. В таком случае <u>возвратится</u> первое «ложное» значение, на котором остановились вычисления.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">1</span> && 
+						<span class="color-gold">2</span> && <span class="color-gold">null</span> && 
+						<span class="color-gold">3</span>); <span class="section__code-comment">// - получим 
+						<span class="color-gold">null</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Когда все значения верны, возвращается последнее</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">1</span> && 
+						<span class="color-gold">2</span> && <span class="color-gold">3</span> ); 
+						<span class="section__code-comment"> // - получим <span class="color-gold">3</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Приоритет</u> <em>оператора И</em> <span class="color-red">&&</span> <u>больше</u>, чем
+						<em>ИЛИ</em> <span class="color-red">||</span>, так что <em>он</em> <u>выполняетсяраньше</u>.
+						Т.о., <en>код</en>: <span class="color-pink">a</span> <span class="color-red">&&</span>
+						<span class="color-pink">b</span> <span class="color-red">||</span>
+						<span class="color-pink">c</span> <span class="color-red">&&</span>
+						<span class="color-pink">d</span> по существу <u>такой же</u>, как если бы <em>выражения</em>
+						<span class="color-red">&&</span> были в <em>круглых скобках</em>:
+						(<span class="color-pink">a</span> <span class="color-red">&&</span>
+						<span class="color-pink">b</span>) <span class="color-red">||</span>
+						(<span class="color-pink">c</span> <span class="color-red">&&</span>
+						<span class="color-pink">d</span>).
+					</p>
+				</div>
+			</section>
+
+			<section class="" id="negation">
+				<h3 class="section__subtitle">! (НЕ)</h3>
+				<div class="section__text-block">
+					<p><em>Оператор (НЕ)</em> <span class="color-red">!</span> <u>принимает</u> <em>один аргумент</em>
+						и <u>выполняет следующие действия</u>:
+					</p>
+					<p>Сначала <u>приводит аргумент</u> к <span class="color-gold">логическому типу</span>
+						(<span class="color-gold">true / false</span>), затем <u>возвращает</u>
+						<span class="color-gold">противоположное значение</span>. <u>Например</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(!<span class="color-gold">true</span>); 
+						<span class="section__code-comment">// - результат: <span class="color-gold">false</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(!<span class="color-gold">0</span>); 
+						<span class="section__code-comment">// - результат: <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">двойное НЕ <span class="color-red">!!</span> 
+						<u>используют для преобразования</u> <span class="color-gold">значений к логическому типу
+						</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(!!<span class="color-gold">"non-empty string"</span>);
+						<span class="section__code-comment">// - результат: <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(!!<span class="color-gold">null</span>); 
+						<span class="section__code-comment">// - результат: <span class="color-gold">false</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						То есть первое НЕ <u>преобразует</u> <span class="color-gold">значение</span> в 
+						<span class="color-gold">логическое значение</span> и <u>возвращает</u> 
+						<span class="color-gold">обратное</span>, а второе НЕ снова <u>инвертирует</u> 
+						<span class="color-gold">его</span>. В конце <u>мы имеем простое преобразование</u> 
+						<span class="color-gold">значения</span> в <span class="color-gold">логическое</span>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Есть немного <u>более подробный способ</u> сделать то же самое – <em>встроенная функция</em>
+						<span class="color-red">Boolean</span>()
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-red">Boolean</span>
+						(<span class="color-gold">"non-empty string"</span>)); <span class="section__code-comment">// - вернет <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-red">Boolean</span>
+						(<span class="color-gold">null</span>)); <span class="section__code-comment">// - вернет <span class="color-gold">false</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Приоритет</u> <em>НЕ</em> <span class="color-red">!</span> <u>является наивысшим</u>
+						<em>из всех логических операторов</em>, поэтому <em>он</em> всегда <u>выполняется первым</u>,
+						перед <span class="color-red">&&</span> или <span class="color-red">||</span>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="zero-merge">
+				<h3 class="section__subtitle">Оператор нулевого слияния (??)</h3>
+				<div class="section__text-block">
+					<p><span class="color-gold">Результат</span> <em>выражения</em> <span class="color-pink">a</span>
+						<span class="color-red">??</span> <span class="color-pink">b</span> <u>будет следующим</u>:
+					</p>
+					<p><span class="color-pink">a</span>, если <span class="color-gold">значение</span>
+						<span class="color-pink">a</span> <u>определено</u>,
+					</p>
+					<p><span class="color-pink">b</span>, если <span class="color-gold">значение</span>
+						<span class="color-pink">a</span> <u>не определено</u>.
+					</p>
+					<p>То есть <em>оператор</em> <span class="color-red">??</span> <u>возвращает</u>
+						<em>первый аргумент</em>, если он не <span class="color-gold">null / undefined</span>, иначе
+						<em>второй</em>. (как из двух значений получить одно «определённое»).
+					</p>
+					<p>Вот как можно переписать выражение <span class="color-pink">result</span> =
+						<span class="color-pink">a</span> <span class="color-red">??</span>
+						<span class="color-pink">b</span>, <u>используя</u> <em>уже знакомые нам операторы</em>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">result</span> = 
+						(<span class="color-pink">a</span> !== <span class="color-gold">null</span> && 
+						<span class="color-pink">a</span> !== <span class="color-gold">undefined</span>) ? 
+						<span class="color-pink">a</span> : <span class="color-pink">b</span>;
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Как правило, <em>оператор</em> <span class="color-red">??</span> <u>нужен для</u> того, чтобы
+						<u>задать</u> <span class="color-gold">значение по умолчанию</span> для
+						<span class="color-pink">потенциально неопределённой переменной</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">если переменная <span class="color-pink">user</span> 
+						<u>не определена</u>, <u>покажем</u> модальное окно с надписью 'Аноним'</span>	
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">user</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">user</span> ?? 
+						<span class="color-gold">"Аноним"</span>); <span class="section__code-comment">// - получим <span class="color-gold">Аноним</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Если бы переменная <span class="color-pink">user</span> <u>содержала</u> <span class="color-gold">любое значение</span>, кроме 
+						<span class="color-gold">null / undefined</span>, то мы бы получили его.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">user</span> = 
+						<span class="color-gold">"Иван"</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">user</span> ?? 
+						<span class="color-gold">"Аноним"</span>); <span class="section__code-comment"> // - получим
+						<span class="color-gold">Иван</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Кроме этого, <u>можно записать</u> <em>последовательность из операторов</em>
+						<span class="color-red">??</span>, чтобы <u>получить</u>
+						<span class="color-gold">первое значение из списка</span>, которое <u>не является</u>
+						<span class="color-gold">null / undefined</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">firstName</span> = 
+						<span class="color-gold">null</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">lastName</span> = 
+						<span class="color-gold">null</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">nickName</span> = 
+						<span class="color-gold">"Суперкодер"</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">firstName</span> ?? 
+						<span class="color-pink">lastName</span> ?? <span class="color-pink">nickName</span> ??
+							<span class="color-gold">"Аноним"</span>); <span class="section__code-comment">// - получим
+							<span class="color-gold">Суперкодер</span>, первое определённое значение</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">||</span> <u>возвращает</u>
+						<span class="color-gold">первое истинное значение</span>, а <span class="color-red">??</span>
+						<u>возвращает</u> <span class="color-gold">первое определённое значение</span>.
+					</p>
+					<p>Проще говоря, <em>оператор</em> <span class="color-red">||</span> <u>не различает</u>
+						<span class="color-gold">false</span>, <span class="color-gold">0</span>,
+						<em>пустую строку</em> <span class="color-gold">""</span> и
+						<span class="color-gold">null / undefined</span>. Для <em>него</em>
+						<span class="color-gold">они все</span> <u>одинаковые</u>, т.е. <u>являются</u>
+						<span class="color-gold">ложными значениями</span>. Если <em>первым аргументом</em> для
+						<em>оператора</em> <span class="color-red">||</span> <u>будет</u>
+						<span class="color-gold">любое из перечисленных значений</span>, то в качестве
+						<u>результата мы получим</u> <em>второй аргумент</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">height</span> = 
+						<span class="color-gold">0</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">height</span> || 
+						<span class="color-gold">100</span>); <span class="section__code-comment">// - вернёт
+							<span class="color-gold">100</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">height</span> ?? 
+						<span class="color-gold">100</span>); <span class="section__code-comment">// - вернёт
+							<span class="color-gold">0</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-pink">height</span> || 
+						<span class="color-gold">100</span> <u>проверяет</u>, имеет ли переменная 
+						<span class="color-pink">height</span> <span class="color-gold">ложное значение</span>, что так и есть.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Т.о. <u>результатом является</u> второй аргумент, т.e. <span class="color-gold">100</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-pink">height</span> ?? 
+						<span class="color-gold">100</span> <u>проверяет</u>, что переменная 
+						<span class="color-pink">height</span> <u>содержит</u> <span class="color-gold">null</span> / <span class="color-gold">undefined</span>, а поскольку это не так, то 
+						<u>результатом является</u> сама переменная <span class="color-pink">height</span>, т.е. 
+						<span class="color-gold">0</span>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Оператор <span class="color-red">??</span> <u>имеет низкий приоритет</u>:
+						<em>4</em>. Т.о., оператор <span class="color-red">??</span> <u>вычисляется до</u>
+						<span class="color-red">=</span> и <span class="color-red">?</span>, <u>но после</u>
+						большинства <em>других операций</em>, таких как <span class="color-red">+</span>,
+						<span class="color-red">*</span> и т.д. <u>Если нужно выбрать</u>
+						<span class="color-gold">значение</span> при помощи <em>оператора</em>
+						<span class="color-red">??</span> вместе с <em>другими операторами</em> в <em>выражении</em>,
+						<u>следует добавить</u> <em>круглые скобки</em> <span class="color-red">()</span>:
+						<u>Запрещено использовать вместе</u> с <span class="color-red">||</span> или
+						<span class="color-red">&&</span> <u>без явно указанных</u> <em>круглых скобок</em>
+						<span class="color-red">()</span>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="binary-search">
+				<h3 class="section__subtitle">Алгоритм бинарного поиска</h3>
+				<ol class="section__list">
+					<li class="section__list-item"><u>Определение</u> <span class="color-gold">значения элемента</span>
+						<u>в середине</u> <em>структуры данных</em>. <span class="color-gold">Полученное значение</span>
+						<u>сравнивается</u> с <em>ключом</em>.
+					</li>
+					<li class="section__list-item">Если <em>ключ</em> <u>меньше</u>
+						<span class="color-gold">значения середины</span>, то <u>поиск осуществляется</u> в
+						<em>первой половине элементов</em>, <u>иначе</u> — <em>во второй</em>.
+					</li>
+					<li class="section__list-item"><u>Поиск сводится</u> к тому, что <u>вновь определяется</u>
+						<span class="color-gold">значение серединного элемента</span> в <em>выбранной половине</em> и
+						<u>сравнивается</u> с <em>ключом</em>.
+					</li>
+					<li class="section__list-item"><u>Процесс продолжается</u> до тех пор, пока <u>не будет найден</u>
+						<span class="color-gold">элемент со значением</span> <em>ключа</em> или <u>не станет пустым</u>
+						<em>интервал для поиска</em>.
+					</li>
+				</ol>
+				<div class="section__text-block">
+					<p><em>Бинарный поиск</em> <u>показывает хорошие результаты</u> по скорости на
+						<em>больших упорядоченных списках</em>. На <em>неупорядоченных</em> — <em>бинарный поиск</em>
+						<u>не работает</u> (не имеет смысла шаг 2).
+					</p>
+					<p>В <u>зависимости от размера</u> <span class="color-pink">массива</span> легко <u>предугадать</u>
+						<em>максимальное количество шагов поиска</em>: <em>1 + log₂N</em>, где <em>N</em> — число
+						элементов. Разумеется, <em>число</em> <u>требуется округлить до целого</u>.
+					</p>
+					<p><em>Логические операторы</em> <u>могут применяться</u> к
+						<span class="color-gold">значениям любых типов</span>. <u>Полученные результаты</u>
+						<u>могут иметь</u> <span class="color-gold">различный тип</span>.
+					</p>
+				</div>
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="./data-types.html">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="./uslovnoe-vetvlenie.html">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">
+							Решение задач JS
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

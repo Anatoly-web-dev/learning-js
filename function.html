@@ -1,0 +1,1358 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Обучение JavaScript, основы JavaScript, JS для начинающих, функции">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. В этом разделе узнаете о функциях в JavaScript, как с ними работать и какие бывают виды">
+	<title>JavaScript. Функции</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+			<h2 class="section__title">Функции в JavaScript</h2>
+			<section class="section" id="functions">
+				<h2 class="section__subtitle">Объявление функции</h2>
+				<div class="section__text-block">
+					<p>Чтобы <u>не повторять</u> <em>один и тот же код</em> во многих местах, <u>придуманы</u>
+						<span class="color-red">функции</span>. <span class="color-red">Функции</span> <u>являются</u>
+						основными «<em>строительными блоками» программы</em>.
+					</p>
+					<p><u>Синтаксис объявления</u> <span class="color-red">функции</span>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">имяФункции</span>
+						(<span class="color-pink">параметры</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">тело функции...</span>
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">showMessage</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Всем привет!'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">showMessage</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">showMessage</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>Вызов</u> 
+						<span class="color-blue">showMessage</span>() <u>выполняет</u> <em>код</em> 
+						<span class="color-red">функции</span>. (Увидим сообщение дважды)</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Одно из <u>главных предназначений</u> <span class="color-red">функций</span>:
+						<u>избавлениеот дублирования</u> <em>кода</em>. Если понадобится поменять сообщение или способ
+						его вывода – <u>достаточно изменить</u> <em>его</em> в <u>одном месте</u>: в
+						<span class="color-red">функции</span>, которая <em>его</em> <u>выводит</u>.
+					</p>
+					<p><span class="color-pink">Переменные</span>, <u>объявленные внутри</u>
+						<span class="color-red">функции</span>, <u>видны только внутри</u>
+						<span class="color-red">этой функции</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">showMessage</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">message</span> = 
+						<span class="color-gold">"Привет, я JavaScript!"</span>; <span class="section__code-comment">// - <span class="color-pink">локальная переменная</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">message</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">showMessage</span>(); <span class="section__code-comment">// - выведет сообщение <span class="color-gold">Привет, я JavaScript!</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>( <span class="color-pink">message</span> ); 
+						<span class="section__code-comment">// - <u>будет ошибка</u>, т.к. 
+						<span class="color-pink">переменная</span> <u>видна только внутри</u> 
+						<span class="color-red">функции</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Функция</span> <u>обладает полным доступом</u> к
+						<span class="color-pink">внешним переменным</span> и <u>может изменять</u>
+						<span class="color-pink">их</span> <span class="color-gold">значение</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">userName</span> = 
+						<span class="color-gold">'Вася'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">showMessage</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">userName</span> = <span class="color-gold">"Петя"</span>; 
+						<span class="section__code-comment">// - <u>изменяем</u> 
+						<span class="color-gold">значение</span> 
+						<span class="color-pink">внешней переменной</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">message</span> = 
+						<span class="color-gold">'Привет',</span> + <span class="color-pink">userName</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span><span class="color-pink">(message</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">userName</span>); 
+						<span class="section__code-comment">// - выведет <span class="color-gold">Вася</span> 
+						<u>перед вызовом</u> <span class="color-red">функции</span></span>.
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">showMessage</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">userName</span>); 
+						<span class="section__code-comment">// - выведет <span class="color-gold">Петя</span>, 
+						<span class="color-gold">значение</span> <span class="color-pink">внешней переменной</span>  <u>было изменено</u> <span class="color-red">функцией</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-pink">Внешняя переменная</span> <u>используется только</u> если <u>внутри</u>
+						<span class="color-red">функции</span> <u>нет</u>
+						<span class="color-pink">такой локальной</span>. Если
+						<span class="color-pink">одноимённая переменная</span> <u>объявляется внутри</u>
+						<span class="color-red">функции</span>, тогда <span class="color-pink">она</span>
+						<u>перекрывает</u> <span class="color-pink">внешнюю</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">userName</span> = 
+						<span class="color-gold">'Вася'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">showMessage</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">userName</span> = 
+						<span class="color-gold">'Петя'</span>; <span class="section__code-comment">// - 
+						<u>объявляем</u> <span class="color-pink">локальную переменную</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">message</span> = 
+						<span class="color-gold">'Привет',</span> + <span class="color-pink">userName</span>; 
+						<span class="section__code-comment">// - вернёт 
+						<span class="color-gold">Привет, Петя</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">message</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">showMessage</span>(); <span class="section__code-comment">// - 
+						<span class="color-red">функция</span> <u>создаст</u> и <u>будет использовать</u> свою <em>собственную локальную переменную</em> <span class="color-pink">userName</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">userName</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">Вася</span>, 
+						<soan class="color-pink">переменная</soan> <u> не изменилась</u>. 
+						<span class="color-red">Функция</span> <u>не трогала</u> 
+						<em>внешнюю переменную</em> <span class="color-pink">userName</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-pink">Переменные</span>, <u>объявленные снаружи</u> всех
+						<span class="color-red">функций</span> <u>называются</u> <strong>глобальными</strong>.
+						<span class="color-pink">Глобальные переменные</span> <u>видимы</u> для
+						<span class="color-red">любой функции</span> (если только <span class="color-pink">их</span>
+						<u>не перекрывают</u> <span class="color-pink">одноимённые локальные переменные</span>).
+						Желательно <u>сводить использование</u> <span class="color-pink">глобальных переменных</span>
+						<u>к минимуму</u>.
+					</p>
+					<p><span class="color-red">Вложенная функция</span> <u>не может быть вызвана извне</u>
+						<span class="color-red">функции включения</span>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="parameters">
+				<h3 class="section__subtitle">Параметры функции</h3>
+				<div class="section__text-block">
+					<p>Мы <u>можем передать внутрь</u> <span class="color-red">функции</span> любую <em>информацию</em>,
+						<u>используя</u> <em>параметры</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">showMessage</span>
+						(<span class="color-pink">from</span>, <span class="color-pink">text</span>) { 
+						<span class="section__code-comment">// - <em>аргументы</em>: 
+						<span class="color-pink">from</span>, <span class="color-pink">text</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">from</span> + 
+						<span class="color-gold">':'</span> + <span class="color-pink">text</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">showMessage</span>(<span class="color-gold">'Аня'</span>, 
+						<span class="color-gold">'Привет!'</span>); <span class="section__code-comment">// - получим
+						<span class="color-gold">Аня : Привет!</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">showMessage</span>(<span class="color-gold">'Аня'</span>, 
+						<span class="color-gold">'Как дела?'</span>); <span class="section__code-comment">// - получим <span class="color-gold">Аня: Как дела?</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">переданные значения</span> <u>копируются</u> в 
+						<span class="color-pink">локальные переменные</span> <span class="color-pink">from</span> и <span class="color-pink">text</span>. <u>Затем</u> <span class="color-gold">они</span> <u>используются</u> в <em>теле функции</em>.
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Параметр</em> – это <span class="color-pink">переменная</span>, указанная в
+						<span class="color-blue">круглых скобках</span> в <u>объявлении</u>
+						<span class="color-red">функции</span>.
+						<em>Аргумент</em> – это <span class="color-gold">значение</span>, которое <u>передаётся</u>
+						<span class="color-red">функции</span><u> при её вызове</u>. Мы <u>объявляем</u>
+						<span class="color-red">функции</span> со <em>списком параметров</em>, <u>затем вызываем</u>
+						<em>их</em>, <u>передавая</u> <em>аргументы</em>.
+					</p>
+					<p>В качестве <em>аргумента</em> <u>можно передать</u>
+						<span class="color-gold">любое значение</span>: строки, числа, логические значения, массивы,
+						объекты, а также другие функции.
+					</p>
+					<p>Если <em>параметр</em> <u>не указан</u>, то <em>его</em>
+						<span class="color-gold">значением</span> <u>становится</u>
+						<span class="color-gold">undefined</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Если мы хотим <u>задать</u> <em>параметру</em> 
+						<span class="color-pink">text</span> <span class="color-gold">значение по умолчанию</span>, мы <u>должны указать</u> <span class="color-gold">его</span> <u>после</u> 
+						<span class="color-blue">=</span> <u>при объявлении</u> 
+						<span class="color-red">функции</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">showMessage</span>
+						(<span class="color-pink">from</span>, <span class="color-pink">text</span> = 
+						<span class="color-gold">"текст не добавлен"</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">from</span> + 
+						<span class="color-gold">':'</span> + <span class="color-pink">text</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">showMessage</span>(<span class="color-gold">'Аня'</span>); 
+						<span class="section__code-comment">// - <u>получим</u> 
+						<span class="color-gold">Аня: текст не добавлен</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - Теперь, если <em>параметр</em> 
+						<span class="color-pink">text</span> <u>не указан</u> <u>во время вызова</u> 
+						<span class="color-red">функции</span>, его <span class="color-gold">значением</span> 
+						<u>будет</u> <span class="color-gold">'текст не добавлен'</span></span>
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="return-functions">
+				<h3 class="section__subtitle">Возврат значения (return)</h3>
+				<div class="section__text-block">
+					<p>Для <u>сохранения</u> <em>результата выполнения</em> <span class="color-red">функции</span> и
+						<u>передачи</u> <em>его</em> для <u>использования</u> к
+						<span class="color-red">другим функциям</span> <u>используется</u> <em>ключевое действие</em>
+						<span class="color-red">return</span>.
+					</p>
+					<p><span class="color-red">Функция</span> <u>может вернуть</u> <em>результат</em>, который
+						<u>будет передан</u> в вызвавший её <em>код</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">sum</span>
+						(<span class="color-pink">a</span>, <span class="color-pink">b</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">a</span> + 
+						<span class="color-pink">b</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">result</span> = 
+						<span class="color-blue">sum</span>(<span class="color-gold">1</span>, 
+						<span class="color-gold">2</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">result</span>); 
+						<span class="section__code-comment">// - получим <span class="color-gold">3</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Директива</em> <span class="color-red">return</span> <u>может находиться в любом месте</u> в
+						<em>тела функции</em>. Как только <u>выполнение доходит до этого места</u>,
+						<span class="color-red">функция</span> <u>останавливается</u>, и
+						<span class="color-gold">значение</span> <u>возвращается</u> в <em>вызвавший её код</em>
+						(<u>присваивается</u> <em>переменной</em> <span class="color-pink">result</span> выше).
+						<u>Вызовов</u> <span class="color-red">return</span> <u>может быть несколько</u>.
+					</p>
+					<p>Через <span class="color-red">return</span> <u>можно сделать возврат</u>
+						<span class="color-gold">значения</span> внутри блоков <span class="color-red">if else</span>.
+						Такое же <em>правило</em> <u>применяется</u> во
+						<span class="color-red">вложенных функциях</span>, если <u>требуется сохранить</u>
+						<em>результат</em> для <u>передачи</u> <span class="color-red">другим внешним функциям</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">checkAge</span>
+						(<span class="color-pink">age</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">age</span> > 
+						<span class="color-gold">18</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-gold">true</span>;
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-red">confirm</span>(
+						<span class="color-gold">'А родители разрешили?'</span> );
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">age</span> = 
+						<span class="color-red">prompt</span>(<span class="color-gold">'Сколько вам лет?'</span>, 
+						<span class="color-gold">18</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-blue">checkAge</span>
+						(<span class="color-pink">age</span>)) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Доступ получен'</span>);
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Доступ закрыт'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Результат</u> <span class="color-red">функции</span> с <u>пустым</u>
+						<span class="color-red">return</span> или <u>без него</u> –
+						<span class="color-gold">undefined</span>
+					</p>
+					<p><u>Никогда не добавляйте</u> <em>перевод строки</em> между
+						<span class="color-red">return</span> и <span class="color-gold">его значением</span>
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="names-functions">
+				<h3 class="section__subtitle">Имена функций</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Функция</span> – это <em>действие</em>. Поэтому <em>имя</em>
+						<span class="color-red">функции</span> обычно <u>является глаголом</u>.
+						<span class="color-red">Функция</span> <u>должна делать</u> только то, что явно подразумевается
+						<span class="color-red">её</span> <em>названием</em>. И это <u>должно быть</u>
+						<em>одним действием</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">showMessage</span>() {...} 
+						<span class="section__code-comment">// - показывает сообщение</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">getAge</span>() {...} 
+						<span class="section__code-comment">// - возвращает возраст (в каком-либо значении)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">calcSum</span>() {...} 
+						<span class="section__code-comment">// - вычисляет сумму и возвращает результат</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">createForm</span>() {...} 
+						<span class="section__code-comment">// - создаёт форму (и обычно возвращает её)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">checkPermission</span>() {...} 
+						<span class="section__code-comment">// - проверяет доступ, возвращая true / false</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Функции</span> <u>должны быть</u> короткими и <u>делать</u> только что-то
+						одно. Если это что-то большое, имеет смысл <u>разбить</u>
+						<span class="color-red">функцию</span> на несколько меньших.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="types-functions">
+				<h3 class="section__subtitle">Function Expression & Function Declaration</h3>
+				<div class="section__text-block">
+					<p>Когда <span class="color-red">функция</span> <u>объявляется по названию</u>,
+						<em>среда выполнения</em> <u>сохраняет</u> <span class="color-red">функцию</span> в
+						<em>памяти</em>. <u>Во время вызова</u> <span class="color-red">функции</span> <u>создается</u>
+						<em>ссылка на сохранённое название</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row"><span class="color-red">function</span> 
+					<span class="color-blue">название</span>() { </span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row"><u>вызов</u> по <span class="color-blue">названию</span>();</span>
+				</code>
+				<div class="section__text-block">
+					<p>Существует <em>ещё один синтаксис</em> <u>создания</u> <span class="color-red">функций</span>,
+						который называется <strong>Function Expression</strong> (<em>Функциональные выражения</em>).
+					</p>
+					<p><span class="color-red">Функции</span> можно писать без имени <u>для сокращения</u>
+						<em>синтаксиса кода</em>, когда <u>используется</u> <em>функциональное выражение</em>
+						<strong>function expression</strong>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-blue">fun</span> = 
+						<span class="color-red">function</span>() {...};
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">fun</span>();
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Когда <span class="color-red">функция</span> <u>объявлена без имени</u>, она называется
+						<strong>анонимной функцией</strong>. <span class="color-red">Функция</span> <u>хранится</u> в
+						<em>памяти</em>, но <em>среда выполнения</em> <u>не создает</u> <em>ссылку</em> на
+						<span class="color-red">неё</span> <u>автоматически</u>, как это происходит с названием.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-blue">sayHi</span> = 
+						<span class="color-red">function</span>() { <span class="section__code-comment">// - <u>объявляем</u> <span class="color-pink">переменную</span> и <u>присваиваем</u> 
+						<span class="color-red">ей</span> <span class="color-red">функцию без имени</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Привет'</span>);
+					</span>
+					<span class="section__code-row">
+						}; <span class="section__code-comment">// - <u>обязательно нужно ставить</u> 
+						<em>точку с запятой</em> (<span class="color-blue">;</span>)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">sayHi</span>(); <span class="section__code-comment">// - 
+						<u>вызываем</u> <span class="color-red">функцию</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-red">функция</span> <u>создаётся</u> и <u>явно присваивается</u> <span class="color-pink">переменной</span>, как любое другое 
+						<span class="color-gold">значение</span></span>
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Мы <u>можем скопировать</u> 
+							<span class="color-red">функцию</span> в 
+							<span class="color-pink">другую переменную</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">sayHi</span>() { 
+						<span class="section__code-comment">// - <u>создали</u> <span class="color-red">функцию</span> и <u>присвоили</u> <span class="color-gold">её значение</span> 
+						<span class="color-pink">переменной</span> с именем <span class="color-pink">func</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Привет'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">func</span> = 
+						<span class="color-blue">sayHi</span>; <span class="section__code-comment">// - мы <u>скопировали</u> <span class="color-gold">её значение</span> в <em>переменную</em> 
+						<span class="color-pink">func</span>. <u>нет</u> <em>круглых скобок</em> 
+						<span class="color-blue">()</span> <u>после</u> <span class="color-blue">sayHi</span>. Если бы <span class="color-blue">()</span> <u>были</u>, то <em>выражение</em> 
+						<span class="color-pink">func</span> = <span class="color-blue">sayHi()</span> <u>записало</u> бы <em>результат вызова</em> <span class="color-blue">sayHi()</span> в <em>переменную</em> <span class="color-pink">func</span>, а <span class="color-red">не саму функцию</span> 
+						<span class="color-blue">sayHi</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">func</span>(); <span class="section__code-comment">// - выведет
+						<span class="color-gold">Привет</span>, теперь <span class="color-red">функция</span> 
+						<u>может быть вызвана с помощью</u> <em>обеих переменных</em> 
+						<span class="color-blue">sayHi()</span> и <span class="color-blue">func()</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">sayHi</span>(); <span class="section__code-comment">// - выведет
+							<span class="color-gold">Привет</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Функция</span> <u>объявленная внутри</u> <em>блока</em> (<u>например</u>
+						<span class="color-red">if</span>) <u>не видна</u> за <em>его пределами</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-gold">2</span> > 
+						<span class="color-gold">1</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">getSumm</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">sum</span> = 
+						(<span class="color-gold">1</span> + <span class="color-gold">2</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">sum</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">getSumm</span>(); <span class="section__code-comment">// - 
+							<u>вызовет ошибку</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Правильный вариант</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">getSumm</span>; 
+						<span class="section__code-comment">// - <u>объявляем</u> 
+						<span class="color-pink">переменную</span> <u>за пределами</u> <em>блока</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-gold">2</span> > 
+						<span class="color-gold">1</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">getSumm</span> = <span class="color-red">function</span> () { 
+						<span class="section__code-comment">// - <u>присваиваем</u> 
+						<span class="color-pink">переменной</span> <span class="color-red">функцию</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">sum</span> = 
+						(<span class="color-gold">1</span> + <span class="color-gold">2</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">sum</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">getSumm</span>(); <span class="section__code-comment">// - <u>вызываем</u> <span class="color-red">эту функцию</span></span>.
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Функции</span> – это значения. Они <u>могут быть присвоены</u>,
+						<u>скопированы</u> или <u>объявлены</u> в <em>любом месте кода</em>.
+					</p>
+					<p>Если <span class="color-red">функция</span> <u>объявлена</u> как <em>отдельная инструкция</em> в
+						<em>основном потоке кода</em>, то это <strong>Function Declaration</strong>.
+					</p>
+					<p>Если <span class="color-red">функция</span> <u>была создана</u> как <em>часть выражения</em>, то
+						считается, что эта <span class="color-red">функция</span> <u>объявлена</u> при помощи
+						<strong>Function Expression</strong>.
+					</p>
+					<p><strong>Function Declaration</strong> <u>обрабатываются перед выполнением</u>
+						<em>блока кода</em>. <em>Они</em> <u>видны</u> <em>во всём блоке</em>.
+					</p>
+					<p><span class="color-red">Функции</span>, <u>объявленные</u> при помощи
+						<strong>Function Expression</strong>, <u>создаются</u> только когда <em>поток выполнения</em>
+						<u>достигает</u> <span class="color-red">их</span>.
+					</p>
+					<p>В большинстве случаев, когда нам <u>нужно создать</u> <span class="color-red">функцию</span>,
+						<u>предпочтительно использовать</u> <em>Function Declaration</em>, т.к.
+						<span class="color-red">функция</span> <u>будет видима до своего объявления</u> в <em>коде</em>.
+						Это <u>позволяет более гибко организовывать</u> <em>код</em> и <u>улучшает</u>
+						<em>его читаемость</em>.
+					</p>
+					<p>В <em>строгом режиме</em>, когда <strong>Function Declaration</strong> <u>находится</u> в
+						<em>блоке</em> <span class="color-blue">{...}</span>, <span class="color-red">функция</span>
+						<u>доступна везде внутри</u> <em></em>блока</em>. Но <u>не снаружи</u> <em>него</em>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="arrow-functions">
+				<h3 class="section__subtitle">Стрелочные функции</h3>
+				<div class="section__text-block">
+					<p>Существует ещё один очень простой и <em>лаконичный синтаксис</em> <u>для создания</u>
+						<span class="color-red">функций</span>, он называется
+						«<span class="color-red">стрелочные функции</span>» (<em>arrow functions</em>).
+						<span class="color-red">Такие функции</span> <u>требуется присваивать</u> к
+						<span class="color-pink">переменной</span>. <u>Выглядит следующим образом</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-blue">имя</span> = 
+						(<span class="color-pink">параметр1</span>, <span class="color-pink">параметр2</span>, ...
+						<span class="color-pink">параметр-n</span>) => <em>выражение</em>;
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-blue">getSum</span> = 
+						(<span class="color-pink">a</span>, <span class="color-pink">b</span>) => 
+						<span class="color-pink">a</span> + <span class="color-pink">b</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Эта <span class="color-red">стрелочная функция</span> представляет собой <u>более короткую форму</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-blue">sum</span> = 
+						<span class="color-red">function</span>(<span class="color-pink">a</span>, 
+						<span class="color-pink">b</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">a</span> + 
+						<span class="color-pink">b</span>;
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-blue">sum</span>
+						(<span class="color-gold">1</span>, <span class="color-gold">2</span>)); 
+						<span class="section__code-comment">// - выведет <span class="color-gold">3</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Если у нас <u>только один</u> <em>аргумент</em>, то <em>круглые скобки</em>
+						<span class="color-blue">()</span> <u>вокруг</u> <em>параметров</em> <u>можно опустить</u>.
+					</p>
+					<p>Если <em>аргументов</em> <u>нет</u>, <em>круглые скобки</em> <span class="color-blue">()</span>
+						<u>будут пустыми</u>, но <span class="color-blue">они</span> <u>должны присутствовать</u>.
+					</p>
+					<p><span class="color-red">Стрелочные функции</span> <u>можно использовать</u> так же, как и
+						<em>Function Expression</em>. <u>Например</u>, для <u>динамического создания</u>
+						<span class="color-red">функции</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">age</span> = 
+						<span class="color-red">prompt</span>(<span class="color-gold">'Сколько Вам лет?'</span>, 
+						<span class="color-gold">18</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-blue">welcome</span> = 
+						(<span class="color-pink">age</span> < <span class="color-gold">18</span>) ? ()=> 
+						<span class="color-red">alert</span>(<span class="color-gold">'Привет!'</span>):
+					</span>
+					<span class="section__code-row">
+						()=> <span class="color-red">alert</span>(<span class="color-gold">'здравствуйте'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">welcome</span>();
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Стрелочные функции</span> <u>не имеют</u>
+						<em>собственного контекста выполнения</em> <span class="color-pink">this</span>, но
+						<u>наследуют</u> <span class="color-pink">его</span></u> от
+						<span class="color-red">пользовательских родительских функций</span>, куда <em>они</em>
+						<u>вкладываются</u>.
+					</p>
+					<p><span class="color-red">Стрелочные функции</span> <u>позволяют получить</u>
+						<em>возврат</em> <u>без использования</u> <span class="color-red">return</span>, когда в
+						<em>теле функции</em> <u>есть только</u> <em>вычисления значений</em> или <em>текст</em>.
+					</p>
+					<p><span class="color-red">Обычная анонимная функция</span> <u>берёт</u> <em>свой контекст</em>
+						<span class="color-pink">this</span> из <span class="color-pink">объекта</span>, для которого
+						<span class="color-red">она</span> <u>вызывается</u>.
+						<span class="color-red">Стрелочная функция</span> <u>должна быть вызвана</u> в
+						<span class="color-red">пользовательской родительской функции</span>, чтобы <u>определить</u>
+						<span class="color-pink">this</span>.
+					</p>
+					<p><u>Не стоит использовать</u> <span class="color-red">стрелочные функции</span>, если
+						<u>это снижает</u> <em>читаемость кода</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Объекты и стрелочные функции</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Стрелочные функции</span> <u>могут использоваться</u> как
+						<span class="color-red">методы</span> <span class="color-pink">объекта</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">obj</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-color-aqua">method</span>:() => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'abc'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">obj</span>.<span class="color-blue">method</span>();
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>В <span class="color-red">методе</span> <span class="color-pink">объекта</span>
+						<u>при использовании</u> <span class="color-red">стрелочной функции</span>
+						<u>будет пропущено объявление</u> <span class="color-red">function</span> и
+						<span class="color-blue">название функции</span>.
+					</p>
+					<p><u>Важно</u>! Такой подход <u>НЕ рекомендуется</u> к использованию, так как в
+						<span class="color-red">методах</span> <u>важен</u> <em>контекст выполнения</em>
+						<span class="color-pink">this</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">phone</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-color-aqua">brand</span>: <span class="color-gold">'Nokia'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-color-aqua">model</span>: <span class="color-gold">'N8'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-color-aqua">color</span>: <span class="color-gold">'Red'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-color-aqua">getModel</span>: ()=> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> 
+						<span class="color-pink">this</span>.<span class="color-color-aqua">model</span>; 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">undefined</span></span>
+					</span>
+					<span class="section__code-row">}</span>,
+					<span class="section__code-row">
+						<span class="color-color-aqua">getColor</span>: <span class="color-red">function ()</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> 
+						<span class="color-pink">this</span>.<span class="color-color-aqua">color</span>; 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">'Red'</span></span>
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">phone</span>.<span class="color-blue">getModel</span>()); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">undefined</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">phone</span>.<span class="color-blue">getColor</span>()); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">'Red'</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Стрелочные функции</span> <u>умеют возвращать</u> <em>результат</em>
+						через <span class="color-red">return</span> <span class="color-pink">объекты</span>
+						<u>без использования</u> <em>фигурных скобок</em> <span class="color-blue">{}</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-blue">car</span> = 
+						(<span class="color-pink">color</span> = <span class="color-gold">'black'</span>) => 
+						{<span class="color-pink">fuelType</span>:<span class="color-gold">'diesel'</span>, 
+						<span class="color-pink">type</span>: <span class="color-gold">'crossover'</span>}; 
+						<span class="section__code-comment">// - <u>неправильный возврат</u> 
+						<span class="color-pink">объекта</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Для того <u>чтобы указать</u> <em>интерпретатору кода</em>, что <u>имеется в виду</u> именно <span class="color-pink">объект</span>, <u>нужно заключить</u> <span class="color-pink">его</span> в <em>круглые скобки</em> 
+						<span class="color-blue">()</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">car</span> = 
+						(<span class="color-pink">color</span> = <span class="color-gold">'black'</span>) => 
+						({<span class="color-pink">fuelType</span>:<span class="color-gold">'diesel'</span>, 
+						<span class="color-pink">type</span>: <span class="color-gold">'crossover'</span>});
+						<span class="section__code-comment">// - <u>правильный возврат</u> 
+						<span class="color-pink">объекта</span>:</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Многострочные стрелочные функции</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Стрелочные функции</span>, которые мы видели до этого, были
+						<u>очень простыми</u>. <span class="color-red">Они</span> <u>брали</u> <em>аргументы</em>
+						<u>слева</u> от <span class="color-blue">=></span> и <u>вычисляли</u> и <u>возвращали</u>
+						<em>выражение</em> <u>справа</u>.
+					</p>
+					<p>Иногда нам нужна <span class="color-red">более сложная функция</span>, с <u>несколькими</u>
+						<em>выражениями</em> и <em>инструкциями</em>. Это также возможно, <u>нужно заключить</u>
+						<em>их</em> в <em>фигурные скобки</em> <span class="color-blue">{}</span>. При этом
+						<u>важное отличие</u> – в том, что в <em>таких скобках</em> <u>для возврата</u>
+						<span class="color-gold">значения</span> <u>нужно использовать</u>
+						<span class="color-red">return</span> (как в <span class="color-red">обычных функциях</span>).
+					</p>
+					<p><u>Объявление</u> <span class="color-pink">дополнительной переменной</span>, которая
+						<u>нe относится</u> к <em>аргументам</em>, <u>считается</u> как <em>множество действий</em>
+						и <u>требует</u> <em>фигурных скобок</em> <span class="color-blue">{}</span>.
+					</p>
+					<p><span class="color-red">Функции стрелок</span> <u>могут содержать</u>
+						<span class="color-red">другие функции стрелок</span> или
+						<span class="color-red">обычные функции</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-blue">getSum</span> = 
+						(<span class="color-pink">a</span>, <span class="color-pink">b</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">result</span> = 
+						<span class="color-pink">a</span> + <span class="color-pink">b</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">result</span>; 
+						<span class="section__code-comment">// - если <u>используем</u> 
+						<em>фигурные скобки</em> <span class="color-blue">{}</span>, то <u>нужно явно указать</u> <span class="color-red">return</span></span>
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-blue">getSum</span>
+						(<span class="color-gold">1</span>, <span class="color-gold">2</span>));
+						<span class="section__code-comment">// - выведет <span class="color-gold">3</span></span> 
+					</span>
+				</code>
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="./cycles.html">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="./objects.html">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">
+							Решение задач JS
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+
+	</div>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

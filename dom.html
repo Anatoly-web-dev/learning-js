@@ -1,0 +1,2278 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords"
+		content="Обучение JavaScript, основы JavaScript, JS для начинающих, DOM, BOM, координаты, прокрутка">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. В этом разделе вы узнаете что такое DOM и BOM, как осуществляется навигация по DOM-элементам, поиск DOM-элементов, о свойствах узлов. Научитесь изменять DOM-дерево. Также в этом разделе узнаем о размерах элементов/окна браузера и системе координат и прокрутке">
+	<title>JavaScript. DOM</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+			<h2 class="section__title">DOM (Document Object Model)</h2>
+			<section class="section" id="bom-dom">
+				<h3 class="section__subtitle">BOM и DOM</h3>
+				<div class="section__text-block">
+					<p><em>Корневой объект</em> <span class="color-pink">window</span> - это
+						<span class="color-pink">глобальный объект</span> для <em>JavaScript-кода</em>. Он также
+						<u>представляет собой</u> <em>окно браузера</em> и <u>располагает</u>
+						<span class="color-red">методами</span> <u>для управления</u> <em>окном браузера</em>.
+					</p>
+				</div>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="img/browserjS.png" alt="JS в браузерном окружении">
+				</div>
+				<div class="section__text-block">
+					<p><strong>Document Object Model</strong>, сокращённо <strong>DOM</strong> –
+						<em>объектная модель документа</em>, которая <u>представляет</u> всё
+						<em>содержимое страницы</em> <u>в виде</u> <span class="color-pink">объектов</span>, которые
+						<u>можно менять</u>.
+					</p>
+					<p><em>Объект</em> <span class="color-pink">document</span> – <em>основная входная точка</em>. С
+						<span class="color-pink">его</span> помощью <u>мы можем</u> что-то <u>создавать</u> или
+						<u>менять</u> на <em>странице</em>.
+					</p>
+					<p><em>Правила стилей CSS</em> <u>структурированы иначе</u> чем <em>HTML</em>. Для них есть
+						<em>отдельная спецификация</em> <strong>CSSOM</strong>, которая <u>объясняет</u>, как
+						<em>стили</em> <u>должны представляться в виде</u> <span class="color-pink">объектов</span>, как
+						их читать и писать. <strong>CSSOM</strong> <u>используется вместе</u> с <strong>DOM</strong>
+						<u>при изменении</u> <em>стилей документа</em>. В реальности <strong>CSSOM</strong> <u>требуется
+							редко</u>, обычно <em>правила CSS</em> <u>статичны</u>. Мы <u>редко добавляем / удаляем</u>
+						<em>стили</em> из <em>JavaScript</em>, но и <u>это возможно</u>.
+					</p>
+					<p><strong>Объектная модель браузера</strong> (<em>Browser Object Model</em>), <strong>BOM</strong>
+						– это <span class="color-pink">дополнительные объекты</span>, <u>предоставляемые</u>
+						<em>браузером</em> (окружением), чтобы <u>работать</u> <em>со всем</em>, <u>кроме</u>
+						<em>документа</em>.
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<em>Объект</em> <span class="color-pink">navigator</span> <u>даёт информацию</u> о самом
+							<em>браузере</em> и <em>операционной системе</em>. Среди множества
+							<span class="color-pink">его</span> <span class="color-aqua">свойств</span>
+							<u>самыми известными являются</u>:
+							<span class="color-pink">navigator</span>.<span class="color-aqua">userAgent</span> –
+							<em>информация о текущем браузере</em>, и <span class="color-pink">navigator</span>.
+							<span class="color-aqua">platform</span> – <em>информация о платформе</em> (может помочь в
+							понимании того, в какой <em>ОС</em> <u>открыт</u> <em>браузер</em> –
+							<em>Windows/Linux/Mac</em> и так далее).
+						</li>
+						<li class="section__list-item"><em>Объект</em> <span class="color-pink">location</span>
+							<u>позволяет получить</u> <em>текущий URL</em> и <u>перенаправить</u> <em>браузер</em> по
+							<em>новому адресу</em>.
+						</li>
+					</ul>
+					<p><span class="color-red">Функции</span> <span class="color-red">alert</span>( ) /
+						<span class="color-red">confirm</span>( ) / <span class="color-red">prompt</span>( ) тоже
+						<u>являются частью</u> <strong>BOM</strong>: <span class="color-red">они</span>
+						<u>не относятся</u> непосредственно к <em>странице</em>, но <u>представляют собой</u>
+						<span class="color-red">методы</span> <span class="color-pink">объекта окна браузера</span>
+						для <u>коммуникации</u> с пользователем.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">location</span>.<span class="color-aqua">href</span>);
+						<span class="section__code-comment">// - <u>показывает</u> <em>текущий URL</em></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-red">confirm</span>
+						(<span class="color-gold">'Перейти на Wikipedia?'</span>)) {
+					</span>
+  					<span class="section__code-row">
+						<span class="color-pink">location</span>.<span class="color-aqua">href</span> = 
+						<span class="color-gold">'https://wikipedia.org'</span>;
+						<span class="section__code-comment">// - <u>перенаправляет</u> <em>браузер</em> на 
+						<em>другой URL</em></span>
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="./img/dom.png" alt="dom">
+				</div>
+				<div class="section__text-block">
+					<p>Каждый <em>HTML-тег</em> <u>является</u> <span class="color-pink">объектом</span>.
+						<em>Вложенные теги</em> <u>являются</u> <em>«детьми» родительского элемента</em>.
+						<span class="color-gold">Текст</span>, который <u>находится внутри</u> <em>тега</em>,
+						также <u>является</u> <span class="color-pink">объектом</span>.
+						<span class="color-pink">Все эти объекты</span> <u>доступны</u> при помощи <em>JavaScript</em>,
+						мы <u>можем использовать</u> <span class="color-pink">их</span> для <u>изменения страницы</u>.
+					</p>
+					<p><u>Например</u>, <span class="color-pink">document</span>.<span class="color-pink">body</span> –
+						<span class="color-pink">объект</span> для <em>тега</em> <span class="color-red">body</span>
+					</p>
+					<p><em>Теги</em> <u>являются</u> <span class="color-pink">узлами-элементами</span> (или просто
+						<span class="color-pink">элементами</span>). <span class="color-pink">Они</span>
+						<u>образуют</u> <strong>структуру дерева html</strong>: – это
+						<span class="color-pink">корневой узел</span>, <span class="color-pink">head</span> и
+						<span class="color-pink">body</span> - <em>его дочерние узлы</em> и т.д.
+					</p>
+					<p><span class="color-gold">Текст внутри</span> <span class="color-pink">элементов</span>
+						<u>образует</u> <span class="color-gold">текстовые узлы</span>.
+						<span class="color-gold">Текстовый узел</span> <u>содержит в себе только</u>
+						<span class="color-gold">строку текста</span>. У <span class="color-gold">него</span>
+						<u>не может быть</u> <em>потомков</em>, т.е. он <u>находится всегда</u> на
+						<em>самом нижнем уровне</em>.
+					</p>
+					<p><u>Например</u>, в <em>теге</em> <span class="color-red">title</span> <u>есть</u>
+						<span class="color-gold">текстовый узел</span>
+						<span class="color-gold">'Название страницы'</span>.
+					</p>
+					<p><span class="color-gold">Пробелы</span> и <span class="color-gold">переводы строки</span> – это
+						<em></em>>полноправные символы</span>, как <span class="color-gold">буквы</span> и
+						<span class="color-gold">цифры</span>. <span class="color-gold">Они</span> <u>образуют</u>
+						<span class="color-gold">текстовые узлы</span> и <u>становятся</u>
+						<em>частью дерева</em> <strong>DOM</strong>.
+					</p>
+					<p>!<u>Все</u>, что есть в <em>HTML</em>, даже <span class="color-gold">комментарии</span>,
+						<u>является частью</u> <strong>DOM</strong>.
+					</p>
+					<p><u>Существует</u> <em>12 типов узлов</em>. Но на практике мы
+						<u>в основном работаем</u> с <em>4 из них</em>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">document</span> – «<em>входная точка</em>» в <strong>DOM</strong>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">узлы-элементы</span> – <em>HTML-теги</em>, <u>основные</u>
+						<em>строительные блоки</em></em>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-gold">текстовые узлы</span> – <u>содержат</u>
+						<span class="color-gold">текст</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-gold">комментарии</span> – иногда в них можно включить <em>информацию</em>,
+						которая <u>не будет показана</u>, но <u>доступна</u> в <strong>DOM</strong> <u>для чтения</u>
+						<em>JavaScript</em>.
+					</li>
+				</ul>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="./img/window-onload.png" alt="window">
+				</div>
+			</section>
+
+			<section class="section" id="navigation">
+				<h3 class="section__subtitle">Навигация по DOM-элементам</h3>
+				<div class="section__text-block">
+					<p><u>Все операции</u> с <strong>DOM</strong> <u>начинаются</u> с <em>объекта</em>
+						<span class="color-pink">document</span>.
+					</p>
+					<p><span class="color-pink">Самые верхние элементы дерева</span> <u>доступны</u> как
+						<span class="color-aqua">свойства</span> <em>объекта</em>
+						<span class="color-pink">document</span>:
+					</p>
+					<p><em>Тег</em> <span class="color-red">html</span> <u>доступен как</u>
+						<span class="color-pink">document</span>.<span class="color-aqua">documentElement</span>
+					</p>
+					<p><em>Тег</em> <span class="color-red">body</span> <u>доступен как</u>
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>
+					</p>
+					<p><em>Тег</em> <span class="color-red">head</span> <u>доступен как</u>
+						<span class="color-pink">document</span>.<span class="color-aqua">head</span>
+					</p>
+					<p>В <strong>DOM</strong> <em>значение</em> <span class="color-gold">null</span>
+						<u>значит - «<em>не существует</em>»</u>.
+					</p>
+					<p><span class="color-pink">Дочерние узлы</span> (или <em>дети</em>) –
+						<span class="color-pink">элементы</span>, которые <u>являются</u>
+						<em>непосредственными детьми</em> <span class="color-pink">узла</span>. <u>Например</u>,
+						<span class="color-pink">head</span> и <span class="color-pink">body</span> <u>являются</u>
+						<em>детьми элемента</em> <span class="color-pink">html</span>.
+					</p>
+					<p><em>Потомки</em> – <span class="color-pink"><u>все</u> элементы</span>, которые
+						<u>лежат внутри</u> <span class="color-pink">данного элемента</span>, <u>включая</u>
+						<em>детей</em>, <em>их детей</em> и т.д.
+					</p>
+					<p><em>Коллекция</em> <span class="color-pink">childNodes</span> <u>содержит список</u>
+						<em>всех детей</em>, <u>включая</u> <span class="color-gold">текстовые узлы</span>.
+					</p>
+					<p><em>Свойства</em> <span class="color-aqua">firstChild</span> и
+						<span class="color-aqua">lastChild</span> <u>обеспечивают быстрый доступ</u> к
+						<span class="color-pink">первому и последнему дочернему элементу</span>.
+						<u>Для проверки наличия</u> <span class="color-pink">дочерних узлов</span> <u>существует</u>
+						также <span class="color-red">специальная функция</span>
+						<span class="color-pink">elem</span>.<span class="color-red">hasChildNodes</span>( ).
+					</p>
+					<p><span class="color-pink">childNodes</span> <u>похож</u> на
+						<span class="color-pink">массив</span>. На самом деле это
+						<span class="color-pink"><u>не</u> массив</span>, а <span class="color-pink">коллекция</span> –
+						<span class="color-pink">особый перебираемый объект-псевдомассив</span>.
+					</p>
+					<p><u>Для перебора</u> <span class="color-pink">коллекции</span> мы <u>можем использовать</u>
+						<span class="color-red">for..of</span>.
+					</p>
+					<p><span class="color-red">Методы</span> <span class="color-pink">массивов</span>
+						<u>не будут работать</u>, потому что <span class="color-pink">коллекция</span> – это
+						<span class="color-pink"><u>не</u> массив</span>. Если нам хочется <u>использовать</u> именно
+						<span class="color-red">методы</span> <span class="color-pink">массива</span>,
+						то мы <u>можем создать</u> <span class="color-pink">настоящий массив</span> из
+						<span class="color-pink">коллекции</span>, <u>используя</u> <em>метод</em>
+						<span class="color-pink">Array</span>.<span class="color-red">from</span>( ).
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">Array</span>.<span class="color-red">from</span>(<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-aqua">childNodes</span>).<span class="color-red">filter</span>();
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-pink">DOM-коллекции</span> <u>доступны только для чтения</u>. Мы
+						<u>не можем заменить</u> <span class="color-pink">один дочерний узел</span>
+						на <span class="color-pink">другой</span>, просто <u>написав</u>
+						<span class="color-pink">childNodes</span>[
+						<span class="color-pink">i</span> ] = <span class="color-gold">...</span>. <u>Для изменения</u>
+						<strong>DOM</strong> <u>требуются</u> <span class="color-red">другие методы</span>.
+					</p>
+					<p><span class="color-red">!</span> <u>Не используйте</u> <em>цикл</em>
+						<span class="color-red">for..in</span> <u>для перебора</u>
+						<span class="color-pink">коллекций</span>. <em>Цикл</em> <span class="color-red">for..in</span>
+						<u>перебирает</u> <span class="color-aqua">все перечисляемые свойства</span>. А у
+						<span class="color-pink">коллекций</span> <u>есть</u> некоторые «лишние»,
+						<span class="color-aqua">редко используемые свойства</span>,
+						<span class="color-aqua">которые</span> обычно нам <u>не нужны</u>.
+					</p>
+					<p><em>Соседи</em> – это <span class="color-pink">узлы</span>, у которых
+						<em>один и тот же родитель</em>. <span class="color-pink">head</span> и
+						<span class="color-pink">body</span> - <em>соседи</em>
+					</p>
+					<p><span class="color-pink">Следующий узел</span> того же родителя
+						(<span class="color-pink">следующий сосед</span>) – <u>доступен</u> в <em>свойстве</em>
+						<span class="color-pink">elem</span>.<span class="color-aqua">nextSibling</span>.
+					</p>
+					<p><span class="color-pink">Предыдущий узел</span> того же родителя – в <em>свойстве</em>
+						<span class="color-pink">elem</span>.<span class="color-aqua">previousSibling</span>.
+					</p>
+					<p><span class="color-pink">Родительский узел</span> <u>доступен через</u> <em>свойстве</em>
+						<span class="color-pink">elem</span>.<span class="color-aqua">parentNode</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Навигация только по элементам</h3>
+				<div class="section__text-block">
+					<p>В основном нам нужно <u>манипулировать только</u>
+						<span class="color-pink">узлами-элементами</span>, которые представляют собой
+						<em>теги</em> и <u>формируют</u> <em>структуру страницы</em>. <u>Для большинства задач</u>
+						<span class="color-gold">текстовые узлы</span> и
+						<span class="color-gold">узлы-комментарии</span> нам <u>не нужны</u>.
+					</p>
+					<p><span class="color-aqua">Cвойства</span>, которые <u>учитывают только</u>
+						<span class="color-pink">узлы-элементы</span>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">children</span> – <u>получим</u>
+						<span class="color-pink">коллекцию всех элементов</span>, которые <u>являются</u>
+						<em>детьми</em> <span class="color-pink">указанного элемента</span>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">firstElementChild</span>
+						<span class="color-pink">elem</span>.<span class="color-aqua">lastElementChild</span> –
+						<u>получим</u> <span class="color-pink">первый дочерний элемент</span> /
+						<span class="color-pink">последний дочерний элемент</span>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">previousElementSibling</span> /
+						<span class="color-aqua">nextElementSibling</span> – получим
+						<span class="color-pink">предыдущий элемент</span> /
+						<span class="color-pink">следующий элемент</span>, которые <u>являются для</u>
+						<span class="color-pink">указанного элемента</span> <em>соседними в DOM-дереве</em>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">parentElement</span> –
+						<u>получим</u> <span class="color-pink">родительский элемент</span>.
+					</li>
+				</ul>
+				<h3 class="section__subtitle section__subtitle_small">Итого:</h3>
+				<div class="section__text-block">
+					<p><u>Получив</u> <span class="color-pink">DOM-узел</span>, мы <u>можем перейти</u> к
+						<span class="color-pink">его</span> <em>ближайшим соседям</em> <u>используя</u>
+						<em>навигационные ссылки</em>.
+					</p>
+					<p><u>Есть</u> <em>два основных набора ссылок</em>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						- <u>Для <span class="color-pink">всех узлов</span></u>:
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">parentNode</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">childNodes</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">firstChild</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">lastChild</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">previousSibling</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">nextSibling</span>.
+					</li>
+					<li class="section__list-item">
+						- <u>Только для <span class="color-pink">узлов-элементов</span></u>:
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">parentElement</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">children</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">firstElementChild</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">lastElementChild</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">previousElementSibling</span>,
+						<span class="color-pink">elem</span>.<span class="color-aqua">nextElementSibling</span>.
+					</li>
+				</ul>
+			</section>
+
+			<section class="section" id="search">
+				<h3 class="section__subtitle">Поиск элементов</h3>
+				<h3 class="section__subtitle section__subtitle_small">getElementById</h3>
+				<div class="section__text-block">
+					<p>Если у <span class="color-pink">элемента</span> <u>есть</u> <em>атрибут</em>
+						<span class="color-aqua">id</span>, то мы <u>можем получить</u>
+						<span class="color-aqua">его</span> <u>вызовом</u> <span class="color-red">метода</span>
+						<span class="color-pink">document</span>.<span class="color-red">getElementById</span>
+						(<span class="color-gold">#id</span>), где бы <em>он</em> ни находился.
+					</p>
+					<p><em>Метод</em> <span class="color-red">getElementById</span>( ) <u>можно вызвать только</u> для
+						<em>объекта</em> <span class="color-pink">document</span>. Он <u>осуществляет поиск</u> по
+						<span class="color-gold">#id</span> <u>по всему <em>документу</em></u>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">querySelector и querySelectorAll</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Метод</span>
+						<span class="color-pink">elem</span>.<span class="color-red">querySelector</span>
+						(<em>'селектор'</em>) <u>возвращает</u> <span class="color-pink">первый элемент</span>,
+						<u>соответствующий</u> <em>данному CSS-селектору</em>.
+					</p>
+					<p><u>Самый универсальный <span class="color-red">метод поиска</span></u> – это
+						<span class="color-pink">elem</span>.<span class="color-red">querySelectorAll</span>
+						(<em>'селектор'</em>), <span class="color-red">он</span> <u>возвращает</u>
+						<span class="color-pink">все элементы</span> <u>внутри</u>
+						<span class="color-pink">elem</span>, <u>удовлетворяющие</u> данному <em>CSS-селектору</em>.
+					</p>
+					<p><em>Псевдоклассы</em> в <em>CSS-селекторе</em>, в частности <em>:hover</em> и <em>:active</em>,
+						также <u>поддерживаются</u>. <u>Например</u>, <span class="color-pink">document</span>.
+						<span class="color-red">querySelectorAll</span>(<span class="color-gold">':hover'</span>)
+						<u>вернёт</u> <span class="color-pink">коллекцию</span> (<u>в порядке вложенности</u>: от
+						<em>внешнего</em> к <em>внутреннему</em>) из <span class="color-pink">текущих элементов</span>
+						<u>под <em>курсором мыши</em></u>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">matches</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Метод</span>
+						<span class="color-pink">elem</span>.<span class="color-red">matches</span>
+						(<em>'селектор'</em>) <u>ничего не ищет</u>, а <u>проверяет</u>, <u>удовлетворяет ли</u>
+						<span class="color-pink">elem</span> <em>CSS-селектору</em>, и <u>возвращает</u>
+						<span class="color-gold">true</span> или <span class="color-gold">false</span>.
+					</p>
+					<p><span class="color-red">matches</span>( ) удобен, когда мы <u>перебираем</u>
+						<span class="color-pink">элементы</span> (<u>например</u>, в
+						<span class="color-pink">массиве</span> или в чём-то подобном) и
+						<u>пытаемся выбрать</u> те из них, <span class="color-pink">которые</span>
+						<u>нас интересуют</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">for</span> (<span class="color-red">let</span> 
+						<span class="color-pink">elem</span> <span class="color-red">of</span> 
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-aqua">children</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">elem</span>.<span class="color-red">matches</span>
+						(<span class="color-gold">'a[href$="zip"]'</span>)) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Ссылка на архив: '</span> + <span class="color-pink">elem</span>.<span class="color-aqua">href</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">getElementsBy*</h3>
+				<ul class="section__list">
+					<li class="section__list-item">
+						* <span class="color-pink">elem</span>.<span class="color-red">getElementsByTagName</span>
+						(<em>'tag'</em>) <u>ищет</u> <span class="color-pink">элементы</span> с <em>данным тегом</em> и
+						<u>возвращает</u> <span class="color-pink">их коллекцию</span>.
+						<u>Передав</u> ( <span class="color-blue">*</span> ) <u>вместо</u> <em>тега</em>,
+						<u>можно получить</u> <span class="color-pink">коллекцию всех потомков</span>.
+					</li>
+					<li class="section__list-item">
+						* <span class="color-pink">elem</span>.<span class="color-red">getElementsByClassName</span>
+						(<em>'className'</em>) <u>возвращает</u> <span class="color-pink">элементы</span>, которые имеют
+						<em>данный CSS-класс</em>.
+					</li>
+					<li class="section__list-item">
+						* <span class="color-pink">document</span>.<span class="color-red">getElementsByName</span>
+						('<span class="color-aqua">name</span>') <u>возвращает</u>
+						<span class="color-pink">элементы</span> с <em>заданным атрибутом</em>
+						<span class="color-aqua">name</span>. Очень <u>редко используется</u>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><span class="color-red">Все методы</span> <span class="color-red">getElementsBy</span>*
+						<u>возвращают</u> <span class="color-pink">живую коллекцию</span>.
+						<span class="color-pink">Такие коллекции</span> всегда <u>отражают</u>
+						<em>текущее состояние документа</em> и
+						<u>автоматически обновляются при <em>его</em> изменении</u>.
+					</p>
+					<p><u>Напротив</u>, <span class="color-red">querySelectorAll</span> <u>возвращает</u>
+						<span class="color-pink">статическую коллекцию</span>. Это похоже на
+						<span class="color-pink">фиксированный массив элементов</span>.
+					</p>
+				</div>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="./img/search-methods-DOM.png" alt="search-methods-DOM">
+				</div>
+			</section>
+
+			<section class="section" id="node-properties">
+				<h3 class="section__subtitle">Свойства узлов: тип, тег и содержимое</h3>
+				<div class="section__text-block">
+					<p><span class="color-gold">Текстовые узлы</span> <u>отличаются</u> от
+						<span class="color-pink">узлов-элементов</span>. Но у <em>них</em> <u>есть</u>
+						<span class="color-aqua">общие свойства</span> и <span class="color-red">методы</span>, потому
+						что <span class="color-pink">все <em>классы</em> DOM-узлов</span> <u>образуют</u>
+						<em>единую иерархию</em>. Каждый <span class="color-pink">DOM-узел</span> <u>принадлежит</u>
+						<u>соответствующему встроенному</u> <span class="color-pink">классу</span>.
+					</p>
+					<p><u>Существуют следующие</u> <span class="color-pink">классы</span>:</p>
+					<p><span class="color-pink">EventTarget</span> – это
+						<span class="color-pink">корневой «абстрактный» класс</span>.
+						<span class="color-pink">Объекты этого класса</span> <u>никогда не создаются</u>.
+						<span class="color-pink">Он</span> <u>служит основой</u>, благодаря которой
+						<span class="color-pink">все DOM-узлы</span> <u>поддерживают</u> так называемые
+						<strong>«события»</strong>, о которыx мы поговорим позже.
+					</p>
+					<p><span class="color-pink">Node</span> – также <u>является</u>
+						<span class="color-pink">«абстрактным» классом</span>, и <u>служит основой для</u>
+						<span class="color-pink">DOM-узлов</span>. <span class="color-pink">Он</span>
+						<u>обеспечивает базовую функциональность</u>: <span class="color-aqua">parentNode</span>,
+						<span class="color-aqua">nextSibling</span>, <span class="color-aqua">childNodes</span> и т.д.
+						(это <em>геттеры</em>). <span class="color-pink">Объекты класса Node</span>
+						<u>никогда не создаются</u>. Но есть <span class="color-pink">определённые классы узлов</span>,
+						которые <u>наследуют</u> от <span class="color-pink">него</span>:
+						<span class="color-pink">Text</span> – для <span class="color-gold">текстовых узлов</span>,
+						<span class="color-pink">Element</span> – для <span class="color-pink">узлов-элементов</span> и
+						более экзотический <span class="color-pink">Comment</span> – для
+						<span class="color-gold">узлов-комментариев</span>.
+					</p>
+					<p><span class="color-pink">Element</span> – это <span class="color-pink">базовый класс</span>
+						для <span class="color-pink">DOM-элементов</span>. <span class="color-pink">Он</span>
+						<u>обеспечивает навигацию</u> на уровне <span class="color-pink">элементов</span>:
+						<span class="color-aqua">nextElementSibling</span>,
+						<span class="color-aqua">children</span> и <span class="color-red">методы поиска</span>:
+						<span class="color-red">getElementsByTagName</span>( ),
+						<span class="color-red">querySelector</span>( ). <em>Браузер</em> <u>поддерживает</u> не только
+						<em>HTML</em>, но также <em>XML</em> и <em>SVG</em>.
+						<span class="color-pink">Класс Element</span> <u>служит базой для</u>
+						<span class="color-pink">следующих классов</span>:
+						<span class="color-pink">SVGElement</span>, <span class="color-pink">XMLElement</span>,
+						<span class="color-pink">HTMLElement</span>.
+					</p>
+					<p><span class="color-pink">HTMLElement</span> – <u>является</u>
+						<span class="color-pink">базовым классом</span> <u>для всех остальных</u>
+						<span class="color-pink"> HTML-элементов</span>. От <span class="color-pink">него</span>
+						<u>наследуют</u> <span class="color-pink">конкретные элементы</span>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">HTMLInputElement</span> – <span class="color-pink">класс</span> для
+						<em>тега</em> <span class="color-red">input</span>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">HTMLBodyElement</span> – <span class="color-pink">класс</span> для
+						<em>тега</em> <span class="color-red">body</span>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">HTMLAnchorElement</span> – <span class="color-pink">класс</span>
+						для <em>тега</em> <span class="color-red">a</span>,
+					</li>
+					<li class="section__list-item">
+						…и т.д, <em>каждому тегу</em> <u>соответствует</u>
+						<span class="color-pink">свой класс</span>, который <u>предоставляет</u>
+						<span class="color-aqua">определённые свойства</span> и
+						<span class="color-red">методы</span>.
+					</li>
+				</ul>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Рассмотрим</u> 
+							<span class="color-pink">DOM-объект</span> для <em>тега</em> 
+							<span class="color-red">input</span>. <em>Он</em> <u>принадлежит</u> <em>классу</em> 
+							<span class="color-pink">HTMLInputElement</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"> <span class="color-pink">Он</span> <u>получает</u> 
+						<span class="color-aqua">свойства</span> и  <span class="color-red">методы</span> из 
+						(<u>в порядке наследования</u>):</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						<span class="color-pink">HTMLInputElement</span> – этот <em>класс</em> <u>предоставляет</u> для <em>элементов формы</em> <span class="color-aqua">специфичные свойства</span>;</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						<span class="color-pink">HTMLElement</span> – <u>предоставляет</u> для <em>HTML-элементов</em> <span class="color-red">общие методы</span> (и <em>геттеры</em> / <em>сеттеры</em>);</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-pink">Element</span> – 
+						<u>предоставляет</u> <span class="color-red">типовые методы</span> 
+						<span class="color-pink">элемента</span>;</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-pink">Node</span> – <u>предоставляет</u> <span class="color-aqua">общие свойства</span> <span class="color-pink">DOM-узлов</span>;</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"> <span class="color-pink">EventTarget</span> – <u>обеспечивает поддержку</u> <strong>событий</strong> (поговорим о них дальше);</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						…и, наконец, <span class="color-pink">он</span> <u>наследует</u> от 
+						<span class="color-pink">Object</span>, поэтому <u>доступны</u> также 
+						<span class="color-red">методы</span> «<span class="color-pink">обычного объекта</span>», такие как <span class="color-red">hasOwnProperty</span>( ) и т.д..</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-aqua">Полный набор свойств</span> и <span class="color-red">методов</span> <span class="color-pink">данного узла</span> <u>собираетсяв результате <em>наследования</em></u>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Для того, <u>чтобы узнать</u> <span class="color-pink">имя класса DOM-узла</span>, вспомним, что
+						обычно у <span class="color-pink">объекта</span> <u>есть</u> <em>свойство</em>
+						<span class="color-aqua">constructor</span>. <span class="color-aqua">Оно</span>
+						<u>ссылается</u> на <span class="color-pink">конструктор класса</span>, и в <em>свойстве</em>
+						<span class="color-aqua">constructor</span>.<span class="color-aqua">name</span>
+						<u>содержится</u> <span class="color-pink">имя класса</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-aqua">constructor</span>.<span class="color-aqua">name</span>);
+						<span class="section__code-comment">// - получим 
+						<span class="color-gold">HTMLBodyElement</span></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">…Или мы <u>можем просто привести</u> 
+						<span class="color-pink">его</span> к <span class="color-gold">строке</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">document</span>.<span class="color-aqua">body</span>);
+						<span class="section__code-comment">// - получим 
+						<span class="color-gold">[object HTMLBodyElement]</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Проверить</u> <em>наследование</em> можно также <u>при помощи</u> <em>оператора</em>
+						<span class="color-red">instanceof</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">document</span>.<span class="color-aqua">body</span> 
+						<span class="color-red">instanceof</span> <span class="color-pink">HTMLBodyElement</span>);
+						<span class="section__code-comment">// - <span class="color-gold">true</span></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">document</span>.<span class="color-aqua">body</span> 
+						<span class="color-red">instanceof</span> <span class="color-pink">HTMLElement</span>);
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">document</span>.<span class="color-aqua">body</span> 
+						<span class="color-red">instanceof</span> <span class="color-pink">Element</span>);
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">document</span>.<span class="color-aqua">body</span> 
+						<span class="color-red">instanceof</span> <span class="color-pink">Node</span>);
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">document</span>.<span class="color-aqua">body</span> 
+						<span class="color-red">instanceof</span> <span class="color-pink">EventTarget</span>);
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-pink">DOM-узлы</span> – это
+						<span class="color-pink">обычные объекты</span>. <u>Для наследования</u>
+						<span class="color-pink">они</span> <u>используют</u> <span class="color-pink">классы</span>,
+						<u>основанные</u> на <span class="color-pink">прототипах</span>. В этом легко <u>убедиться</u>,
+						если <u>вывести</u> в <em>консоли браузера</em>
+						<span class="color-pink">любой элемент</span> <u>через</u>
+						<span class="color-red">console.dir</span>(<span class="color-pink">elem</span>).
+					</p>
+					<p><u>Получив</u> <span class="color-pink">DOM-узел</span>, мы <u>можем узнать</u>
+						<em>имя его тега</em> из <em>свойств</em> <span class="color-aqua">nodeName</span> и
+						<span class="color-aqua">tagName</span>: <em>Свойство</em>
+						<span class="color-aqua">tagName</span> <u>есть только</u> у
+						<span class="color-pink">узлов-элементов (Element)</span>. <em>Свойство</em>
+						<span class="color-gold">nodeName</span> <u>определено для</u>
+						<span class="color-gold">любых узлов (Node)</span>:
+					</p>
+					<p>Для <span class="color-pink">элементов</span> <span class="color-aqua">оно</span> <u>равно</u>
+						<span class="color-aqua">tagName</span>.
+					</p>
+					<p>Для <span class="color-gold">остальных типов узлов</span>
+						(<span class="color-gold">текст</span>, <span class="color-gold">комментарий</span> и т.д.)
+						<span class="color-aqua">оно</span> <u>содержит</u>
+						<span class="color-gold">строку с типом узла</span>.
+					</p>
+					<p>В <em>HTML-режиме</em> <span class="color-gold">значения</span>
+						<span class="color-aqua">tagName</span> / <span class="color-aqua">nodeName</span>
+						<u>всегда записаны в <em>ВЕРХНЕМ РЕГИСТРЕ</em></u>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">innerHTML: содержимое элемента</h3>
+				<div class="section__text-block">
+					<p><em>Свойство</em> <span class="color-aqua">innerHTML</span> <u>позволяет получить</u>
+						<span class="color-gold">HTML-содержимое элемента</span> <u>в виде</u>
+						<span class="color-gold">строки</span>. Мы также <u>можем изменять</u>
+						<span class="color-gold">его</span>. <span class="color-aqua">Это</span> один из самых
+						<u>мощных способов менять</u> <span class="color-gold">содержимое</span> на <em>странице</em>.
+					</p>
+					<p><span class="color-blue">!</span> <u>Будьте внимательны</u>:
+						<span class="color-aqua">innerHTML</span><span class="color-blue">+=</span>
+						<span class="color-gold">'строка с html кодом'</span> <u>осуществляет перезапись</u>.
+					</p>
+					<p>Если <span class="color-aqua">innerHTML</span> <u>вставляет</u> в <em>документ</em> тег
+						<span class="color-red">script</span> – <span class="color-red">он</span> <u>становится</u>
+						<em>частью HTML</em>, но <u>не запускается</u>.
+					</p>
+					<p><em>Свойство</em> <span class="color-aqua">innerHTML</span> <u>есть только</u> у
+						<span class="color-pink">узлов-элементов</span>. У
+						<span class="color-gold">других типов узлов</span>, в частности, у
+						<span class="color-gold">текстовых</span>, <u>есть свои аналоги</u>: <em>свойства</em>
+						<span class="color-aqua">nodeValue</span> и <span class="color-aqua">data</span>
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">outerHTML: HTML элемента целиком</h3>
+				<div class="section__text-block">
+					<p><em>Свойство</em> <span class="color-aqua">outerHTML</span> <u>содержит</u>
+						<em>HTML элемента</em> <u>целиком</u>. Это как <span class="color-aqua">innerHTML</span>
+						<span class="color-blue">+</span> <span class="color-pink">сам элемент</span>.
+					</p>
+					<p><span class="color-blue">!</span> <u>Будьте осторожны</u>: <u>в отличие</u> от
+						<span class="color-aqua">innerHTML</span>, <u>запись</u> в
+						<span class="color-aqua">outerHTML</span> <u>не изменяет</u>
+						<span class="color-pink">элемент</span>. Вместо этого <span class="color-pink">элемент</span>
+						<u>заменяется целиком</u> во <em>внешнем контексте</em>.
+					</p>
+					<p><u>Использование</u> <span class="color-aqua">outerHTML</span> <u>не изменяет</u>
+						<span class="color-pink">DOM-элемент</span>, а <u>удаляет</u>
+						<span class="color-pink">его</span> из <em>внешнего контекста</em> и <u>вставляет вместо</u>
+						<span class="color-pink">него</span> <em>новый HTML-код</em>.
+					</p>
+					<p>Мы <u>можем писать</u> в
+						<span class="color-pink">elem</span>.<span class="color-aqua">outerHTML</span>,
+						но надо <u>иметь в виду</u>, что это <u>не меняет</u> <span class="color-pink">элемент</span>, в
+						который мы пишем. Вместо этого <u>создаётся</u> <em>новый HTML</em> на
+						<span class="color-pink">его месте</span>. Мы <u>можем получить</u> <em>ссылки</em> на
+						<span class="color-pink">новые элементы</span>, <u>обратившись</u> к
+						<strong>DOM</strong>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">textContent: просто текст</h3>
+				<div class="section__text-block">
+					<p><em>Свойство</em> <span class="color-aqua">textContent</span> <u>предоставляет доступ</u> к
+						<span class="color-gold">тексту</span> <u>внутри</u> <span class="color-pink">элемента</span>
+						<u>за вычетом</u> <em>всех тегов</em>.
+					</p>
+					<p>Возможность <u>записывать</u> <span class="color-gold">текст</span> в
+						<span class="color-aqua">textContent</span> <u>позволяет писать</u>
+						<span class="color-gold">текст</span> <em>'безопасным способом'</em>.
+					</p>
+					<p>Представим, что у нас <u>есть</u> <span class="color-gold">произвольная строка</span>,
+						<u>введённая</u> <em>пользователем</em>, и мы <u>хотим показать</u>
+						<span class="color-gold">её</span>.
+					</p>
+					<p>С <span class="color-aqua">innerHTML</span> <u>вставка происходит</u> «как <em>HTML»</em>,
+						<u>со всеми</u> <em>HTML-тегами</em>.
+					</p>
+					<p>С <span class="color-aqua">textContent</span> <u>вставка получается</u> «как
+						<span class="color-gold">текст»</span>, <span class="color-gold">все символы</span>
+						<u>трактуются буквально</u>.
+					</p>
+					<p>В большинстве случаев мы <u>не хотим</u>, чтобы на <em>сайте</em> <u>появлялся</u>
+						<em>произвольный HTML-код</em>. <u>Присваивание через</u>
+						<span class="color-aqua">textContent</span> – один из <u>способов защититься</u> от
+						<em>этого</em>.
+					</p>
+					<p><span class="color-aqua">Атрибут</span> и <span class="color-aqua">DOM-свойство</span>
+						<span class="color-aqua">hidden</span> <u>указывает</u> на то, <u>видим</u> ли мы
+						<span class="color-pink">элемент</span> или <u>нет</u>. Технически,
+						<span class="color-aqua">hidden</span> <u>работает также</u>, как
+						<span class="color-pink">style</span> = <span class="color-aqua">'display</span> :
+						<span class="color-gold">none'</span>. Но <span class="color-aqua">его</span>
+						<u>применение проще</u>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="attributes-properties">
+				<h3 class="section__subtitle">Атрибуты и свойства</h3>
+				<div class="section__text-block">
+					<p><span class="color-aqua">HTML-атрибуты</span> и <span class="color-aqua">свойства DOM</span>
+						<u>не всегда одинаковы</u>.
+					</p>
+					<p>Для <span class="color-pink">узлов-элементов</span> <u>большинство</u>
+						<span class="color-pink">стандартных HTML-атрибутов</span> <u>автоматически становятся</u>
+						<span class="color-aqua">свойствами DOM-объектов</span>.
+					</p>
+					<p>Мы <u>можем добавить</u> <span class="color-aqua">своё собственное свойство</span>.
+						<span class="color-pink">DOM-узлы</span> – это
+						<span class="color-pink">обычные объекты </span>. Мы <u>можем изменять</u>
+						<span class="color-pink">их</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>создадим</u> 
+						<span class="color-aqua">новое свойство</span> для 
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-aqua">myData</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">name</span>: <span class="color-gold">'Caesar'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">title</span>: <span class="color-gold">'Imperator'</span>,
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">document</span>.<span class="color-aqua">body.myData.title</span>);
+						<span class="section__code-comment">// - получим <span class="color-gold">'Imperator'</span>
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Мы <u>можем добавить</u> и 
+						<span class="color-red">метод</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-blue">sayTagName</span> = <span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">this</span>.<span class="color-aqua">tagName</span>);
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-blue">sayTagName</span>();
+						<span class="section__code-comment">// - получим <span class="color-gold">'BODY'</span>,  (<span class="color-pink">this</span> в <span class="color-red">этом методе</span> <u>будет</u> 
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>)</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-aqua">DOM-свойства</span> и <span class="color-red">методы</span>
+						<u>ведут себя так же</u>, как и <span class="color-pink">обычные объекты</span>:
+						<em>Им</em> <u>можно присвоить</u> <span class="color-gold">любое значение</span>,
+						<em>Они</em> <u>регистрозависимы</u> (<u>нужно писать</u> <span
+							class="color-pink">elem</span>.<span class="color-aqua">nodeType</span>, а <u>не</u>
+						<span class="color-pink">elem</span>.<span class="color-aqua">NoDeTyPe</span>).
+					</p>
+					<p>Когда у <span class="color-pink">элемента</span> <u>есть</u> <span class="color-aqua">id</span>
+						или <span class="color-aqua">другой стандартный атрибут</span>, <u>создаётся</u>
+						<span class="color-aqua">соответствующее свойство</span>. Но <u>этого не происходит</u>, если
+						<span class="color-aqua">атрибут нестандартный</span>. Для
+						<span class="color-aqua">нестандартных атрибутов</span> <u>не будет</u>
+						<span class="color-aqua">соответствующих DOM-свойств</span>. <u>Способы получить</u>
+						<span class="color-aqua">нестандартный атрибуты</span>: с помощью следующих
+						<span class="color-red">методов</span>:
+					</p><em></em>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-red">hasAttribute</span>
+						(<span class="color-aqua">attributeName</span>) – <u>проверяет наличие</u>
+						<span class="color-aqua">атрибута</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-red">getAttribute</span>
+						(<span class="color-aqua">attributeName</span>) – <u>получает</u>
+						<span class="color-gold">значение</span> <span class="color-aqua">атрибута</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-red">setAttribute</span>
+						(<span class="color-aqua">attributeName</span>, <span class="color-gold">value</span>) –
+						<u>устанавливает</u> <span class="color-gold">значение</span>
+						<span class="color-aqua">атрибута</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-red">removeAttribute</span>
+						(<span class="color-aqua">attributeName</span>) – <u>удаляет</u>
+						<span class="color-aqua">атрибут</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-red">Эти методы</span> <u>работают</u> именно с тем, что
+						<u>написано</u> в <em>HTML</em>.
+					</li>
+					<li class="section__list-item">
+						<u>Получить</u> <span class="color-aqua">все атрибуты</span>
+						<span class="color-pink">элемента</span> <u>можно с помощью</u> <em>свойства</em>
+						<span class="color-pink">elem</span>.<span class="color-aqua">attributes</span>: -
+						<span class="color-pink">коллекция объектов</span>, которая <u>принадлежит</u> ко
+						<em>встроенному классу</em> <span class="color-pink">Attr</span> со <em>свойствами</em>
+						<span class="color-aqua">name</span> и <span class="color-aqua">value</span>.
+						<em>Коллекция</em> <span class="color-pink">attributes</span> <u>является</u>
+						<u>перебираемой</u>. В <span class="color-pink">ней</span> <u>есть</u>
+						<span class="color-aqua">все атрибуты</span> <span class="color-pink">элемента</span>
+						(<span class="color-aqua">стандартные</span> и <span class="color-aqua">нестандартные</span>) в
+						<span class="color-pink">виде объектов</span> со <em>свойствами</em>
+						<span class="color-aqua">name</span> и <span class="color-aqua">value</span>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p>У <span class="color-aqua">HTML-атрибутов</span> есть <u>следующие особенности</u>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<em>Их</em> <span class="color-aqua">имена</span> <u>регистронезависимы</u>
+						(<span class="color-pink">id</span> <u>то же самое</u>, что и
+						<span class="color-pink">ID</span>).
+					</li>
+					<li class="section__list-item">
+						<em>Их</em> <span class="color-gold">значения</span> <u>всегда являются</u>
+						<span class="color-gold">строками</span>.
+					</li>
+				</ul>
+			</section>
+
+			<section class="section" id="document-modification">
+				<h3 class="section__subtitle">Изменение документа</h3>
+				<h3 class="section__subtitle section__subtitle_small">Создание элемента</h3>
+				<div class="section__text-block">
+					<p><span class="color-pink">DOM-узел</span> можно <u>создать</u>
+						<span class="color-red">двумя методами</span>:
+					</p>
+					<p><span class="color-pink">document</span>.<span class="color-red">createElement</span>
+						(<span class="color-gold">tag</span>) - <u>создаёт</u> <span class="color-pink">элемент</span>
+						с заданным <em>тегом</em>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">div</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">createElement</span>
+						(<span class="color-gold">'div'</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-pink">document</span>.<span class="color-red">createTextNode</span>
+						(<span class="color-gold">text</span>) - <u>создаёт</u>
+						<span class="color-gold">текстовый узел</span> с <span class="color-gold">текстом</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">textNode</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">createTextNode</span>
+						(<span class="color-gold">'.. текст ..'</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>В основном нам <u>нужно создавать</u> <span class="color-pink">узлы элементов</span></p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Создание сообщения</h3>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">p</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">createElement</span>
+						(<span class="color-gold">'p'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">p</span>.<span class="color-aqua">innerHTML</span> = 
+						<span class="color-gold">'текст'</span>;
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Мы <u>создали</u> <span class="color-pink">элемент</span>, но
+						<span class="color-pink">он</span> <u>пока только</u> в
+						<span class="color-pink">переменной</span>. Мы <u>не можем видеть</u>
+						<span class="color-pink">его</span> на <em>странице</em>, поскольку
+						<span class="color-pink">он</span> <u>не является</u> <em>частью документа</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Методы вставки</h3>
+				<div class="section__text-block">
+					<p>Чтобы наш <span class="color-pink">элемент</span> <u>появился</u>, нам <u>нужно вставить</u>
+						<span class="color-red">его</span> где-нибудь в <span class="color-pink">document</span>.
+						<u>Для этого есть</u> <em>метод</em> <span class="color-pink">element</span>.<span
+							class="color-red">append</span>(<span class="color-gold">createdElement</span>).
+					</p>
+					<p><span class="color-red">Методы</span> для различных вариантов <u>вставки</u>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">element</span>.<span class="color-red">append</span>
+						(<span class="color-pink">createdElements</span> или <span class="color-gold">strings</span>) –
+						<u>добавляет</u> <span class="color-pink">узлы</span> или
+						<span class="color-gold">строки</span> <u>в конец</u> <span class="color-pink">element</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">element</span>.<span class="color-red">prepend</span>
+						(<span class="color-pink">createdElements</span> или <span class="color-gold">strings</span>) –
+						<u>вставляет</u> <span class="color-pink">узлы</span> или
+						<span class="color-gold">строки</span> <u>в начало</u> <span class="color-pink">element</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">element</span>.<span class="color-red">before</span>
+						(<span class="color-pink">createdElements</span> или <span class="color-gold">strings</span>) –
+						<u>вставляет</u> <span class="color-pink">узлы</span> или
+						<span class="color-gold">строки</span> <u>до</u> <span class="color-pink">element</span></span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">element</span>.<span class="color-red">after</span>
+						(<span class="color-pink">createdElements</span> или <span class="color-gold">strings</span>) –
+						<u>вставляет</u> <span class="color-pink">узлы</span> или
+						<span class="color-gold">строки</span> <u>после</u> <span class="color-pink">element</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">element</span>.<span class="color-red">replaceWith</span>
+						(<span class="color-pink">createdElements</span> или <span class="color-gold">strings</span>) –
+						<u><em>заменяет</em></u> <span class="color-pink">element</span>
+						<span class="color-pink">заданными узлами</span> или <span class="color-gold">строками</span>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><span class="color-red">Эти методы</span> <u>могут вставлять</u>
+						<span class="color-pink">несколько узлов</span> и
+						<span class="color-gold">текстовых фрагментов</span> <u>за один вызов</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">div</span>.<span class="color-red">before</span>
+						(<span class="color-gold">'Привет'</span>, <span class="color-pink">document</span>.<span class="color-red">createElement</span>(<span class="color-pink">'hr'</span>));
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-gold">Строки</span> <u>вставляются <em>безопасным способом</em></u>, как
+						делает это <span class="color-pink">elem</span>.<span class="color-aqua">textContent</span>.
+					</p>
+					<p><span class="color-red">Эти методы</span> <u>могут использоваться только для вставки</u>
+						<span class="color-pink">DOM-узлов</span> или
+						<span class="color-gold">текстовых фрагментов</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">insertAdjacentHTML/Text/Element</h3>
+				<div class="section__text-block">
+					<p>Если мы хотим <u>вставить</u> <em>HTML</em> именно «как <span class="color-red">html»</span>, со
+						всеми <em>тегами</em> и прочим, как <u>делает это</u>
+						<span class="color-pink">element</span>.<span class="color-aqua">innerHTML</span>,
+						<u>существует</u> <span class="color-red">универсальный метод</span>:
+						<span class="color-pink">element</span>.<span class="color-red">insertAdjacentHTML</span>
+						(<span class="color-gold">'where'</span>, <span class="color-gold">'html'</span>).
+					</p>
+					<p><em>Первый параметр</em> – это
+						<span class="color-gold">специальное слово</span>, указывающее,
+						<u>куда по отношению</u> к <span class="color-pink">element</span>
+						<u>производить вставку</u>. <span class="color-gold">Значение</span>
+						<u>должно быть <em>одним из следующих</em>:</u>
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-gold">'beforebegin'</span> – <u>вставить</u>
+						<em>html код</em> <u>непосредственно перед</u> <span class="color-pink">element</span>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-gold">'afterbegin'</span> – <u>вставить</u> <em>html код</em>
+						<u>в начало</u> <span class="color-pink">element</span>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-gold">'beforeend'</span> – <u>вставить</u> <em>html код</em>
+						<u>в конец</u> <span class="color-pink">element</span>;
+					</li>
+					<li class="section__list-item">
+						"<span class="color-gold">afterend</span>" – <u>вставить</u> <em>html код</em>
+						<u>непосредственно после</u> <span class="color-pink">element</span>;
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><em>Второй параметр</em> – это <span class="color-gold">HTML-строка</span>, которая
+						<u>будет вставлена</u> именно как <em>HTML код</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">div</span>.<span class="color-red">insertAdjacentHTML</span>
+						(<span class="color-gold">'beforebegin'</span>, <span class="color-gold">' p Привет /p'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">div</span>.<span class="color-red">insertAdjacentHTML</span>(<span class="color-gold">'afterend'</span>, <span class="color-gold">'p Пока /p'</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Так мы <u>можем добавлять</u> <em>произвольный HTML</em> на <em>страницу</em>.</p>
+					<p>У <em>метода</em> <span class="color-red">insertAdjacentHTML</span>( ) <u>есть два брата</u>.
+						<em>На практике</em> часто <u>используется только</u>
+						<span class="color-red">insertAdjacentHTML</span>( )
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-red">insertAdjacentText</span>
+						(<span class="color-gold">where</span>, <span class="color-gold">text</span>) – такой же
+						<u>синтаксис</u>, но <em>строка</em> <span class="color-gold">text</span> <u>вставляется</u>
+						«как <span class="color-gold">текст»</span>, вместо <em>HTML</em>,
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-red">insertAdjacentElement</span>
+						(<span class="color-gold">'where'</span>, <span class="color-pink">element</span>) – такой же
+						<u>синтаксис</u>, но <u>вставляет</u> <em>элемент</em> <span class="color-pink">element</span>.
+					</li>
+				</ul>
+				<h3 class="section__subtitle section__subtitle_small">Удаление узлов</h3>
+				<div class="section__text-block">
+					<p><u>Для удаления</u> <span class="color-pink">узла</span> <u>есть</u>
+						<span class="color-red">метод</span>
+						<span class="color-pink">node</span>.<span class="color-red">remove</span>( ).
+					</p>
+					<p>Если нам <u>нужно переместить</u> <span class="color-pink">элемент</span> в <em>другое место</em>
+						<u>нет необходимости удалять</u> <span class="color-pink">его</span> <em>со старого</em>.
+					</p>
+					<p><span class="color-red">Все методы вставки</span> <u>автоматически удаляют</u>
+						<span class="color-pink">узлы</span> со <em>старых мест</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Клонирование узлов: cloneNode</h3>
+				<div class="section__text-block">
+					<p><u>Вызов</u> <span class="color-pink">elem</span>.<span class="color-red">cloneNode</span>
+						(<span class="color-gold">true</span>) <u>создаёт</u>
+						<span class="color-pink">«глубокий» клон элемента</span>
+						<span class="color-aqua">со всеми атрибутами</span> и
+						<span class="color-pink">дочерними элементами</span>. <u>Если мы вызовем</u>
+						<span class="color-pink">elem</span>.<span class="color-red">cloneNode</span>(
+						<span class="color-gold">false</span>), тогда <span class="color-pink">клон</span>
+						<u>будет без</u> <span class="color-pink">дочерних элементов</span>.
+					</p>
+					<p>Чтобы <u>добавить</u> <em>HTML</em> на <em>страницу</em> <u>до завершения её загрузки</u>:
+						<span class="color-pink">document</span>.<span class="color-red">write</span>
+						(<span class="color-gold">html</span>). <u>После загрузки</u> <em>страницы</em>
+						<u>такой вызов затирает</u> <em>документ</em>. В основном <u>встречается</u> в
+						<em>старых скриптах</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Стили и классы</h3>
+				<div class="section__text-block">
+					<p><em>JavaScript</em> <u>может менять</u> и <span class="color-gold">классы</span>, и
+						<em>свойство</em> <span class="color-aqua">style</span>. <span class="color-gold">Классы</span>
+						– всегда <u>предпочтительный вариант</u> по сравнению со <span class="color-aqua">style</span>.
+					</p>
+					<p><u>Изменение</u> <span class="color-gold">класса</span> является одним из наиболее
+						<u>часто используемых действий</u> в <em>скриптах</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">className и classList</h3>
+				<div class="section__text-block">
+					<p><em>Свойство</em> <span class="color-pink">elem</span>.<span class="color-aqua">className</span>
+						<u>соответствует</u> <em>атрибуту</em> <span class="color-aqua">class</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-aqua">className</span><span class="section__code-comment">// - получим 
+						<span class="color-gold">класс</span> элемента</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Если мы <u>присваиваем</u> что-то <span class="color-pink">elem</span>.<span
+							class="color-aqua">className</span>, то это <u>заменяет</u> <em>всю строку</em> с
+						<span class="color-gold">классами</span>.
+					</p>
+					<p>Если мы хотим <u>добавить</u> / <u>удалить</u> <span class="color-gold">один класс</span>,
+						<u>для этого есть</u> <span class="color-aqua">другое свойство</span>:
+						<span class="color-pink">elem</span>.<span class="color-aqua">classList</span> – это
+						<span class="color-pink">специальный объект</span> с <span class="color-red">методами</span>.
+					</p>
+					<p><span class="color-red">Методы</span> <span class="color-pink">classList</span>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">classList</span>.<span
+							class="color-red">add</span>(<span class="color-gold">'class'</span>) /
+						<span class="color-red">remove</span> (<span class="color-gold">'class'</span>) –
+						<u>добавить</u> / <u>удалить</u> <span class="color-gold">класс</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">classList</span>.<span
+							class="color-red">toggle</span>(<span class="color-gold">'class'</span>) – <u>добавить</u>
+						<span class="color-gold">класс</span>, если <em>его</em> <u>нет</u>, <u>иначе удалить</u>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">elem</span>.<span class="color-aqua">classList</span>.<span
+							class="color-red">contains</span>(<span class="color-gold">'class'</span>) –
+						<u>проверка наличия</u> <span class="color-gold">класса</span>, <u>возвращает</u>
+						<span class="color-gold">true</span> / <span class="color-gold">false</span>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p>Кроме того, <span class="color-aqua">classList</span> <u>является <em>перебираемым</em></u>,
+						поэтому <u>можно перечислить</u> <span class="color-gold">все классы</span> <u>при помощи</u>
+						<span class="color-red">for..of</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">body</span> <span class="color-pink">class</span> = 
+						"<span class="color-gold">main</span> <span class="color-gold">page</span>"
+						<span class="color-red">/body</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">for</span> (<span class="color-red">let</span> 
+						<span class="color-pink">name</span> <span class="color-red">of</span> 
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-aqua">classList</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">name</span>);
+						<span class="section__code-comment">// - получим <span class="color-gold">все классы</span> 
+						<span class="color-gold">'main'</span>, затем <span class="color-gold">'page'</span></span> 
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Element style</h3>
+				<div class="section__text-block">
+					<p><em>Свойство</em> <span class="color-pink">element</span>.<span class="color-pink">style</span> –
+						это <span class="color-pink">объект</span>, который <u>соответствует</u> тому, что написано в
+						<em>атрибуте</em> <span class="color-aqua">"style"</span>. <u>Установка стиля</u>
+						<span class="color-pink">elem</span>.<span class="color-pink">style</span>.<span
+							class="color-aqua">width</span> = <span class="color-gold">'100px'</span>
+						<u>работает так же</u>, <u>как наличие</u> в <em>атрибуте</em>
+						<span class="color-aqua">style</span> <em>строки</em>
+						<span class="color-gold">'width: 100px'</span>.
+					</p>
+					<p>Для <span class="color-aqua">свойства из нескольких слов</span> <u>используется</u>
+						<em>camelCase</em>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">background-color</span> => 
+						<span class="color-pink">elem</span>.<span class="color-pink">style</span>.<span class="color-aqua">backgroundColor</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">z-index</span> => 
+						<span class="color-pink">elem</span>.<span class="color-pink">style</span>.<span class="color-aqua">zIndex</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">border-left-width</span> => 
+						<span class="color-pink">elem</span>.<span class="color-pink">style</span>.<span class="color-aqua">borderLeftWidth</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Стили браузерным префиксом</em>, <u>например</u>,
+						<span class="color-aqua">-moz-border-radius</span>,
+						<span class="color-aqua">-webkit-border-radius</span>
+						<u>преобразуются по тому же принципу</u>: <em>дефис</em> <u>означает</u>
+						<em>заглавную букву</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">button</span>.<span class="color-pink">style</span>.<span class="color-aqua">MozBorderRadius</span> = <span class="color-gold">'5px'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">button</span>.<span class="color-pink">style</span>.<span class="color-aqua">WebkitBorderRadius</span> = <span class="color-gold">'5px'</span>;
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Сброс стилей</h3>
+				<div class="section__text-block">
+					<p>Иногда нам <u>нужно добавить</u> <span class="color-aqua">свойство стиля</span>, а потом, позже,
+						<u>убрать</u> <span class="color-aqua">его</span>.
+					</p>
+					<p><u>Например</u>, чтобы <u>скрыть</u> <span class="color-pink">элемент</span>, мы
+						<u>можем задать</u>
+						<span class="color-pink">elem</span>.<span class="color-pink">style</span>.<span
+							class="color-aqua">display</span> = <span class="color-gold">'none'</span>.
+					</p>
+					<p>Затем мы <u>можем удалить</u> <em>свойство</em>
+						<span class="color-pink">style</span>.<span class="color-aqua">display</span>,
+						<u>чтобы вернуться к первоначальному состоянию</u>. <u>Вместо</u>
+						<span class="color-red">delete</span> <span class="color-pink">elem</span>.<span
+							class="color-pink">style</span>.<span class="color-aqua">display</span> мы
+						<u>должны присвоить</u> <span class="color-aqua">ему</span>
+						<span class="color-gold">пустую строку</span>: <span class="color-pink">elem</span>.<span
+							class="color-pink">style</span>.<span class="color-aqua">display</span> =
+						<span class="color-gold">""</span>. <u>Если</u> мы <u>установим</u> в
+						<span class="color-pink">style</span>.<span class="color-aqua">display</span>
+						<span class="color-gold">пустую строку</span>, то <em>браузер</em> <u>применит</u>
+						<em>CSS-классы</em> и <em>встроенные стили</em>, как если бы <em>такого свойства</em>
+						<span class="color-pink">style</span>.<span class="color-aqua">display</span>
+						<u>вообще не было</u>.
+					</p>
+					<p><u>Для задания</u> <em>нескольких стилей</em> в <em>одной строке</em> <u>используется</u>
+						<em>специальное свойство</em>
+						<span class="color-pink">style</span>.<span class="color-aqua">cssText</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">div</span>.<span class="color-pink">style</span>.<span class="color-aqua">cssText</span> = `<span class="color-aqua">color</span>: 
+						<span class="color-gold">red</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">background-color</span>: <span class="color-gold">yellow</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">width</span>: <span class="color-gold">100px</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">text-align</span>: <span class="color-gold">center</span>;
+					</span>
+					<span class="section__code-row">`;</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Такое присваивание удаляет</u> <em>все существующие стили</em>:
+						<em>оно</em> <u>не добавляет</u>, а <u>заменяет</u> <em>их</em>.
+					</p>
+					<p><span class="color-blue">!</span> <u>Не забываем добавлять</u> к
+						<span class="color-gold">значениям</span> <em>единицы измерения</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Вычисленные стили: getComputedStyle</h3>
+				<div class="section__text-block">
+					<p><u>Для чтения</u> <em>окончательных стилей</em> (<u>с учётом</u> <em>всех классов</em>,
+						<u>после применения</u> <em>CSS</em> и <u>вычисления</u> <em>окончательных значений</em>)
+						<u>используется</u> <em>метод</em>
+						<span class="color-red">getComputedStyle</span>(<span class="color-pink">elem</span>,
+						[<span class="color-pink">pseudo</span>]) - <u>возвращает</u>
+						<span class="color-pink">объект</span>, похожий по формату на
+						<span class="color-pink">style</span>. <u>Только для чтения</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">getComputedStyle</span>(<span class="color-pink">element</span>, [<span class="color-pink">pseudo</span>]);
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-pink">element</span> - 
+						<span class="color-pink">элемент</span>, <span class="color-gold">значения</span> <u>для</u> <span class="color-pink">которого</span> <u>нужно получить</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-pink">pseudo</span> - 
+						<u>указывается</u>, <u>если нужен</u> <em>стиль</em> 
+						<span class="color-pink">псевдоэлемента</span>, <u>например</u> 
+						<span class="color-red">::before</span>. <span class="color-gold">Пустая строка</span> или <u>отсутствие <em>аргумента</em> означают</u> 
+						<span class="color-pink">сам элемент</span>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Для правильного получения</u> <span class="color-gold">значения</span> <u>нужно указать</u>
+						<span class="color-aqua">точное свойство</span>. <u>Например</u>:
+						<span class="color-aqua">paddingLeft</span>, <span class="color-aqua">marginTop</span>,
+						<span class="color-aqua">borderTopWidth</span>. <u>При обращении</u> к <u>сокращённому</u>:
+						<span class="color-aqua">padding</span>, <span class="color-aqua">margin</span>,
+						<span class="color-aqua">border</span> – <u>правильный результат не гарантируется</u>.
+					</p>
+					<p><em>Стили</em>, <u>применяемые</u> к <em>посещённым ссылкам</em>
+						<span class="color-gold">:visited</span>, <u>!скрываются</u>!
+						<span class="color-red">getComputedStyle</span>( ) <u>не даёт доступ</u> к
+						<em>этой информации</em>, чтобы <em>произвольная страница</em> <u>не могла определить</u>,
+						посещал ли <em>пользователь</em> ту или иную <em>ссылку</em>, <u>проверив <em>стили</em></u>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="dimensions-element-browser-window">
+				<h3 class="section__subtitle">Размеры элементов / окна браузера</h3>
+				<div class="section__text-block">
+					<p>Существует множество <span class="color-aqua">JavaScript-свойств</span> (<em>'метрики'</em>),
+						<em>которые</em> <u>позволяют считывать информацию</u> об
+						<span class="color-pink">элементе</span>: <span class="color-aqua">ширину</span>,
+						<span class="color-aqua">высоту</span> и другие
+						<span class="color-aqua">геометрические характеристики</span>.
+						<span class="color-aqua">Они</span> <u>часто требуются</u>, когда нам <u>нужно передвигать</u>
+						или <u>позиционировать</u> <span class="color-pink">элементы</span> с помощью
+						<em>JavaScript</em>.
+					</p>
+					<p><span class="color-blue">!</span> Внимание, <span class="color-aqua">полоса прокрутки</span>.
+						<span class="color-aqua">Ширина области содержимого</span> <u>допустим</u>
+						<span class="color-gold">'300px'</span>, но если предположить, что
+						<span class="color-aqua">ширина полосы прокрутки</span> <u>равна</u>
+						<span class="color-gold">'16px'</span> (<em>её</em>
+						<span class="color-gold">точное значение</span> <u>зависит</u> от <em>устройства</em> и
+						<em>браузера</em>), тогда <u>остаётся только</u>
+						<span class="color-aqua">Ширина области содержимого</span>
+						<span class="color-gold">300 - 16 = '284px'</span>, и мы <u>должны это учитывать</u>.
+					</p>
+				</div>
+				<div class="section__image section__image_big">
+					<img class="img-adaptive" src="./img/scrolling-of-elements.png" alt="pic">
+				</div>
+				<div class="section__text-block">
+					<p><span class="color-gold">Значениями</span>
+						<span class="color-aqua">геометрических свойств</span> (<em>метрик</em>) <u>являются</u>
+						<span class="color-gold">числа</span>, подразумевается, что
+						<span class="color-gold">они</span> в <em>пикселях</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">offsetParent, offsetLeft / offsetTop</h3>
+				<div class="section__text-block">
+					<p><span class="color-aqua">offsetParent</span>, <span class="color-aqua">offsetLeft</span> /
+						<span class="color-aqua">offsetTop</span> - <span class="color-aqua">эти свойства</span>
+						<u>являются</u> <em>«самыми внешними» метриками</em>.
+					</p>
+					<p>В <em>свойстве</em> <span class="color-aqua">offsetParent</span> <u>находится</u>
+						<span class="color-pink">предок элемента</span>, который <u>используется внутри</u>
+						<em>браузера</em> <u>для вычисления</u> <em>координат</em> при <em>рендеринге</em>.
+					</p>
+					<p>То есть, <span class="color-pink">ближайший предок</span>, который <u>удовлетворяет</u>
+						следующим <u>условиям</u>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<u>Является</u> <em>CSS-позиционированным</em> (<em>CSS-свойство</em>
+						<span class="color-aqua">position</span> <u>равно</u> <span class="color-gold">absolute</span>,
+						<span class="color-gold">relative</span>, <span class="color-gold">fixed</span> или
+						<span class="color-gold">sticky</span>),
+					</li>
+					<li class="section__list-item">
+						или <em>тегом</em> <span class="color-red">td</span>, <span class="color-red">th</span>,
+						<span class="color-red">table</span>,
+					</li>
+					<li class="section__list-item">или <em>тег</em> <span class="color-red">body</span>>.</li>
+				</ul>
+				<div class="section__text-block">
+					<p><em>Свойства</em> <span class="color-aqua">offsetLeft</span> /
+						<span class="color-aqua">offsetTop</span> <u>содержат</u> <em>координаты</em>
+						<span class="color-gold">x</span> / <span class="color-gold">y</span>
+						<u>относительно верхнего левого угла</u> <span class="color-aqua">offsetParent</span>.
+					</p>
+					<p><u>Существует несколько ситуаций</u>, когда <span class="color-aqua">offsetParent</span>
+						<u>равно</u> <span class="color-gold">null</span>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<u>Для</u> <span class="color-pink">скрытых элементов</span> (с <em>CSS-свойством</em>
+						<span class="color-pink">display</span>: <span class="color-gold">none</span> или когда
+						<span class="color-pink">его</span> <u>нет</u> в <em>документе</em>).
+					</li>
+					<li class="section__list-item">
+						<u>Для</u> <em>элементов</em> <span class="color-pink">body</span> и
+						<span class="color-pink">html</span>.
+					</li>
+					<li class="section__list-item">
+						<u>Для</u> <span class="color-pink">элементов</span> с <span class="color-pink">position</span>:
+						<span class="color-gold">fixed</span>.
+					</li>
+				</ul>
+				<h3 class="section__subtitle section__subtitle_small">offsetWidth / offsetHeight</h3>
+				<div class="section__text-block">
+					<p>Теперь <u>переходим</u> к <span class="color-pink">самому элементу</span>.</p>
+					<p><span class="color-aqua">offsetWidth</span> и <span class="color-aqua">offsetHeight</span>
+						<u>содержат</u> <span class="color-aqua"><em>«внешнюю»</em> ширину / высоту</span>
+						<span class="color-pink">элемента</span>, то есть <span class="color-pink">его</span>
+						<span class="color-aqua">полный размер</span>, <u>включая</u>
+						<span class="color-aqua">рамки</span>.
+					</p>
+					<p><em>Координаты</em> и <em>размеры</em> в <em>JavaScript</em> <u>устанавливаются только для</u>
+						<span class="color-pink">видимых элементов</span>. Если <span class="color-pink">элемент</span>
+						(или любой <span class="color-pink">его родитель</span>) <u>имеет</u>
+						<span class="color-aqua">display</span>: <span class="color-gold">none</span> или <u>отсутствует
+							в <em>документе</em></u>, то все <span class="color-pink">его</span> <em>метрики</em>
+						<u>равны</u> <span class="color-gold">нулю</span>.
+					</p>
+					<p>Мы <u>можем использовать</u> <em>это</em>, чтобы <u>делать проверку на видимость</u></p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">isHidden</span>
+						(<span class="color-pink">elem</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> 
+						!<span class="color-pink">elem</span>.<span class="color-aqua">offsetWidth</span> && 
+						!<span class="color-pink">elem</span>.<span class="color-aqua">offsetHeight</span>;
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">clientTop / clientLeft</h3>
+				<div class="section__text-block">
+					<p><u>Внутри</u> <span class="color-pink">элемента</span> у нас
+						<span class="color-aqua">рамки</span> (<span class="color-aqua">border</span>).
+					</p>
+					<p>Для <span class="color-aqua">них</span> <u>есть</u> <em>свойства-метрики</em>
+						<span class="color-aqua">clientTop</span> -
+						<span class="color-aqua">ширина <em>верхней рамки</em></span> и
+						<span class="color-aqua">clientLeft</span> -
+						<span class="color-aqua">ширина <em>левой рамки</em></span>.
+					</p>
+					<p>…Но на самом деле <span class="color-aqua">эти свойства</span> – вовсе
+						<span class="color-aqua"><u>не</u> ширины рамок</span>, а
+						<span class="color-aqua">отступы внутренней части</span>
+						<span class="color-pink">элемента</span> от <span class="color-aqua">внешней части</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">clientWidth / clientHeight</h3>
+				<div class="section__text-block">
+					<p><span class="color-aqua">clientWidth</span> / <span class="color-aqua">clientHeight</span> –
+						<span class="color-aqua">размер области внутри рамок</span>
+						<span class="color-pink">элемента</span>.
+					</p>
+					<p><span class="color-aqua">clientWidth</span> / <span class="color-aqua">clientHeight</span>
+						<u>включают</u> в себя
+						<span class="color-aqua">ширину области содержимого вместе с внутренними отступами</span>
+						<span class="color-aqua">padding</span>, но <span class="color-aqua">без прокрутки</span>.
+					</p>
+					<p><u>Если нет</u> <em>внутренних отступов</em> <span class="color-aqua">padding</span>, то
+						<span class="color-aqua">clientWidth</span> / <span class="color-aqua">clientHeight</span> в
+						точности <u>равны</u> <span class="color-aqua">размеру области содержимого</span> <u>внутри</u>
+						<span class="color-aqua">рамок</span> <u>за вычетом</u>
+						<span class="color-aqua">полосы прокрутки</span> (если она есть).
+					</p>
+					<p>В тех случаях, <u>если</u> <span class="color-aqua">отступов</span> <u>нет</u>,
+						<u>можно использовать</u> <span class="color-aqua">clientWidth</span> /
+						<span class="color-aqua">clientHeight</span> <u>для получения</u>
+						<span class="color-aqua">размеров внутренней области содержимого</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">scrollWidth / scrollHeight</h3>
+				<div class="section__text-block">
+					<p><span class="color-aqua">scrollWidth</span> / <span class="color-aqua">scrollHeight</span> –
+						<u>как</u> <span class="color-aqua">clientWidth</span> /
+						<span class="color-aqua">clientHeight</span>, <u>но также включают в себя</u>
+						<span class="color-aqua">прокрученную часть элемента</span> (которую не видно).
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>распахнуть на всю высоту</u> 
+						<span class="color-pink">элемент</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-pink">style</span>.<span class="color-aqua">height</span> = `${<span class="color-pink">element</span>.<span class="color-aqua">scrollHeight</span>}<span class="color-gold">px</span>`;
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">scrollLeft / scrollTop</h3>
+				<div class="section__text-block">
+					<p><em>Свойства</em> <span class="color-aqua">scrollLeft</span> /
+						<span class="color-aqua">scrollTop</span> – <span class="color-aqua">ширина</span> /
+						<span class="color-aqua">высота прокрученной части элемента <u>слева</u> и <u>сверху</u></span>.
+					</p>
+					<p>Другими словами, <em>свойство</em> <span class="color-aqua">scrollTop</span> – это
+						<span class="color-aqua">сколько уже прокручено вверх</span>.
+					</p>
+					<p><u>В отличие</u> от <span class="color-aqua">большинства свойств</span>, которые
+						<u>доступны только для чтения</u>, <span class="color-gold">значения</span>
+						<span class="color-aqua">scrollLeft</span> / <span class="color-aqua">scrollTop</span>
+						<u>можно изменять</u>, и <em>браузер</em> <u>выполнит прокрутку</u>
+						<span class="color-pink">элемента</span>. <u>Установка</u>
+						<span class="color-gold">значения</span> <span class="color-aqua">scrollTop</span> <u>на</u>
+						<span class="color-gold">0</span> или <span class="color-gold">Infinity</span>
+						<u>прокрутит</u> <span class="color-pink">элемент</span> в <u>самый верх / низ</u>
+						соответственно.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Не стоит брать width/height из CSS</h3>
+				<div class="section__text-block">
+					<p><u>Две причины</u> почему мы <u>должны использовать</u>
+						<span class="color-aqua">свойства-метрики</span> <u>вместо</u> <em>метода</em>
+						<span class="color-red">getComputedStyle</span>( ), чтобы <u>извлечь</u>
+						<span class="color-aqua">высоту и ширину</span> <span class="color-pink">элемента</span>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<u>Во-первых</u>, <em>CSS-свойства</em> <span class="color-aqua">width/height</span>
+							<u>зависят</u> от <em>другого свойства</em> – <span class="color-aqua">box-sizing</span>,
+							<span class="color-aqua">которое</span> <u>определяет</u>, «что такое», собственно, эти
+							<em>CSS-ширина и высота</em>. Получается, что <u>изменение</u>
+							<span class="color-aqua">box-sizing</span>, к примеру, для <em>более удобной вёрстки</em>,
+							<u>сломает</u> такой <em>JavaScript</em>.
+						</li>
+						<li class="section__list-item">
+							<u>Во-вторых</u>, <em>CSS свойства</em> <span class="color-aqua">width / height</span>
+							<u>могут быть равны</u> <span class="color-gold">auto</span>, например, для
+							<em>инлайнового элемента</em>:
+						</li>
+					</ul>
+					<p>Есть и <u>ещё одна причина</u>: <span class="color-aqua">полоса прокрутки</span>
+						<u>«отъедает» место</u> от <span class="color-aqua">области внутреннего содержимого</span> в
+						<em>некоторых браузерах</em>. Таким образом, <em>реальная ширина содержимого</em> <u>меньше</u>
+						<em>CSS-ширины</em>. Как раз <em>это</em> и <u>учитывают</u> <em>свойства</em>
+						<span class="color-aqua">clientWidth</span> / <span class="color-aqua">clientHeight</span>
+					</p>
+					<p>С <span class="color-red">getComputedStyle</span>(<span class="color-pink">elem</span>).<span
+							class="color-aqua">width</span> <u>ситуация иная</u>. <em>Некоторые браузеры</em> (например,
+						Chrome) <u>возвращают</u> <em>реальную внутреннюю ширину</em> <u>с вычетом</u>
+						<span class="color-aqua">ширины полосы прокрутки</span>, а например <em>Firefox</em>
+						– именно <em>CSS-свойство</em> (<u>игнорируя</u>
+						<span class="color-aqua">полосу прокрутки</span>). Эти <em>кроссбраузерные отличия</em> – ещё
+						один <u>повод не использовать</u> <span class="color-red">getComputedStyle</span>( ), а
+						<u>использовать</u> <span class="color-aqua">свойства-метрики</span>. Это из-за того, что
+						<em>Firefox</em> <u>возвращает</u> именно <em>CSS-ширину</em>, а <em>остальные браузеры</em> –
+						«<em>реальную» ширину</em> <u>за вычетом</u> <span class="color-aqua">прокрутки</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Прокрутка окна браузера</h3>
+				<div class="section__text-block">
+					<p>Чтобы <u>получить</u> <span class="color-aqua">ширину / высоту окна</span>, <u>можно взять</u>
+						<em>свойства</em> <span class="color-aqua">clientWidth</span> /
+						<span class="color-aqua">clientHeight</span> из
+						<span class="color-pink">document</span>.<span class="color-aqua">documentElement</span>:
+					</p>
+					<p><span class="color-blue">!</span> <u>Не</u>
+						<span class="color-pink">window</span>.<span class="color-aqua">innerWidth</span> /
+						<span class="color-pink">window</span>.<span class="color-aqua">innerHeight</span>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Если <span class="color-aqua">полоса прокрутки</span> <u>занимает</u> некоторое место, то <em>эти две строки</em> <u>выведут</u> 
+						<span class="color-gold">разные значения</span>:
+					</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">window</span>.<span class="color-aqua">innerWidth</span>); <span class="section__code-comment">// - получим 
+						<span class="color-gold">полную ширину окна браузера</span></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">document</span>.<span class="color-aqua">documentElement</span>.<span class="color-aqua">clientWidth</span>);
+						<span class="section__code-comment">// - получим <span class="color-aqua">ширину окна за вычетом полосы прокрутки</span></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>В <em>большинстве случаев</em> <u>нам нужна</u>
+						<span class="color-aqua">доступная ширина окна</span>: для <em>рисования</em> или
+						<em>позиционирования</em>. <span class="color-aqua">Полоса прокрутки</span> <u>«отъедает»</u>
+						<span class="color-aqua">её часть</span>. Поэтому <u>следует использовать</u>
+						<span class="color-pink">documentElement</span>.<span class="color-aqua">clientHeight</span> /
+						<span class="color-pink">documentElement</span>.<span class="color-aqua">clientWidth</span>.
+					</p>
+					<p>Чтобы <u>надёжно получить</u> <span class="color-aqua">полную высоту документа</span>, нам
+						<u>следует взять</u> <span class="color-gold">максимальное значение</span> из
+						<span class="color-aqua">этих свойств</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">scrollHeight</span> = 
+						<span class="color-pink">Math</span>.<span class="color-red">max</span>(
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-pink">body</span>.<span class="color-aqua">scrollHeight</span>, <span class="color-pink">document</span>.<span class="color-pink">documentElement</span>.<span class="color-aqua">scrollHeight</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-pink">body</span>.<span class="color-aqua">offsetHeight</span>, <span class="color-pink">document</span>.<span class="color-pink">documentElement</span>.<span class="color-aqua">offsetHeight</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-pink">body</span>.<span class="color-aqua">clientHeight</span>, <span class="color-pink">document</span>.<span class="color-pink">documentElement</span>.<span class="color-aqua">clientHeight</span>
+					</span>
+					<span class="section__code-row">);</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Полная высота документа с прокручиваемой частью:'</span> + <span class="color-pink">scrollHeight</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-aqua">Текущую прокрутку</span> <u>можно прочитать</u> из <em>свойств</em>
+						<span class="color-pink">window</span>.<span class="color-aqua">pageXOffset</span> /
+						<span class="color-pink">window</span>.<span class="color-aqua">pageYOffset</span>
+					</p>
+					<p><em>Метод</em> <span class="color-red">scrollBy</span>(<span class="color-pink">x</span>,
+						<span class="color-pink">y</span>) <u>прокручивает <em>страницу</em> относительно <em>её</em>
+							текущего положения</u>. <u>Например</u>, <span class="color-red">scrollBy</span>
+						(<span class="color-gold">0</span>, <span class="color-gold">10</span>)
+						<u>прокручивает <em>страницу</em></u> на <span class="color-gold">10px</span> <u>вниз</u>.
+					</p>
+					<p><em>Метод</em> <span class="color-red">scrollTo</span>(<span class="color-pink">pageX</span>,
+						<span class="color-pink">pageY</span>) <u>прокручивает страницу</u> на
+						<em>абсолютные координаты</em> (<span class="color-pink">pageX</span>,
+						<span class="color-pink">pageY</span>). То есть, чтобы
+						<em>левый-верхний угол видимой части страницы</em> <u>имел</u>
+						<em>данные координаты</em> <u>относительно</u> <em>левого верхнего угла документа</em>. Это всё
+						<u>равно, что поставить</u> <span class="color-aqua">scrollLeft</span> /
+						<span class="color-aqua">scrollTop</span>. Для <u>прокрутки <em>в самое начало</em></u>
+						мы <u>можем использовать</u> <span class="color-red">scrollTo</span>
+						(<span class="color-gold">0</span>, <span class="color-gold">0</span>).
+					</p>
+					<p><span class="color-red">Эти методы</span> <u>одинаково работают</u> для <em>всех браузеров</em>.
+					</p>
+					<p><u>Вызов</u> <span class="color-pink">elem</span>.<span class="color-red">scrollIntoView</span>
+						(<span class="color-gold">top</span>) <u>прокручивает страницу</u>, чтобы
+						<span class="color-pink">elem</span> <u>оказался <em>вверху</em></u>. У
+						<span class="color-pink">него</span> <u>есть</u> <em>один аргумент</em>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							Если <span class="color-gold">top</span> = <span class="color-gold">true</span>
+							(<u>по умолчанию</u>), то <em>страница</em> <u>будет прокручена</u>, чтобы
+							<span class="color-pink">elem</span> <u>появился</u> в <em>верхней части окна</em>.
+							<em>Верхний край <span class="color-pink">элемента</span></em> <u>совмещён</u> с
+							<em>верхней частью окна</em>.
+						</li>
+						<li class="section__list-item">
+							Если <span class="color-pink">top</span> = <span class="color-gold">false</span>, то
+							<em>страница</em> <u>будет прокручена</u>, чтобы <span class="color-pink">elem</span>
+							<u>появился внизу</u>. <em>Нижний край</em> <span class="color-pink">элемента</span>
+							<u>будет совмещён</u> с <em>нижним краем окна</em>.
+						</li>
+					</ul>
+					<p>Иногда нам <u>нужно сделать «непрокручиваемым»</u> <em>документ</em>. <u>Например</u>, при
+						<u>показе</u> <em>большого диалогового окна</em> <u>над</u> <em>документом</em> – чтобы
+						<em>посетитель</em> <u>мог прокручивать</u> <em>это окно</em>, но <em>не документ</em>.
+					</p>
+					<p>Чтобы <u>запретить прокрутку</u> <em>страницы</em>, <u>достаточно установить</u>
+						<span class="color-pink">document</span>.<span class="color-pink">body</span>.<span
+							class="color-pink">style</span>.<span class="color-aqua">overflow</span> =
+						<span class="color-gold">'hidden'</span>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="scrolling">
+				<h3 class="section__subtitle">Координаты</h3>
+				<div class="section__text-block">
+					<p>Чтобы <u>передвигать</u> <span class="color-pink">элементы</span> <em>по экрану</em>, нам
+						<u>следует познакомиться</u> с <em>системами координат</em>.
+					</p>
+					<p><em>Метод</em>
+						<span class="color-pink">elem</span>.<span class="color-red">getBoundingClientRect</span>( )
+						<u>возвращает</u> <em>координаты</em> в <em>контексте окна</em> <u>для</u>
+						<em>минимального по размеру прямоугольника</em>, который <u>заключает в себе</u>
+						<em>элемент</em> <span class="color-pink">elem</span>, <u>в виде</u>
+						<span class="color-pink">объекта встроенного класса DOMRect</span>.
+					</p>
+					<p><span class="color-aqua">Основные свойства</span>
+						<span class="color-pink">объекта типа DOMRect</span>:
+					</p>
+					<p><span class="color-aqua">x / y</span> – <em>X-координаты / Y-координаты</em>
+						<em>начала прямоугольника</em> <u>относительно</u> <em>окна</em>,
+					</p>
+					<p><span class="color-aqua">width / height</span> – <em>ширина / высота</em>
+						<em>прямоугольника</em> (могут быть отрицательными).
+					</p>
+					<p><span class="color-aqua">Дополнительные, «зависимые», свойства</span>:</p>
+					<p><span class="color-aqua">top / bottom</span> –<em>Y-координата</em> <em>верхней границы</em> /
+						<em>нижней границы прямоугольника</em>,
+					</p>
+					<p><span class="color-aqua">left / right</span> – <em>X-координата</em> <em>левой</em> /
+						<em>правой границы прямоугольника</em>.
+					</p>
+					<p><em>Координаты</em> <u>могут считаться</u> с <em>десятичной частью</em>, <u>например</u>
+						<span class="color-gold">10.5</span>. Это нормально, ведь <em>браузер</em> <u>использует</u>
+						<span class="color-gold">дроби</span> в своих <em>внутренних вычислениях</em>.
+					</p>
+					<p><em>Координаты</em> <u>могут быть <span class="color-gold">отрицательными</span></u>.
+						<u>Например</u>, если <em>страница</em> <u>прокручена</u> так, что <em>элемент</em>
+						<span class="color-pink">elem</span> <u>ушёл вверх за пределы <em>окна</em></u>, то
+						<u>вызов</u> <span class="color-pink">elem</span>.
+						<span class="color-red">getBoundingClientRect</span>().<span class="color-aqua">top</span>
+						<u>вернёт</u> <span class="color-gold">отрицательное значение</span>.
+					</p>
+					<p><em>Internet Explorer</em> и <em>Edge</em> <u>не поддерживают</u> <em>свойства</em>
+						<span class="color-aqua">x</span> / <span class="color-aqua">y</span>
+					</p>
+					<p><em>Все координаты</em> в <em>контексте окна</em> <u>считаются от</u>
+						<em>верхнего левого угла</em>, <u>включая</u>
+						<span class="color-aqua">right</span> / <span class="color-aqua">bottom</span>
+						(<u>отличаются</u> от <em>одноимённых CSS-свойств</em>).
+					</p>
+					<p><u>Вызов</u> <span class="color-pink">document</span>.
+						<span class="color-red">elementFromPoint</span>(<span class="color-pink">x</span>,
+						<span class="color-pink">y</span>) <u>возвращает</u>
+						<span class="color-pink">самый глубоко вложенный элемент</span> в <em>окне</em>,
+						<u>находящийся</u> по <em>координатам</em> (<span class="color-pink">x</span>,
+						<span class="color-pink">y</span>).
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">elem</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">elementFromPoint</span>
+						(<span class="color-pink">x</span>, <span class="color-pink">y</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Например</u>, <em>код ниже</em> <u>выделяет</u> с помощью <em>стилей</em> и
+						<u>выводит</u> <em>имя тега элемента</em>, который сейчас
+						<u>в центре <em>окна браузера</em></u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">centerX</span> = 
+						<span class="color-pink">document</span>.<span class="color-aqua">documentElement</span>.<span class="color-aqua">clientWidth</span> / <span class="color-gold">2</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">centerY</span> = 
+						<span class="color-pink">document</span>.<span class="color-aqua">documentElement</span>.<span class="color-aqua">clientHeight</span> / <span class="color-gold">2</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">elem</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">elementFromPoint</span>
+						(<span class="color-pink">centerX</span>, <span class="color-pink">centerY</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">elem</span>.<span class="color-pink">style</span>.<span class="color-aqua">background</span> = <span class="color-gold">'red'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">elem</span>.<span class="color-aqua">tagName</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Поскольку <u>используются</u> <em>координаты</em> в <em>контексте окна</em>, то <span class="color-pink">элемент</span> <u>может быть разным</u>, в <u>зависимости от</u> того, <em>какая сейчас прокрутка</em>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Метод</em> <span class="color-pink">document</span>.
+						<span class="color-red">elementFromPoint</span>(<span class="color-pink">x</span>,
+						<span class="color-pink">y</span>) <u>работает, только если</u> <em>координаты</em>
+						(<span class="color-pink">x</span>, <span class="color-pink">y</span>)
+						<u>относятся к <em>видимой части содержимого окна</em></u>.
+					</p>
+					<p><u>Если</u> <em>любая из координат</em> представляетсобой
+						<span class="color-gold">отрицательное число</span> или <u>превышает</u> <em>размеры окна</em>,
+						то <u>возвращается</u> <span class="color-gold">null</span>.
+					</p>
+					<p>Чтобы <u>показать</u> <em>что-то около</em> <span class="color-pink">нужного элемента</span>, мы
+						<u>можем вызвать</u> <span class="color-red">getBoundingClientRect</span>( ), чтобы
+						<u>получить</u> <span class="color-pink">его</span> <em>координаты</em>, а
+						<u>затем использовать</u> <em>CSS-свойство</em> <span class="color-aqua">position</span>
+						<u>вместе</u> с <span class="color-gold">left / top</span>
+						(или <span class="color-gold">right / bottom</span>).
+					</p>
+					<p><em>Координаты в контексте окна</em> <u>подходят для использования</u> с
+						<span class="color-aqua">position</span>: <span class="color-gold">fixed</span>, а
+						<em>координаты относительно документа</em> – <u>для использования</u> с
+						<span class="color-aqua">position</span>: <span class="color-gold">absolute</span>.
+					</p>
+				</div>
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="./async.html">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="./sobytiya.html">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">
+							Решение задач JS
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
+
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

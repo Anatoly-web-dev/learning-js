@@ -1,0 +1,1484 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Обучение JavaScript, основы JavaScript, JS для начинающих, типы данных в JS">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. В данном разделе вы узнаете: какие существуют типы данных в JavaScript, как преобразуются данные из одного типа в другой">
+	<title>JavaScript. Типы данных</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+			<section class="section">
+
+				<section class="section">
+					<h2 class="section__title">Типы данных в JavaScript</h2>
+					<div class="section__text-block">
+						<p><span class="color-gold">Значение</span> в <em>JavaScript</em> всегда относится к
+							данным определённого типа.
+						</p>
+						<p>Сущ. <u>8 основных</u> <span class="color-gold">типов данных</span> в <em>JavaScript</em></p>
+						<p><span class="color-pink">Переменная</span> в <em>JavaScript</em> <u>может содержать</u>
+							<span class="color-gold">любой тип данных</span>.
+						</p>
+					</div>
+
+					<section class="section" id="number">
+						<h3 class="section__subtitle">Числа</h3>
+						<div class="section__text-block">
+							<p><strong>Числовой тип данных</strong> (<span class="color-gold">number</span>)
+								представляет как <span class="color-gold">целочисленные значения</span>, так и
+								<span class="color-gold">числа с плавающей точкой</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">n</span> = 
+								<span class="color-gold">123</span>;
+							</span>
+							<span class="section__code-comment">
+								<span class="color-pink">n</span> = <span class="color-gold">12.345</span>;
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p>Существует <u>множество операций</u> для <span class="color-gold">чисел</span>, например,
+								умножение <span class="color-red">*</span>, деление <span class="color-red">/</span>,
+								сложение <span class="color-red">+</span>, вычитание <span class="color-red">-</span> и
+								так далее.
+							</p>
+							<p>Кроме <span class="color-gold">обычных чисел</span>, существуют так называемые
+								<span class="color-gold">«специальные числовые значения»</span>, которые относятся к
+								этому типу данных: <span class="color-gold">Infinity, -Infinity, NaN</span>
+							</p>
+							<p><span class="color-gold">Infinity</span> представляет собой математическую бесконечность
+								<span class="color-gold">∞</span>. Это <span class="color-gold">значение</span>, которое
+								больше любого числа, получeнное в результате <u>деления</u> <span class="color-gold">на
+									0</span>. <u>Можем задать</u> <span class="color-gold">его</span> явно.
+							</p>
+							<p><span class="color-gold">NaN</span> <u>означает</u> <strong>вычислительную
+									ошибку</strong>. <span class="color-gold">NaN</span> - <u>результат неправильной</u>
+								или <u>неопределённой</u> <strong>математической операции</strong>.
+							</p>
+							<p>В <em>JavaScript</em> <u>можно использовать</u> букву <span class="color-gold">e</span>,
+								чтобы <u>укоротить запись</u> <span class="color-gold">числа</span>.
+								<span class="color-gold">e</span> <u>добавляется</u> к
+								<span class="color-gold">числу</span> и <u>заменяет указанное количество нулей</u>:
+							</p>
+							<p><span class="color-gold">e</span> производит операцию <em>умножения</em>
+								<span class="color-gold">числа</span> на <em>1</em> с указанным количеством нулей.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">num</span> = 
+								<span class="color-gold">1e3</span>; <span class="section__code-comment">// - 
+								1 * 1000 </span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">num</span> = 
+								<span class="color-gold">1.23e6</span>; <span class="section__code-comment">
+									// - 1.23 * 1000000</span>
+							</span>
+						</code>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="section__code-comment"><span class="color-gold">отрицательное число</span>
+								<u>после</u> "<span class="color-gold">e</span>"<u>подразумевает</u> <em>деление</em> на <em>1</em> с указанным количеством нулей:</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">num</span> = 
+								<span class="color-gold">1e-3</span>; <span class="section__code-comment">// - 1 / 1000 (0.001)</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">num</span> = 
+								<span class="color-gold">1.23e-6</span>; <span class="section__code-comment">// = 1.23 / 1000000 (0.00000123)</span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p><span class="color-gold">Шестнадцатеричные числа</span> широко <u>используются</u> в
+								<em>JavaScript</em> для представления <u>цветов</u>, <u>кодировки символов</u> и многого
+								другого. Есть <u>короткий стиль записи</u>: <span class="color-gold">0x</span>,
+								после которого <u>указывается</u> <span class="color-gold">число</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-gold">0xff</span>); 
+								<span class="section__code-comment">// - <span class="color-gold">255</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-gold">0xFF</span>); 
+								<span class="section__code-comment">// - <span class="color-gold">255</span> (то же самое, <u>регистр не имеет значения</u>)</span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p>Метод <span class="color-pink">num</span>.<span class="color-red">toString</span>
+								(<span class="color-gold">16</span>) <u>возвращает</u>
+								<span class="color-gold">строковое</span> представление
+								<span class="color-gold">числа</span> для
+								<span class="color-gold">шестнадцатеричного представления</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">num</span> = 
+								<span class="color-gold">255</span>;
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-pink">num</span>.
+								<span class="color-red">toString</span>(<span class="color-gold">16</span>));  
+								<span class="section__code-comment">// <span class="color-gold">ff</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p>Если нужно <u>вызвать метод</u> именно на <span class="color-gold">числе</span>,
+								как <span class="color-red">toString</span> в <u>примере</u> выше, то нам надо
+								<u>поставить</u> две точки <span class="color-red">..</span> <u>после</u>
+								<span class="color-gold">числа</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-gold">225</span>..
+								<span class="color-red">toString</span> (<span class="color-gold">16</span>)); 
+								<span class="section__code-comment">// - <span class="color-gold">e1</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>((<span class="color-gold">225</span>).
+								<span class="color-red">toString</span>(<span class="color-gold">16</span>));
+								<span class="section__code-comment">// - <u>Аналогичный синтаксис </u></span>
+							</span>
+						</code>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="section__code-comment"><u>Примеры сравнения</u>
+									<span class="color-gold">чисел</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(0 + -0 === 0 * -0); 
+								<span class="section__code-comment">// - true</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(3e400 + 5e400 === 8e400); 
+								<span class="section__code-comment">// - true</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(3e400 + 5e400 === 8e800); 
+								<span class="section__code-comment">// - true</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(3e40 + 2e40 === 5e40); 
+								<span class="section__code-comment">// - true</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(3e40 + 2e40 === 5e80); 
+								<span class="section__code-comment">// - false</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(5e1000 - 5e1000 == NaN); 
+								<span class="section__code-comment">// - false</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(5e1000 - 5e1000 == 0); 
+								<span class="section__code-comment">// - false</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(5e1000 - 5e1000 == -0); 
+								<span class="section__code-comment">// - false</span>
+							</span>
+						</code>
+						<h3 class="section__subtitle_small">Округление</h3>
+						<div class="section__text-block">
+							<p>При работе с <span class="color-gold">дробями</span> <u>происходит</u>
+								<strong>потеря точности вычеслений</strong>.
+							</p>
+							<p>В <em>JavaScript</em> есть несколько <span class="color-red">встроенных функций</span>
+								для работы с <strong>округлением</strong>. <span class="color-red">Эти функции</span>
+								охватывают все возможные <u>способы обработки</u> <span class="color-gold">десятичной
+									части</span>.
+							</p>
+							<p><span class="color-pink">Math</span>.<span class="color-red">floor</span> -
+								<u>округление</u> в <b>меньшую сторону</b>: <span class="color-gold">3.1</span>
+								становится <span class="color-gold">3</span>, а <span class="color-gold">-1.1</span> —
+								<span class="color-gold">-2</span>.
+							</p>
+							<p><span class="color-pink">Math</span>.<span class="color-red">ceil</span> -
+								<u>округление</u> в <b>большую сторону</b>: <span class="color-gold">3.1</span>
+								становится <span class="color-gold">4</span>, а <span class="color-gold">-1.1</span> —
+								<span class="color-gold">-1</span>.
+							</p>
+							<p><span class="color-pink">Math</span>.<span class="color-red">round</span> -
+								<u>округление</u> до <b>ближайшего целого</b>:
+								<span class="color-gold">3.1</span> становится <span class="color-gold">3</span>,
+								<span class="color-gold">3.6</span> — <span class="color-gold">4</span>, а <span
+									class="color-gold">-1.1</span> — <span class="color-gold">-1</span>.
+							</p>
+							<p><span class="color-pink">Math</span>.<span class="color-red">trunc</span> -
+								<u>удаление</u> <b>дробной части</b> <u>без округления</u>:
+								<span class="color-gold">3.1</span> становится <span class="color-gold">3</span>, а
+								<span class="color-gold">-1.1</span> — <span class="color-gold">-1</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">num</span> = 
+								<span class="color-gold">1.23456</span>;
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-pink">Math</span>.
+								<span class="color-red">floor</span>(<span class="color-pink">num</span>)); 
+								<span class="section__code-comment">// - <span class="color-gold">1</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-pink">Math</span>.
+								<span class="color-red">round</span>(<span class="color-pink">12.57</span>)); 
+								<span class="section__code-comment">// - <span class="color-gold">13</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p><b>Метод</b> <span class="color-red">toFixed</span><span class="color-gold">(n</span>)
+								<u>округляет</u> <span class="color-gold">число</span> до <em>n знаков</em>
+								<u>после запятой</u> и <u>возвращает</u> <span class="color-gold">строковое
+									представление</span> результата.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-gold">1.33333</span>.
+								<span class="color-red">toFixed</span>(<span class="color-gold">2</span>)); 
+								<span class="section__code-comment">// - <span class="color-gold">1.33</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-gold">1.67333</span>.
+								<span class="color-red">toFixed</span>(<span class="color-gold">1</span>)); 
+								<span class="section__code-comment">// - <span class="color-gold">1.7</span></span>
+							</span>
+						</code>
+						<h3 class="section__subtitle_small">isNaN и isFinite</h3>
+						<div class="section__text-block">
+							<p><span class="color-red">isNaN</span>(<em>значение</em>) <u>преобразует</u>
+								<em>значение</em> в <span class="color-gold">число</span> и <u>проверяет</u> является ли
+								<em>оно</em> <span class="color-gold">NaN</span>:
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">isNaN</span>
+								(<span class="color-gold">NaN</span>)); <span class="section__code-comment">// - 
+								<span class="color-gold">true</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">isNaN</span>
+								("<span class="color-gold">str</span>")); <span class="section__code-comment">// - <span class="color-gold">true</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p><span class="color-red">isFinite</span>(<em>значение</em>) <u>преобразует</u>
+								<em>аргумент</em> в <span class="color-gold">число</span> и <u>возвращает</u>
+								<span class="color-gold">true</span>, если <em>оно</em> является
+								<span class="color-gold">обычным числом</span>, т.е. <b>не</b>
+								<span class="color-gold">NaN / Infinity / -Infinity</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">isFinite</span>("<span class="color-gold">15</span>")); <span class="section__code-comment">// - 
+								<span class="color-gold">true</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">isFinite</span>(<span class="color-gold">false</span>)); <span class="section__code-comment">// - <span class="color-gold">true</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">isFinite</span>(<span class="color-gold">''</span>)); <span class="section__code-comment">// - 
+								<span class="color-gold">true</span></span>
+							</span>
+						</code>
+						<h3 class="section__subtitle_small">parseInt и parseFloat</h3>
+						<div class="section__text-block">
+							<p>Чтобы <u>получить</u> <span class="color-gold">числовое значение</span> из
+								<span class="color-gold">строк</span>, содержащих числовые и строчные символы
+								(<span class="color-gold">"100px"</span>, <span class="color-gold">"19€"</span>и т.д.)
+								существуют <strong>функции</strong> <span class="color-red">parseInt</span> и
+								<span class="color-red">parseFloat</span>. <span class="color-red">Они</span>
+								«<u>читают</u>» <span class="color-gold">число</span> из
+								<span class="color-gold">строки</span>. Если в <u>процессе чтения возникает
+									ошибка</u>, <span class="color-red">они</span> <u>возвращают</u>
+								<span class="color-gold">полученное до ошибки число</span>.
+							</p>
+							<p><span class="color-red">parseInt</span> <u>возвращает</u>
+								<span class="color-gold">целое число</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">parseInt</span>(<span class="color-gold">'300px'</span>)); <span class="section__code-comment">// - <span class="color-gold">300</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p><span class="color-red">parseFloat</span> <u>возвращает</u>
+								<span class="color-gold">число с плавающей точкой</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">parseFloat</span>(<span class="color-gold">'12.5px'</span>)); <span class="section__code-comment">// - <span class="color-gold">12.5</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p>Функции <span class="color-red">parseInt</span>/<span class="color-red">parseFloat</span>
+								<u>вернут</u> <span class="color-gold">NaN</span>, если <u>не смогли прочитать</u> ни
+								одну <em>цифру</em> и если <span class="color-gold">строка</span> <u>начинается</u> с
+								<em>буквы</em>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">parseInt</span>(<span class="color-gold">'a123'</span>)); <span class="section__code-comment">// - <span class="color-gold">NaN</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p><b>Функция</b> <span class="color-red">parseInt</span> имеет необязательный
+								<span class="color-green">2ой параметр</span>. <span class="color-green">Он</span>
+								<u>определяет</u> <em>систему счисления</em>, т.о.
+								<span class="color-red">parseInt</span> <u>может читать</u>
+								<span class="color-gold">строки с 16-ричными числами</span>
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-red">parseInt</span>('<span class="color-gold">0xff</span>', <span class="color-gold">16</span>)); 
+								<span class="section__code-comment">// - <span class="color-gold">255</span></span>
+							</span>
+						</code>
+						<h3 class="section__subtitle_small">Другие математические функции</h3>
+						<div class="section__text-block">
+							<p>В <em>JavaScript</em> <u>встроен</u> объект <span class="color-pink">Math</span>,
+								<u>содержащий</u> различные <strong>математические функции</strong> и
+								<strong>константы</strong>, включая <strong>тригонометрические функции</strong>.
+							</p>
+							<p><span class="color-pink">Math</span>.<span class="color-red">random</span>() -
+								<u>возвращает</u> <span class="color-gold">псевдослучайное число</span> в диапазоне от
+								<span class="color-gold">0</span> (включительно) до <span class="color-gold">1</span>
+								(но не включая 1).
+							</p>
+							<p><span class="color-pink">Math</span>.<span class="color-red">max</span>
+								(<span class="color-gold">число-1</span>, ... <span class="color-gold">число-n</span>) -
+								<u>возвращает</u> <span class="color-gold">наибольшее число</span> из
+								<em>перечисленных аргументов</em>.
+							</p>
+							<p><span class="color-pink">Math</span>.<span class="color-red">min</span>
+								(<span class="color-gold">число-1</span>, ... <span class="color-gold">число-n</span>) -
+								<u>возвращает</u> <span class="color-gold">наименьшее число</span> из
+								<em>перечисленных аргументов</em>.
+							</p>
+							<p><span class="color-pink">Math</span>.<span class="color-red">pow</span>
+								(<span class="color-gold">n</span>, <span class="color-gold">power</span>) -
+								<u>возвращает</u> <span class="color-gold">число-n</span>, <u>возведённое</u> в
+								<span class="color-gold">степень-power</span>.
+							</p>
+						</div>
+					</section>
+
+					<section class="section" id="bigint">
+						<h3 class="section__subtitle">BigInt</h3>
+						<div class="section__text-block">
+							<p>В <em>JavaScript</em> тип «<span class="color-gold">number</span>» <u>не может
+									содержать</u> <span class="color-gold">числа</span> <b>больше</b>, чем
+								(<span class="color-gold">2<sup>53</sup>-1</span>)
+								(т.е. <span class="color-gold">9007199254740991</span>), или <b>меньше</b>, чем
+								<span class="color-gold">-(2<sup>53</sup>-1)</span> для отрицательных чисел. Это
+								техническое ограничение.
+							</p>
+							<p>Иногда нам нужны действительно <span class="color-gold">гигантские числа</span>,
+								<u>например</u>, в <em>криптографии</em> или при использовании <em>метки времени</em>
+								(«timestamp») с микросекундами.
+							</p>
+							<p>Тип <span class="color-gold">BigInt</span> был добавлен в <em>JavaScript</em>, чтобы дать
+								возможность <u>работать</u> с <span class="color-gold">целыми числами произвольной
+									длины</span>.
+							</p>
+							<p>Чтобы <u>создать</u> значение типа <span class="color-gold">BigInt</span>,
+								<u>необходимо добавить</u> <span class="color-gold">n</span> в конец числового литерала:
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">const</span> <span class="color-pink">bigInt</span> = 
+								<span class="color-gold">1234567890123456789012345678901234567890n</span>;
+							</span>
+						</code>
+					</section>
+
+					<section class="section" id="string">
+						<h3 class="section__subtitle">Строки</h3>
+						<div class="section__text-block">
+							<p><strong>Строка</strong> (<span class="color-gold">string</span>) в <em>JavaScript</em>
+								<u>должна быть заключена</u> в <em>кавычки</em>.
+							</p>
+							<p>В <em>JavaScript</em> существует <u><strong>три</strong> типа</u> <em>кавычек</em>.</p>
+							<p><em>Двойные</em> или <em>одинарные кавычки</em> являются <strong>«простыми»</strong>,
+								между <em>ними</em> <u>нет разницы</u>. <u>Например</u>:
+								<span class="color-gold">"строка"</span>, <span class="color-gold">'строка'</span>.
+							</p>
+							<p><em>Обратные кавычки</em> <u>позволяют встраивать</u>
+								<span class="color-pink">переменные</span>, заключая <span class="color-pink">их</span>
+								в <span class="color-blue">${…}</span>. <u>Например</u>:
+								<span class="color-gold">`<span class="color-gold">строка</span>
+									<span class="color-blue">${</span> <span class="color-pink">переменная</span>
+									<span class="color-blue">}</span>`</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">name</span> = 
+								"<span class="color-gold">Иван</span>";
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">alert</span>(`<span class="color-gold">Привет</span>, 
+								${<span class="color-pink">name</span>}!`); <span class="section__code-comment">// - получим строку: <span class="color-gold">Привет, Иван!</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">alert</span>(`<span class="color-gold">результат</span>: 
+								${<span class="color-gold">1</span> + <span class="color-gold">2</span>}`); 
+								<span class="section__code-comment">// - получим строку: 
+								<span class="color-gold">результат: 3</span></span>
+							</span>
+						</code>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="section__code-comment">// - Для <u>вывода в консоль в таком виде</u> используем также <em>обратные кавычки</em> <span class="color-blue">``</span></span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>
+								(`<span class="color-gold">Список покупок:</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-gold">1. Молоко;</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-gold">2. Яблоки;</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-gold">3. Курица;`);</span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p><em>Выражение</em> внутри <span class="color-blue">${…}</span> <u>вычисляется</u>, и его
+								<u>результат становится</u> <span class="color-gold">частью строки</span>. Мы можем
+								положить туда всё, что угодно: <span class="color-pink">переменную</span> или
+								<em>выражение</em> <span class="color-gold">1 + 2</span>, или что-то более сложное.
+							</p>
+							<p><span class="color-gold">Строка</span> <u>может содержать</u> <em>ноль символов</em>
+								(быть <span class="color-gold">пустой</span> <span class="color-gold">''</span>),
+								<em>один символ</em> или <em>множество символов</em>.
+							</p>
+						</div>
+						<h3 class="section__subtitle_small">Методы для работы со строками</h3>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>
+								('<span class="color-gold">Магазин <span class="color-blue">\</span>
+								'У дома <span class="color-blue">\</span>'</span>'); 
+								<span class="section__code-comment">// - Для <u>добавления</u> <em>кавычек</em> <u>используем</u> <em>обратный слэш</em> <span class="color-blue">\</span></span> 
+							</span>
+							<span class="section__code-row">
+								<span class="section__code-comment">Если нам <u>надо написать</u> в 
+									<span class="color-gold">строке</span> <span class="color-gold">\</span>, 
+									<u>надо использовать</u> <em>двойной обратный слэш</em> 
+									<span class="color-blue">\\</span> (<u>получим в результате</u> один слэш 
+									<span class="color-gold">\</span> 
+								</span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p><strong>Cвойство</strong> <span class="color-blue">length</span> <u>показывает</u>
+								<em>количество символов</em> в <span class="color-gold">строке</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-gold">'Привет!'</span>
+								<span class="color-red">.length</span>); <span class="section__code-comment">
+								// - получим <span class="color-gold">7</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p>Указав в <span class="color-blue">[]</span> <b>порядковый номер</b> <u>после</u>
+								<span class="color-gold">строки</span>, мы <u>получим</u>
+								<em>определенный символ строки</em>. <u>Нумерация начинается</u> с <em>0</em>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-gold">'hello world'</span>
+								<span class="color-blue">[<span class="color-gold">1</span>]</span> ); 
+								<span class="section__code-comment">// - <u>получим</u> второй символ строки - 
+								<span class="color-gold">e</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p><em>Последний символ</em> <span class="color-gold">строки</span> мы
+								<u>можем получить</u>, <u>отняв</u> от <strong>длины строки</strong> <em>1</em>.
+								<u>Например</u>: <span class="color-pink">str</span>[
+								<span class="color-pink">str</span>. <span class="color-aqua">length</span> -
+								<span class="color-gold">1</span>]).
+							</p>
+							<p>Используя метод <span class="color-red">toUpperCase</span>() и квадратные скобки
+								<span class="color-blue">[]</span> <u>мы можем перевести</u>
+								<span class="color-gold">определенный символ строки</span> в <em>верний регистр</em>.
+								<u>Например</u>:
+							</p>
+						</div>
+						<div class="section__text-block">
+							<p>Метод <span class="color-red">toLowerCase</span>() используют <u>для перевода</u>
+								<span class="color-gold">строки</span> в <em>нижний регистр</em>.
+							</p>
+							<p>Метод <span class="color-red">toUpperCase</span>() используют <u>для перевода</u>
+								<span class="color-gold">строки</span> в <em>верхний регистр</em>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">str</span> = 
+								<span class="color-gold">'hello world'</span>;
+							</span>
+							<span class="section__code-row">
+								<span class="color-pink">str</span> = <span class="color-pink">str</span>
+								[<span class="color-gold">0</span>] <span class="color-red">.toUpperCase</span>() + <span class="color-pink">str</span>.<span class="color-red">slice</span>(1); 
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(<span class="color-pink">str</span>); 
+								<span class="section__code-comment">// - получим 
+								<span class="color-gold">Hello world</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p>Метод <span class="color-red">includes</span>() <u>проверяет наличие</u> в
+								<span class="color-gold">строке</span>
+								<span class="color-gold">искомой подстроки</span>. Eсли
+								<span class="color-gold">искомая подстрока</span> <u>есть</u>, то <u>мы получим</u>
+								<span class="color-gold">true</span>, иначе <span class="color-gold">false</span>.
+								<em>Второй необязательный аргумент</em> <u>указывает позицию</u>, с которой следует
+								<u>начать <em>поиск</em></u>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">str</span> = 
+								<span class="color-gold">'Hello world'</span>;
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">console.log</span>(
+									<span class="color-pink">str</span>.<span class="color-red">includes</span>
+									(<span class="color-gold">'world'</span>)); <span class="section__code-comment">// - получим <span class="color-gold">true</span>;</span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p>Метод <span class="color-red">slice</span>(<em>begin</em>, <em>end</em>)
+								<u>возвращает</u> <span class="color-gold">новую строку</span> начиная с <em>begin</em>
+								до <em>end</em> (не включительно). Если <u>передали</u> только один аргумент
+								<em>begin</em>, то <u>вернется</u> <span class="color-gold">подстрока</span>
+								<u>начиная</u> с <em>begin</em> и <u>до</u> <em>конца строки</em>.
+							</p>
+							<p>Также <u>можно задать</u> <em>позицию с конца</em>
+								<span class="color-gold">строки</span>, указав <strong>отрицательные индексы</strong> у
+								<em>аргументов</em>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">str</span> = 
+								<span class="color-gold">'hello world!'</span>;
+							</span>
+							<span class="section__code-row">
+								<span class="color-pink">str</span> = 
+								<span class="color-pink">str</span>.<span class="color-red">slice</span>
+								(<span class="color-gold">6</span>, <span class="color-gold">-2</span>);
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">conslole.log</span>(<span class="color-pink">str</span>); 
+								<span class="section__code-comment">// - получим 
+								<span class="color-gold">world</span></span>
+							</span>
+						</code>
+						<div class="section">
+							<p>Метод <span class="color-red">repeat</span>(<em>count</em>) <u>продублирует</u>
+								<span class="color-gold">строку</span> <em>count раз</em>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">str</span> = 
+								<span class="color-gold">'hello_'</span>;
+							</span>
+							<span class="section__code-row">
+								<span class="color-pink">str</span> = 
+								<span class="color-pink">str</span>.<span class="color-red">repeat</span>
+								(<span class="color-gold">3</span>);
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">conslole.log</span>(<span class="color-pink">str</span>); 
+								<span class="section__code-comment">// - получим 
+									<span class="color-gold">hello_hello_hello</span></span>
+							</span>
+						</code>
+						<div class="section__text-block">
+							<p>Метод <span class="color-red">trim</span>() <u>убирает</u> <em>лишние пробелы</em> у
+								<span class="color-gold">строки</span>.
+							</p>
+						</div>
+					</section>
+
+					<section class="section" id="boolean">
+						<h3 class="section__subtitle">Булевый(Логический) тип</h3>
+						<div class="section__text-block">
+							<p><span class="color-gold">Булев тип</span>
+								<u>назначается автоматически при присваивании</u>.
+							</p>
+							<p>Не стоит воспринимать <span class="color-gold">булевы значения</span> как значения
+								стопроцентной истины и лжи. <span class="color-gold">Булевы значения</span> могут быть
+								<u>интерпретированы</u>, например, как:
+							</p>
+						</div>
+						<ul class="section__list">
+							<li class="section__list-item">Включен/выключен модуль.</li>
+							<li class="section__list-item">Имеет права администратора/не имеет прав.</li>
+							<li class="section__list-item">Отмечена галочка «отправлять письма»/не отмечена.</li>
+						</ul>
+						<div class="section__text-block">
+							<p><u>Присваивать</u> <span class="color-gold">булевым переменным</span> значения можно в
+								<u>результате вычисления</u> <em>выражений</em> и от <span class="color-gold">других
+									значений</span> и <span class="color-red">функций</span>.
+							</p>
+							<p><strong>Булевый тип</strong> (<span class="color-gold">boolean</span>)
+								<u>может принимать только</u> <em>два значения</em>:
+								<span class="color-gold">true</span> (истина) и <span class="color-gold">false</span>
+								(ложь).
+							</p>
+							<p><span class="color-gold">Булевый тип</span> <u>используется для хранения</u>
+								<span class="color-gold">значений</span> <em>да / нет</em>:
+								<span class="color-gold">true</span> значит <em>«да</em>, а
+								<span class="color-gold">false</span> значит <em>«нет</em>.
+								<span class="color-gold">Булевые значения</span> также
+								<u>могут быть результатом сравнений</u>:
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">isGreater</span> = 
+								<span class="color-gold">4</span> > <span class="color-gold">1</span>;
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">alert</span>(<span class="color-pink">isGreater</span>); 
+								<span class="section__code-comment">// - <span class="color-gold">true</span> (результатом сравнения будет "да")</span>
+							</span>
+						</code>
+					</section>
+
+					<section class="section" id="null-undefined">
+						<h3 class="section__subtitle">Значения null и undefined</h3>
+						<div class="section__text-block">
+							<p>Обычно <span class="color-gold">null</span> <u>используется для присвоения</u>
+								<span class="color-pink">переменной</span> <span class="color-gold">«пустого»</span> или
+								<span class="color-gold">«неизвестного» значения</span>, а
+								<span class="color-gold">undefined</span> – <u>для проверок</u>, была ли
+								<span class="color-pink">переменная</span> <u>назначена</u>. Если
+								<span class="color-pink">переменная</span> <u>объявлена</u>, но
+								<span class="color-pink">ей</span> <u>не присвоено</u>
+								<span class="color-gold">никакого значения</span>, то <span class="color-pink">её</span>
+								<span class="color-gold">значением</span> будет
+								<span class="color-gold">undefined</span>.
+							</p>
+						</div>
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">age</span>;
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">alert</span>(<span class="color-pink">age</span>); 
+								<span class="section__code-comment">// - выведет 
+								<span class="color-gold">undefined</span></span>
+							</span>
+						</code>
+					</section>
+
+					<section class="section" id="object">
+						<h3 class="section__subtitle">Объекты и символы</h3>
+						<div class="section__text-block">
+							<p>Тип <span class="color-gold">object</span> (<strong>объект</strong>) – особенный. Все
+								<span class="color-gold">остальные типы</span> называются <em>«примитивными»</em>,
+								потому что <span class="color-gold">их значениями</span> <u>могут быть</u> только
+								<span class="color-gold">простые значения</span> (будь то строка, или число, или что-то
+								ещё). В <span class="color-gold">объектах</span> же <u>хранят</u>
+								<em>коллекции данных</em> или более <em>сложные структуры</em>.
+								Тип <span class="color-gold">symbol</span> (<strong>символ</strong>) <u>используется
+									для создания</u> <em>уникальных идентификаторов</em> в <strong>объектах</strong>.
+							</p>
+						</div>
+					</section>
+				</section>
+
+				<section class="section" id="data-types-transformation">
+					<section class="section">
+						<h2 class="section__title">Преобразование типов</h2>
+						<div class="section__text-block">
+							<p>Чаще всего <span class="color-red">операторы</span> и
+								<span class="color-red">функции</span> <u>приводят автоматически</u>
+								<span class="color-gold">переданные им значения</span> к
+								<span class="color-gold">нужному типу</span>.
+							</p>
+							<p><u>Например</u>, <span class="color-red">alert</span> <u>автоматически преобразует</u>
+								<span class="color-gold">любое значение</span> к <span class="color-gold">строке</span>.
+								<span class="color-red">Математические операторы</span> <u>преобразуют</u>
+								<span class="color-gold">значения</span> к <span class="color-gold">числам</span>. Есть
+								также случаи, когда нам нужно <u>явно преобразовать</u>
+								<span class="color-gold">значение</span> в
+								<span class="color-gold">ожидаемый тип</span>.
+							</p>
+						</div>
+						<div class="section__text-block">
+							<p><span class="color-red">Оператор typeof</span> <u>возвращает</u>
+								<span class="color-gold">тип аргумента</span>. Это полезно, когда мы хотим
+								<u>обрабатывать</u> <span class="color-gold">значения различных типов</span> по-разному
+								или просто хотим <u>сделать проверку</u>.
+							</p>
+							<p><span class="color-red">Оператор typeof</span> <u>позволяет увидеть</u>, какой
+								<span class="color-gold">тип данных</span> сохранён в
+								<span class="color-pink">переменной</span>. <u>Возвращает</u>
+								<span class="color-gold">строку с именем типа</span>. <u>Например</u>,
+								"<span class="color-gold">string</span>". Для <span class="color-gold">null</span>
+								<u>возвращается</u> "<span class="color-gold">object</span>" – это <em>ошибка</em> в
+								языке, на самом деле <u>это не объект</u>.
+							</p>
+						</div>
+					</section>
+
+					<section class="section">
+						<h3 class="section__subtitle section__subtitle_small">Строковое преобразование</h3>
+						<div class="section__text-block">
+							<p><strong>Строковое преобразование</strong> <u>происходит</u>, когда требуется
+								представление <span class="color-gold">чего-либо</span> в виде
+								<span class="color-gold">строки</span>.
+							</p>
+							<p><u>Например</u>, <span class="color-red">alert</span>(
+								<span class="color-pink">value</span>) <u>преобразует</u>
+								<span class="color-pink">value</span> к <span class="color-gold">строке</span>.
+							</p>
+							<p>Также <u>мы можем использовать</u> <span class="color-red">функцию</span>
+								<span class="color-red">String</span>(<span class="color-pink">value</span>), чтобы
+								<u>преобразовать</u> <span class="color-pink">value</span> к
+								<span class="color-gold">строке</span>:
+							</p>
+						</div>
+						<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">value</span> =
+							<span class="color-gold">true</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-red">typeof</span>
+							<span class="color-pink">value</span>); <span class="section__code-comment">
+							// - выведет <span class="color-gold">boolean</span>.</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">value</span> = <span class="color-red">String</span>(
+							<span class="color-pink">value</span>); <span class="section__code-comment">
+							// - теперь <span class="color-pink">value</span> это строка
+							"<span class="color-gold">true</span>"</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-red">typeof</span>
+							<span class="color-pink">value</span>); <span class="section__code-comment">
+							// - выведет <span class="color-gold">string</span></span>
+						</span>
+					</code>
+						<div class="section__text-block">
+							<p><strong>Преобразование</strong> <u>происходит очевидным образом</u>.
+								<span class="color-gold">false</span> <u>становится</u>
+								<span class="color-gold">"false"</span>, <span class="color-gold">null</span>
+								становится <span class="color-gold">"null"</span> и т.п.
+							</p>
+						</div>
+					</section>
+
+					<section class="section">
+						<h3 class="section__subtitle section__subtitle_small">Численное преобразование</h3>
+						<div class="section__text-block">
+							<p><strong>Численное преобразование</strong> <u>происходит</u> в <em>математических
+									функциях</em> и <em>выражениях</em>.
+							</p>
+							<p><u>Например</u>, когда <em>операция деления</em> <span class="color-red">/</span>
+								применяется <span class="color-gold">не к числу</span>:
+							</p>
+						</div>
+						<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">alert</span>( <span class="color-gold">"6"</span>
+							<span class="color-red">/</span> <span class="color-gold">"2"</span> );
+							<span class="section__code-comment">// - <span class="color-gold">3</span>,
+							<span class="color-gold">строки</span> <u>преобразуются</u> в
+							<span class="color-gold">числа</span></span>
+						</span>
+					</code>
+						<div class="section__text-block">
+							<p>Мы <u>можем использовать</u> <span class="color-red">функцию</span>
+								<span class="color-red">Number</span>(<span class="color-gold">значение</span>),
+								чтобы <u>явно преобразовать</u> <span class="color-gold">значение</span> к
+								<span class="color-gold">числу</span>:
+							</p>
+						</div>
+						<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">str</span> =
+							<span class="color-gold">"123"</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-red">typeof</span>
+							<span class="color-pink">str</span>); <span class="section__code-comment"> // - string
+							</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">num</span> =
+							<span class="color-red">Number</span>(<span class="color-pink">str</span>);
+							<span class="section__code-comment">// - <u>становится</u>
+							<span class="color-gold">числом 123</span></span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-red">typeof</span>
+							<span class="color-pink">num</span>); <span class="section__code-comment">// - результат: <span class="color-gold">number</span></span>
+						</span>
+					</code>
+						<div class="section__text-block">
+							<p><strong>Явное преобразование</strong> <u>применяется</u>, когда <u>ожидаем получить</u>
+								<span class="color-gold">число</span> из <span class="color-gold">строки</span>,
+								<u>например</u> из текстовых полей форм.
+							</p>
+							<p>Если <span class="color-gold">строка</span> <u>не может быть явно приведена</u> к
+								<span class="color-gold">числу</span>, то <u>результатом преобразования</u> будет
+								<span class="color-gold">NaN</span>. <u>Например</u>:
+							</p>
+						</div>
+						<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">age</span> =
+							<span class="color-red">Number</span>("<span class="color-gold">Любая строка</span>");
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-pink">age</span>);
+							<span class="section__code-comment">// - <span class="color-gold">NaN</span>, преобразование не удалось</span>
+						</span>
+					</code>
+						<div class="section__text-block">
+							<p><u>Правила <strong>численного преобразования</strong></u>:</p>
+							<ul class="section__list">
+								<li class="section__list-item">
+									<span class="color-gold">undefined</span> <u>преобразуется</u> в
+									<span class="color-gold">NaN</span>
+								</li>
+								<li class="section__list-item">
+									<span class="color-gold">null</span> <u>преобразуется</u> в
+									<span class="color-gold">0</span>
+								</li>
+								<li class="section__list-item">
+									<span class="color-gold">true</span> <u>преобразуется</u> в
+									<span class="color-gold">1</span>
+								</li>
+								<li class="section__list-item">
+									<span class="color-gold">false</span> <u>преобразуется</u> в
+									<span class="color-gold">0</span>
+								</li>
+							</ul>
+						</div>
+						<code class="section__code">
+						<span class="section__code-row">
+							<span class="section__code-comment">Примеры:</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-red">Number</span>(
+							<span class="color-gold">" 123"</span>) ); <span class="section__code-comment">
+							// - <span class="color-gold">123</span></span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-red">Number</span>(
+							<span class="color-gold">"123z"</span>)); <span class="section__code-comment">// - 
+							<span class="color-gold">NaN</span> (ошибка чтения числа на месте символа "z")<span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-red">Number</span>(
+							<span class="color-gold">true</span>)); <span class="section__code-comment">// -
+							<span class="color-gold">1</span></span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-red">Number</span>(
+							<span class="color-gold">false</span>)); <span class="section__code-comment">
+							// - <span class="color-gold">0</span></span>
+						</span>
+					</code>
+					</section>
+
+					<section class="section">
+						<h3 class="section__subtitle section__subtitle_small">Логическое преобразование</h3>
+						<div class="section__text-block">
+							<p><strong>Логическое преобразование</strong> <u>происходит</u> в <em>логических
+									операциях</em>, но также <u>может быть выполнено явно</u> с помощью функции
+								<span class="color-red">Boolean</span> ( <span class="color-gold">значение</span> ).
+							</p>
+							<p><span class="color-gold">Значения</span>, которые <em>интуитивно «пустые>»</em>,
+								вроде <span class="color-gold">0, пустой строки, null, undefined и NaN</span>,
+								<u>становятся</u> <span class="color-gold">false</span>. <span class="color-gold">Все
+									остальные значения</span> <u>становятся</u> <span class="color-gold">true</span>.
+							</p>
+						</div>
+						<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">alert</span>( <span class="color-red">Boolean</span>
+							(<span class="color-gold">1</span>) ); // <span class="color-gold">true</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>( <span class="color-red">Boolean</span>
+							(<span class="color-gold">0</span>) ); // <span class="color-gold">false</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>( <span class="color-red">Boolean</span>
+							(<span class="color-gold">"Привет!"</span>) ); // <span class="color-gold">true</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>( <span class="color-red">Boolean</span>
+							(<span class="color-gold">""</span>) ); // <span class="color-gold">false</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>( <span class="color-red">Boolean</span>
+							(<span class="color-gold">"0"</span>) ); // <span class="color-gold">true</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>( <span class="color-red">Boolean</span>
+							(<span class="color-gold">" "</span>) ); // <span class="color-gold">пробел</span> это тоже <span class="color-gold">true</span>
+						</span>
+					</code>
+					</section>
+				</section>
+
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="./index.html">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="./operators.html">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">Решение задач JS</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+
+	</div>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

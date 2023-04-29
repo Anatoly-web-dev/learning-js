@@ -1,0 +1,1085 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Обучение JavaScript, основы JavaScript, JS для начинающих">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. Каждый раздел сайта содержит в себе конспекты и примеры на определенную тему. В данном разделе вы узнаете: что такое язык JavaScript, для чего он нужен, основы синтаксиса">
+	<title>JavaScript. Введение</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+
+			<section class="section" id="start">
+				<h2 class="section__title">Введение в JavaScript</h2>
+				<div class="section__text-block">
+					<p>Язык программирования <em>JavaScript</em> придумали специально для того, чтобы создавать
+						интерактивные сайты.
+					</p>
+					<p>В <em>браузере</em> <em>JavaScript</em> может:</p>
+					<ul class="section__list">
+						<li class="section__list-item"> <u>Добавлять</u> новый <em>HTML-код</em> на страницу,
+							<u>изменять</u> существующее содержимое, <u>модифицировать</u> стили;
+						</li>
+						<li class="section__list-item"> <u>Реагировать на действия пользователя</u>, щелчки
+							мыши, перемещения указателя, нажатия клавиш;
+						</li>
+						<li class="section__list-item"><u>Отправлять</u> <em>сетевые запросы</em> на удалённые сервера,
+							скачивать и загружать файлы (технологии <em>AJAX</em> и <em>COMET</em>);
+						</li>
+						<li class="section__list-item"><u>Получать</u> и <u>устанавливать</u> <em>куки</em>, задавать
+							вопросы посетителю, показывать сообщения
+						</li>
+						<li class="section__list-item"><u>Запоминать</u> данные на стороне клиента («<em>local
+								storage</em>»)
+						</li>
+					</ul>
+					<p><em>JavaScript</em> <u>позволяет делать приложения</u> не только в <em>браузерах</em>, но и на
+						<em>сервере</em>, на <em>мобильных устройствах</em> и т.п.
+					</p>
+					<p>Справочники по JavaScript:</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<a class="section__link"
+								href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference"
+								target="_blank">MDN (Mozilla) JavaScript Reference
+							</a>
+						</li>
+						<li class="section__list-item">
+							<a class="section__link" href="http://msdn.microsoft.com/" target="_blank">
+								MSDN – справочник от Microsoft
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="section__text-block">
+					<p>Код на языке <em>JavaScript</em> называют скриптом. Его сохраняют в отдельный файл с расширением
+						<em>js</em>, а чтобы запустить, подключают этот файл на страницу. В <em>HTML</em> для добавления
+						<em>JavaScript</em> есть специальный тег:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">script</span> <span class="color-pink">src</span> = 
+						"<span class="color-gold">адрес_файла</span>">/<span class="color-red">script</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Подключают скрипт</u> обычно <strong>в самом конце страницы</strong>, перед закрывающим тегом
+						/<span class="color-red">body</span>.
+					</p>
+					<p>Программы на <em>JavaScript</em> также <u>могут</u> быть вставлены в
+						любое место HTML-документа с помощью тега <span class="color-red">script</span>.
+					</p>
+					<p><em>Программа на JavaScript</em> — это последовательность <em>инструкций</em>, то есть указаний
+						браузеру выполнить какие-то действия. <em>Инструкции</em> <u>выполняются</u> последовательно,
+						<strong>сверху вниз</strong>.
+					</p>
+					<p>Инструкции в <em>JavaScript</em> <u>могут состоять</u> из значений,
+						операторов, выражений, ключевых слов, комментариев.
+					</p>
+					<p>Чтобы сказать <em>JavaScript</em>, что инструкция закончена, нужно поставить (<em>;</em>) или
+						перейти на новую строку. Новая строка правильно работает в большинстве случаев, а (<em>;</em>) —
+						всегда. Поэтому лучше ставить (<em>;</em>) в конце каждой инструкции.
+					</p>
+					<p><em>JavaScript</em> <u>не меняет</u> исходный файл с разметкой, но, выполняя <em>инструкции</em>,
+						<u>меняет</u> страницу прямо в <em>браузере</em> пользователя.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="syntax">
+				<h3 class="section__subtitle section__subtitle_small">Значения, операторы, выражения, ключевые слова
+				</h3>
+				<div class="section__text-block">
+					<p>В <em>JavaScript</em> есть несколько типов <span class="color-gold">значений</span> (values):
+						<span class="color-gold">фиксированные значения</span> (литералы),
+						<span class="color-gold">значения</span> <strong>констант</strong> и
+						<span class="color-gold">значения</span> <strong>переменных</strong>.
+					</p>
+					<p>В <em>JavaScript</em> есть много различных <span class="color-red">операторов</span>, они
+						обозначают операцию, которую нужно произвести. <u>Например</u>:
+						<span class="color-red"> * , / , + , - , = </span> и т.д.
+					</p>
+					<p><strong>Выражения</strong> - это комбинация <span class="color-gold">значений</span>,
+						<span class="color-pink">переменных</span> и <span class="color-red">операторов</span>, которые
+						либо <u>присваивают</u> <span class="color-pink">переменной</span> <span class="color-gold">
+							значениe</span>, либо <u>возвращают</u> какое либо <span class="color-gold">значениe</span>
+						<u>без его присваивания</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<p><span class="color-red">let</span> <span class="color-pink">num</span> = 
+						<span class="color-gold">4</span>; <span class="section__code-comment">// - выражение присвоения</span>
+					</p>
+					<p><span class="color-red">console.log</span> (<span class="color-pink">num</span>);</p>
+					<p>'<span class="color-gold">Учим</span>' <span class="color-red">+</span> 
+						'<span class="color-gold">JS</span>'; <span class="section__code-comment">// - выражение без присвоения</span>
+					</p>
+				</code>
+				<div class="section__text-block">
+					<p><em>Инструкции JavaScript</em> часто начинаются с <span class="color-red">ключевого слова</span>,
+						<u>определяющего</u> <strong>какое действие нужно выполнить</strong> <em>JavaScript</em>.
+					</p>
+					<p><span class="color-red">let</span> - <strong>ключевое слово</strong> <u>для создания</u>
+						(объявления) <span class="color-pink">переменной</span>.
+					</p>
+					<p><span class="color-red">const</span> - <strong>ключевое слово</strong> для <u>объявления</u>
+						<span class="color-pink">константы</span>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="instruction-block">
+				<h3 class="section__subtitle section__subtitle_small">Блок инструкций</h3>
+				<div class="section__text-block">
+					<p><em>JavaScript инструкции</em> <u>можно сгруппировать</u> с помощью блока, по сути фигурных
+						скобок <span class="color-blue">{....}</span>. Как правило <u>используется</u> в '
+						<span class="color-red">функциях</span>, <span class="color-red">циклах</span> и т.д.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-gold">name</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>('<span class="color-gold">Учим</span>');
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>('<span class="color-gold">JS</span>');
+					</span>
+					<span class="section__code-row">
+						}
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Область видимости переменных</h3>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="./img/let-var-const.png" alt="let, var, const">
+				</div>
+			</section>
+
+			<section class="section" id="comments">
+				<h3 class="section__subtitle section__subtitle_small">Комментарии</h3>
+				<div class="section__text-block">
+					<p><strong>Комментарий</strong> — это текст, поясняющий код. Он <u>не выводится</u> в
+						<em>браузер</em> и никак <u>не влияет</u> на <em>работу программы</em>. <em>Инструкции</em>
+						<u>внутри</u> <strong>комментария</strong> <u>не выполняются</u>, поэтому
+						<strong>комментарии</strong> часто <u>используют</u>, если <u>нужно временно отключить</u>
+						<em>часть кода</em>.
+					</p>
+					<p>В <em>JavaScript</em> есть <u>два вида <strong>комментариев</strong></u>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">//</span><span class="section__code-comment"> - Однострочные комментарии</span>.
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">/*</span><span class="section__code-comment"> - Многострочные комментарии. Они <u>могут отключить</u> сразу <em>несколько строк кода</em>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">*/</span>
+					</span>
+				</code>
+			</section>
+
+			<section class="section" id="developer-panel">
+				<h3 class="section__subtitle section__subtitle_small">Инструменты разработчика</h3>
+				<div class="section__text-block">
+					<p><strong>Инструменты разработчика</strong> встроенные в браузере (<em>F12</em>) <u>позволяют</u>
+						нам <u>смотреть</u> <em>ошибки</em>, <u>выполнять</u> <em>команды</em>, <u>проверять</u>
+						<span class="color-gold">значение</span> <span class="color-pink">переменных</span> и ещё много
+						всего полезного.
+					</p>
+					<p><span class="color-green">Консоль</span> — <em>инструмент разработчика</em>, который
+						<u>помогает тестировать</u> <em>код</em>. Если <u>во время выполнения <em>скрипта</em> возникнет
+							ошибка</u>, в <en>консоли</en> <u>появится</u> <em>сообщение</em> о ней. А
+						ещё в <em>консоль</em> <u>можно выводить</u> <em>текстовые подсказки</em>. Чтобы
+						<u>вывести</u> <em>сообщение в консоль</em>, <u>нужно использовать</u>
+						<span class="color-red">console.log</span>( ):
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red"> console.log</span>(<span class="color-gold">'Hello, world!'</span>);
+						<span class="section__code-comment">// - <u>Выведет</u>: 
+						<span class="color-gold">'Hello, world!'</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span> (<span class="color-pink">document</span>.
+						<span class="color-red">querySelector</span> ('<span class="color-gold">.page</span>'));
+						<span class="section__code-comment">// - <u>Выведет</u> в <em>консоль</em> 
+						<span class="color-red">найденный элемент</span>.</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Модальные окна глобального объект window</h3>
+				<h3 class="section__subtitle section__subtitle_small">alert</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">alert</span>( ) - <u>показывает</u> <em>сообщение</em> и <u>ждёт</u>,
+						пока <em>пользователь</em> <u>нажмёт</u> <em>кнопку «ОК»</em>. Это небольшое окно с сообщением
+						называется <strong>модальным окном</strong>.
+					</p>
+					<p>Понятие <strong>модальное</strong> <u>означает</u>, что <em>пользователь</em>
+						<u>не может взаимодействовать</u> с <em>интерфейсом</em> остальной части страницы,
+						до тех пор, <u>пока взаимодействует</u> с <em>окном</em>. В данном случае –
+						<u>пока не будет нажата</u> <em>кнопка «OK»</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Hello'</span>);
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">prompt</h3>
+				<div class="section__text-block">
+					<p><em>Функция</em> <span class="color-red">prompt</span>( ) <u>вызывает</u>
+						<em>модальное окно</em> с <em>текстом</em> и <em>полем для ввода текста</em> и
+						<em>кнопками OK / Отмена</em>.<span class="color-red">prompt</span>( ) <u>принимает</u>
+						<em>два аргумента</em>:
+					</p>
+
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">В <u>примере ниже</u> <em>Пользователь</em> 
+							<u>может напечатать</u> что-либо в <em>поле ввода</em> и <u>нажать</u> <em>кнопку OK</em>. <em>Введённый текст</em> <u>будет присвоен</u> <em>переменной</em> 
+							<span class="color-pink">result</span>. Пользователь также <u>может отменить</u> 
+							<em>ввод</em> <u>нажатием</u> на <em>кнопку «Отмена»</em> или <u>нажав</u> на <em>клавишу Esc</em>. <u>В этом случае</u> <em>значением переменной</em> 
+							<span class="color-pink">result</span> <u>станет</u> <span class="color-gold">null</span>.
+							<u>Вызов</u> <span class="color-red">prompt</span>( ) <u>возвращает</u> 
+							<span class="color-gold">строковое значение</span>, <u>указанное</u> в <em>поле ввода</em>, или <span class="color-gold">null</span>, если <u>ввод отменён</u> <em>пользователем</em>.
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">result</span> = 
+						<span class="color-red">prompt</span>(<span class="color-gold">'title'</span>, 
+						<span class="color-gold">'default'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						<span class="color-gold">title</span> - Текст для отображения в окне. 
+						<span class="color-gold">default</span> - необязательный второй параметр, который устанавливает
+						начальное значение в поле для текста в окне. <em>Квадратные скобки</em> 
+						<span class="color-blue">[]</span> вокруг <span class="color-gold">'default'</span> в описанном выше синтаксисе <u>означают</u>, что <em>параметр</em> <u>необязательный</u>.</span>
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">age</span> = 
+						<span class="color-red">prompt</span>(<span class="color-gold">'Сколько тебе лет?'</span>, <span class="color-gold">10</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(`<span class="color-gold">Тебе</span> ${<span class="color-pink">age</span>} <span class="color-gold">лет!</span>`);
+						<span class="section__content">// - <u>вернет</u> <em>строку</em> 
+						<span class="color-gold">'Тебе 10 лет!'</span></span> 
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">confirm</h3>
+				<div class="section__text-block">
+					<p><em>Функция</em> <span class="color-red">confirm</span>( ) <u>отображает</u>
+						<em>модальное окно</em> с <em>текстом вопроса</em> и <em>двумя кнопками: OK / Отмена</em>.
+					</p>
+					<p><u>Результат</u> – <span class="color-gold">true</span>, если <u>нажата</u> <em>кнопка OK</em>. В
+						<u>других случаях</u> – <span class="color-gold">false</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">isBoss</span> = 
+						<span class="color-red">confirm</span>(<span class="color-gold">'Ты здесь главный?'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">isBoss</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">true</span>, если <u>нажата</u> <em>кнопка OK</em></span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Все <span class="color-red">эти методы</span> <u>являются</u>
+						<em>модальными</em>: <u>останавливают выполнение <em>скриптов</em></u> и <u>не позволяют</u>
+						<em>пользователю</em> <u>взаимодействовать</u> с <em>остальной частью страницы</em> до тех пор,
+						<u>пока</u> <em>окно</em> <u>не будет закрыто</u>.
+					</p>
+					<p><u>Расположение</u> <em>окон</em> <u>определяется</u> <em>браузером</em>. Обычно
+						<em>окна</em> <u>находятся в центре</u>. <u>Визуальное отображение</u> <em>окон</em>
+						<u>зависит</u> от <em>браузера</em>, и мы <u>не можем</u> <u>изменить</u> <em>их вид</em>.
+					</p>
+					<p>Есть <u>другие способы показать</u> <em>более приятные глазу окна</em> с богатой
+						функциональностью <u>для взаимодействия</u> с <em>пользователем</em>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="variables-and-constants">
+				<h3 class="section__subtitle section__subtitle_small">Переменные и константы</h3>
+				<div class="section__text-block">
+					<p><span class="color-pink">Переменная</span> — <u>способ сохранить данные</u>, дав им понятное
+						название. <span class="color-pink">Переменная</span> <u>определяется</u> как
+						<span class="color-pink">имя</span>, с которым может быть <u>связано</u>
+						<span class="color-gold">значение</span>.
+					</p>
+					<p><span class="color-pink">Переменную</span> <u>можно создать</u>(объявить), с помощью
+						<em>ключевого слова</em> <span class="color-red">let</span>. За ним следует
+						<span class="color-pink">имя переменной</span>. После <u>объявления</u> в
+						<span class="color-pink">переменную</span> <u>нужно записать</u> (присвоить)
+						<span class="color-gold">какое-то значение</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">header</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span> 
+						('<span class="color-gold">header</span>');
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-pink">Имя переменной</span> <u>может быть</u> почти любым, но <u>не должно</u>
+						начинаться с <em>цифры</em>, а из спецсимволов <u>разрешены только</u> '<b>_</b>' и '<b>$</b>'.
+						Ещё <u>нельзя использовать</u> <a href="https://fls.guru/js-reservedkeywords.html"
+							target="_blank"> зарезервированные слова</a>.
+					</p>
+					<p><span class="color-pink">Имена переменных</span> <u>чувствительны к регистру</u>: header, Header
+						и HEADER — это разные <span class="color-pink">переменные</span>.
+					</p>
+					<p><span class="color-pink">Имя переменной</span> <u>должно описывать</u> то, что в ней хранится.
+					</p>
+					<p>Если <span class="color-pink">имя переменной</span> <u>состоит из нескольких слов</u>, то принято
+						<u>записывать</u> его в стиле <strong>lowerCamelCase</strong>, например:
+						<span class="color-pink">userName</span>.
+					</p>
+					<p>Когда в коде встречается <span class="color-pink">переменная</span>, <em>браузер</em> вместо её
+						имени <u>подставляет</u> <span class="color-gold">присвоенное ей значение</span>. Когда мы
+						используем <span class="color-pink">переменную</span>, снова писать
+						<span class="color-red">let</span> <u>не нужно</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">header</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Чтобы <u>объявить несколько <span class="color-pink">переменных</span></u> можно записать их
+						одним из способов:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="section__code-comment">через запятую в одну строку</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">myName</span> = 
+								'<span class="color-gold">Анатолий</span>', <span class="color-pink">myAge</span> = 
+								'<span class="color-gold">30</span>';
+							</span>
+						</code>
+					</li>
+					<li class="section__list-item">
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="section__code-comment">через запятую с новой строки</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">myName</span> =
+								'<span class="color-gold">Анатолий</span>',
+							</span>
+							<span class="section__code-row">
+								<span class="color-pink">myAge</span> = '<span class="color-gold">30</span>';
+							</span>
+						</code>
+					</li>
+					<li class="section__list-item">
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="section__code-comment">отдельно</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">myName</span> =
+								'<span class="color-gold">Анатолий</span>';
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">myAge</span> = 
+								'<span class="color-gold">30</span>';
+							</span>
+						</code>
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><u>Передача <span class="color-gold">значений</span></u>
+						<span class="color-pink">переменных</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">myAge</span> = 
+						<span class="color-gold">30</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">myNewAge</span> = 
+						<span class="color-gold">40</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">myAge</span> = <span class="color-pink">myNewAge</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">myAge</span>); 
+						<span class="section__code-comment">// - 40</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Область видимости переменных</h3>
+				<div class="section__text-block">
+					<p><u>Объявление</u> <span class="color-pink">переменных</span> в <u>разных частях</u>
+						<em>JavaScript кода</em> <u>имеет значение</u>. Это <strong>область видимости</strong>
+						<span class="color-pink">переменных</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Видимость переменной только внутри блока инструкций</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">testBlock</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">myAge</span> = 
+						<span class="color-gold">36</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">myAge</span>);
+					</span>
+					<span class="section__code-row">
+						}
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">myAge</span>); 
+						<span class="section__code-comment">// - переменная не видна за пределами блока.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Переменные внутри и за пределами блока</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">myAge</span> = 
+						<span class="color-gold">30</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">testBlock</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">myAge</span> = 
+						<span class="color-gold">40</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">myAge</span>); 
+						<span class="section__code-comment">// - выведет в консоли значение 40</span>
+					</span>
+					<span class="section__code-row">
+						}
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">myAge</span>); 
+						<span class="section__code-comment">// - выведет в консоли значение 30, которое находится вне блока.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Мы <u>не можем использовать</u> <span class="color-pink">переменную</span>
+						<u>перед <span class="color-pink">ее</span> объявлением</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Данная запись <u>вызовет ошибку</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">myAge</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">myAge</span> = 
+						<span class="color-gold">36</span>;
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Повторное объявление</u> <span class="color-pink">переменной</span> в <u>рамках одного
+							блока</u> <b>запрещено</b>. В тоже время, <u>внутри блока</u> (например цикла) проблем нет.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p><span class="color-pink">Константа</span> - это таже <span class="color-pink">переменная</span>,
+						но которую <u>нельзя изменить</u>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Данная запись <u>вызовет ошибку</u>, <u>нельзя изменить</u> <span class="color-pink">константу</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">myAge</span> = 
+						<span class="color-gold">30</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">myAge</span> = <span class="color-gold">31</span>;
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Во всем остальном, что касается правил имен <span class="color-pink">констант</span>, области
+						видимости <u>отличий</u> с <span class="color-pink">переменными</span> <u>нет</u>.
+					</p>
+					<p><span class="color-pink">Имена констант</span> с <span class="color-gold">заранее известными
+							значениями</span> <u>принято записывать</u> в ВЕРХНЕМ РЕГИСТРЕ, а слова разделять
+						(<span class="color-blue">_</span> )
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">BLOCK_SIZE</span> = 
+						<span class="color-gold">25</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">COLOR_RED</span> = 
+						<span class="color-gold">"#F00"</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-pink">Имя константы</span> со <span class="color-gold">значениями</span> <u>присвоенными в процессе выполнения программы</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">summSizes</span> = 
+						<span class="color-gold">25</span> + <span class="color-gold">30</span>;
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Отличия var, let, const</h3>
+				<div class="section__image section__image_big">
+					<img class="img-adaptive" src="./img/Область_видимости.png" alt="область видимости">
+				</div>
+			</section>
+
+			<section class="section" id="code-styles">
+				<h3 class="section__subtitle section__subtitle_small">Советы по стилю написания кода</h3>
+				<div class="section__image section__image_big">
+					<img class="img-adaptive" src="img/code-style.png" alt="code-style-image">
+				</div>
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="#">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="./data-types.html">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">
+							Решение задач JS
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+
+	</div>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

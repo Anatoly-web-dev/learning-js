@@ -1,0 +1,978 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords"
+		content="Обучение JavaScript, основы JavaScript, JS для начинающих, События, погружение, всплытие, события мыши и клавиатуры">
+	<meta name="description"
+		content="Сайт посвящён обучению JavaScript. В данном разделе вы узнаете: что такое события в JS и как с ними работать">
+	<title>JavaScript. События</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="./js-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- Хэдер -->
+		<header class="header">
+			<div class="header__logo">
+				<div class="header__logo-image">
+					<a class="header__logo-link" href="./index.html">
+						<img src="./img/js-logo.svg" alt="logo">
+					</a>
+				</div>
+				<h1 class="header__logo-title">Обучение <span class="color-yellow">JavaScript</span></h1>
+			</div>
+			<div class="header__burger-menu">
+				<span class="header__burger-menu-element"></span>
+			</div>
+			<nav class="header__navigation-menu">
+				<ul class="header__links">
+					<li class="header__item">
+						<a class="header__link" href="./index.html">Введение</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#start">Начало работы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#syntax">Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#instruction-block">Блок инструкций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#comments">Комментарии</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#developer-panel">
+									Консоль разработчика
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#variables-and-constants">
+									Переменные и константы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./index.html#code-styles">Стиль написания кода</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./data-types.html">Типы данных</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#number">Числа</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#bigint">BigInt</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#string">Строки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#boolean">Булевый тип</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#null-undefined">Null и undefined</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#object">Объекты и символы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./data-types.html#data-types-transformation">
+									Преобразование типов
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./operators.html">Операторы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#basic-math">
+									Базовые математические
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#plus">Оператор 'плюс'</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#priority">Приоритет операторов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#increment-decrement">
+									Инкремент / Декремент
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#bitwise">Побитовые операторы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#comparison">Операторы сравнения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#logic-operators">
+									Логические операторы
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#or">Оператор || ( ИЛИ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#and">Оператор && ( И )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#negation">Оператор ! ( НЕ )</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#zero-merge">
+									Оператор ?? ( нулевого слияния )
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./operators.html#binary-search">
+									Алгоритм бинарного поиска
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./conditional-branching.html">Условное ветвлениe</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#if">if</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#else">Блок else</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#ternary">
+									Условный (тернарный) оператор ?
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./conditional-branching.html#switch">
+									Конструкция "switch"
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./cycles.html">Циклы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#while">Цикл while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#do-while">Цикл do…while</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#for">Цикл for</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./cycles.html#break-continue">break && continue</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function.html">Функции</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#functions">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#parameters">Параметры</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#return-functions">Возврат значения</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#names-functions">Имена функций</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#types-functions">
+									Function Expression & Function Declaration
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function.html#arrow-functions">Стрелочные
+									функции
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects.html">Объекты</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#objects">Объявление</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#in">Оператор in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#for-in">Цикл for...in</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#symbol">Тип данных Symbol</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-copy">Копирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-clone">Клонирование объектов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects.html#object-option-chain">
+									Опциональная цепочка ( .? )
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./massives.html">Массивы</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#arrays">Массивы. Синтаксис</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#methods">Методы массивов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#add-delete-copy">
+									добавлениe / удалениe / копирование
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#iterating">Перебор элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#transformation">
+									Преобразование элементов
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./massives.html#othermethods">Прочие методы</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./map-set-json.html">Map/Set/JSON</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#map">Map</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./objects-pro.html">Объекты. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./map, set, json.html#destructurization">
+									Деструктуризация
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#global-object">
+									Глобальный объект
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#prototype">
+									Прототип и конструктор объекта
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#oop-basics">
+									Основные принципы ООП
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#this">Контекст (this)</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#classes">Классы</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./objects-pro.html#iteration--objects">
+									Перебираемые объекты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./function-pro.html">Функции. Pro</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#loopback">Замыкание</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#callback">Функции-колбэки</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#recursion">Рекурсия</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#rest">
+									Остаточные параметры / оператор расширения
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#сurrying">Каррирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./function-pro.html#object-func">Объект функции</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./async.html">AJAX</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#planning">Планирование</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#json-xml">JSON vs XML</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#xhr">XHR</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#storing-data">
+									Хранение данных на клиенте</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#promises">Promises, async/await</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./async.html#fetch">
+									Работа с HTTP (fetch, async/await)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./dom.html">DOM</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#bom-dom">Основы BOM и DOM</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#navigation">Навигация по DOM-элементам</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#search">Поиск элементов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#node-properties">Свойства узлов</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#attributes-properties">
+									Атрибуты и свойства
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#document-modification">
+									Изменение документа
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#dimensions-element-browser-window">
+									Размеры элементов/окна браузера
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#scrolling">
+									Прокрутка окна браузера. Координаты
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="header__item">
+						<a class="header__link" href="./events.html">События</a>
+						<span class="header__item-arrow"></span>
+						<span class="header__item-points">...</span>
+						<ul class="header__sub-links">
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#events">Введение в события</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#ascent-dive">Всплытие / Погружение</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#mouse">Cобытия мыши</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#Drag-n-Drop">
+									Drag'n'Drop с событиями мыши
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#keyboard">
+									Клавиатура: keydown и keyup
+								</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#pointer">События указателя</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Основной контент -->
+		<main class="content" id="page-begin">
+
+			<section class="section" id="events">
+				<h2 class="section__title">Введение в события в JS</h2>
+				<div class="section__text-block">
+					<p><strong>Событие</strong> – это <em>сигнал от браузера</em> о том, что <u>что-то произошло</u>.
+						Все <em>DOM-узлы</em> <u>подают</u> <em>такие сигналы</em>. <strong>Событию</strong>
+						<u>можно назначить</u> <span class="color-red">обработчик</span>, то есть
+						<span class="color-red">функцию</span>, <em>которая</em> <u>сработает</u>, как только
+						<strong>событие</strong> <u>произошло</u>, <em>JavaScript-код</em> <u>может реагировать</u> на
+						<em>действия пользователя</em> благодаря <span class="color-red">обработчикам</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Виды событий:</h3>
+				<div class="section__text-block">
+					<p><em>События мыши:</em></p>
+					<ul class="section__list">
+						<li class="section__list-item"><span class="color-aqua">click</span> – происходит, когда
+							<u>кликнули</u> на <em>элемент</em> <u>левой кнопкой мыши</u> (на устройствах с сенсорными
+							экранами оно происходит при касании).
+						</li>
+						<li class="section__list-item"><span class="color-aqua">contextmenu</span> – происходит, когда
+							<u>кликнули</u> на <em>элемент</em> <u>правой кнопкой мыши</u>.
+						</li>
+						<li class="section__list-item"><span class="color-aqua">mouseover</span> /
+							<span class="color-aqua">mouseout</span> – когда <u>мышь наводится</u> на <em>элемент</em> /
+							<u>покидает</u> <em>элемент</em>.
+						</li>
+						<li class="section__list-item"><span class="color-aqua">mousedown</span> /
+							<span class="color-aqua">mouseup</span> – когда <u>нажали</u> / <u>отжали кнопку мыши</u> на
+							<em>элементе</em>.
+						</li>
+						<li class="section__list-item"><span class="color-aqua">mousemove</span> –
+							<u>при движении мыши</u>.
+						</li>
+					</ul>
+					<p><em>События на элементах управления:</em></p>
+					<ul class="section__list">
+						<li class="section__list-item"><span class="color-aqua">submit</span> – пользователь
+							<u>отправил</u> <em>форму</em> <span class="color-red">form</span>.
+						</li>
+						<li class="section__list-item"><span class="color-aqua">focus</span> – пользователь
+							<u>фокусируется</u> на <em>элементе</em>, например <u>нажимает</u> на
+							<span class="color-red">input</span>.
+						</li>
+						<li class="section__list-item"><span class="color-aqua">input</span> – пользователь
+							<u>изменил текст</u> в <span class="color-red">input</span>.
+						</li>
+					</ul>
+					<p><em>Клавиатурные события:</em></p>
+					<ul class="section__list">
+						<li class="section__list-item"><span class="color-aqua">keydown</span> и
+							<span class="color-aqua">keyup</span> – когда пользователь <u>нажимает</u> /
+							<u>отпускает</u> <em>клавишу</em>.
+						</li>
+					</ul>
+					<p><em>События документа:</em></p>
+					<ul class="section__list">
+						<li class="section__list-item"><span class="color-aqua">DOMContentLoaded</span> – когда
+							<em>HTML</em> <u>загружен</u> и <u>обработан</u>, <em>DOM документа</em>
+							<u>полностью построен</u> и <u>доступен</u>.
+						</li>
+					</ul>
+					<p><em>CSS events:</em></p>
+					<ul class="section__list">
+						<li class="section__list-item"><span class="color-aqua">transitionend</span> – когда
+							<em>CSS-анимация</em> <u>завершена</u>.
+						</li>
+					</ul>
+					<p><u>Существует множество</u> <em>других событий</em></p>
+				</div>
+				<h3 class="section__subtitle">Способы назначить событию обработчик</h3>
+				<h3 class="section__subtitle section__subtitle_small">Использование атрибута HTML</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Обработчик</span> <u>может быть назначен</u> прямо в <em>разметке</em>,
+						вназывается <em>атрибуте</em>, который <u>называется</u>
+						<span class="color-aqua">on</span><span class="color-red">cобытие</span>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">input</span> 
+						<span class="color-aqua">value</span>="<span class="color-gold">Нажми меня</span>" 
+						<span class="color-aqua">onclick</span>="<span class="color-red">alert</span>
+						(<span class="color-gold">'Клик!'</span>)" 
+						<span class="color-aqua">type</span>="<span class="color-gold">button</span>"
+					</span>
+					<span class="section__code-row">
+						<input value="Нажми меня" onclick="alert('Клик!')" type="button">
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">При <u>клике мышкой</u> на кнопке <u>выполнится</u> <em>код</em>, указанный в <em>атрибуте</em> <span class="color-aqua">onclick</span></span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Использование свойства DOM-объекта</h3>
+				<div class="section__text-block">
+					<p><u>Можно назначать</u> <span class="color-red">обработчик</span>, <u>используя</u>
+						<span class="color-aqua">свойство <em>DOM-элемента</em></span>
+						<span class="color-aqua">on</span><span class="color-red">событие</span>. <em>Этот способ</em>
+						<u>аналогичен</u> <em>предыдущему</em>. <span class="color-red">Обработчик</span>
+						<u>всегда хранится</u> в <span class="color-aqua">свойстве <em>DOM-объекта</em></span>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">elem</span>.<span class="color-aqua">onclick</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Спасибо'</span>);
+					</span>
+					<span class="section__code-row">};</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Если <u>не создавать</u> 
+						<span class="color-pink">переменную</span> <u>для хранения</u> <em>элемента</em>, <em>этот же код</em> <u>можно записать так</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'selector'</span>).<span class="color-aqua">onclick</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Спасибо'</span>);
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Удалить</u> 
+						<span class="color-red">такой обработчик</span> <u> можно с помощью кода</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'selector'</span>).<span class="color-aqua">onclick</span> = 
+						<span class="color-gold">null</span>;
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Так как у <em>элемента DOM</em> <u>может быть только</u>
+						<span class="color-aqua">одно свойство</span> с именем <span class="color-aqua">onclick</span>,
+						то <u>назначить более одного</u> <span class="color-red">обработчика</span> так <u>нельзя</u>.
+					</p>
+					<p><u>Назначение</u> через <em>JavaScript</em> <u>перезапишет</u>
+						<span class="color-red">обработчик</span> из <em>атрибута</em>.
+					</p>
+					<p><u>Убрать</u> <span class="color-red">обработчик</span> <u>можно назначением</u>
+						<span class="color-pink">elem</span>.<span class="color-aqua">onclick</span> =
+						<span class="color-gold">null</span>
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Доступ к элементу через this</h3>
+				<div class="section__text-block">
+					<p><u>Внутри</u> <span class="color-red">обработчика события</span>
+						<span class="color-pink">this</span> <u>ссылается</u> на <em>текущий элемент</em>, то есть
+						на тот, <em>на котором</em>, как говорят, <u>«висит»</u> (т.е. <u>назначен</u>)
+						<span class="color-red">обработчик</span>.
+					</p>
+					<p>В <em>коде ниже</em> <span class="color-red">button</span> <u>выводит своё содержимое</u>,
+						используя <span class="color-pink">this</span>.<span class="color-aqua">innerHTML</span>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<button onclick="alert(this.innerHTML='По мне кликнули!')">Нажми меня</button>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						('<span class="color-gold">elem</span>').<span class="color-red">addEventListener</span>('<span class="color-aqua">click</span>', (<span class="color-pink">e</span>) => {
+					</span> 
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">textContent</span> = 
+						<span class="color-gold">'По мне кликнули!'</span>;
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Частые ошибки</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Функция</span> <u>должна быть присвоена</u> как
+						<span class="color-red">имяФункции</span>, а не
+						<span class="color-red">вызовФункции</span>( ), <u>результат которого</u>
+						<span class="color-gold">undefined</span>, <u>будет присвоен</u>
+						<span class="color-aqua">onclick</span>.
+					</p>
+					<p>…А вот в <em>разметке HTML</em>, <u>в отличие</u> от <span class="color-aqua">свойства</span>,
+						скобки <span class="color-blue">()</span> <u>нужны</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">input</span> <span class="color-pink">type</span>=
+						"<span class="color-gold">button</span>" <span class="color-pink">id</span>=
+						"<span class="color-gold">button</span>" <span class="color-aqua">onclick</span>=
+						"<span class="color-red">sayThanks ()</span>"
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Используйте</u> именно <span class="color-red">функции</span>, а <em>не строки</em>.</p>
+					<p><u>Не используйте</u> <span class="color-red">setAttribute</span>( ) для
+						<span class="color-red">обработчиков</span>.
+					</p>
+					<p><em>Регистр DOM-свойства</em> <u>имеет значение</u>.</p>
+					<p><u>Фундаментальный недостаток</u> описанных выше <u>способов назначения</u>
+						<span class="color-red">обработчика</span> – <u>невозможность повесить несколько</u>
+						<span class="color-red">обработчиков</span> на <u>одно</u> <em>событие</em>.
+						<em>Новое DOM-свойство</em> <u>перезапишет</u> <em>предыдущее</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">addEventListener и removeEventListener</h3>
+				<div class="section__text-block">
+					<p>Метод <span class="color-red">addEventListener</span>() <u>позволяет добавлять</u>
+						<span class="color-red">несколько обработчиков</span> на <u>одно</u> <em>событие</em> одного
+						<em>элемента</em>.
+					</p>
+					<p><u>Синтаксис добавления</u> <span class="color-red">обработчика</span>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">event</span>, <span class="color-red">handler</span>, 
+						[<span class="color-pink">options</span>]);
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-aqua">event</span> - имя события, <u>например</u> <span class="color-aqua">click</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-red">handler</span> - cсылка на 
+						<span class="color-red">функцию-обработчик</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-pink">options</span> - дополнительный 
+						<span class="color-pink">объект</span> со <span class="color-aqua">свойствами</span>:</span>
+					</span>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="section__code-row">
+								<span class="section__code-comment"><span class="color-aqua">once</span>: если 
+								<span class="color-gold">true</span>, тогда <span class="color-red">обработчик</span>
+								<u>будет автоматически удалён после выполнения</u>.</span>
+							</span>
+						</li>
+						<li class="section__list-item">
+							<span class="section__code-row">
+								<span class="section__code-comment"><span class="color-aqua">capture</span>: фаза, на которой <u>должен сработать</u> <span class="color-red">обработчик</span>. Так 	исторически сложилось, что <span class="color-pink">options</span> <u>может быть</u> 
+								<span class="color-gold">false / true</span>, это то же самое, что 
+								{<span class="color-pink">capture</span>: <span class="color-gold">false / true</span>}.</span>
+							</span>
+						</li>
+						<li class="section__list-item">
+							<span class="section__code-row">
+								<span class="section__code-comment"><span class="color-aqua">passive</span>: если 
+								<span class="color-gold">true</span>, то <u>указывает</u>, что 
+								<span class="color-red">обработчик</span> <u>никогда не вызовет</u> 
+								<span class="color-red">preventDefault</span>(), подробнее узнаем немного позже</span>
+							</span>
+						</li>
+					</ul>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						Если <u>не создавать</u> <span class="color-pink">переменную</span> <u>для хранения</u> <em>элемента</em>, этот же <em>код</em> <u>можно записать так</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						('<span class="color-gold">elem</span>').<span class="color-red">addEventListener</span>('<span class="color-aqua">click</span>', (<span class="color-pink">e</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Это тот блок'</span>);
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Для удаления</u> <span class="color-red">обработчика</span> <u>следует использовать</u>
+						<span class="color-red">removeEventListener</span>():
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-red">removeEventListener</span>
+						(<span class="color__aqua">event</span>, <span class="color-red">handler</span>, 
+						[<span class="color-pink">options</span>]);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Для удаления нужно передать</u> <span class="color-red">именно ту функцию-обработчик</span>
+						которая <u>была назначена</u>. Если <span class="color-red">функцию-обработчик</span>
+						<u>не сохранить</u> в <span class="color-pink">переменную</span>
+						(<span class="color-pink">константу</span>), мы <u>не сможем</u>
+						<span class="color-red">её</span> <u>удалить</u>.
+					</p>
+					<p>Если <span class="color-red">функцию-обработчик</span> <u>не сохранить</u> где-либо, мы
+						<u>не сможем</u> <span class="color-red">её</span> <u>удалить</u>. <u>Нет</u>
+						<span class="color-red">метода</span>, <em>который</em> <u>позволяет получить</u>
+						из <em>элемента</em> <span class="color-red">обработчики событий</span>,
+						<u>назначенные через</u> <span class="color-red">addEventListener</span>().
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Объект события</h3>
+				<div class="section__text-block">
+					<p><strong>Объект события</strong> — это <span class="color-pink">объект</span>,
+						<u>внутри</u> <em>которого</em> <u>находится</u> различная информация <em>о событии</em>.
+					</p>
+					<p>Когда <u>происходит</u> <em>событие</em>, <em>браузер</em> <u>создаёт</u>
+						<span class="color-pink">объект события</span>, <u>записывает</u> в
+						<span class="color-pink">него</span> <em>детали</em> и <u>передаёт</u>
+						<span class="color-pink">его</span> <u>в качестве</u> <em>аргумента</em>
+						<span class="color-red">функции-обработчику</span>.
+					</p>
+					<p>В <span class="color-pink">объекте события</span> <u>могут быть различные данные</u>:</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">event</span>.<span class="color-aqua">type</span> —
+						<em>тип события</em> (например, '<span class="color-aqua">click</span>');
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">event</span>.<span class="color-aqua">target</span> —
+						<em>элемент</em>, на котором <u>было вызвано</u> <em>событие</em>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">event</span>.<span class="color-aqua">target.value</span> —
+						<em>текущее значение поля ввода</em>, на <em>которое</em> <u>добавлен</u>
+						<span class="color-red">обработчик события</span>
+						(только для тега <span class="color-red">input</span>);
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">event</span>.<span class="color-aqua">currentTarget</span> —
+						<em>элемент</em>, на котором <u>сработал</u> <span class="color-red">обработчик</span>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">event</span>.<span class="color-aqua">clientX</span> /
+						<span class="color-pink">event</span>.<span class="color-aqua">clientY</span> — <em>координаты
+							курсора</em> <u>в момент клика</u> (относительно окна, для <em>событий мыши</em>).
+					</li>
+				</ul>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">document.body</span>.<span class="color-red">addEventListener</span>('<span class="color-aqua">click</span>', (<span class="color-pink">event</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">тело <span class="color-red">обработчика</span> ...</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">this</span>.<span class="color-aqua">textContent</span> = 
+						`<span class="color-gold">Это событие:</span> 
+						${<span class="color-pink">event</span>.<span class="color-aqua">type</span>}`;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(`<span class="color-gold">x</span> = 
+						${<span class="color-pink">event</span>.<span class="color-aqua">clientX</span>} 
+						<span class="color-gold">y</span> = 
+						${<span class="color-pink">event</span>.<span class="color-aqua">clientY</span>}`);
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">конец <span class="color-red">обработчика ...</span></span>
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Предотвращение поведения по умолчанию</h3>
+				<div class="section__text-block">
+					<p><u>Нажатие</u> на <em>кнопку</em>, имеющую <span class="color-aqua">type</span> =
+						<span class="color-gold">submit</span>, <u>приведёт к отправке</u> <em>формы</em>, но что если
+						мы <u>не хотим этого делать</u>? Для этого у <em>события</em> в <em>браузере</em> есть
+						<u>специальный метод</u> — <span class="color-red">preventDefault</span>().
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">a</span> <span class="color-aqua">href</span> = 
+						"<span class="color-gold">/</span>" <span class="color-pink">id</span> = 
+						"<span class="color-gold">test</span>
+						<span class="section__code-comment">"Кликните по ссылке"</span>
+						<span class="color-red">/a</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						('<span class="color-gold">#test</span>').<span class="color-red">addEventListener</span>('<span class="color-aqua">click</span>', (<span class="color-pink">e</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">event</span>.<span class="color-red">preventDefault</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>('<span class="color-gold">Вы кликнули по ссылке и ничего не произошло</span>');
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+			</section>
+
+			<section class="section" id="ascent-dive">
+				<h2 class="section__subtitle">Всплытие / Погружение</h2>
+				<h3 class="section__subtitle section__subtitle_small">Всплытие</h3>
+				<div class="section__text-block">
+					<p><u>При наступлении</u> <em>события</em> <span class="color-red">обработчики</span>
+						<u>сначала срабатывают</u> <em>на самом элементе</em>, <u>затем</u> на
+						<em>его родителе</em>, <u>затем</u> на <em>родителе родителя</em> и так далее,
+						<u>вверх по цепочке</u> <em>вложенности</em>. <em>Этот эффект</em> <u>называется</u>
+						<strong>всплытием</strong>.
+					</p>
+					<p><u>!!! Не всегда</u> <em>элемент</em>, на котором <u>произошло</u> <em>событие</em>,
+						<u>является</u> <em>элементом</em>, на котором <u>произошла</u> <em>обработка</em>,
+						<u>например</u>, такое происходит при <strong>всплытии</strong>
+					</p>
+					<p><u>Всплывают</u> <em>не все события</em>. <u>Например</u>, <u>не всплывает</u> <em>событие</em>
+						<span class="color-aqua">focus</span>.
+					</p>
+					<p><u>Если</u> по каким-то причинам <u>требуется остановить</u> <em>всплытие</em>, то
+						<u>используется</u> <span class="color-red">метод</span> <em>события</em>
+						<span class="color-pink">event</span>.<span class="color-red">stopPropagation</span>( ):
+					</p>
+					<p>Если на <em>элементе</em> <span class="color-red">несколько обработчиков</span>, иногда
+						<u>требуется</u> не только <u>перехватить</u> <em>всплытие</em>, но и <u>прекратить работу</u>
+						<span class="color-red">остальных обработчиков</span> для <em>этого элемента</em>. Для этого
+						<u>используется</u> <span class="color-red">метод</span>
+						<span class="color-red">stopImmediatePropagation</span>( ).
+					</p>
+					<p><u>!!! Не прекращайте</u> <em>всплытие</em> <u>без причины</u>. <u>Причина</u> при этом
+						<u>должна быть оправданной</u>. <u>Прекращение</u> <em>всплытия</em> <u>может создавать</u>
+						<em>неожиданные проблемы</em>, <em>которые</em> <u>потом приходится обходить</u>. <u>Перед</u>
+						<em>всплытием</em> <u>происходит</u> <em>«погружение»</em>, (изучим в будущем).
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="mouse">
+				<h3 class="section__subtitle">Cобытия мыши</h3>
+			</section>
+
+			<section class="section" id="Drag-n-Drop">
+				<h3 class="section__subtitle">Drag'n'Drop с событиями мыши</h3>
+			</section>
+
+			<section class="section" id="keyboard">
+				<h3 class="section__subtitle">Клавиатура: keydown и keyup</h3>
+			</section>
+
+			<section class="section" id="pointer">
+				<h3 class="section__subtitle">События указателя</h3>
+			</section>
+
+			<section class="section" id="scrolling">
+				<h3 class="section__subtitle">Прокрутка</h3>
+			</section>
+
+			<nav class="content__navigation">
+				<ul class="content__links">
+					<li class="content__links-item">
+						<a class="content__link" href="./dom.html">Предыдущая</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#page-begin">В начало</a>
+					</li>
+					<li class="content__links-item">
+						<a class="content__link" href="#">Следующая</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+
+		<!-- Футер -->
+		<footer class="footer">
+			<nav class="footer__links">
+				<h3 class="footer__links-title">Дополнительный материал:</h3>
+				<ul class="footer__links-list">
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./practice-frontend/index.html" target="_blank">
+							Практика Frontend
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://learn.javascript.ru/" target="_blank">
+							Учебник по JavaScript 'Learn JS'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLM6XATa8CAG7DDIBjNVd78Fv5Ueo930IV"
+							target="_blank">Плейлист JavaScript-beginner
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link"
+							href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT"
+							target="_blank">Плейлист JavaScript-pro
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://github.com/Anatoly-web-dev" target="_blank">
+							Выполненные задания на GitHub
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="https://apps.skillfactory.ru/learning/dashboard"
+							target="_blank">Курс SkillFactory 'Веб-разработчик'
+						</a>
+					</li>
+					<li class="footer__links-item">
+						<a class="footer__links-link" href="./tasks.html" target="_blank">
+							Решение задач JS
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>
