@@ -126,7 +126,6 @@
 	display: grid;
 	justify-content: end;
 	margin: 0 100px 0 0;
-
 }
 
 .header__links {
@@ -311,7 +310,7 @@
 	display: grid;
 	grid-template-columns: minmax(auto, 1110px);
 	justify-content: center;
-	padding: 180px 15px 30px;
+	padding: 130px 15px 30px;
 }
 
 .content__navigation {
@@ -527,6 +526,11 @@
 		justify-content: center;
 		margin: 0;
 	}
+
+	.content {
+		padding: 180px 15px 30px;
+	}
+
 }
 
 @media (max-width:1500px) {
