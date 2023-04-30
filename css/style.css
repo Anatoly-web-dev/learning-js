@@ -79,7 +79,7 @@
 
 .header {
 	display: grid;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
 	grid-template-columns: minmax(auto, 280px) auto;
 	grid-template-rows: auto, auto;
@@ -125,7 +125,6 @@
 	grid-column: 2/3;
 	display: grid;
 	justify-content: end;
-	margin: 0 100px 0 0;
 }
 
 .header__links {
@@ -519,12 +518,15 @@
 
 /* медиазапросы: */
 
-@media (max-width:1900px) {
+@media (max-width:1800px) {
+	.header {
+		justify-content: space-between;
+	}
+
 	.header__navigation-menu {
 		grid-row: 2/3;
 		grid-column: 1/3;
 		justify-content: center;
-		margin: 0;
 	}
 
 	.content {
@@ -542,7 +544,6 @@
 @media (max-width: 1440px) {
 	.header {
 		grid-template-rows: auto;
-		padding: 0 15px;
 	}
 
 	.header__logo-image {
