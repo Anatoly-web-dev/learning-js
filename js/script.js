@@ -1,5 +1,5 @@
 function addSmoothLinks() {
-	const menuSmoothLinks = document.querySelectorAll('.header__sub-link');
+	const menuSmoothLinks = document.querySelectorAll('.header__sub-link, .content__link');
 	if (menuSmoothLinks.length > 0) {
 		menuSmoothLinks.forEach(link => link.addEventListener('click', (e) => {
 			const header = document.querySelector('.header');
