@@ -596,13 +596,31 @@
 				</div>
 				<code class="section__code">
 					<span class="section__code-row">
-						<span class="color-red">let</span> <span class="color-pink">arr</span> = 
-						[<span class="color-gold">'Джон'</span>, {<span class="color-aqua">address</span>: 
-						<span class="color-gold">'Москва, ул. Ленина, д.32, кв. 77'</span>}, 
-						<span class="color-gold">31</span>, 
-						<span class="color-red">function</span>() { <span class="color-red">alert</span>
-						(`<span class="color-gold">привет</span>, ${<span class="color-pink">arr</span>[0]}`)}];
+						<span class="color-red">let</span> <span class="color-pink">arr</span> = [
 					</span>
+					<span class="section__code-row">
+						<span class="color-gold">'Джон'</span>,
+					</span>
+					<span class="section__code-row">
+						{
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">address</span> : 
+						<span class="color-gold">'Москва, ул. Ленина, д.32, кв. 77'</span>, 
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-gold">31</span>, 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(`<span class="color-gold">привет</span>, 
+						${<span class="color-pink">arr</span>[<span class="color-aqua">0</span>]}`)
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">];</span>
 					<span class="section__code-row">
 						<span class="color-red">alert</span> 
 						(<span class="color-pink">arr</span>[<span class="color-aqua">1</span>].
@@ -694,8 +712,13 @@
 						<span class="color-pink">cars</span>.<span class="color-red">pop</span>() и 
 						<span class="color-pink">cars</span>.<span class="color-red">at</span>
 						(<span class="color-gold">-1</span>) <u>возвращают</u> 
-						<span class="color-gold">последний элемент</span> <span class="color-pink">массива</span>, но <span class="color-pink">cars</span>.<span class="color-red">pop</span>() также <u>изменяет</u> <span class="color-pink">массив</span>, <u>удаляя</u> <span class="color-pink">его</span>
-						<span class="color-gold">последний элемент</span>.</span> 
+						<span class="color-gold">последний элемент</span> <span class="color-pink">массива</span>.</span> 
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Но 
+							<span class="color-pink">cars</span>.<span class="color-red">pop</span>() также <u>изменяет</u> <span class="color-pink">массив</span>, <u>удаляя</u> 
+							<span class="color-pink">его</span>
+							<span class="color-gold">последний элемент</span>.</span>
 					</span>
 				</code>
 				<div class="section__text-block">
@@ -827,8 +850,11 @@
 						<span class="color-gold">количество элементов</span> и <u>вставляем</u> 
 						<span class="color-gold">elem-1</span>, <span class="color-gold">elem-2</span>, ...
 						<span class="color-gold">elem-n</span> <u>вместо</u> <span class="color-gold">них</span>.
-						<span class="color-red">splice</span>() <u>также возвращает</u> 
-						<span class="color-pink">массив из удалённых элементов</span>.</span>
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-red">splice</span>() 
+						<u>также возвращает</u> <span class="color-pink">массив из удалённых элементов</span>.</span>
 					</span>
 				</code>
 				<div class="section__text-block">
@@ -996,6 +1022,12 @@
 						<span class="color-gold">'Сатурн'</span>,];
 					</span>
 					<span class="section__code-row">
+						<span class="section__code-comment"><u>создали</u> <em>копию массива</em>
+							<span class="color-pink">planets</span> и <u>добавили</u> в 
+							<span class="color-pink">этот массив</span> <span class="color-gold">новые элементы</span>, <em>которые</em> <u>передали</u> как <em>аргументы в метода</em> 
+							<span class="color-red">concat</span>()</span>
+					</span>
+					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">allPlanets</span> = 
 						<span class="color-pink">planets</span>.<span class="color-red">concat</span>
 						(<span class="color-gold">'Венера'</span>, <span class="color-gold">'Юпитер'</span>, 
@@ -1003,13 +1035,12 @@
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>(<span class="color-pink">allPlanets</span>);
-						<span class="section__code-comment">// - <u>создали</u> <em>копию массива</em>
-						<span class="color-pink">planets</span> и <u>добавили</u> в 
-						<span class="color-pink">этот массив</span> <span class="color-gold">новые элементы</span>, <em>которые</em> <u>передали</u> как <em>аргументы в метода</em> 
-						<span class="color-red">concat</span>(), <u>результат</u>: 
-						[<span class="color-gold">'Земля'</span>, <span class="color-gold">'Марс'</span>, 
-						<span class="color-gold">'Сатурн'</span>, <span class="color-gold">'Венера'</span>, 
-						<span class="color-gold">'Юпитер'</span>, <span class="color-gold">'Нептун'</span>]</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>результат</u>: 
+							[<span class="color-gold">'Земля'</span>, <span class="color-gold">'Марс'</span>, 
+							<span class="color-gold">'Сатурн'</span>, <span class="color-gold">'Венера'</span>, 
+							<span class="color-gold">'Юпитер'</span>, <span class="color-gold">'Нептун'</span>]</span>
 					</span>
 				</code>
 			</section>
@@ -1229,9 +1260,13 @@
 						<span class="color-red">console.log</span>
 						(<span class="color-pink">user</span>.<span class="color-aqua">name</span>); 
 						<span class="section__code-comment">// - <u>получим только</u> 
-						<span class="color-gold">первый найденный элемент</span>, <em>который</em> <u>соответствует</u> <em>заданному условию поиска</em> - <span class="color-gold">Вася</span>. Если бы 
-						<span class="color-gold">элементов соответствующих условию</span> <u>было несколько</u>, всё равно <u>вернулся бы только</u> <em>один элемент</em> - 
-						<span class="color-gold">самый первый</span></span>
+						<span class="color-gold">первый найденный элемент</span>, <em>который</em> <u>соответствует</u> <em>заданному условию поиска</em> - <span class="color-gold">Вася</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Если бы 
+							<span class="color-gold">элементов соответствующих условию</span> <u>было несколько</u>, всё равно <u>вернулся бы только</u> <em>один элемент</em> - 
+							<span class="color-gold">самый первый</span>
+						</span>
 					</span>
 					<span class="section__code-row">
 						<span class="section__code-comment"><u>Аналогичная запись</u>:</span>

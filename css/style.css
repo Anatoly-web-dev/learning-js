@@ -430,31 +430,36 @@
 
 .section__link,
 .section__link:visited {
-	color: rgb(68, 57, 221);
+	color: rgb(177, 175, 197);
 	font-style: italic;
 	transition: 0.3s linear;
 }
 
 .section__link:hover {
-	color: rgb(40, 31, 172);
+	color: rgb(138, 131, 237);
 	text-decoration: underline;
 	transition: 0.3s linear;
 }
 
 .section__code {
 	display: grid;
-	grid-template-columns: minmax(auto, 700px);
-	justify-content: center;
+	grid-template-columns: minmax(360px, auto);
+	justify-content: start;
+	overflow-x: auto;
 	row-gap: 13px;
-	max-width: 767px;
+	max-width: 850px;
 	margin: 0 auto 20px;
-	padding: 20px 10px;
-	color: rgb(109, 100, 247);
-	font-size: 15px;
-	letter-spacing: 1.4px;
+	padding: 20px 10px 10px 30px;
+	color: rgb(110, 100, 252);
+	font-size: 14px;
+	letter-spacing: 0.8px;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-radius: 5px;
 	background-color: black;
+}
+
+.section__code-row {
+	white-space: nowrap;
 }
 
 .section__image {
@@ -487,7 +492,7 @@
 }
 
 .section__code-comment {
-	font-size: 14px;
+	font-size: 13px;
 	color: #ffffff;
 	font-style: italic;
 	font-family: 'Roboto', sans-serif;

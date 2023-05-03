@@ -725,7 +725,11 @@
 						<u>возвращает</u> <span class="color-pink">массив пар</span> 
 						<span class="color-aqua">ключ</span>-<span class="color-gold">значение</span>: 
 						[ [<span class="color-aqua">'name'</span>,<span class="color-gold">'John'</span>], 
-						[<span class="color-aqua">'age'</span>, <span class="color-gold">30</span>] ]. Это именно то, что нужно <u>для создания</u> <span class="color-pink">Map</span>.</span>
+						[<span class="color-aqua">'age'</span>, <span class="color-gold">30</span>] ]. </span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Это именно то, что нужно <u>для создания</u> 
+						<span class="color-pink">Map</span>.</span>
 					</span>
 				</code>
 				<h3 class="section__subtitle section__subtitle_small">Object.fromEntries: Object из Map</h3>
@@ -883,7 +887,14 @@
 				</div>
 				<code class="section__code">
 					<span class="section__code-row">
-						<span class="section__code-comment"><u>Например</u>, мы ожидаем посетителей, и нам необходимо составить их список. Но повторные визиты не должны приводить к дубликатам. Каждый посетитель должен появиться в списке только один раз.</span>
+						<span class="section__code-comment">* <u>Например</u>, мы ожидаем посетителей, и нам необходимо составить их список.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* Но повторные визиты не должны приводить к дубликатам.
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* Каждый посетитель должен появиться в списке только один раз.</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">set</span> = 
@@ -1307,39 +1318,43 @@
 					</span>
 					<span class="section__code-row">
 						<span class="color-aqua">dateOfBirth</span>:<span class="color-gold">'2020-07-30'</span>,
+						<span class="section__code-comment">// - <em>Объект</em> <span class="color-pink">user</span> <u>содержит</u> дату рождения <span class="color-aqua">dateOfBirth</span>.</span>
 					</span>
 					<span class="section__code-row">};</span>
 					<span class="section__code-row">
-						<span class="color-pink">user</span>.<span class="color-aqua">address</span> = {	
+						<span class="color-pink">user</span>.<span class="color-aqua">address</span> = { 
+						<span class="section__code-comment">// - <span class="color-pink">address</span> <u>добавляется</u> к <span class="color-pink">объекту</span> <u>через отдельное присвоение</u>
+						<span class="color-aqua">свойства</span>.</span>
 					</span>
 					<span class="section__code-row">
-						<span class="color-aqua">city</span>: <span class="color-gold">'Moscow'</span>,
+						<span class="color-aqua">city</span>: <span class="color-gold">'Moscow'</span>, 
+						<span class="section__code-comment">// - <u>включает в себя</u> 
+						<span class="color-aqua">city</span> и <span class="color-aqua">postalCode</span></span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-aqua">postalCode</span>: <span class="color-gold">199000</span>,
 					</span>
-					<span class="section__code-row">};
-						<span class="section__code-comment">// - <em>Объект</em> <span class="color-pink">user</span> <u>содержит</u> дату рождения <span class="color-aqua">dateOfBirth</span>.
-						<span class="color-pink">address</span> <u>добавляется</u> к 
-						<span class="color-pink">объекту</span> <u>через отдельное присвоение</u>
-						<span class="color-aqua">свойства</span> и <u>включает в себя</u> 
-						<span class="color-aqua">city</span> и <span class="color-aqua">postalCode</span>.</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">В <em>переменной</em> 
+							<span class="color-pink">jsonUser</span> <u>происходит передача</u> <em>stringify</em> 
+							<span class="color-aqua">свойств</span> <span class="color-aqua">dateOfBirth</span> и 
+							<span class="color-aqua">address</span>.</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">jsonUser</span> = 
 						<em>JSON</em>.<span class="color-red">stringify</span>(<span class="color-pink">user</span>, [<span class="color-aqua">'dateOfBirth'</span>, <span class="color-pink">'address'</span>]);
-						<span class="section__code-comment">// - В <em>переменной</em> 
-						<span class="color-pink">jsonUser</span> <u>происходит передача</u> <em>stringify</em> 
-						<span class="color-aqua">свойств</span> <span class="color-aqua">dateOfBirth</span> и 
-						<span class="color-aqua">address</span>.
-					</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>(<span class="color-pink">jsonUser</span>);
 						<span class="section__code-comment"> - <u>отобразит</u> в <em>браузере</em> 
 						<u>не то что ожидалось</u> (<u>нет</u> <span class="color-aqua">города</span>
-						и <span class="color-aqua">кода</span>)</span>, потому что <em>replacer</em> <u>не выводит</u> <em>контент</em> <span class="color-pink">вложенных объектов</span>, если <em>он</em> 
-						<u>не указан явно</u>.
+						и <span class="color-aqua">кода</span>)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Потому что <em>replacer</em> <u>не выводит</u> 
+						<em>контент</em> <span class="color-pink">вложенных объектов</span>, если <em>он</em> 
+						<u>не указан явно</u>.</span>
 					</span>
 					<span class="section__code-row">---------------</span>
 					<span class="section__code-row">
@@ -1405,14 +1420,14 @@
 						<em>JSON</em>.<span class="color-red">stringify</span>(<span class="color-pink">user</span>);
 					</span>
 					<span class="section__code-row">
+						<span class="section__code-comment"><u>Для применения</u> <em>метода</em> 
+							<span class="color-red">parse</span>(<em>строка JSON</em>) <u>должен использоваться</u> 
+							<em>глобальный объект JSON</em>.
+						</span>
+					</span>
+					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">newJsObject</span> = 
 						<em>JSON</em>.<span class="color-red">parse</span>(<span class="color-pink">jsonUser</span>);
-						<span class="section__code-comment">// - <u>Для применения</u> <em>метода</em> 
-							<span class="color-red">parse</span>( ) <u>должен использоваться</u> 
-							<em>глобальный объект JSON</em>. В <em>круглых скобках</em> 
-							<span class="color-blue">()</span> <u>указывается</u> 
-							<span class="color-pink">переменная</span> <u>содержащая</u> <em>строку JSON</em>.
-						</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>(<span class="color-pink">newJsObject</span>); 

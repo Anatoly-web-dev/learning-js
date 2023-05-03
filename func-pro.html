@@ -529,7 +529,7 @@
 						<span class="color-red">let</span> <span class="color-pink">test</span> = <span class="color-blue">createCounter</span>(<span class="color-gold">5</span>);
 					</span>
 					<span class="section__code-row">
-						<span class="section__code-comment">С <u>каждым вызовом</u> <span class="color-blue">test</span>() в <em>консоль</em> <u>выводится</u> <u>последовательно увеличивающийся на один</u> <em>аргумент</em> <span class="color-pink">counter</span>:</span>
+						<span class="section__code-comment">С <u>каждым вызовом</u> <span class="color-blue">test</span>() в <em>консоль</em> <u>выводится</u> <u>последовательно увеличивающийся на <em>1</em></u> <em>аргумент</em> <span class="color-pink">counter</span>:</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-blue">test</span>();
@@ -573,7 +573,11 @@
 						<span class="section__code-comment">
 						<u>Удалим</u> <em>замыкание</em>, <u>оставив только</u> 
 						<span class="color-red">функциональное выражение</span>, куда <u>вносится</u> 
-						<span class="color-red">функция</span> <span class="color-blue">updateCounter</span>, <u>увеличивающая</u> <em>аргумент</em> <span class="color-pink">counter</span> <u>через</u> <em>инкремент</em><span class="color-red">++</span>:</span>
+						<span class="color-red">функция</span> <span class="color-blue">updateCounter</span>, </span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>увеличивающая</u> <em>аргумент</em> 
+							<span class="color-pink">counter</span> <u>через</u> <em>инкремент</em>:</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-blue">test</span> = 
@@ -600,11 +604,12 @@
 						<span class="section__code-comment">// - <em>Консоль</em> <u>отобразит</u>: 5 -> 0 -> 0</span>
 					</span>
 					<span class="section__code-row">
-						<span class="section__code-comment">
-						<u>При отсутствии</u> <em>замыкания</em> между <span class="color-red">вложенной</span> и 
-						<span class="color-red">внешней функциями</span> <em>инкремент</em> 
-						<span class="color-pink">counter</span><span class="color-red">++</span> 
-						<u>не сохраняется для последующих вызовов</u>, и <span class="color-blue">test</span> <u>вызывается заново</u> с <em>указанным аргументом</em> <span class="color-blue">test</span>( );.</span>
+						<span class="section__code-comment">* <u>При отсутствии</u> <em>замыкания</em> между 
+						<span class="color-red">вложенной</span> и <span class="color-red">внешней функциями</span> <em>инкремент</em> <span class="color-pink">counter</span>++</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* <u>не сохраняется для последующих вызовов</u>, и 
+						<span class="color-blue">test</span> <u>вызывается заново</u> с <em>указанным аргументом</em> <span class="color-blue">test</span>( );</span>
 					</span>
 				</code>
 			</section>
@@ -634,7 +639,8 @@
 					</span>
 					<span class="section__code-row">}</span>
 					<span class="section__code-row">
-						<span class="color-red">function</span> <span class="color-blue">callback</span> () {
+						<span class="color-red">function</span> <span class="color-blue">callback</span> () { 
+						<span class="section__code-comment">// - <u>возвращает</u> случайно сгенерированное число от 1 до 4.</span>	
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">return</span> <span class="color-red">parseInt</span>
@@ -643,18 +649,18 @@
 					</span>
 					<span class="section__code-row">}</span>
 					<span class="section__code-row">
-						<span class="color-blue">main</span>(`<span class="color-gold">Пётр</span>, <span class="color-blue">callback</span>`);
+						<span class="color-blue">main</span>(`<span class="color-gold">Пётр</span>, 
+						<span class="color-blue">callback</span>`); <span class="section__code-comment">
+						<u>вызываем</u> <span class="color-red">функцию</span> с <em>аргументами</em> 
+						<span class="color-gold">'Пётр'</span> и <span class="color-blue">callback</span> - 
+						<span class="color-red">функция-callback</span></span>
 					</span>
 					<span class="section__code-row">
-						<span class="section__code-comment">Вызов <span class="color-red">функции</span> 
-						<span class="color-blue">main</span> <u>происходит</u> с <em>первым аргументом</em> 
-						<span class="color-pink">name</span> <span class="color-gold">‛Пётр‛</span>, а в качестве 
-						<em>второго аргумента</em> <span class="color-pink">number</span> <u>применяется</u> 
-						<span class="color-red">функция-callback</span>, <u>возвращающая</u> случайно сгенерированное число от 1 до 4.</span>
+						<span class="section__code-comment">* <span class="color-red">Callback-функция</span>, генерирующая числа, <u>вызывается одновременно</u> с <span class="color-red">функцией</span> 
+						<span class="color-blue">main</span>.</span>
 					</span>
 					<span class="section__code-row">
-						<span class="section__code-comment">!<span class="color-red">Callback-функция</span>, генерирующая числа, <u>вызывается одновременно</u> с <span class="color-red">функцией</span> 
-						<span class="color-blue">main</span>. <u>Сначала сгенерируется</u> 
+						<span class="section__code-comment">* <u>Сначала сгенерируется</u> 
 						<span class="color-gold">число</span> <span class="color-pink">number</span>, а <u>затем</u> <span class="color-blue">main</span> <u>выведет</u> <span class="color-gold">число</span> в <span class="color-red">alert</span>.</span>
 					</span>
 				</code>
@@ -666,8 +672,8 @@
 				</div>
 				<code class="section__code">
 					<span class="section__code-row">
-						<span class="section__code-comment">Наша <span class="color-red">функция</span> должна задать вопрос <span class="color-pink">question</span> и, <u>в зависимости</u> от того, как ответит пользователь, <u>вызвать</u> <span class="color-blue">yes</span>() или 
-						<span class="color-blue">no</span>():</span>
+						<span class="section__code-comment"><span class="color-red">Функция</span> задаёт вопрос 
+						<span class="color-pink">question</span> и, <u>в зависимости</u> от ответа пользователя, <u>вызывает</u> <span class="color-blue">yes</span>( ) или <span class="color-blue">no</span>( ):</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">function</span> <span class="color-blue">ask</span>
@@ -697,11 +703,13 @@
 					</span>
 					<span class="section__code-row">}</span>
 					<span class="section__code-row">
-						<span class="color-blue">ask</span>(<span class="color-gold">"Вы согласны?"</span>, 
-						<span class="color-blue">showOk</span>, <span class="color-blue">showCancel</span>);  
-						<span class="section__code-comment">// - <span class="color-red">функции</span> 
+						<span class="section__code-comment"><span class="color-red">функции</span> 
 						<span class="color-blue">showOk</span>(), <span class="color-blue">showCancel</span>() <u>передаются в качестве</u> <em>аргументов</em> <span class="color-red">функции</span> 
 						<span class="color-blue">ask</span>( )</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">ask</span>(<span class="color-gold">"Вы согласны?"</span>, 
+						<span class="color-blue">showOk</span>, <span class="color-blue">showCancel</span>);  
 					</span>
 				</code>
 				<div class="section__text-block">
@@ -771,11 +779,7 @@
 					<span class="section__code-row">
 						<span class="color-blue">calcSumm</span>(<span class="color-gold">1</span>, 
 						<span class="color-gold">5</span>, <span class="color-blue">showMoreMessage</span>, 
-						<span class="color-blue">showLessMessage</span>); <span class="section__code-comment">// - <u>выводим</u> <span class="color-red">функцию</span>, <u>присваиваем</u> 
-						<span class="color-gold">значения</span> <em>параметрам</em> 
-						<span class="color-pink">num1</span> и <span class="color-pink">num2</span>, <u>передаем</u> <span class="color-gold">значения</span> <em>параметрам</em> 
-						<span class="color-blue">more</span>(<span class="color-blue">showMoreMessage</span>) и 
-						<span class="color-blue">less</span>(<span class="color-blue">showLessMessage</span>)</span>
+						<span class="color-blue">showLessMessage</span>); <span class="section__code-comment">// - <u>вызываем</u> <span class="color-red">функцию</span> с <em>параметрами</em></span>
 					</span>
 				</code>
 				<div class="section__text-block">
@@ -999,13 +1003,16 @@
 						<span class="color-gold">-8</span>, <span class="color-gold">1</span>];
 					</span>
 					<span class="section__code-row">
+						<span class="section__code-comment">
+						 <u>Можем передать</u> <span class="color-pink">несколько массивов</span> с 
+						 <em>параметрами</em> в <em>список аргументов</em>:</span>
+					</span>
+					<span class="section__code-row">
 						<span class="color-red">alert</span>
 						(<span class="color-pink">Math</span>.<span class="color-red">max</span>
 						(...<span class="color-pink">arr1</span>, ...<span class="color-pink">arr2</span>));
-						<span class="section__code-comment">// - вернёт 8 (<em>оператор</em> "<u>раскрывает</u>" 
-						<span class="color-pink">массив</span> (<u>можем передать</u> 
-						<span class="color-pink">несколько массивов</span> с <em>параметрами</em>) в 
-						<em>список аргументов</em>)</span>
+						<span class="section__code-comment">// - вернёт <span class="color-gold">8</span>, 
+						<em>оператор</em> "<u>раскрывает</u>" <span class="color-pink">массив</span></span>
 					</span>
 				</code>
 				<div class="section__text-block">
@@ -1216,12 +1223,8 @@
 						<span class="color-blue">funcName</span>(<span class="color-gold">'Guest'</span>); 
 						<span class="section__code-comment">// - Теперь всё в порядке</span>
 					</span>
-					<span class="section__code-row">
-						}
-					</span>
-					<span class="section__code-row">
-						};
-					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">};</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-blue">welcome</span> = 
 						<span class="color-blue">sayHi</span>;
@@ -1230,9 +1233,13 @@
 						<span class="color-blue">sayHi</span> = <span class="color-gold">null</span>;
 					</span>
 					<span class="section__code-row">
-						<span class="color-blue">welcome</span>(); <span class="section__code-comment">// - вернёт <span class="color-gold">'Hello, Guest'</span> (<u>вложенный вызов работает</u>), потому что <em>имя</em> <span class="color-blue">funcName</span> <u>локальное</u> и 
-						<u>находится внутри</u> <span class="color-red">функции</span>. Теперь 
-						<span class="color-blue">оно</span> <u>взято не снаружи</u> (и недоступно оттуда).</span>
+						<span class="color-blue">welcome</span>(); <span class="section__code-comment">// - вернёт <span class="color-gold">'Hello, Guest'</span> (<u>вложенный вызов работает</u>). </span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Потому что <em>имя</em> 
+						<span class="color-blue">funcName</span> <u>локальное</u> и <u>находится внутри</u> 
+						<span class="color-red">функции</span>. Теперь <span class="color-blue">оно</span> 
+						<u>взято не снаружи</u> (и недоступно оттуда).</span>
 					</span>
 				</code>
 				<div class="section__text-block">

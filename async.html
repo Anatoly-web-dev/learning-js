@@ -296,7 +296,7 @@
 								<a class="header__sub-link" href="./map-set-json.html#set">Set</a>
 							</li>
 							<li class="header__sub-item">
-								<a class="header__sub-link" href="./map-set-json#json">JSON</a>
+								<a class="header__sub-link" href="./map-set-json.html#json">JSON</a>
 							</li>
 						</ul>
 					</li>
@@ -470,18 +470,106 @@
 		<!--Основной контент -->
 		<main class="content" id="page-begin">
 			<h2 class="section__title">Асинхронность в JavaScript</h2>
+			<div class="section__text-block">
+				<p><strong>AJAX</strong> — (<em>асинхронный JavaScript</em> и <em>XML</em>) — это <em>термин</em> (не
+					технология), который описывает <u>подход к использованию вместе</u> существующих
+					<em>технологий</em>. <strong>АJAX</strong> <u>включает</u>: <em>HTML</em> или <em>XHTML</em>,
+					<em>CSS</em>, <em>JavaScript</em>, <em>DOM</em>, <em>XML</em>, <em>XSLT</em>, и
+					<em>объект XMLHttpRequest</em>.
+				</p>
+				<p>Когда <em>эти технологии</em> <u>объединяются</u> в модель <strong>AJAX</strong>,
+					<em>web-приложения</em> <u>способны делать</u> быстрые дополняющие <em>обновления интерфейса</em>
+					пользователя <u>без необходимости полной перезагрузки страницы</u> <em>браузером</em>.
+					<em>Приложения</em> <u>работают быстрее</u> и <u>становятся более отзывчивыми</u> к действиям
+					пользователей.
+				</p>
+				<p><u>При введениив адресную строку браузера</u> <em>имени любого сайта</em> на
+					<em>удалённый сервер</em> <u>отправляется</u> соответствующий <em>запрос</em>, <em>ответом</em> на
+					который <u>является</u> <em>HTML-страница</em>. Как только <em>браузер</em> <u>получает</u>
+					<em>ответ</em>, <em>он</em> <u>парсит</u> <em>HTML</em> и <u>отображает страницу</u>.
+					<strong>Запросы</strong> — <u>основной механизм получения данных</u> вашими <em>приложениями</em>,
+					будь то <em>серверная</em> или <em>клиентская часть</em>. С помощью <em>них</em> вы
+					<u>можете получать</u> <em>данные в разных форматах</em>.
+				</p>
+				<p><u>Обработкой полученных</u> <em>HTML</em>, <em>CSS</em> и <em>JavaScript</em> <u>занимается</u>
+					<em>браузер</em>. <u>Обрабатывать</u> некоторые <em>другие типы данных</em> <u>можно с помощью</u>
+					языка <em>JavaScript</em> и <em>интерфейсов</em>, предоставляемых средой запуска кода (<u>для</u>
+					<em>JavaScript</em> это <em>браузер</em> или <em>Node.js</em>).
+				</p>
+				<p><strong>Асинхронное программирование</strong> в <em>JavaScript</em> — это <u>работа</u> с
+					<em>event loop</em> и <em>очередью вызовов</em>. Это одна из <em>концепций</em>, которая
+					<u>делает</u> <em>JavaScript</em> таким мощным и универсальным.
+				</p>
+				<p><em>JavaScript</em> <u>является</u> <strong>однопоточным языком программирования</strong>
+					(<u>не могут выполняться одновременно</u> <span class="color-red">две функции</span>), но с
+					<u>возможностью реализации</u> <em>асинхронности</em>. <span class="color-red">Все функции</span>
+					<u>выполняются друг за другом</u> в соответствии с их положением в <em>очереди выполнения</em>.
+					Другими словами, у нас <u>есть</u> <em>очередь вызовов</em>, в которую <u>попадают</u>
+					<span class="color-red">все функции</span>, <u>выполняемые</u> вашим <em>кодом</em>. И
+					<u>пока не выполнится</u> <span class="color-red">предыдущая функция</span>,
+					<span class="color-red">следующая</span> <u>не начнёт свое выполнение</u>.
+				</p>
+				<p><strong>Синхронный код</strong> - <span class="color-red">все функции</span>
+					<u>выполняются по порядку</u>, согласно которому <span class="color-red">они</span> <u>записаны</u>
+					в <em>коде</em>.
+				</p>
+				<h3 class="section__subtitle section__subtitle_small">Способы реализации асинхронного кода:</h3>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<u>на <strong>callback</strong></u>: <span class="color-red">setTimeout</span>( ),
+						<span class="color-red">setInterval</span>( ), <span class="color-red">XHR</span>
+						(XMLHttpRequest), а также <em>обработчики событий</em>
+						(<span class="color-red">addEventListener</span>( ) ). В
+						<span class="color-red">функции</span>, <u>выполняющие <em>асинхронные операции</em></u>,
+						<u>передаётся</u> <em>аргумент</em> <strong>callback</strong> —
+						<span class="color-red">функция</span>, которая
+						<u>будет вызвана по завершению <em>асинхронного действия</em></u>.
+					</li>
+					<li class="section__list-item">
+						<u>на <strong>Promise</strong></u> (обещание): <span class="color-red">Promise</span>,
+						<span class="color-red">Fetch</span>, <span class="color-red">async</span> /
+						<span class="color-red">await</span>.
+					</li>
+				</ul>
+			</div>
 			<section class="section" id="planning">
 				<h3 class="section__subtitle">Планирование: setTimeout и setInterval</h3>
 				<div class="section__text-block">
-					<p><span class="color-red">setTimeout</span>(<span class="color-red">функция</span> или
-						<em>код</em>, <em>задержка</em>, <em>параметр</em>,.. <em>параметр</em>) - позволяет
-						<u>вызвать</u> <span class="color-red">функцию</span> <u>один раз</u> через
-						<em>определенный интервал времени</em>.
+					<p><span class="color-red">setTimeout</span>( ) <u>ставит один раз</u>
+						<span class="color-red">функцию</span> в <em>очередь выполнения</em> через какой-то
+						<em>промежуток времени</em> (<u>не выполняет</u>, а <u>ставит</u> в <em>очередь</em>
+						<u>на выполнение</u>). <u>Используется для отложенного запуска</u> <em>кода</em> или
+						оптимизаций. <u>Синтаксис</u>:
 					</p>
-					<p><span class="color-red">setInterval</span>(<span class="color-red">функция</span> или
-						<em>код</em>, <em>задержка</em>, <em>параметр</em>,.. <em>параметр</em>) - позволяет
-						<u>вызывать</u> <span class="color-red">функцию</span> <u>регулярно</u>,
-						<u>повторяя вызов</u> через <em>определенный интервал времени</em>.
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="section__code-comment"><u>Позволяет вызвать один раз</u>
+							<span class="color-red">функцию</span> через <em>определенный интервал времени</em>.</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">setTimeout</span>(<span class="color-red">функция</span> или
+							<em>код</em>, <em>задержка</em>, <em>пар-1</em>,.. <em>пар-n</em>);
+						</span>
+					</code>
+					<p><span class="color-red">setInterval</span>( ) <u>ставит регулярно</u>
+						<span class="color-red">функцию</span> в <em>очередь выполнения</em> через какой-то
+						<em>промежуток времени</em> (<u>не выполняет</u>, а <u>ставит</u> в
+						<em>очередь</em> <u>на выполнение</u>). <u>Синтаксис</u>:
+					</p>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="section__code-comment"><u>Позволяет вызывать регулярно</u> 
+							<span class="color-red">функцию</span>, <u>повторяя вызов через 
+							<em>определенный интервал времени</em></u>.</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">setInterval</span>(<span class="color-red">функция</span> или <em>код</em>, <em>задержка</em>, <em>пар-1</em>,.. <em>пар-n</em>);
+						</span>
+					</code>
+				</div>
+				<div class="section__text-block">
+					<p>Несколько <u>примеров работы</u> <em>функций</em> <span class="color-red">setTimeout</span>( ) и
+						<span class="color-red">setInterval</span>( ) :
 					</p>
 				</div>
 				<code class="section__code">
@@ -551,22 +639,2051 @@
 
 			<section class="section" id="json-xml">
 				<h3 class="section__subtitle">JSON vs XML</h3>
+				<div class="section__text-block">
+					<p><strong>XML</strong> и <strong>JSON</strong> -<span class="color-gold">текстовые форматы</span>,
+						<u>предназначенные для структурирования</u>, <u>хранения</u> и <u>передачи</u>
+						<em>информации</em>. <em>Они</em> <u>выполняют</u> <em>одну и ту же роль</em>,
+						<u>разница заключается</u> в <em>их</em> <u>представлении</u> и <u>обработке</u>.
+					</p>
+					<p><strong>XML</strong> (<em>расширяемый язык разметки</em>) - <u>поддерживает хранение</u>
+						<en>сложных структур данных</en>. <em>Язык</em> <u>называется</u> <em>расширяемым</em>,
+						поскольку он <u>не фиксирует</u> <em>разметку</em>, используемую в документах: каждый
+						<em>разработчик</em> <u>может создать</u> <em>любую разметку</em> c в соответствии с
+						потребностями конкретной области.
+					</p>
+					<p><u>Для работы</u> с <em>XML</em> в <em>JavaScript</em> <u>имеется</u> <em>класс</em>
+						<span class="color-pink">DOMParser</span>, который <u>предоставляет для работы</u>
+						<em>экземпляр</em> с <em>XML</em> и <em>HTML</em>. <em>Экземпляр</em> <u>предоставляет</u> <span
+							class="color-red">метод</span>.
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-pink">DOMParser</span> — это <em>класс</em> с
+							<u>интерфейсом парсинга</u> <em>HTML</em> и <em>XML</em>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">parser</span>.<span class="color-red">parseFromString</span>( ) —
+							<u>преобразует</u> <em>XML</em> в <span class="color-pink">объект JavaScript</span>
+							<u>в виде</u> <em>DOM</em>.
+						</li>
+					</ul>
+					<p><u>Дальнейшая работа</u> с <em>полученным DOM</em> представлением <u>идёт с помощью</u>
+						<span class="color-red">методов поиска</span> <span class="color-pink">элементов</span> в
+						<em>DOM</em> и <u>получения</u> <span class="color-aqua">атрибутов</span>
+						<span class="color-pink">элементов</span>.
+					</p>
+					<p><strong>JSON</strong> (<em>Объектная нотация JavaScript</em>) -
+						<span class="color-gold">текстовый формат</span> <u>обмена данными</u>.
+						<span class="color-gold">JSON</span> <u>является</u> <em>синтаксисом</em>
+						<u>для представления в виде <span class="color-gold">строк</span></u>
+						<em>сложных структур</em>, <span class="color-pink">массивов данных различных типов</span>.
+						<u>По сравнению</u> с <em>XML</em> <u>занимает меньше объёма</u> на диске
+						<u>за счёт отсутствия</u> <em>тегов разметки</em>. <span class="color-gold">JSON</span>
+						<u>легко использовать для обмена данными</u>, когда <em>клиент</em> <u>использует</u>
+						<em>JavaScript</em>, а <em>сервер</em> <u>написан</u> на <em>Ruby</em> / <em>PHP</em> /
+						<em>Java</em> или любом <em>другом языке</em>.
+					</p>
+					<p><span class="color-gold">JSON</span> — это обычная <span class="color-gold">строка</span> с
+						<u>определённым порядком символов</u>, <span class="color-gold">которую</span>
+						<u>удобно преобразовать</u> и из <span class="color-gold">которой</span>
+						<u>удобно получать данные</u>. <span class="color-pink">Объекты JavaScript</span>
+						<u>можно преобразовать</u> в <span class="color-gold">JSON</span> и <u>наоборот</u>, если
+						<span class="color-gold">JSON</span> <u>валидный</u>. <span class="color-gold">JSON</span>
+						<u>становится невалидным</u>, если <u>содержит</u> <em>недопустимые символы</em> или
+						<em>лишние знаки</em>.
+					</p>
+					<p><u>Для работы</u> с <span class="color-gold">JSON</span> в <em>JavaScript</em> <u>имеется</u>
+						<em>объект</em> <span class="color-pink">JSON</span> (и в <em>браузерах</em>, и в
+						<em>Node.js</em>), <span class="color-pink">который</span> <u>предоставляет</u>
+						<span class="color-red">несколько методов</span> <u>для преобразования</u>
+						<span class="color-gold">JSON</span> в <span class="color-pink">объекты JS</span> и
+						<u>наоборот</u>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-pink">JSON</span>.<span class="color-red">stringify</span>( ) —
+							<u>преобразует</u> <span class="color-pink">объект JS</span> в
+							<span class="color-gold">строку JSON</span>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">JSON</span>.<span class="color-red">parse</span>( ) —
+							<u>преобразует</u> <span class="color-gold">JSON</span> в
+							<span class="color-pink">объект JS</span>.
+						</li>
+					</ul>
+					<p><u>Подробнее о работе</u> с <span class="color-gold">JSON</span> в написано
+						<a class="section__link" href="./map-set-json.html#json">этой главе</a>
+					</p>
+				</div>
 			</section>
 
 			<section class="section" id="xhr">
 				<h3 class="section__subtitle">XHR</h3>
+				<div class="section__text-block">
+					<p><u>Для реализации <em>запросов</em></u> из <em>JavaScript-кода</em> <u>существуют</u>
+						<em>два основных инструмента</em>: <strong>XHR</strong>
+						(<span class="color-pink">XMLHttpRequest</span>) и более современный <strong>Fetch</strong>.
+						<u>Есть</u> <em>другие инструменты</em>, предоставляемые <em>сторонними библиотеками</em>,
+						<u>например</u>: <em>jQuery.ajax</em>(), <em>jQuery.getJSON</em>(), <em>Axios</em> и др.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p><u>Различия</u> <strong>XHR</strong> и <strong>Fetch</strong></p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<strong>XHR</strong> <u>работает на основе</u> <em>callback</em>.
+							<strong>Fetch</strong> <u>работаетна основе</u> <em>promise</em>;
+						</li>
+						<li class="section__list-item">
+							<strong>XHR-запрос</strong> <u>может быть</u> <em>синхронным</em> или <em>асинхронным</em>.
+							<strong>Fetch</strong> <u>реализует только</u> <em>асинхронный код</em>;
+						<li>
+					</ul>
+				</div>
+				<div class="section__text-block">
+					<p><u>Работа</u> с <strong>XHR</strong> <u>реализуется через</u> <em>класс</em>
+						<span class="color-pink">XMLHttpRequest</span>. У <span class="color-pink">него</span>
+						<u>есть</u> <span class="color-red">методы</span> <u>для управления</u> <em>запросами</em>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-pink">request</span>.<span class="color-red">open</span>
+							(<span class="color-gold">'Метод запроса'</span>,
+							<span class="color-gold">'url запроса'</span>,
+							<span class="color-gold">'флаг запроса'</span>) — <span class="color-red">метод</span>
+							<u>для инициализации <em>запроса</em></u>. <em>Метод</em>
+							<span class="color-red">open</span>( ) <u>принимает</u> <em>три основных параметра</em>:
+							<ol class="section__list">
+								<li class="section__list-item">
+									<em>Метод HTTP-запроса</em>. <em>Методов</em> <u>много</u>, но <u>основные</u> — это
+									<span class="color-gold">GET</span> и <span class="color-gold">POST</span>.
+									<u>Разница</u> в <span class="color-gold">них</span> в некоторых
+									<em>заголовках</em> и <em>принципе передачи данных</em>. <u>При</u>
+									<span class="color-gold">GET-запросе</span> <em>данные</em> <u>передаются</u> в
+									<em>строке запроса</em>. <u>При</u> <span class="color-gold">POST-запросе</span>
+									<em>данные</em> <u>передаются</u> в <em>теле запроса</em>.
+								</li>
+								<li class="section__list-item">
+									<em>URL</em>, <em>запрос</em> к которому вы реализуете.
+								</li>
+								<li class="section__list-item">
+									<em>Флаг</em> <em>синхронного</em> / <em>асинхронного кода</em>.
+									<u>Можно не указывать</u>, <u>по умолчанию</u> <em>асинхронно</em>
+									(<span class="color-gold">true</span>).
+								</li>
+							</ol>
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">request</span>.<span class="color-red">onload</span>( ) —
+							<span class="red">метод</span>, <em>которому</em> <u>можно присвоить</u>
+							<span class="color-red">callback-функцию</span>, <em>которая</em> <u>сработает</u>,
+							<u>если</u> <em>запрос</em> <u>успешно отработал</u>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">request</span>.<span class="color-red">onprogress</span>( ) —
+							<span class="red">метод</span>, <em>которому</em> <u>можно присвоить</u>
+							<span class="color-red">callback-функцию</span>, <em>которая</em>
+							<u>будет срабатывать во время выполнения <em>запроса</em></u>, <u>уведомляя</u> вас о
+							<em>прогрессе</em>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">request</span>.<span class="color-red">onerror</span>( ) —
+							<span class="red">метод</span>, <em>которому</em> <u>можно присвоить</u>
+							<span class="color-red">callback-функцию</span>, <em>которая</em> <u>сработает</u>,
+							<u>если</u> <em>запрос</em> <u>завершился ошибкой</u>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">request</span>.<span class="color-red">send</span>( ) —
+							<span class="color-red">метод отправки</span> <em>запроса</em>.
+						</li>
+					</ul>
+					<p><u>Есть</u> и <span class="color-red">другие методы</span> и
+						<span class="color-aqua">свойства</span>, но <u>это основные</u>.
+					</p>
+					<p>!<u>ВАЖНО</u>. В <em>реальных проектах</em> <u>используйте только</u>
+						<em>асинхронные запросы</em>. <u>При осуществлении</u> <em>синхронного запроса</em>
+						<em>сайт</em> <u>зависнет</u> до тех пор, <u>пока не получит</u> <em>ответ запроса</em>.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p><u>Пример работы</u> с <strong>XHR</strong>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">xhr</span> = 
+						<span class="color-red">new</span> <span class="color-pink">XMLHttpRequest</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">onload</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>('<span class="color-gold">Статус:</span> 
+						${<span class="color-pink">xhr</span>.<span class="color-aqua">status</span>}; 
+						<span class="color-gold">Результат:</span> 
+						${<span class="color-pink">xhr</span>.<span class="color-aqua">response</span>}')
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">onerror</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Ошибка запроса'</span>);
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">open</span>
+						(<span class="color-gold">"get"</span>, 
+						<span class="color-gold">"https://picsum.photos/v2/list"</span>, 
+						<span class="color-gold">true</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">send</span>();
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">xhr</span> = 
+						<span class="color-red">new</span> <span class="color-pink">XMLHttpRequest</span>();
+						<span class="section__code-comment">// - <u>создаем</u> 
+						<span class="color-pink">экзепляр</span> <em>класса</em> 
+						<span class="color-pink">XMLHttpRequest</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">open</span>
+						(<span class="color-gold">'GET'</span>, 'https://picsum.photos/v2/list/?limit=5'); 
+						<span class="section__code-comment">// - <u>инициализируем</u> <em>запрос</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">onload</span> = 
+						<span class="color-red">function</span>() { <span class="section__code-comment">// - <u>добавляем</u> <span class="color-red">обрабочик</span> <en>ответа сервера</en></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span>
+						(<span class="color-pink">xhr</span>.<span class="color-aqua">status</span> != 
+						<span class="color-gold">200</span>) { <span class="section__code-comment">// - HTTP ошибка? Если <em>статус</em> <u>не</u> <span class="color-gold">200</span> (<em>запрос</em> 
+						<u>выполнен успешно</u>),</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Статус ответа: '</span>, <span class="color-pink">xhr</span>.<span class="color-aqua">status</span>); 
+						<span class="section__code-comment">// - то <u>обрабатываем отдельно</u></span>
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Результат: '</span>, 
+						<span class="color-pink">JSON</span>.<span class="color-red">parse</span>
+						(<span class="color-pink">xhr</span>.<span class="color-aqua">response</span>)); 
+						<span class="section__code-comment">// - <em>ответ</em> мы <u>получаем</u> в формате 
+						<em>JSON</em>, поэтому <em>его</em> <u>надо распарсить</u>. <u>Парсим</u> и <u>выводим</u> <em>ответ сервера</em></span>
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">onprogress</span> = 
+						<span class="color-red">function</span>(<span class="color-pink">event</span>) { 
+						<span class="section__code-comment">// - <u>добавляем</u> 
+						<span class="color-red">обрабочик</span> <em>процесса загрузки</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(`<span class="color-gold">Загружено</span> 
+						${<span class="color-pink">event</span>.<span class="color-aqua">loaded</span>} 
+						<span class="color-gold">из</span> 
+						${<span class="color-pink">event</span>.<span class="color-aqua">total</span>}`) 
+						<span class="section__code-comment">// - <u>выведем</u> <em>прогресс загрузки</em></span>
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">onerror</span> = 
+						<span class="color-red">function</span>() { <span class="section__code-comment">// - <u>добавляем</u> <span class="color-red">обрабочик</span> <em>ошибки</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Ошибка! Статус ответа: '
+						</span>, <span class="color-pink">xhr</span>.<span class="color-aqua">status</span>); 
+						<span class="section__code-comment">// - <u>обработаем</u> <em>ошибку</em>, <u>не связанную</u> с <em>HTTP</em> (например, <u>нет соединения</u>)</span>
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">send</span>(); 
+						<span class="section__code-comment">// - <u>отправляем</u> <em>запрос</em></span>
+					</span>
+				</code>
 			</section>
 
 			<section class="section" id="storing-data">
 				<h3 class="section__subtitle">Хранение данных на клиенте</h3>
+				<div class="section__text-block">
+					<p>В <em>JavaScript</em> <em>память</em> <u>выделяется динамически при создании</u>
+						<em>сущностей</em> (то есть <span class="color-pink">объектов</span>,
+						<span class="color-gold">строк</span> и т. д.) и <u>«автоматически» освобождается</u>, когда
+						<em>они</em> <u>больше не используются</u>. Этот <em>процесс</em> называется
+						<strong>сборкой мусора</strong>. <u>После закрытия</u> <em>приложения</em> (вкладки в браузере,
+						остановки сервера и прочего) <em>вся выделенная память</em> <u>очищается</u>.
+					</p>
+					<p>Часто необходимо <u>сохранять</u> <em>данные</em> даже <u>после закрытия</u>
+						<em>вкладок браузера</em>. Для этого <em>браузеры</em> <i>имеют</i> <em>отдельные API</em> с
+						<em>различными способами хранения данных</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitlesection__subtitle_small">
+					Хранение данных на стороне клиента (в браузере)
+				</h3>
+				<div class="section__text-block">
+					<p><em>Браузеры</em> <u>имеют</u> много <em>инструментов</em> <u>для хранения</u> <em>данных</em>
+						<u>на клиенте</u>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<strong>cookie</strong> — <em>механизм хранения пар</em> <span class="color-aqua">ключ</span> -
+						<span class="color-gold">значение</span> (небольшой фрагмент данных) <u>для проставления</u>
+						<em>меток флагов</em> и <em>прочего</em>. <u>Самый часто используемый</u> <em>механизм</em>.
+					</li>
+					<li class="section__list-item">
+						<strong>sessionStorage</strong> — <em>механизм хранения пар</em>
+						<span class="color-aqua">ключ</span> - <span class="color-gold">значение</span>
+						<u>в течение <em>одной сессии</em></u>.
+						<em>механизмы</em>
+					</li>
+					<li class="section__list-item">
+						<strong>localStorage</strong> — <em>механизм хранения пар</em>
+						<span class="color-aqua">ключ</span> - <span class="color-gold">значение</span>, но
+						<em>данные</em> <u>не удаляются</u> даже <u>после закрытия</u> <em>браузера</em>.
+						<u>Вторые по частоте использования</u>
+					</li>
+					<li class="section__list-item">
+						<strong>Cache API</strong> (<em>механизм хранения объектов</em> <em>запросов</em> /
+						<em>ответов</em>) и <strong>IndexedDB</strong> (<em>база данных в браузере</em>) -
+						<u>используются</u> в <em>сложных приложениях</em>, <u>чаще всего в паре</u> с
+						<em>Service Worker</em> и <u>реализации работы</u> <em>приложения</em> <u>при отсутствии</u> или
+						<u>перебоях</u> с <em>доступом в интернет</em>.
+					</li>
+				</ul>
+				<h3 class="section__subtitle section__subtitle_small">Куки, document.cookie</h3>
+				<div class="section__text-block">
+					<p><strong>Куки</strong> обычно <u>устанавливаются</u> <em>веб-сервером</em> <u>при помощи</u>
+						<em>заголовка</em> <em>Set-Cookie</em>. <u>Затем</u> <em>браузер</em>
+						<u>будет автоматически добавлять</u> <em>их</em> в (почти) <em>каждый запрос</em> на тот же
+						<em>домен</em> <u>при помощи</u> <em>заголовка Cookie</em>.
+					</p>
+					<p><strong>Куки</strong> <u>легко передаются</u> в <em>заголовках запроса</em> и
+						<u>не требуют лишнего управления</u> <em>ими</em> в <em>браузере</em>. Чаще всего
+						<u>проставляются</u> <em>сервером</em> в <em>ответах</em> на <em>запросы клиента</em>.
+						<u>Не записывайте</u> <em>данные</em> в <strong>cookie</strong> на <em>клиенте</em> без крайней
+						необходимости! <em>Они</em> <u>предназначены для хранения</u> <em>меток</em>, <em>флагов</em> и
+						<em>идентификаторов</em>. <u>Для сохранения</u> <em>данных</em> <u>используйте</u>
+						<em>другие инструменты</em>.
+					</p>
+					<p>Один из <u>наиболее частых случаев использования</u> <strong>куки</strong> – это
+						<strong>аутентификация</strong>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<u>При входе на <em>сайт</em></u> <em>сервер</em> <u>отсылает в <em>ответ</em></u>
+							<em>HTTP-заголовок</em> <em>Set-Cookie</em> для того, чтобы <u>установить</u>
+							<strong>куки</strong> со специальным <em>уникальным идентификатором сессии</em>
+							(«session identifier»).
+						</li>
+						<li class="section__list-item">
+							<u>Во время следующего <em>запроса</em></u> к <em>этому же домену</em> <em>браузер</em>
+							<u>посылает на <em>сервер</em></u> <em>HTTP-заголовок Cookie</em>.
+						</li>
+						<li class="section__list-item">
+							Т.о. <em>сервер</em> <u>понимает</u>, <em>кто</em> <u>сделал <em>запрос</em></u>.
+						</li>
+					</ul>
+					<p>Мы также <u>можем получить доступ</u> к <strong>куки</strong> непосредственно
+						<u>из <em>браузера</em></u>, <u>используя</u> <span class="color-aqua">свойство</span>
+						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>.
+						<span class="color-gold">Значение</span>
+						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> <u>состоит</u>
+						из <em>пар</em> <span class="color-aqua">ключ</span> <span class="color-blue">=</span>
+						<span class="color-gold">значение</span>, <u>разделённых</u>
+						( <span class="color-blue">;</span> ). <em>Каждая пара</em> <u>представляет собой</u>
+						<em>отдельное куки</em>. Чтобы <u>найти</u> <em>определённое куки</em>, достаточно
+						<u>разбить</u> строку из
+						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> по
+						( <span class="color-blue">;</span> ), и <u>затем найти</u>
+						<span class="color-aqua">нужный ключ</span>. <u>Для этого мы можем использовать</u> как
+						<em>регулярные выражения</em>, так и <span class="color-red">функции для обработки</span>
+						<span class="color-pink">массивов</span>.
+					</p>
+					<p>Мы <u>можем писать</u> в
+						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>. <u>Запись</u> в
+						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>
+						<u>обновит</u> <em>только упомянутые в ней куки</em>,
+						но при этом <u>не затронет</u> <em>все остальные куки</em>.
+					</p>
+					<p>Технически, и <span class="color-aqua">имя куки</span> и
+						<span class="color-gold">значение куки</span> <u>могут состоять</u> из
+						<span class="color-gold">любых символов</span>,
+						<u>для правильного форматирования следует использовать</u> <em>встроенную функцию</em> <span
+							class="color-red">encodeURIComponent</span>( ):
+					</p>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="section__code-comment"><em>специальные символы</em> 
+								(<span class="color-gold">пробелы</span>) <u>требуют <em>кодирования</em></u>
+							</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">name</span> = 
+							<span class="color-aqua">"my name"</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">value</span> = 
+							<span class="color-gold">"John Smith"</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
+							<span class="color-red">encodeURIComponent</span>(<span class="color-pink">name</span>) + <span class="color-gold">'='</span> + <span class="color-red">encodeURIComponent</span>(<span class="color-pink">value</span>); <span class="section__code-comment">// - <u>кодирует</u> в <span class="color-gold">my%20name=John%20Smith</span></span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>
+							(<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>);
+							<span class="section__code-comment">// - <u>получим</u> <span class="color-gold">my%20name=John%20Smith</span>
+							</span>
+						</span>
+					</code>
+					<p><u>Например</u>, мы<u> можем установить срок действия</u> <em>куки</em> на <em>1 день</em>.</p>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">date</span> = <span class="color-red">new</span> <span class="color-pink">Date</span>
+							(<span class="color-pink">Date</span>.<span class="color-red">now</span>() + 
+							<span class="color-gold">86400e3</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">date</span> = 
+							<span class="color-pink">date</span>.<span class="color-red">toUTCString</span>();
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
+							"<span class="color-aqua">user</span>=<span class="color-gold">John</span>; 
+							<span class="color-aqua">expires</span>=" + <span class="color-pink">date</span>;</span> 
+						</span>
+					</code>
+					<p><u>Альтернатива</u> <span class="color-aqua">expires</span>, <u>определяет срок действия</u>
+						<em>куки</em> в <em>секундах</em> <u>с <em>текущего момента</em></u>.
+					</p>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
+							"<span class="color-aqua">user</span>=<span class="color-gold">John</span>; 
+							<span class="color-aqua">max-age</span>=<span class="color-gold">3600</span>"; 
+							<span class="section__code-comment">// - <em>куки</em> 
+							<u>будет удалено через <em>1 час</em></u></span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
+							"<span class="color-aqua">user</span>=<span class="color-gold">John</span>;
+							<span class="color-aqua">max-age</span>=<span class="color-gold">0</span>"; 
+							<span class="section__code-comment">// - <u>удалим</u> <em>куки</em> 
+							(<u>срок действия истекает прямо сейчас</u>)</span>
+						</span>
+						<span class="section__code-row">
+							<span class="section__code-comment"><em>Куки</em> <u>следует передавать только по <em>HTTPS-протоколу</em></u>.</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
+							"<span class="color-aqua">user</span>=<span class="color-gold">John</span>; 
+							<span class="color-aqua">secure</span>"; <span class="section__code-comment">// -  <u>установим</u> опцию <span class="color-aqua">secure</span> <u>для</u> <em>куки</em> (<em>куки</em> <u>доступно только через <em>HTTPS</em></u>)</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
+							"<span class="color-aqua">user</span>=<span class="color-gold">John</span>; 
+							<span class="color-aqua">secure</span>; 
+							<span class="color-aqua">samesite</span>=<span class="color-gold">lax</span> / 
+							<span class="color-gold">strict</span>"; <span class="section__code-comment">// - <u>запрещает</u> <em>браузеру</em> <u>отправлять</u> 
+							<em>куки с запросами поступающими извне</em>, <u>помогает предотвратить</u> 
+							<em>XSRF-атаки</em>.</span>
+						</span>
+					</code>
+					<p>Если мы <u>установим</u> в <span class="color-aqua">expires</span> <em>прошедшую дату</em>, то
+						<em>куки</em> <u>будет удалено</u>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">localStorage и sessionStorage</h3>
+				<div class="section__text-block">
+					<p>Работа с <strong>localStorage</strong> <u>реализуется через</u> <em>объект</em>
+						<span class="color-pink">window</span>.<span class="color-aqua">localStorage</span> (или просто
+						<span class="color-pink">localStorage</span>). <span class="color-pink">Этот объект</span>
+						<u>предоставляет для работы</u> <span class="color-red">следующие методы</span>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">localStorage</span>.<span class="color-red">setItem</span>
+						("<span class="color-aqua">myKey</span>", "<span class="color-gold">myValue</span>") —
+						<u>запись</u> <em>данных</em> "<span class="color-gold">myValue</span>" по <em>ключу</em>
+						"<span class="color-aqua">myKey</span>";
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						("<span class="color-aqua">myKey</span>") — <u>чтение</u>
+						<span class="color-gold">данных</span> по <em>ключу</em>
+						"<span class="color-aqua">myKey</span>";
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">localStorage</span>.<span class="color-red">removeItem</span>
+						("<span class="color-aqua">myKey</span>") — <u>удалить</u> <em>ключ</em>
+						"<span class="color-aqua">myKey</span>" и <span class="color-gold">все данные</span> по
+						<span class="color-aqua">нему</span>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">localStorage</span>.<span class="color-red">clear</span>( ) —
+						<u>полностью очистить</u> <em>хранилище</em>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><em>Объект</em> <span class="color-pink">sessionStorage</span> <u>работает точно так же</u>, то
+						есть <span class="color-pink">он</span> <u>тоже имеет</u> <em>методы</em>
+						<span class="color-red">setItem</span>( ) и <span class="color-red">getItem</span>( ), но
+						<u>очисткой занимается</u> <span class="color-pink">сам</span>.
+					</p>
+				</div>
+				<div class="section__text-block">
+					<p><u>Особенности</u> <span class="color-pink">localStorage</span> и
+						<span class="color-pink">sessionStorage</span>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						"<span class="color-aqua">myValue</span>" и "<span class="color-gold">myKey</span>"
+						<u>должны быть</u> <span class="color-gold">строками</span>.
+					</li>
+					<li class="section__list-item">
+						<em>Данные</em> <u>не имеют</u> «<em>времени истечения</em>».
+					</li>
+					<li class="section__list-item">
+						<em>Данные</em> <u>привязаны</u> к <em>источнику</em>
+						(<em>домен</em>/<em>протокол</em>/<em>порт</em>).
+					</li>
+					<li class="section__list-item">
+						<u>Лимит</u> <em>5 Мб+</em>, <u>зависит</u> от <em>браузера</em>.
+					</li>
+					<li class="section__list-item">
+						<u>Используйте</u> <span class="color-pink">Object</span>.<span class="color-red">keys</span>( )
+						<u>для получения</u> <span class="color-aqua">всех ключей</span>. <u>Можно обращаться</u> к
+						<span class="color-aqua">ключам</span> как к <span class="color-aqua">обычным свойствам</span>
+						<span class="color-pink">объекта</span>, в <u>этом случае</u> <em>событие</em> <em>storage</em>
+						<u>не срабатывает</u>.
+					</li>
+				</ul>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">myKey</span> = 
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						('<span class="color-aqua">myKey</span>'); <span class="section__code-comment">// - <u>получаем</u> <span class="color-gold">данные</span> по <span class="color-aqua">ключу</span> 
+						<span class="color-aqua">myKey</span> в <span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'1. myKey'</span>, 
+						<span class="color-pink">myKey</span>); <span class="section__code-comment">// - если 
+						<span class="color-pink">localStorage</span> <u>очищался</u>, то 
+						<span class="color-aqua">ключа</span> <u>не будет</u>. Если <u>не зачищался</u> - 
+						<u>получим</u> <span class="color-gold">значение</span> по 
+						<span class="color-aqua">ключу</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">localStorage</span>.<span class="color-red">setItem</span>
+						('<span class="color-aqua">myKey</span>', '<span class="color-gold">myValue</span>'); 
+						<span class="section__code-comment">// - <u>запишем</u> <span class="color-gold">данные</span> в <span class="color-pink">localStorage</span> <u>в виде</u> 
+						<span class="color-gold">простой строки</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">jsonString</span> = 
+						<span class="color-gold">`{"book": "Harry Potter"}`</span>; 
+						<span class="section__code-comment">// - <span class="color-gold">JSON</span>, который мы
+						<u>будем записывать</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">localStorage</span>.<span class="color-red">setItem</span>
+						('<span class="color-aqua">myJSON</span>', <span class="color-pink">jsonString</span>); 
+						<span class="section__code-comment">// - <u>запишем</u> <span class="color-gold">данные</span> в 
+						<span class="color-pink">localStorage</span> <u>в виде</u> 
+						<span class="color-gold">JSON</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">myKey</span> = 
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						('<span class="color-aqua">myKey</span>'); <span class="section__code-comment">// - <u>получаем</u> <span class="color-gold">данные</span> по <span class="color-aqua">ключу</span> 
+						<span class="color-pink">myKey</span> в <span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'2. myKey'</span>, 
+						<span class="color-pink">myKey</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">myJSON</span> = 
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						('<span class="color-pink">myJSON</span>'); <span class="section__code-comment">// - <u>получаем</u> <span class="color-gold">данные</span> по <span class="color-aqua">ключу</span> 
+						<span class="color-pink">myJSON</span> в <span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'3. myJSON'</span>, 
+						<span class="color-pink">JSON</span>.<span class="color-red">parse</span>
+						(<span class="color-pink">myJSON</span>)); <span class="section__code-comment">// - 
+						<u>выводим сразу как</u> <span class="color-pink">объект</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">localStorage</span>.<span class="color-red">removeItem</span>
+						('<span class="color-pink">myJSON</span>'); <span class="section__code-comment">// - <u>удаляем</u> <span class="color-gold">данные</span> по <span class="color-aqua">ключу</span> 
+						<span class="color-pink">myJSON</span> в <span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'4. myKey'</span>, 
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						('<span class="color-pink">myKey</span>')); <span class="section__code-comment">// - <u>проверяем</u>, <em>какие данные</em> <u>остались</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'5. myJSON'</span>, 
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						('<span class="color-pink">myJSON</span>'));
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">localStorage</span>.<span class="color-red">clear</span>(); 
+						<span class="section__code-comment">// - <u>очищаем</u> <em>весь</em> 
+						<span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'6. myKey'</span>, 
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						('<span class="color-pink">myKey</span>')); <span class="section__code-comment">// - <u>проверяем</u>, что <em>все</em> <u>удалено</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'7. myJSON'</span>, 
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						('<span class="color-pink">myJSON</span>'));
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">
+					Получение данных из API и запись в localStorage
+				</h3>
+				<div class="section__text-block">
+					<p>Мы <u>можем сделать <em>запрос</em></u> с помощью <em>XHR</em> и <em>полученные данные</em>
+						<u>сложить</u> в <span class="color-pink">localStorage</span>.
+						<u>При последующих заходах на <em>страницу</em></u> <u>проверять</u>: <u>если есть</u>
+						<em>данные</em> в <span class="color-pink">localStorage</span> — <u>брать</u>
+						<span class="color-pink">оттуда</span>. <u>Если нет</u> — <u>делать <em>запрос</em></u>.
+					</p>
+					<p><u>Работа</u> с <em>cookie</em> <u>может осуществляться с двух сторон</u>: <em>серверной</em> и
+						<em>клиентской</em>.
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<strong>Серверная</strong>: <u>Простановка</u> в <em>ответе</em> на <em>запросы</em>
+						<em>заголовка</em> "<em>Set-Cookie</em>" со <span class="color-gold">значениями</span>, какие
+						<en>куки</en> <u>проставить</u> <em>пользователю</em>. <u>Пример</u>:
+						<code class="section__code">
+							<span class="section__code-row">
+							"<span class="color-red">Set-Cookie</span>:<span class="color-aqua">test_cookie_server</span>=<span class="color-gold">testCookie</span>;"</span>
+						</code>
+					</li>
+					<li class="section__list-item">
+						<strong>Клиентская</strong>: <u>Запись</u> в свойство <span class="color-aqua">cookie</span>
+						<em>объекта</em> <span class="color-pink">document</span>. <u>Пример</u>:
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
+								"<span class="color-aqua">test_cookie_client</span>=<span class="color-gold">testCookie</span>;"</span>
+							</code>
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p>!ВАЖНО. <u>При записи</u> <em>куки</em> с <u>использованием</u>
+						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>
+						<u>происходит изменение только</u> <em>упомянутой куки</em>. <em>Ранее проставленные куки</em>
+						<u>не изменятся</u>.
+					</p>
+					<p><u>При простановке</u> <em>серверной cookie</em> и <em>клиентской cookie</em> их
+						<u>можно настраивать</u> с помощью <span class="color-aqua">следующих свойств</span>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-aqua">domain</span> — <em>к какому домену будет привязан <em>cookie</em></em>
+						(по умолчанию к <em>домену</em>, на котором находитесь);
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">path</span> — <em>путь на сайте</em>, по которому <u>будет доступен</u>
+						<em>cookie</em> ;
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">expires</span> — <em>дата смерти cookie</em> в
+						<em>GTM-формате</em>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">max-age</span> — <em>время жизни cookie</em> в
+						<em>timestamp формате</em>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">secure</span> — <em>флаг</em>, что <em>cookie</em>
+						<u>можно передавать только</u> по <em>https</em>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">samesite</span> — <em>настройка безопасности</em>
+						<u>для предотвращения атак</u>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><u>Пример работы</u> с <span class="color-pink">localStorage</span> + <strong>XHR</strong> +
+						<strong>API</strong>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">* <span class="color-red">Функция-обертка</span> над <span class="color-pink">XMLHttpRequest</span>, <u>осуществляющая</u> <em>запрос</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* <span class="color-pink">url</span> - <em>урл</em>, по которому <u>будет осуществляться</u> <em>запрос</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* <span class="color-pink">callback</span> - 
+						<span class="color-red">функция</span>, которая <u>вызовется при успешном выполнении</u> и <em>первым параметром</em> <u>получит</u> <span class="color-pink">объект</span> - <em>результат запроса</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">useRequest</span>
+						(<span class="color-pink">url</span>, <span class="color-pink">callback</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">xhr</span> = 
+						<span class="color-red">new</span> <span class="color-pink">XMLHttpRequest</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">open</span>
+						(<span class="color-gold">'GET'</span>, <span class="color-pink">url</span>, 
+						<span class="color-gold">true</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">onload</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">xhr</span>.<span class="color-aqua">status</span> != 
+						<span class="color-gold">200</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Статус ответа: '</span>, <span class="color-pink">xhr</span>.<span class="color-aqua">status</span>);
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">result</span> = 
+						<span class="color-pink">JSON</span>.<span class="color-red">parse</span>
+						(<span class="color-pink">xhr</span>.<span class="color-aqua">response</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">callback</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">callback</span>(<span class="color-pink">result</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row"></span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">onerror</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Ошибка! Статус ответа: '
+						</span>, <span class="color-pink">xhr</span>.<span class="color-aqua">status</span>);
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">send</span>();
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row"></span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btnRequestNode</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'.j-btn-request'</span>); <span class="section__code-comment">// - <u>ищем</u> <em>кнопку</em>, <u>по нажатии</u> на которую <u>будет</u> <em>запрос</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btnClearNode</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'.j-btn-clear'</span>); <span class="section__code-comment">// - <u>ищем</u> <em>кнопку</em>, <u>по нажатии</u> на которую <u>очищаем</u>
+						<span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">btnRequestNode</span>.<span class="color-red">addEventListener</span>('<span class="color-gold">click</span>', () => { <span class="section__code-comment">// - <u>вешаем обработчик</u> на <em>кнопку</em> <u>для</u> <em>запроса</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">myJSON</span> = 
+						<span class="color-pink">localStorage</span>.<span class="color-red">getItem</span>
+						('<span class="color-pink">myJSON</span>'); <span class="section__code-comment">// - <u>получаем</u> <em>данные</em> по <span class="color-aqua">ключу</span> 
+						<span class="color-pink">myJSON</span> в <span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">myJSON</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'localStorage JSON'</span>, 
+						<span class="color-pink">JSON</span>.<span class="color-red">parse</span>
+						(<span class="color-pink">myJSON</span>)); <span class="section__code-comment">// - <u>если</u> <em>данные</em> в <span class="color-pink">localStorage</span> <u>есть</u> - просто 
+						<u>выводим</u> <em>их</em></span>
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">useRequest</span>
+						(<span class="color-gold">'https://picsum.photos/v2/list/?limit=1'</span>, 
+						(<span class="color-pink">json</span>) => { <span class="section__code-comment">// - 
+						<u>если</u> <em>данных</em> в <span class="color-pink">localStorage</span> <u>нет</u> - <u>делаем</u> <em>запрос</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'request JSON'</span>, <span class="color-pink">json</span>); <span class="section__code-comment">// - <u>выводим</u> <em>данные</em>, <u>полученные в результате</u> <em>запроса</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">localStorage</span>.<span class="color-red">setItem</span>
+						('<span class="color-pink">myJSON</span>', 
+						<span class="color-pink">JSON</span>.<span class="color-red">stringify</span>(json)); 
+						<span class="section__code-comment">// - <u>записываем результат</u> <em>запроса</em> в 
+						<span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-pink">btnClearNode</span>.<span class="color-red">addEventListener</span>('<span class="color-gold">click</span>', () => { <span class="section__code-comment">// - <u>вешаем <span class="color-red">обработчик</span></u> на <em>кнопку</em> <u>для очистки</u> <span class="color-pink">localStorage</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">localStorage</span>.<span class="color-red">clear</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-gold">'Данные из localStorage удалены'</span>);
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
 			</section>
 
 			<section class="section" id="promises">
 				<h3 class="section__subtitle">Promises, async/await</h3>
+				<div class="section__text-block">
+					<p><u>Работа</u> с <em>асинхронным кодом</em> в <em>современных приложениях</em>
+						<u>реализуется через</u> <span class="color-pink">promise</span> (<em>обещание</em>),
+						<em>они</em> <u>более удобные в использовании</u> и
+						<u>не имеют некоторых недостатков, присущих</u> <em>асинхронному коду</em> на
+						<span class="color-red">callback</span>.
+					</p>
+					<p><strong>Promise</strong> — <em>механизм</em>, позволяющий <u>реализовать</u>
+						<em>асинхронный код</em>. <em>Его</em>
+						<u>можно использовать для <em>отложенных вычислений</em></u>, чтобы <u>не блокировать</u>
+						<em>основной поток работы программы</em>.
+					</p>
+					<p><u>Для создания</u> <span class="color-pink">promise</span> <u>используется</u>
+						<em>класс-конструктор</em> <span class="color-pink">Promise</span>, который <u>принимает</u>
+						<span class="color-red">callback-функцию</span> с <em>двумя входными параметрами</em>: <span
+							class="color-pink">resolve</span> и <span class="color-pink">reject</span>.
+					</p>
+					<p>!<u>ВАЖНО</u>. <u>После выполнения</u> <span class="color-pink">вашего promise</span>
+						(неважно, <u>успешно</u> или <u>нет</u>), <span class="color-pink">он</span>
+						<u>переходит в статус <em>исполненного</em></u> и <u>больше не может быть выполнен</u>.
+					</p>
+					<p><em>Хорошей практикой</em> является <u>всегда указывать</u> <em>методы</em>
+						<span class="color-red">then</span>( ) и <span class="color-red">catch</span>( ) у
+						<span class="color-pink">promise</span>. <span class="color-red">catch</span>( )
+						<u>позволяет обработать</u> <em>ошибки выполнения</em> <span class="color-pink">promise</span>,
+						даже если вы <em>их</em> <u>не ожидаете</u>. <em>Ошибки</em>
+						<u>могут привести к остановке работы</u> <em>вашего кода</em>.
+					</p>
+					<p><u>Синтаксис создания</u> <span class="color-pink">Promise</span>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Создаем</u> 
+						<span class="color-pink">новый promise</span> с <em>аргументами</em> 
+						<span class="color-pink">resolve</span> и <span class="color-pink">reject</span> – это
+						<span class="color-red">колбэки</span>, <em>которые</em> <u>предоставляет</u> 
+						<em>JavaScript</em>. </span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><em>Наш код</em> – <u>только внутри исполнителя</u>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">promise</span> = 
+						<span class="color-red">new</span> <span class="color-pink">Promise</span>
+						(<span class="color-red">function</span>(<span class="color-pink">resolve</span>, 
+						<span class="color-pimk">reject</span>) { 
+					</span>		
+					<span class="section__code-row">
+						<span class="section__code-comment">* Когда <span class="color-pink">Promise</span> 
+						<u>создаётся</u>, <span class="color-red">Функция-исполнитель</span> 
+						<u>запускается автоматически</u>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* <span class="color-red">Функция-исполнитель</span>
+						<u>должна содержать</u> <em>«создающий» код</em>, <em>который</em> 
+						<u>когда-нибудь создаст результат</u> </span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* Когда <span class="color-red">Функция-исполнитель</span> <u>получает результат</u>, <span class="color-red">она</span> <u>должна вызвать</u> 
+						<em>один из этих</em> <span class="color-red">колбэков</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-red">resolve</span>
+						(<span class="color-gold">value</span>) - <u>если работа завершилась <em>успешно</em></u>, с <u>результатом</u> <span class="color-gold">value</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-red">reject</span>
+						(<span class="color-gold">error</span>) - <u>если произошла <em>ошибка</em></u>, 
+						<span class="color-gold">error</span> – <span class="color-pink">объект ошибки</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-red">Функция-исполнитель</span> <u>запускается авт.</u>, <span class="color-red">она</span> <u>должна вып. работу</u>, а <u>затем вызвать</u> <span class="color-red">resolve</span>( ) или 
+						<span class="color-red">reject</span>( ).</span>
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<div class="section__text-block">
+					<p><u><strong>Подведём промежуточные итоги</strong></u>: <span class="color-red">Исполнитель</span>
+						<u>выполняет задачу</u>, затем <u>вызывает</u> <span class="color-red">resolve</span>( ) или
+						<span class="color-red">reject</span>( ), <u>чтобы изменить состояние</u>
+						<span class="color-pink">соответствующего Promise</span>. <u>Может быть</u>
+						<em>что-то одно</em>: <u>либо</u> <em>результат</em>, <u>либо</u> <em>ошибка</em>.
+						<u>Все последующие вызовы</u> <span class="color-red">resolve</span>( ) и
+						<span class="color-red">reject</span>( ) <u>будут проигнорированы</u>. <em>Функция</em>
+						<span class="color-red">resolve</span>( ) / <span class="color-red">reject</span>( )
+						<u>ожидает только</u> <em>один аргумент</em> (или <em>ни одного</em>).
+						<em>Все дополнительные аргументы</em> <u>будут проигнорированы</u>.
+					</p>
+					<p>У <span class="color-pink">объекта promise</span>, <u>возвращаемого</u> <em>конструктором</em>
+						<span class="color-red">new</span> <span class="color-pink">Promise</span>, <u>есть</u>
+						<span class="color-aqua">внутренние свойства</span>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-aqua">state</span> (<em>состояние</em>):
+							<span class="color-gold">'pending'</span> (<em>ожидание</em> <u>вначале</u>) /
+							<span class="color-gold">'fullfilled'</span> (если <u>выполнено</u> <em>успешно</em>)
+							<span class="color-gold">'rejected'</span> (если <u>выполнено</u> <em>с ошибкой</em>).
+						</li>
+						<li class="section__list-item">
+							<span class="color-aqua">result</span> (<em>результат</em>):
+							<span class="color-gold">undefined</span> (<u>вначале</u>) /
+							<span class="color-gold">value</span> ( <u>при вызове</u>
+							<span class="color-red">resolve</span>(<span class="color-gold">value</span>) ) /
+							<span class="color-gold">error</span> ( <u>при вызове</u>
+							<span class="color-red">reject</span>(<span class="color-gold">error</span>) ).
+						</li>
+					</ul>
+					<p>Так что <span class="color-red">исполнитель</span> <u>по итогу переводит</u>
+						<span class="color-pink">promise</span> в
+						<span class="color-gold">одно из этих двух состояний</span>.
+					</p>
+					<p><em>Свойства</em> <span class="color-aqua">state</span> и <span class="color-aqua">result</span>
+						– это <span class="color-aqua">внутренние свойства</span>
+						<span class="color-pink">объекта Promise</span> и мы <u>не имеем прямого доступа</u> к
+						<span class="color-aqua">ним</span>. <u>Для обработки результата следует использовать</u>
+						<em>методы</em>: .<span class="color-red">then</span>( ) /
+						.<span class="color-red">catch</span>( ) / .<span class="color-red">finally</span>( ).
+					</p>
+					<p><span class="color-pink">Объект Promise</span> <u>служит</u> <em>связующим звеном</em>
+						<u>между</u> <span class="color-red">функциями-исполнителеми</span> и
+						<span class="color-red">функциями-потребителями</span>, <em>которые</em> <u>получат</u> либо
+						<em>результат</em>, либо <em>ошибку</em>. <span class="color-red">Функции-потребители</span>
+						<u>могут быть зарегистрированы</u> (подписаны) <u>с помощью</u> <em>методов</em>
+						.<span class="color-red">then</span>( ) и .<span class="color-red">catch</span>( ).
+						<u>Синтаксис</u>:
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">promise</span>
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>
+						(<span class="color-red">function</span>(<span class="color-pink">result</span>) { /* обработает успешное выполнение */ }, <span class="section__code-comment">// - 
+						<em><u>первый</u> аргумент метода</em> .<span class="color-red">then</span>( ) – 
+						<span class="color-red">функция</span>, <u>выполнится</u>, когда 
+						<span class="color-pink">promise</span> <u>выполняется <em>успешно</em></u> и 
+						<u>получает <em>результат</em></u>.</span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span>(<span class="color-pink">error</span>) { /* обработает ошибку */ } <span class="section__code-comment">// - <em>второй аргумент</em> 
+						.<span class="color-red">then</span>( ) – <span class="color-red">функция</span>, <u>выполнится</u>, когда <span class="color-pink">promise</span> 
+						<u>выполнится <em>с ошибкой</em></u>, и <u>получает <em>ошибку</em></u>.</span>
+					</span>
+					<span class="section__code-row">); <span class="section__code-comment">// - 
+						<u>можем вызывать</u> .<span class="color-red">then</span>( ) <u>много раз</u>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Если <u>нам нужен только</u> <em>успешный результат</em> <u>выполнения задачи</u>, то в <span class="color-red">then</span>( ) <u>можно передать только
+						</u> <span class="color-red"><em>1</em> функцию</span>:</span>
+					</span>
+					<span class="section__code-row"></span>  
+					<span class="section__code-row">
+						.<span class="color-red">catch</span>(<span class="color-red">function</span>
+						(<span class="color-pink">error</span>) {/* обработает ошибку */}) 
+						<span class="section__code-comment">// - это <u>сокращённый вариант</u> 
+						.<span class="color-red">then</span>(<span class="color-gold">null</span>, 
+						<span class="color-red">func</span>)</span>
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">finally</span>()=> {/* код выполнится всегда */}; 
+						<span class="section__code-comment">// - <em>его задача</em> <u>выполнить</u> 
+							<em>завершающие процедуры</em>.
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Не имеет</u> <em>аргументов</em>, мы <u>не знаем</u>, <u>как был завершён</u> <span class="color-pink">promise</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Также <u>не должен ничего возвращать</u> 
+						(<em>возвращаемое значение</em> <u>игнорируется</u>)</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Пример</u>: <span class="color-red">функция</span> <span class="color-blue">loadScript</span>
+						<u>для загрузки</u> <em>скрипта</em>
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">loadScript</span>(<span class="color-pink">src</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-red">new</span> 
+						<span class="color-pink">Promise</span>(<span class="color-red">function</span>
+						(<span class="color-red">resolve</span>, <span class="color-red">reject</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">script</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">createElement</span>
+						(<span class="color-gold">'script'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">script</span>.<span class="color-aqua">src</span> = 
+						<span class="color-pink">src</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">script</span>.<span class="color-red">onload</span> = () => 
+						<span class="color-red">resolve</span>(<span class="color-pink">script</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">script</span>.<span class="color-red">onerror</span> = () => 
+						<span class="color-red">reject</span>(<span class="color-red">new</span> 
+						<span class="color-pink">Error</span>(`<span class="color-gold">Ошибка загрузки скрипта</span> 
+						${<span class="color-pink">src</span>}`));
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-aqua">head</span>.<span class="color-red">append</span>(<span class="color-pink">script</span>);
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">---------------</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Применение:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">promise</span> = 
+						<span class="color-blue">loadScript</span>(<span class="color-gold">'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js'</span>)
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">promise</span>.<span class="color-red">then</span>(
+					</span>
+  					<span class="section__code-row">
+						<span class="color-pink">script</span> => <span class="color-red">alert</span>
+						(`${<span class="color-pink">script</span>.<span class="color-aqua">src</span>} 
+						<span class="color-gold">загружен!</span>`),
+					</span>
+  					<span class="section__code-row">
+						<span class="color-pink">error</span> => <span class="color-red">alert</span>
+						(`<span class="color-gold">Ошибка:</span> 
+						${<span class="color-pink">error</span>.<span class="color-aqua">message</span>}`)
+					</span>
+					<span class="section__code-row">);</span>
+					<span class="section__code-row">
+						<span class="color-pink">promise</span>.<span class="color-red">then</span>
+						(<span class="color-pink">script</span> => <span class="color-red">alert</span>
+						(<span class="color-gold">'Ещё один обработчик...'</span>));
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">flag</span> = 
+						<span class="color-gold">true</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">myPromise</span> = 
+						<span class="color-red">new</span> 
+						<span class="color-pink">Promise</span>((<span class="color-red">resolve</span>, 
+						<span class="color-red">reject</span>) => { <span class="section__code-comment">//-
+						<u>создали</u> <span class="color-pink">promise</span>, но <u>пока не выполнили</u> 
+						<span class="color-pink">его</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">flag</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">resolve</span>(
+						<span class="color-gold">'Успешное выполнение promise'</span>); 
+						<span class="section__code-comment">// - <span class="color-red">resolve</span>( ) 
+						<u>оповещестит об <em>успешном</em> выполнении</u> 
+						<span class="color-pink">promise</span>.</span>
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">reject</span>(
+						<span class="color-gold">'Неуспешное выполнение promise'</span>); 
+						<span class="section__code-comment">// - <span class="color-red">reject</span>( ) 
+						<u>оповестит о <em>неуспешном</em> выполнении</u> и <u>сгенерирует</u> <em>ошибку</em>.</span>
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-pink">myPromise</span> <span class="section__code-comment">// - <u>выполняем</u> <span class="color-pink">promise</span>. <u>Для обработки результатов</u> 
+						<span class="color-pink">promise</span> <u>есть</u> 
+						<span class="color-red">несколько методов</span>:</span>
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>((<span class="color-pink">result</span>) => { 
+						<span class="section__code-comment">// - <span class="color-red">then</span>( ) 
+						<u>используется для обработки <em>успешного</em> результата выполнения</u> 
+						<span class="color-pink">promise</span>;</span>
+					</span>	
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-gold">'Обрабатываем resolve'</span>, 
+						<span class="color-pink">result</span>);
+					</span>	
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">catch</span>((<span class="color-pink">error</span>) => { 
+						<span class="section__code-comment">// - <span class="color-red">catch</span>() 
+						<u>используется для обработки <em>неуспешного</em> результата выполнения</u> 
+						<span class="color-pink">promise</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-gold">'Обрабатываем reject'</span>, <span class="color-pink">error</span>);
+					</span>	
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">finally</span>(()=> { <span class="section__code-comment">
+						// - <u>реже используется</u>, <u>выполняется при <em>любом исходе</em> работы</u> 
+						<span class="color-pink">promise</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-gold">'Выполнится всегда'</span>); <span class="section__code-comment">// - <u>нужен для информирования</u>, а <u>не обработки результата выполнения</u> 
+						<span class="color-pink">promise</span>.</span>
+					</span>			
+					<span class="section__code-row">});</span>							
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">usePromise</span>() { 
+						<span class="section__code-comment">// - <span class="color-red">функция</span> 
+						<u>выполнения</u> <span class="color-pink">promise</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">myPromise</span> = 
+						<span class="color-red">new</span> <span class="color-pink">Promise</span>(
+						(<span class="color-red">resolve</span>, <span class="color-red">reject</span>) => {  
+						<span class="section__code-comment">// - <u>cоздаем</u> 
+						<span class="color-pink">promise</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'1'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">setTimeout</span>(() => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'2'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">resolve</span>(
+						<span class="color-gold">'Успешное выполнение promise'</span>);
+					</span>
+					<span class="section__code-row">
+						}, <span class="color-gold">1000</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'3'</span>);
+					</span>
+					<span class="section__code-row">});</span>	
+					<span class="section__code-row"><span class="color-red">console.log</span>(
+					<span class="color-gold">'4'</span>);</span>	
+					<span class="section__code-row">
+						<span class="color-pink">myPromise</span> <span span class="section__code-comment">// - <u>выполняем</u> <span class="color-pink">promise</span></span>
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>((<span class="color-pink">result</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(
+						<span class="color-gold">'Обрабатываем resolve'</span>, <span class="color-pink">result</span>);
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">catch</span>((<span class="color-pink">error</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-gold">'Обрабатываем reject'</span>, <span class="color-pink">error</span>);
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">finally</span>(() => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-gold">'Выполняется всегда'</span>);
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'5'</span>);
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-blue">usePromise</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'Запускаем функцию</span> с <span class="color-pink">promise</span>');
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-gold">'Функция выполнилась'</span>);
+					</span>
+					<span class="section__code-row">
+						<span span class="section__code-comment"><u>Посмотреть</u> за 
+						<u>очередностью выводимых в консоль</u> <em>данных</em></span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Цепочки promise и методы</h3>
+				<div class="section__text-block">
+					<p><em>Цепочки</em> <span class="color-pink">promise</span> <u>используются для</u>
+						<em>последовательной асинхронной</em> <u>обработки</u> <em>данных</em>. Идея состоит в
+						том, что <u>результат</u> <span class="color-pink">первого promise</span>
+						<u>передаётся</u> по <em>цепочке обработчиков</em> .<span class="color-red">then</span>( ).
+					</p>
+					<p>Всё это работает, потому что <u>вызов</u>
+						<span class="color-pink">promise</span>.<span class="color-red">then</span>( )
+						<u>тоже возвращает</u> <span class="color-pink">promise</span>, так что мы <u>можем вызвать</u>
+						на <span class="color-pink">нём</span> <span class="color-red">следующий .then</span>(). Когда
+						<span class="color-red">обработчик</span> <u>возвращает</u> какое-то
+						<span class="color-gold">значение</span>, то <span class="color-gold">оно</span>
+						<u>становится <em>результатом выполнения</em></u>
+						<span class="color-pink">соответствующего promise</span> и <u>передаётся</u> в
+						<span class="color-red">следующий .then</span>( ).
+					</p>
+					<p><u>Классическая ошибка</u> новичков: <u>технически возможно добавить</u>
+						<span class="color-red">много обработчиков .then</span>( ) к
+						<span class="color-pink">единственному promise</span>. Но <em>это</em> <u>не</u>
+						<em>цепочка</em>.
+					</p>
+					<p>Это <u>может быть</u> <em>несколько последовательных запросов</em> (с <u>использованием</u>
+						<span class="color-red">fetch</span> <em>API</em>) <u>для обработки чтения данных</u> из
+						<em>нескольких файлов</em> на <em>Node.js</em> и другие случаи.
+					</p>
+					<p><em>Обработчик</em> <span class="color-red">handler</span>, <u>переданный</u> в
+						.<span class="color-red">then</span>(<span class="color-red">handler</span>),
+						<u>может вернуть</u> <span class="color-pink">promise</span>. <u>В этом случае</u>
+						<span class="color-red">дальнейшие обработчики</span> <u>ожидают</u>, пока
+						<span class="color-red">он</span> <u>выполнится</u>, и <u>затем получают</u>
+						<span class="color-red">его</span> <u>результат</u>. <u>Возвращая</u>
+						<span class="color-pink">promise</span>, мы <u>можем строить</u>
+						<em>цепочки из асинхронных действий</em>.
+					</p>
+					<p><em>Цепочки</em> <span class="color-pink">promise</span> отлично
+						<u>подходят для перехвата <em>ошибок</em></u>. Если <span class="color-pink">promise</span>
+						<u>завершается с <em>ошибкой</em></u>, то <u>управление переходит</u> в
+						<span class="color-red">ближайший обработчик</span> <em>ошибок</em>.
+						.<span class="color-red">catch</span>( )
+						<u>не обязательно должен быть сразу после <em>ошибки</em></u>,
+						<span class="color-red">он</span> <u>может быть</u> <em>далее</em>, <u>после</u>
+						<em>одного</em> или даже <em>нескольких</em> .<span class="color-red">then</span>( )
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">new</span> <span class="color-pink">Promise</span>(
+						<span class="color-red">function</span>(<span class="color-red">resolve</span>, 
+						<span class="color-red">reject</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">setTimeout</span>(() => 
+						<span class="color-red">resolve</span>(<span class="color-gold">1</span>), 
+						<span class="color-gold">1000</span>);
+					</span>
+					<span class="section__code-row">
+						}).<span class="color-red">then</span>(<span class="color-red">function</span>(
+						<span class="color-pink">result</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">result</span>); 
+						<span class="section__code-comment">// - <em>первый</em> .<span class="color-red">then</span>( ) <u>показывает</u> <span class="color-gold">1</span> и <u>возвращает</u> 
+						<span class="color-pink">новый promise</span> <span class="color-red">new</span> 
+						<span class="color-pink">Promise</span>(…) </span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-red">new</span> 
+						<span class="color-pink">Promise</span>((<span class="color-red">resolve</span>, 
+						<span class="color-red">reject</span>) => { <span class="section__code-comment">// - через <em>1 сек</em>. <span class="color-pink">этот promise</span> 
+						<u><em>успешно</em> выполняется</u>,</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">setTimeout</span>(() => 
+						<span class="color-red">resolve</span>(<span class="color-pink">result</span> * 
+						<span class="color-gold">2</span>), <span class="color-gold">1000</span>); 
+						<span class="section__code-comment">// - и <span class="color-pink">его</span> <u>результат</u> (<em>аргумент</em> в <span class="color-red">resolve</span>, т.е. 
+						<span class="color-pink">result</span> *)</span>
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						}).<span class="color-red">then</span>(<span class="color-red">function</span>
+						(<span class="color-pink">result</span>) { <span class="section__code-comment">// - <u>передаётся</u> <span class="color-red">обработчику</span> в 
+						<span class="color-red">следующем .then</span>( ) <u>показывает</u> 
+						<span class="color-gold">2</span> и <u>делает то же</u>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">result</span>); 
+						<span class="section__code-comment">// - <u>вернёт</u> 
+						<span class="color-gold">2</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-red">new</span> 
+						<span class="color-pink">Promise</span>((<span class="color-red">resolve</span>, 
+						<span class="color-red">reject</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">setTimeout</span>(() => 
+						<span class="color-red">resolve</span>(<span class="color-pink">result</span> * 
+						<span class="color-gold">2</span>), <span class="color-gold">1000</span>);
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						}).<span class="color-red">then</span>(<span class="color-red">function</span>
+						(<span class="color-pink">result</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">result</span>); 
+						<span class="section__code-comment">// - <u>вернёт</u> <span class="color-gold">4</span></span>
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Методы для обработки нескольких promise:</h3>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">Promise</span>.<span class="color-red">all</span>( ) —
+						<u>принимает</u> <span class="color-pink">массив с promises</span>, <u>возвращает</u>
+						<span class="color-pink">массив результатов всех promises</span>
+						<u>при успешном выполнении <span class="color-pink">каждого</span></u> или же
+						<u>ошибку при падении <span class="color-pink">хотя бы одного</span></u>. Допустим, нам нужно
+						<u>запустить параллельно</u> <span class="color-pink">множество promises</span> и
+						<u>дождаться</u>, пока <span class="color-pink">все они</span> <u>выполнятся</u>, например,
+						<u>параллельно загрузить</u> <em>несколько файлов</em> и <u>обработать результат</u>, когда он
+						готов.
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">promise</span> = 
+								<span class="color-pink">Promise</span>.<span class="color-red">all</span>(
+								<span class="color-pink">array</span>); <span class="section__code-comment">// - <u>принимает</u> <span class="color-pink">массив promise</span> и <u>возвращает</u> <span class="color-pink">новый promise</span></span>
+							</span>
+						</code>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Promise</span>.<span class="color-red">allSettled</span>( ) —
+						<u>принимает</u> <span class="color-pink">массив с promises</span>, <u>возвращает</u>
+						<span class="color-pink">массив результатов всех promise</span>
+						<u>при любом результате выполнения <span class="color-pink">каждого из них</span></u>.
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">promise</span> = 
+								<span class="color-pink">Promise</span>.<span class="color-red">allSettled</span>(
+								<span class="color-pink">array</span>);
+							</span>
+						</code>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Promise</span>.<span class="color-red">race</span>( ) -
+						<u>принимает</u> <span class="color-pink">массив с promises</span>, <u>возвращает</u>
+						<em>результат</em> или <em>ошибку</em>
+						<span class="color-pink">первого выполненного promise</span>.
+						<span class="color-red">Метод</span> очень <u>похож</u> на
+						<span class="color-pink">Promise</span>.<span class="color-red">all</span>( ), но
+						<u>ждёт только</u> <span class="color-pink">первый выполненный promise</span>, из
+						<span class="color-pink">которого</span> <u>берёт <em>результат</em> (или <em>ошибку</em>)</u>.
+						<code class="section__code">
+							<span class="section__code-row"><span class="section__code-comment"> какой 
+								<span class="color-pink">promise</span> <u>быстрее всех выполнился</u>, 
+								<span class="color-pink">тот</span> и <u>вернет <em>результат</em></u>. 
+								<u>После этого</u> <span class="color-pink">остальные promise</span> 
+								<u>игнорируются</u>.</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">promise</span> = 
+								<span class="color-pink">Promise</span>.<span class="color-red">race</span>(
+								<span class="color-pink">array</span>); 
+							</span>
+						</code>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Promise</span>.<span class="color-red">any</span>( ) -
+						<u>принимает</u> <span class="color-pink">массив с promises</span>, очень <u>похож</u> на
+						<span class="color-pink">Promise</span>.<span class="color-red">race</span>( ), но
+						<u>ждёт только</u> <span class="color-pink">первый успешно выполненный promise</span>, из
+						<span class="color-pink">которого</span> <u>берёт <em>результат</em></u>.
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="section__code-comment">Если <u>ни один</u> из 
+								<span class="color-pink">переданных promise</span> <u>не завершится успешно</u>, <u>тогда</u> <span class="color-pink">возвращённый Promise</span> 
+								<u>будет отклонён</u></span>
+							</span>
+							<span class="section__code-row">
+								<span class="section__code-comment"> <u>с помощью</u> 
+								<span class="color-pink">AggregateError</span> – 
+								<span class="color-pink">специального объекта</span>, который <u>хранит</u> 
+								<em>все ошибки</em> <span class="color-pink">promise</span> в <em>свойстве</em> 
+								<span class="color-aqua">errors</span>.</span>
+							</span>
+							<span class="section__code-row">
+								<span class="color-red">let</span> <span class="color-pink">promise</span> = 
+								<span class="color-pink">Promise</span>.<span class="color-red">any</span>(
+								<span class="color-pink">array</span>); 
+							</span>
+						</code>
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p>Если <span class="color-pink">любой из promise</span> <u>завершится с <em>ошибкой</em></u>, то
+						<span class="color-pink">promise</span>, <u>возвращённый</u>
+						<span class="color-pink">Promise</span>.<span class="color-red">all</span>( ),
+						<u>немедленно завершается</u> с <em>этой ошибкой</em>. В <u>случае <em>ошибки</em></u>,
+						<u>остальные <em>результаты</em> игнорируются</u>. Это <u>подходит для ситуаций</u> «всё или
+						ничего», когда нам <u>нужны</u> <em>все результаты</em> <u>для продолжения</u>.
+					</p>
+					<p><span class="color-red">Метод</span>
+						<span class="color-red">Promise</span>.<span class="color-red">allSettled</span>( )
+						<u>всегда ждёт завершения</u> <span class="color-pink">всех promise</span>. В
+						<span class="color-pink">массиве результатов</span> <u>будет</u>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							{<span class="color-aqua">status</span>:<span class="color-gold">"fulfilled"</span>,
+							<span class="color-aqua">value</span>:<span class="color-gold">результат</span>}
+							<u>для <em>успешных</em> завершений</u>,
+						</li>
+						<li class="section__list-item">
+							{<span class="color-aqua">status</span>:<span class="color-gold">"rejected"</span>, <span
+								class="color-aqua">reason</span>:<span class="color-gold">ошибка</span>}
+							<u>для <em>ошибок</em></u>.
+						</li>
+					</ul>
+					<p>То есть, <u>для</u> <span class="color-pink">каждого promise</span> у нас <u>есть</u>
+						<span class="color-pink">его</span> <em>статус</em> и
+						<span class="color-gold">значение</span> / <span class="color-gold">ошибка</span>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Методы, возвращающих promise:</h3>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-pink">Promise</span>.<span class="color-red">resolve</span>( ) — сразу
+						<u>возвращает</u> <span class="color-pink">успешный promise</span>.
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-pink">Promise</span>.<span class="color-red">resolve</span>
+								(<span class="color-pink">value</span>) <span class="section__code-comment">// - <u>создаёт</u> <span class="color-pink">успешно выполненный promise</span> с <u>результатом</u> <span class="color-pink">value</span>.</span>
+							</span>
+						</code>
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">Promise</span>.<span class="color-red">reject</span>( ) —
+						<u>сразу возвращает</u> <span class="color-pink">отклонённый promise</span>.
+						<code class="section__code">
+							<span class="section__code-row">
+								<span class="color-pink">Promise</span>.<span class="color-red">reject</span>(
+								<span class="color-pink">error</span>) <span class="section__code-comment">// - <u>создаёт</u> <span class="color-pink">promise</span> 
+								<u>завершённый с <em>ошибкой</em></u> <span class="color-pink">error</span>.</span>
+							</span>
+						</code>
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p>Из <u>всех перечисленных</u> <span class="color-red">методов</span>, <u>часто используемый</u>
+						<span class="color-pink">Promise</span>.<span class="color-red">all</span>( ).
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Конструкция async/await</h3>
+				<div class="section__text-block">
+					<p><span class="color-red">Async</span> / <span class="color-red">await</span>
+						<u>делает работу с <em>асинхронным кодом</em> ещё удобнее</u>.
+					</p>
+					<p>У слова <span class="color-red">async</span> <u>один простой смысл</u>:
+						<span class="color-red">эта функция</span> <u>всегда возвращает</u>
+						<span class="color-pink">promise</span>. <span class="color-gold">Значения других типов</span>
+						<u>оборачиваются автоматически</u> в
+						<span class="color-pink">завершившийся <em>успешно</em> promise</span>. <u>Для объявления</u>
+						<span class="color-red">асинхронного метода</span> <u>достаточно написать</u>
+						<span class="color-red">async</span> <u>перед</u> <span class="color-blue">именем</span>.
+					</p>
+					<p><span class="color-red">await</span> <u>заставит</u> <em>интерпретатор JavaScript</em>
+						<u>ждать пока не выполнится</u> <span class="color-pink">promise справа от</span>
+						<span class="color-red">await</span>. <u>После</u> чего <span class="color-red">оно</span>
+						<u>вернёт</u> <span class="color-pink">его</span> <u>результат</u>, и <u>выполнение</u>
+						<em>кода</em> <u>продолжится</u>. <span class="color-red">await</span>
+						<u>можно использовать только внутри</u> <span class="color-red">async-функций</span>,
+						<u>нельзя использовать</u> в <span class="color-red">обычных функциях</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Внутри</u> <span class="color-red">функции</span> 
+						<span class="color-blue">func1</span> <u>происходит вызов</u> 
+						<span class="color-red">функции</span> <span class="color-blue">func2</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">async</span> <span class="color-red">function</span> 
+						<span class="color-blue">func1</span>() { <span class="section__code-comment">// - 
+						<u>объявляем</u> <span class="color-red">асинхронную функцию</span>, <u>добавляя</u> 
+						<em>ключевое слово</em> <span class="color-red">async</span> <u>перед</u> 
+						<span class="color-red">ней</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Делаем</u> <span class="color-red">функцию</span> 
+						<span class="color-blue">func2</span>( ) <em>асинхронной</em>, 
+						<u>для этого перед её вызовом ставим</u> <em>ключевое слово</em> 
+						<span class="color-red">await</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">result</span> = 
+						<span class="color-red">await</span> <span class="color-blue">func2</span>(); 
+						<span class="section__code-comment">// - мы <span class="color-red">её</span> <u>исполняем</u> и <u>дожидаемся</u> <span class="color-red">её</span> <u>результата</u>.</span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">result</span>; 
+						<span class="section__code-comment">// - 
+						<u>после получения результата происходит выполнение</u> 
+						<span class="color-red">return</span>.</span>
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Теперь</u> <span class="color-red">функция</span> <em>асинхронная</em> и <u>будет возвращать</u> <span class="color-pink">Promise</span>.</span> 
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-red">Async</span> / 
+						<span class="color-red">await</span> — это «<em>синтаксический сахар</em>», 
+						<u>более удобный</u> и <u>понятный</u> <em>механизм</em> <u>для работы</u> с 
+						<span class="color-pink">Promise</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><em>Он</em> <u>дополняет работу</u> с 
+						<span class="color-pink">Promise</span>, но <u>не заменяет</u> <em>её</em>.</span>
+					</span>
+				</code>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">async</span> <span class="color-red">function</span> 
+						<span class="color-blue">func</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">promise</span> = 
+						<span class="color-red">new</span> <span class="color-pink">Promise</span>(
+						(<span class="color-red">resolve</span>, <span class="color-red">reject</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">setTimeout</span>(() => <span class="color-red">resolve</span>(<span class="color-gold">'готово!'</span>), <span class="color-gold">1000</span>)
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">result</span> = 
+						<span class="color-red">await</span> <span class="color-pink">promise</span>; 
+						<span class="section__code-comment">// - <u>будет ждать</u>, <u>пока не выполнится</u>
+						<span class="color-pink">promise</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-pink">result</span>); 
+						<span class="section__code-comment">// - вернёт <span class="color-gold">'готово!'</span></span>
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-blue">func</span>();
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Обработка ошибок</h3>
+				<div class="section__text-block">
+					<p><em>Ошибки</em> <u>можно ловить</u>, <u>используя</u>
+						<span class="color-red">try..catch</span>. <u>В случае</u> <em>ошибки</em> <u>выполнение</u>
+						<span class="color-red">try</span> <u>прерывается</u> и
+						<u>управление прыгает</u> в <em>начало блока</em> <span class="color-red">catch</span>.
+						<em>Блоком</em> <span class="color-red">try</span> <u>можно обернуть</u>
+						<em>несколько строк</em>:
+					</p>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">async</span> <span class="color-red">function</span> 
+							<span class="color-blue">func</span>() {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">try</span> {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">response</span> = 
+							<span class="color-red">await</span> 
+							<span class="color-red">fetch</span>(<span class="color-gold">'/no-user-here'</span>);
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">user</span> = 
+							<span class="color-red">await</span> 
+							<span class="color-pink">response</span>.<span class="color-red">json</span>();
+						</span>
+						<span class="section__code-row">
+						} <span class="color-red">catch</span>(<span class="color-pink">err</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">alert</span>(<span class="color-pink">err</span>); 
+							<span class="section__code-comment">// - <u>перехватит</u> <em>любую ошибку</em> в <em>блоке</em> <span class="color-red">try</span>: и в <span class="color-red">fetch</span>( ), и в <span class="color-pink">response</span>.<span class="color-red">json</span>( )
+							</span>
+						</span>
+						<span class="section__code-row">}</span>
+						<span class="section__code-row">}</span>
+						<span class="section__code-row"><span class="color-blue">func</span>();</span>
+					</code>
+					<p><u>Если у нас нет</u> <span class="color-red">try..catch</span>,
+						<span class="color-red">асинхронная функция</span> <u>будет возвращать</u>
+						<span class="color-pink">завершившийся с <em>ошибкой</em> promise</span>
+						(в <u>состоянии</u> <span class="color-gold">rejected</span>( )). В этом случае
+						<u>мы можем использовать</u> <span class="color-red">метод</span>
+						.<span class="color-red">catch</span>( ) <span class="color-pink">promise</span>,
+						<u>чтобы обработать <em>ошибку</em></u>:
+					</p>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">async</span> <span class="color-red">function</span> 
+							<span class="color-blue">func</span>() {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">let</span> <span class="color-pink">response</span> = 
+							<span class="color-red">await</span> 
+							<span class="color-red">fetch</span>(<span class="color-gold">'http://no-such-url'</span>);
+						</span>
+						<span class="section__code-row">}</span>
+						<span class="section__code-row">
+							<span class="color-blue">func</span>().<span class="color-red">catch</span>(<span class="color-red">alert</span>); <span class="section__code-comment">// - 
+							<span class="color-blue">func</span>() <u>вернёт</u> 
+							<span class="color-pink">promise</span> <u>в состоянии</u> 
+							<span class="color-gold">rejected</span>( ). 
+							<span class="color-gold">TypeError: failed to fetch</span></span>
+						</span>
+					</code>
+				</div>
+				<div class="section__text-block">
+					<p><u>Преимущества и недостатки</u> <span class="color-pink">Promise</span> и
+						<span class="color-red">async</span> / <span class="color-red">await</span>
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-pink">Promise</span>: - <u>используется для</u>
+							<em>более сложной логики</em>, <u>преимущество</u> - <em>сложная обработка результата</em>
+							(<u>можно обработать</u> <em>несколько ошибок</em>, <u>преобразовать</u> <em>ответ</em>,
+							<u>сделать</u> <em>цепочку</em>), <u>более сложен для написания</u>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-red">async</span> / <span class="color-red">await</span>: -
+							<u>используются для</u> <em>более простой логики</em>, <u>предоставляют</u>
+							<em>более простой синтаксис</em>, <u>минус</u> — <u>ограничены в функционале</u>.
+						</li>
+					</ul>
+				</div>
 			</section>
 
 			<section class="section" id="fetch">
 				<h3 class="section__subtitle">Работа с HTTP (fetch, async/await)</h3>
+				<h3 class="section__subtitle section__subtitle_small">Протоколы передачи данных. HTTP</h3>
+				<div class="section__text-block">
+					<p><strong>Протоколы передачи данных</strong> — это набор соглашений о
+						<em>формате передачи данных</em>, необходимых для того, чтобы <em>программы</em>
+						<u>понимали</u>, <u>как общаться</u> друг с другом.
+					</p>
+					<p><em>Протоколов</em> достаточно <u>много</u> и <em>они</em> <u>делятся по уровням</u>. Мы
+						<u>будем рассматривать</u> <em>протокол</em> <strong>HTTP</strong> и <strong>HTTPS</strong>
+						(<em>протокол</em> <strong>HTTP</strong> + <u>шифрование</u> <em>данных</em>).
+						<strong>HTTPS</strong> <u>позволяет избежать</u> возможности получить
+						<em>полезную информацию</em> из <em>передаваемых данных</em> в случае <em>её</em>
+						<u>перехвата</u>.
+					</p>
+					<p><u>Пример</u> <em>HTTP-запроса</em>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-aqua">GET</span> <span class="color-gold">/wiki/страница HTTP/1.1</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">Host</span>: <span class="color-gold">ru.wikipedia.org</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">User-Agent</span>: <span class="color-gold">Mozilla/5.0 (X11; U; Linux i686; ru; rv:1.9b5) Gecko/2008050509 Firefox/3.0b5</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">Accept</span>: <span class="color-gold">text/html</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">Connection</span>: <span class="color-gold">close</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">(пустая строка)</span>
+					</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Fetch как замена XHR на promise</h3>
+				<div class="section__text-block">
+					<p><strong>Fetch</strong> <u>позволяет делать</u> <em>HTTP-запросы</em> и
+						<u>обрабатывать</u> <em>их</em> <u>как</u> <span class="color-pink">promise</span>.
+					</p>
+					<p><u>Пример</u> <em>HTTP-запроса</em> <u>с помощью</u> <span class="color-red">fetch</span>:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">fetch</span>
+						(<span class="color-gold">'https://picsum.photos/v2/list/?limit=5'</span>) 
+						<span class="section__code-comment">// - <u>обработка происходит</u> как с 
+						<span class="color-pink">обычным promise</span>.</span>
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>((<span class="color-pink">response</span>) => { 
+						<span class="color-red">return</span> 
+						<span class="color-pink">response</span>.<span class="color-red">json</span>(); 
+						<span class="section__code-comment">// - <u>происходит приведение</u> <em>ответа</em> к 
+						<span class="color-gold">JSON</span> виду (как и с <em>XHR</em>).</span>})
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>((<span class="color-pink">data</span>) => { 
+						<span class="color-red">console.log</span>(<span class="color-pink">data</span>); 
+						<span class="section__code-comment">// - <u>далее идёт обработка <em>данных</em></u></span> })
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">catch</span>(() => { 
+						<span class="color-red">console.log</span>(<span class="color-gold">'error'</span>) 
+						<span class="section__code-comment">// - <u>далее идёт обработка <em>данных</em></u></span>});
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">У <em>метода</em> <span class="color-red">fetch</span>() <u>есть</u> <span class="color-pink">объект настроек</span>, 
+						<span class="color-pink">который</span> <u>позволяет настраивать</u> 
+						<em>HTTP-запрос</em>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">options</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">method</span>: 'GET', <span class="section__code-comment">// - 
+						<u>выбор метода</u> <em>запроса</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">mode</span>: 'cors', <span class="section__code-comment">// - 
+						<u>режим работы</u> <em>запроса</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">headers</span>: { <span class="section__code-comment">// - <u>дополнительные заголовки</u> для <em>запроса</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">'Content-Type'</span>: 
+						<span class="color-gold">'application/json'</span>
+					</span>
+					<span class="section__code-row">},</span>
+					<span class="section__code-row">
+						<span class="color-pink">body</span>: <span class="color-gold">'body'</span>, 
+						<span class="section__code-comment">// - <u>тело</u> <em>запроса</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - и тд</span>
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">fetch</span>(
+						<span class="color-gold">'https://picsum.photos/v2/list/?limit=5'</span>, 
+						<span class="color-pink">options</span>)
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Как и с <span class="color-pink">promise</span>, <u>можно разделить логику использования</u>
+						<span class="color-red">fetch</span> и <u>обработки <em>запроса</em></u> с
+						<en>другим асинхронным кодом</en>, <u>написанным</u> на
+						<span class="color-red">async</span> / <span class="color-red">await</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">promise</span> = 
+						<span class="color-red">fetch</span>(<span class="color-pink">url</span>, 
+						[<span class="color-pink">options</span>]); <span class="section__code-comment">// - 
+						<span class="color-pink">url</span> - <em>URL</em> <u>для отправки</u> <em>запроса</em>. 
+						<span class="color-pink">options</span> – <em>дополнительные параметры</em>: <em>метод</em>, <em>заголовки</em> и т.д.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Без</u> <span class="color-pink">options</span> это <em>простой GET-запрос</em>, <u>скачивающий</u> <em>содержимое</em> <u>по адресу</u> 
+						<em>url</em>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><em>Браузер</em> сразу же <u>начинает запрос</u> и <u>возвращает</u> <span class="color-pink">promise</span>, 
+						<span class="color-pink">который</span> <em>внешний код</em> 
+						<u>использует для получения результата</u>.</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Процесс получения <em>ответа</em></u> обычно <u>происходит в <em>два этапа</em></u>.</p>
+					<p><u>Во-первых</u>, <span class="color-pink">promise</span> <u>выполняется</u> с
+						<em>объектом встроенного класса</em> <span class="color-pink">Response</span>
+						<u>в качестве результата</u>, <u>как только</u> <em>сервер</em> <u>пришлёт</u>
+						<em>заголовки ответа</em>. На этом этапе мы <u>можем проверить</u> <em>статус HTTP-запроса</em>
+						и <u>определить</u>, <u>выполнился</u> ли <em>он</em> <u>успешно</u>, а также <u>посмотреть</u>
+						<em>заголовки</em>, но <u>пока без</u> <em>тела ответа</em>.
+					</p>
+					<p>Мы <u>можем увидеть</u> <em>HTTP-статус</em> в <span class="color-aqua">свойствах</span>
+						<em>ответа</em>: <span class="color-aqua">status</span> –
+						<span class="color-gold">код статуса HTTP-запроса</span>, например
+						<span class="color-gold">200</span>. <span class="color-gold">ok</span> –
+						<span class="color-gold">логическое значение</span>: <u>будет</u>
+						<span class="color-gold">true</span>, если <em>код HTTP-статуса</em> <u>в диапазоне</u>
+						<em>200-299</em>.</span>
+					</p>
+					<p><u>Во-вторых</u>, <u>для получения</u> <em>тела ответа</em>
+						<u>нам нужно использовать дополнительный вызов <span class="color-red">метода</span></u>.
+						<span class="color-pink">Response</span> <u>предоставляет</u>
+						<span class="color-red">несколько методов</span>, основанных на
+						<span class="color-pink">promise</span>, <u>для доступа</u> к <en>телу ответа</en>
+						<u>в различных форматах</u>:
+						<span class="color-pink">response</span>.<span class="color-red">text</span>( ),
+						<span class="color-pink">response</span>.json( ), ... Мы <u>можем выбрать <em>только один</em>
+						</u> <span class="color-red">метод чтения ответа</span>.
+					</p>
+					<p><em>Заголовки ответа</em> <u>хранятся</u> в
+						<em>похожем на <span class="color-pink">Map</span> объекте</em>
+						<span class="color-pink">response</span>.<span class="color-pink">headers</span>. Мы
+						<u>можем перебрать</u> <em>заголовки</em> в <span class="color-red">цикле</span> или
+						<u>получить</u> <em>заголовок</em> по <span class="color-gold">его имени</span>.
+					</p>
+					<p><u>Для установки</u> <em>заголовка запроса</em> в <span class="color-red">fetch</span>( ) мы
+						<u>можем использовать</u> <em>опцию</em> <span class="color-pink">headers</span>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">response</span> = 
+						<span class="color-red">await</span> 
+						<span class="color-red">fetch</span>(<span class="color-pink">url</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">response</span>.<span class="color-aqua">ok</span>) { 
+						<span class="section__code-comment">// - если <span class="color-gold">HTTP-статус</span> 
+						<u>в диапазоне</u> <span class="color-gold">200-299</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - <u>получаем</u> <em>тело ответа</em></span> 
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">json</span> = 
+						<span class="color-red">await</span> 
+						<span class="color-pink">response</span>.<span class="color-red">json</span>();
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">"Ошибка HTTP: "</span> + 
+						<span class="color-pink">response</span>.<span class="color-aqua">status</span>);
+					</span>
+					<span class="section__code-row">}</span>
+				</code>
+				<div class="section__text-block">
+					<p><em>Методов запросов</em> <u>много</u>. <u>Основные</u> — это <strong>GET</strong> и
+						<strong>POST</strong>. <em>Они</em>
+						<u>различаются <em>типом передачи данных</em> при <em>запросе</em></u> .
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<u>При запросе</u> <span class="color-red">методом</span>
+						<span class="color-gold">GET</span> <em>данные</em>
+						<u>передаются в самом <em>URL запроса</em></u> (<u>например</u>,
+						<span class="color-gold">https://picsum.photos/v2/list/?limit=5</span>, где
+						<span class="color-aqua">limit</span> — это <em>передаваемый параметр</em>).
+					</li>
+					<li class="section__list-item">
+						<u>При</u> <span class="color-gold">POST</span> и <em>других методах запроса</em>
+						<em>данные</em> <u>передаются</u> в <em>теле запроса</em>.
+					</li>
+				</ul>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">fetch</span>
+						(<span class="color-gold">'https://picsum.photos/v2/list/?limit=5'</span>) 
+						<span class="section__code-comment">// - <u>делаем</u> <em>запрос</em> за 
+						<em>данными</em></span>
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>((<span class="color-pink">response</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'response'</span>, 
+						<span class="color-pink">response</span>); <span class="section__code-comment">// - 
+						<span class="color-pink">объект </span> <em>ответа</em> на <em>запрос</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">result</span> = 
+						<span class="color-pink">response</span>.json(); <span class="section__code-comment">// - <u>превращаем</u> <span class="color-pink">объект</span> в 
+						<span class="color-gold">JSON</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'result'</span>, 
+						<span class="color-pink">result</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">result</span>;
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>((<span class="color-pink">data</span>) => { 
+						<span class="section__code-comment">// - мы <u>не можем сразу прочитать</u> 
+						<span class="color-gold">JSON</span>, <u>надо отдать</u> <em>его</em> в 
+						<span class="color-red">следующий then</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">data</span>); 
+						<span class="section__code-comment">// - <span class="color-gold">объект результата</span> в формате <span class="color-gold">JSON</span></span>
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">catch</span>(() => { 
+						<span class="color-red">console.log</span>(<span class="color-gold">'error'</span>) });
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">Async</span> / <span class="color-red">await</span> и
+						<span class="color-red">fetch</span>( )
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btn</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'.j-btn'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-blue">useRequest</span> = () => { 
+						<span class="section__code-comment">// - <span class="color-red">функция</span>, которая <u>возвращает</u> <span class="color-red">fetch</span>( )</span>
+						</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-red">fetch</span>
+						(<span class="color-gold">'https://picsum.photos/v2/list/?limit=5'</span>)
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>((<span class="color-pink">response</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'response'</span>, 
+						<span class="color-pink">response</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> 
+						<span class="color-pink">response</span>.<span class="color-red">json</span>();
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>((<span class="color-pink">json</span>) => { 
+							<span class="color-red">return</span> <span class="color-pink">json</span>; })
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">catch</span>(() => { <span class="color-red">console.log</span>(<span class="color-gold">'error'</span>) });
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">btn</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-gold">'click'</span>, <span class="color-red">async</span> () => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'start'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">requestResult</span> = 
+						<span class="color-red">await</span> <span class="color-blue">useRequest</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'requestResult'</span>, 
+						<span class="color-pink">requestResult</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-gold">'end'</span>);
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<div class="section__text-block">
+					<p><span class="color-red">fetch</span>( ) и <span class="color-red">его</span> <u>настройка</u></p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">btn</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-gold">'click'</span>, () => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">options</span> = { 
+						<span class="section__code-comment">// - <u>настраиваем</u> <em>наш запрос</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">method</span>: <span class="color-gold">'POST'</span>, 
+						<span class="section__code-comment">// - <u>будем использовать</u> <em>метод</em> 
+						<span class="color-gold">POST</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">body</span>: 
+						<span class="color-pink">JSON</span>.<span class="color-red">stringify</span>({ 
+						<span class="section__code-comment">// - <u>добавим</u> <em>тело запроса</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">title</span>: <span class="color-gold">'foo'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">body</span>: <span class="color-blue">'bar'</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">userId</span>: <span class="color-aqua">1</span>
+					</span>
+					<span class="section__code-row">}),</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">
+						<em>Дополнительный заголовок с описанием типа данных</em>, которые мы <u>отправляем</u> <em>серверу</em>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">В данном случае <em>сервер</em> <em>jsonplaceholder</em> <u>будет знать</u>, как <em>ему</em> <u>обрабатывать</u> <em>запрос</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">headers</span>: {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">"Content-type"</span>: 
+						<span class="color-gold">"application/json; charset=UTF-8"</span>
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">fetch</span>
+						(<span class="color-gold">'https://jsonplaceholder.typicode.com/posts'</span>, 
+						<span class="color-pink">options</span>) <span class="section__code-comment">// - 
+						<u>делаем <em>запрос</em> за <em>данными</em></u></span>
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>(<span class="color-pink">response</span> => 
+						<span class="color-pink">response</span>.<span class="color-red">json</span>())
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>(<span class="color-pink">json</span> => 
+						<span class="color-red">console.log</span>(<span class="color-pink">json</span>))
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
 			</section>
 
 			<nav class="content__navigation">

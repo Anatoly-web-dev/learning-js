@@ -508,7 +508,11 @@
 					<span class="section__code-row">
 						<span class="section__code-comment">Теперь мы <u>можем использовать</u> 
 						<span class="color-pink">переменные</span> <u>вместо</u> 
-						<span class="color-gold">элементов массива</span>. <u>Отлично смотрится в сочетании</u> со <span class="color-red">split</span>( ) или <span class="color-red">другими методами</span>, <u>возвращающими</u> <span class="color-pink">массив</span>:</span>
+						<span class="color-gold">элементов массива</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Отлично смотрится в сочетании</u> со 
+						<span class="color-red">split</span>( ) или <span class="color-red">другими методами</span>, <u>возвращающими</u> <span class="color-pink">массив</span>:</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> [<span class="color-pink">firstName</span>, 
@@ -524,11 +528,14 @@
 				</div>
 				<code class="section__code">
 					<span class="section__code-row">
+						<span class="section__code-comment">Если <span class="color-gold">второй элемент</span> 
+						<u>не нужен</u></span>:
+					</span>
+					<span class="section__code-row">
 						<span class="color-red">let</span> [<span class="color-pink">firstName</span>, , 
 						<span class="color-pink">title</span>] = [<span class="color-gold">'Julius'</span>, 
 						<span class="color-gold">'Caesar'</span>, <span class="color-gold">'Consul'</span>, 
-						<span class="color-gold">'of the Roman Republic'</span>]; <span class="section__code-comment">
-							// - <span class="color-gold">второй элемент</span> <u>не нужен</u></span> 	
+						<span class="color-gold">'of the Roman Republic'</span>]; 	
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>( <span class="color-pink">title</span> );
@@ -536,8 +543,12 @@
 					</span>
 					<span class="section__code-row">
 						<span class="section__code-comment">В <u>примере выше</u> 
-						<span class="color-gold">второй элемент</span> <span class="color-pink">массива</span> <u>пропускается</u>, а <span class="color-gold">третий</span> <u>присваивается</u> <em>переменной</em> <span class="color-pink">title</span>, 
-						<span class="color-gold">оставшиеся элементы</span> <span class="color-pink">массива</span> также <u>пропускаются</u> (так как для <span class="color-gold">них</span> <u>нет</u> 
+						<span class="color-gold">второй элемент</span> <span class="color-pink">массива</span> <u>пропускается</u>, а <span class="color-gold">третий</span> <u>присваивается</u> <em>переменной</em> <span class="color-pink">title</span>,</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-gold">оставшиеся элементы</span> 
+						<span class="color-pink">массива</span> также <u>пропускаются</u> (так как для 
+						<span class="color-gold">них</span> <u>нет</u> 
 						<span class="color-pink">переменных</span>)</span>
 					</span>
 				</code>
@@ -574,7 +585,7 @@
 						<span class="color-red">...</span><span class="color-pink">rest</span>] = 
 						[<span class="color-gold">'Julius'</span>, <span class="color-gold">'Caesar'</span>, 
 						<span class="color-gold">'Consul'</span>, 
-						<span class="color-gold">'of the Roman Republic'</span>];
+						<span class="color-gold">'Roman Republic'</span>];
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>(<span class="color-pink">name1</span>);
@@ -599,7 +610,7 @@
 						<span class="color-red">console.log</span>
 						(<span class="color-pink">rest</span>[<span class="color-aqua">1</span>]);
 						<span class="section__code-comment">// выведет 
-						<span class="color-gold">'of the Roman Republic'</span></span> 
+						<span class="color-gold">'Roman Republic'</span></span> 
 					</span>
 				</code>
 				<h3 class="section__subtitle section__subtitle_small">Значения по умолчанию</h3>
@@ -629,20 +640,32 @@
 						(значение по умолчанию)</span>
 					</span>
 					<span class="section__code-row">
-						<span class="section__code-comment"><span class="color-gold">Значения по умолчанию</span> <u>могут быть</u> гораздо более <em>сложными выражениями</em> или даже 
-						<span class="color-red">функциями</span>. <em>Они</em> <u>выполняются</u>, только <u>если</u> <span class="color-gold">значения</span> <u>отсутствуют</u>. <u>Например</u>, здесь мы <u>используем</u> <em>функцию</em> <span class="color-red">prompt</span> <u>для указания</u>
-						<span class="color-gold">двух значений по умолчанию</span>. Но 
-						<span class="color-red">она</span> <u>будет запущена только для</u>
-						<span class="color-gold">отсутствующего значения</span>:</span>
+						<span class="section__code-comment">* <span class="color-gold">Значения по умолчанию</span> <u>могут быть</u> гораздо более <em>сложными выражениями</em> или даже 
+						<span class="color-red">функциями</span>.</span> 
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* Но <em>они</em> <u>выполняются</u>, только <u>если</u> 
+						<span class="color-gold">значения</span> <u>отсутствуют</u>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* <u>Например</u>, здесь мы <u>используем</u> 
+						<em>функцию</em> <span class="color-red">prompt</span> <u>для указания</u>
+						<span class="color-gold">двух значений по умолчанию</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* <span class="color-red">Функция</span> 
+						<u>будет запущена только для</u> <span class="color-gold">отсутствующего значения</span>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* <span class="color-red">prompt</span>( ) 
+						<u>запустится только для</u> <span class="color-pink">surname</span></span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> [<span class="color-pink">name</span> = 
 						<span class="color-red">prompt</span>(<span class="color-gold">'name?'</span>), 
 						<span class="color-pink">surname</span> = 
 						<span class="color-red">prompt</span>(<span class="color-gold">'surname?'</span>)] = 
-						[<span class="color-gold">'Julius'</span>]; <span class="section__code-comment">// - 
-						<span class="color-red">prompt</span>( ) <u>запустится только для</u>  
-						<span class="color-pink">surname</span></span>
+						[<span class="color-gold">'Julius'</span>];
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>(<span class="color-pink">name</span>);
@@ -717,8 +740,10 @@
 					<span class="section__code-row">
 						<span class="section__code-comment">Если мы хотим <u>присвоить</u> 
 						<span class="color-aqua">свойство</span> <span class="color-pink">объекта</span> 
-						<span class="color-pink">переменной с другим названием</span>, <u>например</u>, 
-						<span class="color-aqua">свойство</span> 
+						<span class="color-pink">переменной с другим названием</span>,</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>например</u>, <span class="color-aqua">свойство</span> 
 						<span class="color-pink">options</span>.<span class="color-aqua">width</span> 
 						<u>присвоить</u> <em>переменной</em> <span class="color-pink">w</span>, то мы 
 						<u>можем использовать</u> <em>двоеточие</em> <span class="color-blue">(:)</span></span>
@@ -740,7 +765,8 @@
 						<span class="color-red">let</span> {<span class="color-aqua">width</span>: 
 						<span class="color-pink">w</span>, <span class="color-aqua">height</span>: 
 						<span class="color-pink">h</span>, <span class="color-aqua">title</span>} = 
-						<span class="color-pink">options</span>;
+						<span class="color-pink">options</span>; <span class="section__code-comment">// - <em>Двоеточие</em> <u>показывает</u> <span class="color-aqua">«что</span> : 
+						<span class="color-pink">куда идёт</span>».</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>(<span class="color-pink">title</span>);
@@ -756,11 +782,9 @@
 					</span>
 					<span class="section__code-row">
 						<span class="section__code-comment">
-						<em>Двоеточие</em> <u>показывает</u> <span class="color-aqua">«что</span> : 
-						<span class="color-pink">куда идёт</span>». В <u>примере выше</u> 
-						<em>свойство</em> <span class="color-aqua">width</span> <u>сохраняется</u> в 
-						<em>переменную</em> <span class="color-pink">w</span>, <em>свойство</em> 
-						<span class="color-aqua">height</span> <u>сохраняется</u> в <span class="color-pink">h</span>, а <span class="color-aqua">title</span> <u>присваивается</u> 
+						<span class="color-aqua">width</span> <u>сохранится</u> в <em>переменную</em> 
+						<span class="color-pink">w</span>, <span class="color-aqua">height</span> в 
+						<span class="color-pink">h</span>, а <span class="color-aqua">title</span> <u>присваивается</u> 
 						<span class="color-pink">одноимённой переменной</span>.</span>
 					</span>
 				</code>
@@ -1506,7 +1530,11 @@
 					<span class="section__code-row">}</span>
 					<span class="section__code-row">
 						<span class="section__code-comment">Теперь, когда нам необходимо будет <u>создать</u>
-						<em>других пользователей</em>, мы <u>можем использовать</u> <span class="color-red">new</span> <span class="color-blue">User</span>(<span class="color-gold">'Маша'</span>), 
+						<em>других пользователей</em>, мы <u>можем использовать</u>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-red">new</span> 
+						<span class="color-blue">User</span>(<span class="color-gold">'Маша'</span>), 
 						<span class="color-red">new</span> 
 						<span class="color-blue">User</span>(<span class="color-gold">'Даша'</span>) и т.д.</span>
 					</span>
@@ -1596,17 +1624,22 @@
 						<span class="color-pink">twix</span>.<span class="color-red">getWeight</span>();
 						<span class="section__code-comment">// - <em>метод</em> 
 						<span class="color-blue">getWeight</span>( ) <u>появился</u> и у 
-						<span class="color-pink">нашего объекта</span>, <u>получим</u> <em>строку</em> 
+						<span class="color-pink">нашего объекта</span>, <u>вернёт</u> 
 						<span class="color-gold">'Weight is 47 g'</span></span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-pink">snikers</span>.<span class="color-red">getWeight</span>();
 						<span class="section__code-comment">// - <em>метод</em> 
 						<span class="color-blue">getWeight</span>( ) <u>появился</u> и у 
-						<span class="color-pink">нашего объекта</span>, <u>получим</u> <em>строку</em> 
+						<span class="color-pink">нашего объекта</span>, <u>вернёт</u>
 						<span class="color-gold">'Weight is 50 g'</span></span>
 					</span>
 				</code>
+				<div class="section__text-block">
+					<p><u>Создаем <em>делегирующую связь</em> между</u> <span class="color-red">функциями</span>
+						<em>основного абстрактного класса</em> и <em>подкласса</em>.
+					</p>
+				</div>
 				<div class="section__image section__image_medium-2">
 					<img class="img-adaptive" src="./img/prototype.png" alt="prototype">
 				</div>
@@ -1817,11 +1850,6 @@
 						<span class="color-red">функции-конструктора</span>.
 					</p>
 				</div>
-				<div class="section__text-block">
-					<p><u>Создаем <em>делегирующую связь</em> между</u> <span class="color-red">функциями</span>
-						<em>основного абстрактного класса</em> и <em>подкласса</em>.
-					</p>
-				</div>
 			</section>
 
 			<section class="section" id="classes">
@@ -1846,13 +1874,12 @@
 					<span class="section__code-row">
 						<span class="section__code-comment">Когда <u>вызывается</u> <span class="color-red">new</span>
 						<span class="color-blue">MyClass</span>( ), <u>cоздаётся</u>
-						<span class="color-pink">новый объект</span>;
-						<span class="color-red">constructor</span> <u>запускается</u> с
-						<em>заданным аргументом</em> и <u>сохраняет</u> <em>его</em> в
-						<span class="color-pink">this</span>.<span class="color-aqua">property</span></span>
+						<span class="color-pink">новый объект</span>,</span>
 					</span>
 					<span class="section__code-row">
-						<span class="color-red">constructor</span>(<span class="color-pink">arg</span>) {
+						<span class="color-red">constructor</span>(<span class="color-pink">arg</span>) { 
+						<span class="section__code-comment">// - <span class="color-red">constructor</span> <u>запускается</u> с <em>заданным аргументом</em>, <u>сохраняя</u> <em>его</em> в
+						<span class="color-pink">this</span>.<span class="color-aqua">property</span></span>
 					</span>
 					</span>
 					<span class="section__code-row">
@@ -1905,7 +1932,7 @@
 						<span class="section__code-comment"><u>определяет</u> <em>сигнатуру</em> 
 						<span class="color-red">функции</span> и <em>ее тело</em> (то, что записывалось через 
 						<span class="color-pink">this</span>.<span class="color-aqua">property</span> для
-						<span class="color-red">функции-конструктора</span>)</span>
+						<span class="color-red">функ-конструктора</span>)</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">constructor</span>(<span class="color-pink">ownCity</span>) {

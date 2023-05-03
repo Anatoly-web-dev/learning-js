@@ -537,11 +537,14 @@
 						<span class="color-pink">user</span>.<span class="color-aqua">name</span> = 
 						<span class="color-gold">'Pete'</span>; <span class="section__code-comment">// - 
 						<span class="color-pink">Объект</span>, <u>объявленный</u> через 
-						<span class="color-red">const</span>, <u>может быть изменён</u>. Определение 
-						<span class="color-red">const</span> <u>выдаст ошибку</u> только если мы <u>присвоим</u> 
-						<span class="color-pink">переменной</span> <span class="color-gold">другое значение</span>: <span class="color-pink">user</span>=<span class="color-gold">'новое значение'</span></span>.
+						<span class="color-red">const</span>, <u>может быть изменён</u>.</span>.
 					</span>
 					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Определение  <span class="color-red">const</span> <u>выдаст ошибку</u> только если <u>присвоить</u> <span class="color-pink">переменной</span> 
+						<span class="color-gold">другое значение</span>: <br> <span class="color-pink">user</span> = 
+						<span class="color-gold">'новое значение'</span></span>
+					</span>
 				</code>
 				<div class="section__text-block">
 					<p><u>Для обращения</u> к <span class="color-aqua">свойствам</span> <u>используется</u> запись
@@ -623,9 +626,9 @@
 					<span class="section__code-row">}</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>(<span class="color-pink">userInfo</span>.
-						<span class="color-aqua">address</span>. <span class="color-aqua">street</span>); 
+						<span class="color-aqua">address</span>.<span class="color-aqua">street</span>); 
 						<span class="section__code-comment">// - <u>получаем доступ</u> к 
-						<span class="color-gold">вложенному значению</span> <em>ключа</em> 
+						<span class="color-gold">значению</span> <em>ключа</em> 
 						<span class="color-aqua">street</span></span>
 					</span>
 					<span class="section__code-row">
@@ -651,10 +654,10 @@
 					<span class="section__code-row">
 						<span class="color-pink">user</span>.<span class="color-aqua">likes birds</span> = 
 						<span class="color-gold">true</span>, <span class="section__code-comment">// - это 
-							<u>вызовет синтаксическую ошибку</u>. Для <em>таких случаев</em> 
-							<u>существует</u> <em>альтернативный способ</em> <u>доступа</u> к 
-							<span class="color-aqua">свойствам</span> через <em>квадратные скобки</em> 
-							<span class="color-blue">[ ]</span>.</span>
+						<u>вызовет синтаксическую ошибку</u>..</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Для <em>таких случаев</em> <u>существует</u> <em>альтернативный способ</em> <u>доступа</u> к  <span class="color-aqua">свойствам</span> через <em>квадратные скобки</em> <span class="color-blue">[ ]</span></span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">user</span> = {};
@@ -663,7 +666,7 @@
 						<span class="color-pink">user</span>["<span class="color-aqua">likes birds</span>"] = 
 						<span class="color-gold">true</span>; <span class="section__code-comment">
 						// - <u>присваивание</u> <span class="color-gold">значения</span> 
-						<span class="color-aqua">ключу</span>, имя которого состоящему из нескольких слов</span>
+						<span class="color-aqua">ключу</span>, с <em>именем</em> <u>из нескольких слов</u></span>
 					</span>
 				</code>
 				<div class="section__text-block">
@@ -688,10 +691,12 @@
 				</code>
 				<code class="section__code">
 					<span class="section__code-row">
-						<span class="section__code-comment">Здесь <em>переменная</em> 
-						<span class="color-pink">key</span> может быть вычислена во время <u>выполнения кода</u> или зависеть от <u>пользовательского ввода</u>. После этого мы <u>используем</u> 
-						<span class="color-pink">её</span> <u>для доступа</u> к 
-						<span class="color-aqua">свойству</span>.</span>
+						<span class="section__code-comment"><em>переменная</em> <span class="color-pink">key</span> <u>может быть вычислена во время выполнения <em>кода</em></u> или <u>зависеть</u> от <em>пользовательского ввода</em>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>После</u> этого мы <u>используем</u> 
+							<span class="color-pink">её</span> <u>для доступа</u> к 
+							<span class="color-aqua">свойству</span>.</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">user</span> = {
@@ -733,7 +738,8 @@
 					<span class="section__code-row">
 						[<span class="color-aqua">like</span>]: <span class="color-gold">true</span>, 
 						<span class="section__code-comment">// - <u>передаем</u> <em>имя</em> 
-						<span class="color-gold">свойства объекта</span> из <u>ранее созданной</u> <em>переменной</em> <span class="color-pink">like</span> в <em>квадратных скобках</em>
+						<span class="color-aqua">свойства</span>, <u>полученного</u> из <em>переменной</em> 
+						<span class="color-pink">like</span> в <em>квадратных скобках</em>
 						<span class="color-blue">[]</span></span>
 					</span>
 					<span class="section__code-row">
@@ -743,10 +749,9 @@
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>
 						(<span class="color-pink">person1</span>[<span class="color-aqua">0</span>]);
-						<span class="section__code-comment">// - <u>смотрим</u> 
-						<span class="color-gold">значение</span> <em>ключа</em> <span class="color-aqua">0</span>. Если <span class="color-aqua">имя ключа</span> <u>является</u> 
-						<span class="color-gold">числом (тип number)</span>, чтобы <u>обратиться</u> к 
-						<span class="color-aqua">нему</span> <u>используют</u> <span class="color-blue">[]</span></span>
+						<span class="section__code-comment">// - <u>для обращения</u> к 
+						<span class="color-aqua">ключу</span>, <span class="color-gold">имя которого - число</span>,   
+						<u>используют</u> <span class="color-blue">[]</span></span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>
@@ -825,7 +830,7 @@
 					<span class="section__code-row">
 						<span class="section__code-comment">Если мы <u>опускаем</u> <em>кавычки</em> 
 						<span class="color-blue">''</span>, это значит, что <u>мы указываем</u> 
-						<span class="color-pink">переменную</span>, в <span class="color-pink">которой</span> <u>находится</u> <span class="color-aqua">имя свойства</span>. <u>Например</u>:</span>
+						<span class="color-pink">переменную</span>, в <span class="color-pink">которой</span> <u>находится</u> <span class="color-aqua">имя свойства</span>.</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">user</span> = { 
@@ -970,7 +975,8 @@
 					<span class="section__code-row">
 						<span class="color-red">alert</span>(<span class="color-pink">id</span>);
 						<span class="section__code-comment">// - <u>Вызовет ошибку!</u>, потому что 
-						<span class="color-gold">строки</span> и <span class="color-aqua">символы</span> – принципиально <span class="color-gold">разные типы данных</span> и <u>не должны</u> неконтролируемо <u>преобразовываться друг в друга</u>.</span>
+						<span class="color-gold">строки</span> и <span class="color-aqua">символы</span> – 
+						<span class="color-gold">разные типы данных</span> и <u>не должны</u> неконтролируемо <u>преобразовываться друг в друга</u>.</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">alert</span>
@@ -996,21 +1002,19 @@
 						<span class="color-aqua">id</span>: <span class="color-gold">35</span>,
 						<span class="section__code-comment">// <u>добавляем</u> 
 						<span class="color-aqua">свойсво объекта</span> с помощью <em>ключа-строки</em> 
-						<span class="color-aqua">id</span>, <u>присваиваем</u> ему <em>значение</em> 
-						<span class="color-gold">35</span></span>
+						<span class="color-aqua">id</span></span>
 					</span>
 					 <span class="section__code-row">};</span>
 					 <span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-aqua">id</span> = 
 						<span class="color-red">Symbol</span>(<span class="color-gold">'id'</span>);
 						<span class="section__code-comment">// - <u>создаем</u> <em>ключ-символ</em> с таким же именем 
-						 <span class="color-aqua">id</span></span>
+						<span class="color-aqua">id</span></span>
 					</span>
 					 <span class="section__code-row">
 						<span class="color-pink">user</span>[<span class="color-aqua">id</span>] = 
 						<span class="color-gold">30</span>; <span class="section__code-comment">// - <u>добавляем</u> <span class="color-aqua">новое свойсво объекта</span> с помощью <em>ключа-символа</em> 
-						<span class="color-aqua">id</span> <u>с тем же именем</u>, что и у <u>ранее созданного</u> <em>ключа-строки</em> <span class="color-aqua">id</span>, <u>присваиваем</u> ему 
-						<em>значение</em> <span class="color-gold">30</span></span>
+						<span class="color-aqua">id</span></span>
 					</span>
 					 <span class="section__code-row">
 						<span class="color-red">console.log</span>
@@ -1110,12 +1114,14 @@
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">admin</span> = 
 						<span class="color-pink">user</span>; <span class="section__code-comment">// - 
-						<u>копируется</u> по <em>ссылке</em>. Теперь у нас есть 
-						<span class="color-pink">две переменные</span>, <em>каждая</em> из которых 
-						<u>содержит</u> <em>ссылку</em> на <span class="color-pink">один и тот же объект</span></span>
+						<u>копируется</u> по <em>ссылке</em>.</span>
 					</span>
 					<span class="section__code-row">
-						<span class="section__code-comment">// - Мы <u>можем использовать</u> 
+						<span class="section__code-comment">Теперь <span class="color-pink">каждая переменные</span>, 
+						<u>содержит</u> <em>ссылку</em> на <span class="color-pink">один и тот же объект</span></span>
+					</span>	
+					<span class="section__code-row">
+						<span class="section__code-comment">Мы <u>можем использовать</u> 
 						<span class="color-pink">любую из переменных</span> <u>для доступа</u> к 
 						<span class="color-pink">объекту</span> и <u>изменения</u> его содержимого:</span>
 					</span>
@@ -1179,13 +1185,15 @@
 					</span>
 					<span class="section__code-row">};</span>
 					<span class="section__code-row">
+						<span class="section__code-comment"><u>копируем</u> 
+							<span class="color-gold">все значения</span> <em>объекта</em> 
+							<span class="color-pink">userInfo</span> в <em>новый объект</em> 
+							<span class="color-pink">user</span></span>
+					</span>
+					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">user</span> = 
 						<span class="color-pink">Object</span>.<span class="color-red">assign</span>
 						(<span class="color-red">{}</span>, <span class="color-pink">userInfo</span>);
-						<span class="section__code-comment">// - <u>копируем</u> 
-						<span class="color-gold">все значения</span> <em>объекта</em> 
-						<span class="color-pink">userInfo</span> в <em>новый объект</em> 
-						<span class="color-pink">user</span>.</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-pink">user</span>.<span class="color-aqua">age</span> = 
@@ -1195,7 +1203,7 @@
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>
 						(<span class="color-pink">userInfo</span>.<span class="color-aqua">age</span>);
-						<span class="section__code-comment">// - убедились, что <u>это теперь</u>
+						<span class="section__code-comment">// - <u>это теперь</u>
 						<span class="color-pink">два разных объекта</span> с 
 						<span class="color-gold">разными значениями</span> <em>ключа</em> 
 						<span class="color-aqua">age</span>.</span>
@@ -1203,7 +1211,7 @@
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>
 						(<span class="color-pink">user</span>.<span class="color-aqua">age</span>);
-						<span class="section__code-comment">// - убедились, что <u>это теперь</u>
+						<span class="section__code-comment">// - <u>это теперь</u>
 						<span class="color-pink">два разных объекта</span> с 
 						<span class="color-gold">разными значениями</span> <em>ключа</em> 
 						<span class="color-aqua">age</span>.</span>
@@ -1330,20 +1338,25 @@
 				<h3 class="section__subtitle section__subtitle_small">Вложенное клонирование</h3>
 				<code class="section__code">
 					<span class="section__code-row">
-						<span class="section__code-comment"><u>Например</u>, у нас есть 
+						<span class="section__code-comment">* <u>Например</u>, у нас есть 
 						<span class="color-pink">объект</span>, у него <u>есть</u> <em>свойство</em> 
 						<span class="color-aqua">sizes</span>, <span class="color-gold">значением</span> которого <u>является</u> <span class="color-pink">объект</span>:</span>
 					</span>
 					<span class="section__code-row">
-						<span class="section__code-comment">Теперь при <u>клонировании</u> 
+						<span class="section__code-comment">* Теперь при <u>клонировании</u> 
 						<span class="color-pink">объекта</span> <u>недостаточно просто скопировать</u>
 						<span class="color-pink">clone</span>.<span class="color-aqua">sizes</span> =
-						<span class="color-pink">user</span>.<span class="color-aqua">sizes</span>, поскольку
-						<span class="color-pink">user</span>.<span class="color-aqua">sizes</span> – это
-						<span class="color-pink">объект</span>, он <u>будет скопирован по ссылке</u>. А значит
-						<em>объекты</em> <span class="color-pink">clone</span> и <span class="color-pink">user</span> в
-						своих <em>свойствах</em> <span class="color-aqua">sizes</span> <u>будут ссылаться</u> на
-						<span class="color-pink">один и тот же объект</span>:</span>
+						<span class="color-pink">user</span>.<span class="color-aqua">sizes</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">* Поскольку 
+							<span class="color-pink">user</span>.<span class="color-aqua">sizes</span> – это
+							<span class="color-pink">объект</span>, он <u>будет скопирован по ссылке</u>.</span>
+					</span> 
+					<span class="section__code-row">
+						<span class="section__code-comment">* А значит <em>объекты</em> 
+							<span class="color-pink">clone</span> и <span class="color-pink">user</span> в своих <em>свойствах</em> <span class="color-aqua">sizes</span> <u>будут ссылаться</u> на
+							<span class="color-pink">один и тот же объект</span>:</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">let</span> <span class="color-pink">user</span> = {
@@ -1393,9 +1406,12 @@
 							<em>цикле клонирования</em> <u>делать проверку</u>, не является ли 
 							<span class="color-gold">значение</span> 
 							<span class="color-pink">user</span>[<span class="color-aqua">key</span>] 
-							<span class="color-pink">объектом</span>, и если это так – <u>скопировать</u>
+							<span class="color-pink">объектом</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">И если это так – <u>скопировать</u>
 							<span class="color-pink">его</span> <em>структуру</em>. Это называется 
-							<strong>глубокое клонирование</strong>.</span>
+							<strong>глубокое клонирование</strong></span>
 					</span>
 				</code>
 			</section>
@@ -1433,12 +1449,20 @@
 					<span class="section__code-row">}</span>
 					<span class="section__code-row">}</span>
 					<span class="section__code-row">
+						<span class="section__code-comment">Пытаемся <u>обратиться</u> к 
+						<span class="color-aqua">несуществующему свойству</span> 
+						<span class="color-pink">вложенного объекта</span></span>
+					</span>
+					<span class="section__code-row">
 						<span class="color-red">console.log</span>
 						(<span class="color-pink">user</span> <span class="color-blue">?.</span>
 						<span class="color-aqua">address</span> <span class="color-blue">?.</span>
-						<span class="color-aqua">house</span>); <span class="section__code-comment">// - пытаемся <u>обратиться</u> к <span class="color-aqua">несуществующему свойству</span> 
-						<span class="color-pink">вложенного объекта</span>, в <u>результате получим</u> 
-						<span class="color-gold">undefined</span>, а <em>не ошибку</em>, так было бы, если бы не использовали <em>опциональную цепочку</em> <span class="color-blue">?.</span></span>
+						<span class="color-aqua">house</span>); <span class="section__code-comment">// - <u>получим</u> 
+						<span class="color-gold">undefined</span>, а <em>не ошибку</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><em>Ошибку</em> <u>получили</u> бы, если бы 
+						<u>не использовали</u> <em>опциональную цепочку</em> <span class="color-blue">?.</span></span>
 					</span>
 				</code>
 				<div class="section__text-block">
