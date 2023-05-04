@@ -483,7 +483,7 @@
 					<em>Приложения</em> <u>работают быстрее</u> и <u>становятся более отзывчивыми</u> к действиям
 					пользователей.
 				</p>
-				<p><u>При введениив адресную строку браузера</u> <em>имени любого сайта</em> на
+				<p><u>При введении в адресную строку браузера</u> <em>имени любого сайта</em> на
 					<em>удалённый сервер</em> <u>отправляется</u> соответствующий <em>запрос</em>, <em>ответом</em> на
 					который <u>является</u> <em>HTML-страница</em>. Как только <em>браузер</em> <u>получает</u>
 					<em>ответ</em>, <em>он</em> <u>парсит</u> <em>HTML</em> и <u>отображает страницу</u>.
@@ -927,7 +927,7 @@
 						<em>различными способами хранения данных</em>.
 					</p>
 				</div>
-				<h3 class="section__subtitlesection__subtitle_small">
+				<h3 class="section__subtitle section__subtitle_small">
 					Хранение данных на стороне клиента (в браузере)
 				</h3>
 				<div class="section__text-block">
@@ -945,13 +945,13 @@
 						<strong>sessionStorage</strong> — <em>механизм хранения пар</em>
 						<span class="color-aqua">ключ</span> - <span class="color-gold">значение</span>
 						<u>в течение <em>одной сессии</em></u>.
-						<em>механизмы</em>
 					</li>
 					<li class="section__list-item">
 						<strong>localStorage</strong> — <em>механизм хранения пар</em>
 						<span class="color-aqua">ключ</span> - <span class="color-gold">значение</span>, но
 						<em>данные</em> <u>не удаляются</u> даже <u>после закрытия</u> <em>браузера</em>.
-						<u>Вторые по частоте использования</u>
+						<em>Эти механизмы</em> (<strong>sessionStorage</strong> и <strong>localStorage</strong>)
+						<u>вторые по частоте использования</u>
 					</li>
 					<li class="section__list-item">
 						<strong>Cache API</strong> (<em>механизм хранения объектов</em> <em>запросов</em> /
@@ -961,7 +961,9 @@
 						<u>перебоях</u> с <em>доступом в интернет</em>.
 					</li>
 				</ul>
-				<h3 class="section__subtitle section__subtitle_small">Куки, document.cookie</h3>
+				<h3 class="section__subtitle section__subtitle_small">
+					Куки, <span class="color-pink">document</span>.<span class="color-aqua">cookie</span>
+				</h3>
 				<div class="section__text-block">
 					<p><strong>Куки</strong> обычно <u>устанавливаются</u> <em>веб-сервером</em> <u>при помощи</u>
 						<em>заголовка</em> <em>Set-Cookie</em>. <u>Затем</u> <em>браузер</em>
@@ -994,6 +996,30 @@
 							Т.о. <em>сервер</em> <u>понимает</u>, <em>кто</em> <u>сделал <em>запрос</em></u>.
 						</li>
 					</ul>
+					<p><u>Работа</u> с <em>cookie</em> <u>может осуществляться с двух сторон</u>: <em>серверной</em> и
+						<em>клиентской</em>.
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<strong>Серверная</strong>: <u>Простановка</u> в <em>ответе</em> на <em>запросы</em>
+							<em>заголовка</em> "<em>Set-Cookie</em>" со <span class="color-gold">значениями</span>,
+							какие
+							<en>куки</en> <u>проставить</u> <em>пользователю</em>. <u>Пример</u>:
+							<code class="section__code">
+								<span class="section__code-row">
+								"<span class="color-red">Set-Cookie</span>:<span class="color-aqua">test_cookie_server</span>=<span class="color-gold">testCookie</span>;"</span>
+							</code>
+						</li>
+						<li class="section__list-item">
+							<strong>Клиентская</strong>: <u>Запись</u> в свойство <span class="color-aqua">cookie</span>
+							<em>объекта</em> <span class="color-pink">document</span>. <u>Пример</u>:
+							<code class="section__code">
+								<span class="section__code-row">
+									<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
+									"<span class="color-aqua">test_cookie_client</span>=<span class="color-gold">testCookie</span>;"</span>
+								</code>
+						</li>
+					</ul>
 					<p>Мы также <u>можем получить доступ</u> к <strong>куки</strong> непосредственно
 						<u>из <em>браузера</em></u>, <u>используя</u> <span class="color-aqua">свойство</span>
 						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>.
@@ -1010,11 +1036,12 @@
 						<em>регулярные выражения</em>, так и <span class="color-red">функции для обработки</span>
 						<span class="color-pink">массивов</span>.
 					</p>
-					<p>Мы <u>можем писать</u> в
+					<p>!ВАЖНО. Мы <u>можем писать</u> в
 						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>. <u>Запись</u> в
 						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>
-						<u>обновит</u> <em>только упомянутые в ней куки</em>,
-						но при этом <u>не затронет</u> <em>все остальные куки</em>.
+						<u>обновит</u> <em>только упомянутые в ней куки</em>, но при этом <u>не затронет</u>
+						<em>все остальные куки</em>. Т.е. <u>происходит изменение только</u> <em>упомянутой куки</em>,
+						<em>ранее проставленные куки</em> <u>не изменятся</u>.
 					</p>
 					<p>Технически, и <span class="color-aqua">имя куки</span> и
 						<span class="color-gold">значение куки</span> <u>могут состоять</u> из
@@ -1047,10 +1074,42 @@
 							</span>
 						</span>
 					</code>
+					<p><u>При простановке</u> <em>серверной cookie</em> и <em>клиентской cookie</em> их
+						<u>можно настраивать</u> с помощью <span class="color-aqua">следующих свойств</span>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-aqua">domain</span> —
+							<em>к какому домену будет привязан <em>cookie</em></em> (по умолчанию к <em>домену</em>, на
+							котором находитесь);
+						</li>
+						<li class="section__list-item">
+							<span class="color-aqua">path</span> — <em>путь на сайте</em>, по которому
+							<u>будет доступен</u> <em>cookie</em>;
+						</li>
+						<li class="section__list-item">
+							<span class="color-aqua">expires</span> — <em>дата смерти cookie</em> в
+							<em>GTM-формате</em>; Если мы <u>установим</u> в <span class="color-aqua">expires</span>
+							<em>прошедшую дату</em>, то <em>куки</em> <u>будет удалено</u>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-aqua">max-age</span> — <em>время жизни cookie</em> в
+							<em>timestamp формате</em>;
+						</li>
+						<li class="section__list-item">
+							<span class="color-aqua">secure</span> — <em>флаг</em>, что <em>cookie</em>
+							<u>можно передавать только</u> по <em>https</em>;
+						</li>
+						<li class="section__list-item">
+							<span class="color-aqua">samesite</span> — <em>настройка безопасности</em>
+							<u>для предотвращения атак</u>.
+						</li>
+					</ul>
 					<p><u>Например</u>, мы<u> можем установить срок действия</u> <em>куки</em> на <em>1 день</em>.</p>
 					<code class="section__code">
 						<span class="section__code-row">
-							<span class="color-red">let</span> <span class="color-pink">date</span> = <span class="color-red">new</span> <span class="color-pink">Date</span>
+							<span class="color-red">let</span> <span class="color-pink">date</span> = 
+							<span class="color-red">new</span> <span class="color-pink">Date</span>
 							(<span class="color-pink">Date</span>.<span class="color-red">now</span>() + 
 							<span class="color-gold">86400e3</span>);
 						</span>
@@ -1100,9 +1159,6 @@
 							<em>XSRF-атаки</em>.</span>
 						</span>
 					</code>
-					<p>Если мы <u>установим</u> в <span class="color-aqua">expires</span> <em>прошедшую дату</em>, то
-						<em>куки</em> <u>будет удалено</u>.
-					</p>
 				</div>
 				<h3 class="section__subtitle section__subtitle_small">localStorage и sessionStorage</h3>
 				<div class="section__text-block">
@@ -1268,67 +1324,6 @@
 						<em>данные</em> в <span class="color-pink">localStorage</span> — <u>брать</u>
 						<span class="color-pink">оттуда</span>. <u>Если нет</u> — <u>делать <em>запрос</em></u>.
 					</p>
-					<p><u>Работа</u> с <em>cookie</em> <u>может осуществляться с двух сторон</u>: <em>серверной</em> и
-						<em>клиентской</em>.
-					</p>
-				</div>
-				<ul class="section__list">
-					<li class="section__list-item">
-						<strong>Серверная</strong>: <u>Простановка</u> в <em>ответе</em> на <em>запросы</em>
-						<em>заголовка</em> "<em>Set-Cookie</em>" со <span class="color-gold">значениями</span>, какие
-						<en>куки</en> <u>проставить</u> <em>пользователю</em>. <u>Пример</u>:
-						<code class="section__code">
-							<span class="section__code-row">
-							"<span class="color-red">Set-Cookie</span>:<span class="color-aqua">test_cookie_server</span>=<span class="color-gold">testCookie</span>;"</span>
-						</code>
-					</li>
-					<li class="section__list-item">
-						<strong>Клиентская</strong>: <u>Запись</u> в свойство <span class="color-aqua">cookie</span>
-						<em>объекта</em> <span class="color-pink">document</span>. <u>Пример</u>:
-						<code class="section__code">
-							<span class="section__code-row">
-								<span class="color-pink">document</span>.<span class="color-aqua">cookie</span> = 
-								"<span class="color-aqua">test_cookie_client</span>=<span class="color-gold">testCookie</span>;"</span>
-							</code>
-					</li>
-				</ul>
-				<div class="section__text-block">
-					<p>!ВАЖНО. <u>При записи</u> <em>куки</em> с <u>использованием</u>
-						<span class="color-pink">document</span>.<span class="color-aqua">cookie</span>
-						<u>происходит изменение только</u> <em>упомянутой куки</em>. <em>Ранее проставленные куки</em>
-						<u>не изменятся</u>.
-					</p>
-					<p><u>При простановке</u> <em>серверной cookie</em> и <em>клиентской cookie</em> их
-						<u>можно настраивать</u> с помощью <span class="color-aqua">следующих свойств</span>:
-					</p>
-				</div>
-				<ul class="section__list">
-					<li class="section__list-item">
-						<span class="color-aqua">domain</span> — <em>к какому домену будет привязан <em>cookie</em></em>
-						(по умолчанию к <em>домену</em>, на котором находитесь);
-					</li>
-					<li class="section__list-item">
-						<span class="color-aqua">path</span> — <em>путь на сайте</em>, по которому <u>будет доступен</u>
-						<em>cookie</em> ;
-					</li>
-					<li class="section__list-item">
-						<span class="color-aqua">expires</span> — <em>дата смерти cookie</em> в
-						<em>GTM-формате</em>;
-					</li>
-					<li class="section__list-item">
-						<span class="color-aqua">max-age</span> — <em>время жизни cookie</em> в
-						<em>timestamp формате</em>;
-					</li>
-					<li class="section__list-item">
-						<span class="color-aqua">secure</span> — <em>флаг</em>, что <em>cookie</em>
-						<u>можно передавать только</u> по <em>https</em>;
-					</li>
-					<li class="section__list-item">
-						<span class="color-aqua">samesite</span> — <em>настройка безопасности</em>
-						<u>для предотвращения атак</u>.
-					</li>
-				</ul>
-				<div class="section__text-block">
 					<p><u>Пример работы</u> с <span class="color-pink">localStorage</span> + <strong>XHR</strong> +
 						<strong>API</strong>:
 					</p>
