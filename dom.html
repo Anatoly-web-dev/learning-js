@@ -430,6 +430,9 @@
 									Прокрутка окна браузера. Координаты
 								</a>
 							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#api">API браузера</a>
+							</li>
 						</ul>
 					</li>
 					<li class="header__item">
@@ -461,6 +464,11 @@
 							</li>
 							<li class="header__sub-item">
 								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
+							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#event-source">
+									Event Source, WebSocket
+								</a>
 							</li>
 						</ul>
 					</li>
@@ -1975,11 +1983,53 @@
 						<em>Firefox</em> <u>возвращает</u> именно <em>CSS-ширину</em>, а <em>остальные браузеры</em> –
 						«<em>реальную» ширину</em> <u>за вычетом</u> <span class="color-aqua">прокрутки</span>.
 					</p>
+					<p>В <em>JavaScript</em> есть <em>механизм</em> <u>для обработки</u> <em>медиа-запросов</em> —
+						<span class="color-pink">window</span>.<span class="color-red">matchMedia</span>( ).
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">window</span>.<span class="color-red">matchMedia</span>
+						("(<span class="color-aqua">min-width</span>: <span class="color-gold">400px</span>)").
+						<span class="color-aqua">matches</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Эта часть выполнится, если ширина области просмотра >= 400px
+						</span>
+					</span>
+					<span class="section__code-row">} <span class="color-red">else</span> {</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Эта часть выполнится, если ширина области просмотра < 400px }</span>
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>Для определения</u> <em>размеров экрана девайса</em> <u>используется</u>
+						<span class="color-aqua">2 свойства</span>:
+						<span class="color-pink">window</span>.<span class="color-pink">screen</span>.<span
+							class="color-aqua">width</span> и
+						<span class="color-pink">window</span>.<span class="color-pink">screen</span>.<span
+							class="color-aqua">height</span>
+					</p>
+					<p><em>Доступный размер экрана</em> - это <span class="color-aqua">ширина</span> и
+						<span class="color-aqua">высота</span> <em>экрана девайса</em> <u>за вычетом</u>
+						<em>размеров панели инструментов операционной системы</em>:
+						<span class="color-pink">window</span>.<span class="color-pink">screen</span>.<span
+							class="color-aqua">availWidth</span> и
+						<span class="color-pink">window</span>.<span class="color-pink">screen</span>.<span
+							class="color-aqua">availHeight</span>
+					</p>
+					<p><em>Внешний размер окна браузера</em> - <span class="color-aqua">ширина</span> и
+						<span class="color-aqua">высота</span> <em>текущего окна браузера</em>, <u>включая</u>
+						<em>адресную строку</em>, <em>панель вкладок</em> и <em>другие панели браузера</em>
+						<span class="color-pink">window</span>.<span class="color-aqua">outerWidth</span> и
+						<span class="color-pink">window</span>.<span class="color-aqua">outerHeight</span>.
+					</p>
 				</div>
 				<h3 class="section__subtitle section__subtitle_small">Прокрутка окна браузера</h3>
 				<div class="section__text-block">
-					<p>Чтобы <u>получить</u> <span class="color-aqua">ширину / высоту окна</span>, <u>можно взять</u>
-						<em>свойства</em> <span class="color-aqua">clientWidth</span> /
+					<p>Чтобы <u>получить</u> <span class="color-aqua">ширину / высоту окна</span>,
+						<u>можно взять</u> <em>свойства</em> <span class="color-aqua">clientWidth</span> /
 						<span class="color-aqua">clientHeight</span> из
 						<span class="color-pink">document</span>.<span class="color-aqua">documentElement</span>:
 					</p>
@@ -2006,12 +2056,14 @@
 				<div class="section__text-block">
 					<p>В <em>большинстве случаев</em> <u>нам нужна</u>
 						<span class="color-aqua">доступная ширина окна</span>: для <em>рисования</em> или
-						<em>позиционирования</em>. <span class="color-aqua">Полоса прокрутки</span> <u>«отъедает»</u>
+						<em>позиционирования</em>. <span class="color-aqua">Полоса прокрутки</span>
+						<u>«отъедает»</u>
 						<span class="color-aqua">её часть</span>. Поэтому <u>следует использовать</u>
 						<span class="color-pink">documentElement</span>.<span class="color-aqua">clientHeight</span> /
 						<span class="color-pink">documentElement</span>.<span class="color-aqua">clientWidth</span>.
 					</p>
-					<p>Чтобы <u>надёжно получить</u> <span class="color-aqua">полную высоту документа</span>, нам
+					<p>Чтобы <u>надёжно получить</u> <span class="color-aqua">полную высоту документа</span>,
+						нам
 						<u>следует взять</u> <span class="color-gold">максимальное значение</span> из
 						<span class="color-aqua">этих свойств</span>:
 					</p>
@@ -2036,28 +2088,33 @@
 					</span>
 				</code>
 				<div class="section__text-block">
-					<p><span class="color-aqua">Текущую прокрутку</span> <u>можно прочитать</u> из <em>свойств</em>
+					<p><span class="color-aqua">Текущую прокрутку</span> <u>можно прочитать</u> из
+						<em>свойств</em>
 						<span class="color-pink">window</span>.<span class="color-aqua">pageXOffset</span> /
 						<span class="color-pink">window</span>.<span class="color-aqua">pageYOffset</span>
 					</p>
 					<p><em>Метод</em> <span class="color-red">scrollBy</span>(<span class="color-pink">x</span>,
-						<span class="color-pink">y</span>) <u>прокручивает <em>страницу</em> относительно <em>её</em>
+						<span class="color-pink">y</span>) <u>прокручивает <em>страницу</em> относительно
+							<em>её</em>
 							текущего положения</u>. <u>Например</u>, <span class="color-red">scrollBy</span>
 						(<span class="color-gold">0</span>, <span class="color-gold">10</span>)
-						<u>прокручивает <em>страницу</em></u> на <span class="color-gold">10px</span> <u>вниз</u>.
+						<u>прокручивает <em>страницу</em></u> на <span class="color-gold">10px</span>
+						<u>вниз</u>.
 					</p>
 					<p><em>Метод</em> <span class="color-red">scrollTo</span>(<span class="color-pink">pageX</span>,
 						<span class="color-pink">pageY</span>) <u>прокручивает страницу</u> на
 						<em>абсолютные координаты</em> (<span class="color-pink">pageX</span>,
 						<span class="color-pink">pageY</span>). То есть, чтобы
 						<em>левый-верхний угол видимой части страницы</em> <u>имел</u>
-						<em>данные координаты</em> <u>относительно</u> <em>левого верхнего угла документа</em>. Это всё
+						<em>данные координаты</em> <u>относительно</u> <em>левого верхнего угла документа</em>.
+						Это всё
 						<u>равно, что поставить</u> <span class="color-aqua">scrollLeft</span> /
 						<span class="color-aqua">scrollTop</span>. Для <u>прокрутки <em>в самое начало</em></u>
 						мы <u>можем использовать</u> <span class="color-red">scrollTo</span>
 						(<span class="color-gold">0</span>, <span class="color-gold">0</span>).
 					</p>
-					<p><span class="color-red">Эти методы</span> <u>одинаково работают</u> для <em>всех браузеров</em>.
+					<p><span class="color-red">Эти методы</span> <u>одинаково работают</u> для <em>всех
+							браузеров</em>.
 					</p>
 					<p><u>Вызов</u> <span class="color-pink">elem</span>.<span class="color-red">scrollIntoView</span>
 						(<span class="color-gold">top</span>) <u>прокручивает страницу</u>, чтобы
@@ -2079,7 +2136,8 @@
 							<u>будет совмещён</u> с <em>нижним краем окна</em>.
 						</li>
 					</ul>
-					<p>Иногда нам <u>нужно сделать «непрокручиваемым»</u> <em>документ</em>. <u>Например</u>, при
+					<p>Иногда нам <u>нужно сделать «непрокручиваемым»</u> <em>документ</em>. <u>Например</u>,
+						при
 						<u>показе</u> <em>большого диалогового окна</em> <u>над</u> <em>документом</em> – чтобы
 						<em>посетитель</em> <u>мог прокручивать</u> <em>это окно</em>, но <em>не документ</em>.
 					</p>
@@ -2213,6 +2271,675 @@
 				<div class="section__image section__image_medium">
 					<img class="img-adaptive" src="img/metrics.png" alt="metrics">
 				</div>
+			</section>
+
+			<section class="section" id="api">
+				<h3 class="section__subtitle">API браузера</h3>
+				<div class="section__text-block">
+					<p><strong>API</strong> (<em>Application Programming Interface</em>,
+						<em>программный интерфейс приложения</em>) — <u>описание способов</u>, которыми
+						<em>одна программа</em> (или приложение) <u>может взаимодействовать</u> с
+						<em>другой программой</em>.
+					</p>
+					<p><u>Основная функция</u> <strong>API</strong> - <u>связующая</u>. <u>При помощи</u>
+						<strong>API</strong> различные <em>программы</em> <u>получают возможность обмениваться</u>
+						<em>своими ресурсами</em>, <em>возможностями</em>, <em>функциями</em>, <em>информацией</em>.
+						<u>Выгоды использования <strong>API</strong></u>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<em>Экономия времени и сил</em>: можно не “изобретать заново велосипед”, а воспользоваться уже
+						существующими разработками.
+					</li>
+					<li class="section__list-item">
+						<em>Быстрый доступ к информации</em>: API позволяют получать доступ к различным хранилищам
+						информации - курсы валют, расписания поездов и авиаперелетов, новостные сводки и т.д.
+					</li>
+					<li class="section__list-item">
+						<em>Безопасность</em>: можно ограничить доступ к определенной части информации и открывать
+						только часть данных, которые будут доступны при наличии ключа API.
+					</li>
+				</ul>
+				<h3 class="section__subtitle section__subtitle_small">Geolocation</h3>
+				<div class="section__text-block">
+					<p><strong>Geolocation</strong> - <u>позволяет определить</u> <em>местоположение пользователя</em>,
+						если он даёт на то согласие. <u>Работа с ним осуществляется в несколько этапов</u>:
+					</p>
+				</div>
+				<ol class="section__list">
+					<li class="section__list-item">
+						<u>Определение, есть ли доступ</u> к <em>этому API</em>.
+						<u>Можно сделать с помощью проверки</u>:
+					</li>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-aqua">'geolocation'</span> 
+							<span class="color-gold">in</span> <span class="color-pink">navigator</span>) { } 
+							<span class="section__code-comment">// - местоположение доступно</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">else</span> { } <span class="section__code-comment">// -  местоположение недоступно</span>
+						</span>	
+					</code>
+					<li class="section__list-item">
+						<u>Если <strong>API</strong> доступен</u>, то <u>запросить</u> <em>данные о геолокации</em> с
+						помощью <em>метода</em> <span class="color-red">getCurrentPosition</span>( ).
+						<u>В результате</u> <em>запроса</em> <u>появится</u> <em>окно с запросом разрешения</em> на
+						работу с <em>geo-api</em> у пользователя. Если пользователь <u>разрешит</u>, то
+						<u>будет производиться попытка получения</u> <em>geo-данных</em>.
+						<span class="color-red">getCurrentPosition</span>( ) <u>возвращает</u>
+						<span class="color-pink">объект позиции</span>, где <u>есть</u> <em>координаты</em>, с которыми
+						уже можно работать (например, в картах).
+					</li>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">if</span> (<span class="color-aqua">'geolocation'</span> 
+							<span class="color-red">in</span> <span class="color-pink">navigator</span>) {
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">navigator</span>.<span class="color-aqua">geolocation</span>.<span class="color-red">getCurrentPosition</span>((<span class="color-pink">position</span>) => {
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">const</span> { <span class="color-pink">coords</span> } = 
+							<span class="color-pink">position</span>;
+						</span>
+						<span class="section__code-row">
+							<span class="color-red">console.log</span>(<span class="color-pink">coords</span>.<span class="color-aqua">latitude</span>, 
+							<span class="color-pink">coords</span>.<span class="color-aqua">longitude</span>);
+						</span>
+						<span class="section__code-row">});</span>
+						<span class="section__code-row">}</span>	
+					</code>
+				</ol>
+				<div class="section__text-block">
+					<p>Также <u>есть</u> <span class="color-red">watchPosition</span>( ) — <u>получение</u> и
+						<u>регулярное обновление</u> <em>данных о положении</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">Notification</h3>
+				<div class="section__text-block">
+					<p><strong>Notification API</strong> <u>позволяет показывать</u> <em>браузерные уведомления</em>,
+						даже если вы находитесь не на вкладке с вашим сайтом. Часто этот <strong>API</strong>
+						<u>используют в паре</u> с более сложным — <strong>Push API</strong>.
+					</p>
+					<p><u>Для работы</u> с <strong>Notification API</strong> <u>используется</u> <em>класс</em>
+						<span class="color-pink">Notification</span>. Для того <u>чтобы показать</u> пользователю
+						<em>уведомление</em>, <u>сначала необходимо получить</u> от него
+						<em>разрешение на уведомления</em>.
+					</p>
+					<p><u>Для запроса</u> <em>разрешения на уведомления</em> <u>имеется</u>
+						<span class="color-red">специальный метод</span>
+						<span class="color-pink">Notification</span>.<span class="color-red">requestPermission</span>
+						( ), который <u>возвращает</u> <span class="color-pink">promise</span> с <em>результатом</em>,
+						<u>разрешил ли</u> <em>пользователь</em> <em>отправку уведомлений</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">Notification</span>.<span class="color-red">requestPermission</span>().<span class="color-red">then</span>(<span class="color-red">function</span>
+						(<span class="color-pink">permission</span>) {...});
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Если пользователь <u>дал доступ</u> на 
+							<em>отправку уведомлений</em>, то можно <u>отправлять</u> <em>сообщения</em> пользователю, <u>используя</u> <em>класс</em> <span class="color-pink">Notification</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">new</span> 
+						<span class="color-pink">Notification</span>(<span class="color-gold">'Hello!'</span>)
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><em>Стандартный код проверки</em>, есть ли у пользователя <u>доступ к <em>подписке</em></u>, и <u>отправка</u> ему <em>уведомления</em>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">notifyMe</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (!(<span class="color-pink">'Notification'</span> 
+						<span class="color-red">in</span> <span class="color-pink">window</span>)) { 
+						<span class="section__code-comment">// - <u>проверяем наличие</u> 
+						<strong>Notification API</strong> в <em>браузере</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-gold">'Нет поддержки Notification API'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// - если <strong>Notification API</strong> и <em>разрешение на отправку</em> <u>есть</u>, то <u>отправим</u> <em>уведомление</em>.</span>
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else if</span> 
+						(<span class="color-pink">Notification</span>.<span class="color-aqua">permission</span> === <span class="color-gold">'granted'</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">new</span> 
+						<span class="color-pink">Notification</span>(<span class="color-gold">'hello!'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"> // - если <strong>Notification API</strong> <u>есть</u>, но <u>нет</u> <em>разрешения</em> и <u>нет</u> <em>запрета</em>, то <u>можно запросить</u> <em>разрешение</em>.</span>
+					</span>
+					<span class="section__code-row">
+						} <span class="color-red">else if</span> 
+						(<span class="color-pink">Notification</span>.<span class="color-aqua">permission</span> !== <span class="color-gold">'denied'</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">Notification</span>.<span class="color-red">requestPermission</span>()
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>(<span class="color-red">function</span> 
+						(<span class="color-pink">permission</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">permission</span> === 
+						<span class="color-gold">'granted'</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">notification</span> = 
+						<span class="color-red">new</span> 
+						<span class="color-pink">Notification</span>(<span class="color-gold">'Hi there!'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Последний случай</u> - <em>пользователь</em> <u>запретил</u> <em>уведомления</em>,(<u>нельзя показать</u> <em>уведомления</em>)</span></span>
+					<span class="section__code-row">}</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">Примеры использования API запроса</h3>
+				<div class="section__text-block">
+					<p>Перевести число в двоичную систему</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><em>url</em> для <rm>GET-запроса</rm>:
+						<span class="color-gold">https://api.math.tools/numbers/base?number=6&from=10&to=2</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">pageLoaded</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">input</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'#input'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btn</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'#button'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">output</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'#output'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">btn</span>.<span class="color-red">addEventListener</span>(<span class="color-aqua">'click'</span>, <span class="color-blue">sendRequest</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">sendRequest</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-blue">validateInput</span>()) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">xhr</span> = 
+						<span class="color-red">new</span> <span class="color-pink">XMLHttpRequest</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">open</span>(<span class="color-gold">'GET'</span>,`<span class="color-gold">https://api.math.tools/numbers/base?number=</span>${<span class="color-pink">input</span>.<span class="color-aqua">value</span>}<span class="color-gold">&from=10&to=2</span>`);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-red">send</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-blue">onerror</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>
+						(<span class="color-gold">'При отправке запроса произошла ошибка'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">xhr</span>.<span class="color-blue">onload</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">xhr</span>.<span class="color-aqua">status</span> == 
+						<span class="color-gold">200</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">data</span> = 
+						<span class="color-pink">JSON</span>.<span class="color-red">parse</span>
+						(<span class="color-pink">xhr</span>.<span class="color-aqua">response</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>(`<span class="color-gold">Ответ:</span> 
+						${<span class="color-pink">data</span>.<span class="color-pink">contents</span>.<span class="color-aqua">answer</span>}`);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">writeOutput</span>(<span class="color-pink">message</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">output</span>.<span class="color-aqua">innerText</span> = 
+						<span class="color-pink">message</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">validateInput</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">validated</span> = 
+						<span class="color-gold">true</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">input</span>.<span class="color-aqua">value</span> === 
+						<span class="color-gold">''</span> || 
+						<span class="color-red">isNaN</span>(+<span class="color-pink">input</span>.<span class="color-aqua">value</span>)) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">validated</span> = <span class="color-gold">false</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">validated</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'DOMContentLoaded'</span>, 
+						<span class="color-blue">pageLoaded</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Узнать прогноз погоды</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Пример</u> <em>API запроса</em>:</span> 
+					</span> 
+					<span class="section__code-row">
+						<span class="section__code-comment"><span class="color-gold">https://api.openweathermap.org/data/2.5/weather?q=Москва&appid=59aaed6f10d8ae0565183dd571a3b596&units=metric</span>
+						</span>
+					</span> 
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Пример</u> <em>ссылки на иконку</em>: 
+						<span class="color-gold">http://openweathermap.org/img/wn/${icon}.png</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">apiURL</span> = 
+						<span class="color-gold">'https://api.openweathermap.org/data/2.5/weather'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">apiKey</span> = <span class="color-gold">'59aaed6f10d8ae0565183dd571a3b596'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">pageLoaded</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">input</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'#input'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btn</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'#button'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">output</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'#output'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">sendRequest</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">input</span>.<span class="color-aqua">value</span> !== 
+						<span class="color-gold">''</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">fetch</span>(`<span class="color-gold">https://api.openweathermap.org/data/2.5/</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">weather?q=</span>${
+						<span class="color-pink">input</span>.<span class="color-aqua">value</span>}
+						<span class="color-gold">&appid=</span>${<span class="color-pink">apiKey</span>}
+						<span class="color-gold">&units=metric</span>`)
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>(<span class="color-pink">response</span> => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> 
+						<span class="color-pink">response</span>.<span class="color-red">json</span>();
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>(<span class="color-pink">data</span> => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>(<span class="color-blue">formatOutput</span>
+						(<span class="color-pink">data</span>));
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">formatOutput</span>(<span class="color-pink">data</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">output</span> = `
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">p</span>${<span class="color-pink">data</span>.<span class="color-pink">main</span>.<span class="color-aqua">temp</span>} &deg;C
+						<span class="color-red">/p</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">p</span>${<span class="color-pink">data</span>.<span class="color-pink">weather</span>[<span class="color-aqua">0</span>].<span class="color-aqua">main</span>}<span class="color-red">/p</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">img</span> <span class="color-aqua">src</span> = 
+						<span class="color-gold">"http://openweathermap.org/img/wn/${data.weather[0].icon}.png"</span>
+					</span>
+					<span class="section__code-row">`</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">output</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">writeOutput</span>(<span class="color-pink">message</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">output</span>.<span class="color-aqua">innerHTML</span> = 
+						<span class="color-pink">message</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">btn</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'click'</span>, <span class="color-blue">sendRequest</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'DOMContentLoaded'</span>, 
+						<span class="color-blue">pageLoaded</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Прогноз погоды по местоположению</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">Пример API запроса:</span>  
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}&units=metric&lang=ru</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">Иконка: http://openweathermap.org/img/wn/${icon}.png</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">apiURL</span> = 
+						<span class="color-gold">'https://api.openweathermap.org/data/2.5/weather'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">apiKey</span> = 
+						<span class="color-gold">'59aaed6f10d8ae0565183dd571a3b596'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">pageLoaded</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btn</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">getElementById</span>
+						(<span class="color-gold">'button'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">output</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">getElementById</span>
+						(<span class="color-gold">'output'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">btn</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'click'</span>, <span class="color-blue">getLocation</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">getLocation</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">'geolocation'</span> 
+						<span class="color-red">in</span> <span class="color-pink">navigator</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">navigator</span>.<span class="color-pink">geolocation</span>.<span class="color-red">getCurrentPosition</span>(<span class="color-blue">locationSuccess</span>, <span class="color-blue">locationError</span>);
+					</span>
+					<span >} <span class="color-red">else</span> {</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>(<span class="color-gold">'В вашем браузере недоступна возможность определения местоположения'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<psan class="section__code-row">}</psan>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">locationSuccess</span>
+						(<span class="color-pink">data</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">coords</span> = 
+						[<span class="color-pink">data</span>.<span class="color-pink">coords</span>.<span class="color-aqua">longitude</span>, <span class="color-pink">data</span>.<span class="color-pink">coords</span>.<span class="color-aqua">latitude</span>];
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">url</span> = 
+						<span class="color-blue">formatURL</span>(<span class="color-pink">coords</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">fetch</span>(<span class="color-pink">url</span>)
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>(<span class="color-pink">response</span> => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> 
+						<span class="color-pink">response</span>.<span class="color-red">json</span>();
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">
+						.<span class="color-red">then</span>(<span class="color-pink">data</span> => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">outputText</span> = 
+						<span class="color-blue">formatOutput</span>(<span class="color-pink">data</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>(<span class="color-pink">outputText</span>);
+					</span>
+					<span class="section__code-row">})</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">locationError</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>
+						(<span class="color-gold">'При определении местоположения произошла ошибка'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">formatURL</span>(<span class="color-pink">coords</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">url</span> = 
+						<span class="color-red">new</span> 
+						<span class="color-pink">URL</span>(<span class="color-pink">apiURL</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">url</span>.<span class="color-pink">searchParams</span>.<span class="color-red">set</span>(<span class="color-gold">'lat'</span>, 
+						<span class="color-pink">coords</span>[<span class="color-aqua">1</span>]);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">url</span>.<span class="color-pink">searchParams</span>.<span class="color-red">set</span>(<span class="color-gold">'lon'</span>, 
+						<span class="color-pink">coords</span>[<span class="color-aqua">0</span>]);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">url</span>.<span class="color-pink">searchParams</span>.<span class="color-red">set</span>(<span class="color-gold">'appid'</span>, 
+						<span class="color-pink">apiKey</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">url</span>.<span class="color-pink">searchParams</span>.<span class="color-red">set</span>(<span class="color-gold">'units'</span>, 
+						<span class="color-gold">'metric'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">url</span>.<span class="color-pink">searchParams</span>.<span class="color-red">set</span>(<span class="color-gold">'lang'</span>, 
+						<span class="color-gold">'ru'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">url</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">formatOutput</span>(<span class="color-pink">data</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>(<span class="color-pink">data</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">html</span> = `
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">img</span> <span class="color-gold">src="http://openweathermap.org/img/wn/</span>${<span class="color-pink">data</span>.<span class="color-pink">weather</span>[<span class="color-aqua">0</span>]<span class="color-aqua">.icon</span>}.<span class="color-gold">png</span>"
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">alt="</span>${<span class="color-pink">data</span>.<span class="color-pink">weather</span>[<span class="color-aqua">0</span>].<span class="color-aqua">description</span>}"
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">p</span><span class="color-gold">Город: </span>${<span class="color-pink">data</span>.<span class="color-aqua">name</span>}<span class="color-red">/p
+						</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">p</span>${<span class="color-pink">data</span>.<span class="color-pink">weather</span>[<span class="color-aqua">0</span>].<span class="color-aqua">description</span>}<span class="color-red">/p</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">p</span><span class="color-gold">Температура:</span> ${<span class="color-pink">data</span>.<span class="color-pink">main</span>.<span class="color-aqua">temp</span>} &deg;C<span class="color-red">/p</span>
+					</span>
+					<span class="section__code-row">`;</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> <span class="color-pink">html</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">writeOutput</span>(<span class="color-pink">message</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">output</span>.<span class="color-aqua">innerHTML</span> = 
+						<span class="color-pink">message</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+					<span class="color-pink">document</span>.<span class="color-red">addEventListener</span>(<span class="color-aqua">'DOMContentLoaded'</span>, <span class="color-blue">pageLoaded</span>);
+					</span>
+				</code>
+				<div class="section__text-block">
+					<p>Получить ссылку на свое местоположение</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+					<span class="section__code-comment">https://yandex.ru/maps/?pt=30.335429,59.944869&z=18&l=map</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">pageLoaded</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btn</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">getElementById</span>
+						(<span class="color-gold">'button'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">output</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">getElementById</span>
+						(<span class="color-gold">'output'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">btn</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'click'</span>, <span class="color-blue">getLocation</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">getLocation</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">'geolocation'</span> 
+						<span class="color-red">in</span> <span class="color-pink">navigator</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">options</span> = {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">enableHighAccuracy</span>: <span class="color-gold">true</span>
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pin">navigator</span>.<span class="color-pink">geolocation</span>.<span class="color-red">getCurrentPosition</span>(<span class="color-blue">locationSuccess</span>, <span class="color-blue">locationError</span>, <span class="color-pink">options</span>);
+					</span>
+					<span class="section__code-row">} <span class="color-red">else</span> {</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>(<span class="color-gold">'Ваш браузер не поддерживает функцию определения местоположения'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">locationSuccess</span>(<span class="color-pink">data</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">link</span> = `
+						<span class="color-gold">https://yandex.ru/maps/</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">?pt=</span>${<span class="color-pink">data</span>.<span class="color-pink">coords</span>.<span class="color-aqua">longitude</span>},${<span class="color-pink">data</span>.<span class="color-pink">coords</span>.<span class="color-aqua">latitude</span>}<span class="color-gold">&z=18&l=map</span>`;
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>(`<span class="color-red">a</span> 
+						<span class="color-gold">href=</span>"${<span class="color-pink">link</span>}">
+						<span class="color-gold">Вы находитесь здесь</span><span class="color-red">/a</span>`);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">locationError</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeOutput</span>
+						(<span class="color-gold">'При получении местоположения произошла ошибка'</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">writeOutput</span>(<span class="color-pink">message</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">output</span>.<span class="color-aqua">innerHTML</span> = 
+						`<span class="color-red">p</span>${<span class="color-pink">message</span>}<span class="color-red">/p</span>`;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'DOMContentLoaded'</span>, 
+						<span class="color-blue">pageLoaded</span>);
+					</span>
+				</code>
 			</section>
 
 			<nav class="content__navigation">

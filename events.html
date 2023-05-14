@@ -430,6 +430,9 @@
 									Прокрутка окна браузера. Координаты
 								</a>
 							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./dom.html#api">API браузера</a>
+							</li>
 						</ul>
 					</li>
 					<li class="header__item">
@@ -462,6 +465,11 @@
 							<li class="header__sub-item">
 								<a class="header__sub-link" href="./events.html#scrolling">Прокрутка</a>
 							</li>
+							<li class="header__sub-item">
+								<a class="header__sub-link" href="./events.html#event-source">
+									Event Source, WebSocket
+								</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -488,10 +496,9 @@
 					<ul class="section__list">
 						<li class="section__list-item"><span class="color-aqua">click</span> – происходит, когда
 							<u>кликнули</u> на <em>элемент</em> <u>левой кнопкой мыши</u> (на устройствах с сенсорными
-							экранами оно происходит при касании).
-						</li>
-						<li class="section__list-item"><span class="color-aqua">contextmenu</span> – происходит, когда
-							<u>кликнули</u> на <em>элемент</em> <u>правой кнопкой мыши</u>.
+							экранами оно происходит при касании). <u>Вызывает</u> <em>несколько событий</em> над
+							<em>одним элементом</em>: <u>сначала</u> <span class="color-aqua">mousedown</span>, а
+							<u>затем</u> <span class="color-aqua">mouseup</span>.
 						</li>
 						<li class="section__list-item"><span class="color-aqua">mouseover</span> /
 							<span class="color-aqua">mouseout</span> – когда <u>мышь наводится</u> на <em>элемент</em> /
@@ -502,7 +509,13 @@
 							<em>элементе</em>.
 						</li>
 						<li class="section__list-item"><span class="color-aqua">mousemove</span> –
-							<u>при движении мыши</u>.
+							<u>при каждом движении мыши</u> над <em>элементом</em>.
+						</li>
+						<li class="section__list-item"><span class="color-aqua">dblclick</span> –
+							<u>вызывается двойным кликом</u> на <em>элементе</em>.
+						</li>
+						<li class="section__list-item"><span class="color-aqua">contextmenu</span> – происходит, когда
+							<u>кликнули</u> на <em>элемент</em> <u>правой кнопкой мыши</u>.
 						</li>
 					</ul>
 					<p><em>События на элементах управления:</em></p>
@@ -711,9 +724,10 @@
 						</li>
 						<li class="section__list-item">
 							<span class="section__code-row">
-								<span class="section__code-comment"><span class="color-aqua">capture</span>: фаза, на которой <u>должен сработать</u> <span class="color-red">обработчик</span>. Так 	исторически сложилось, что <span class="color-pink">options</span> <u>может быть</u> 
-								<span class="color-gold">false / true</span>, это то же самое, что 
-								{<span class="color-pink">capture</span>: <span class="color-gold">false / true</span>}.</span>
+								<span class="section__code-comment"><span class="color-aqua">capture</span>: фаза, на которой <u>должен сработать</u> <span class="color-red">обработчик</span>. 
+								<span class="color-gold">false</span> (<u>по умолчанию</u>) - <em>событие</em> 
+								<u>будет поймано</u> при <strong>всплытии</strong>, 
+								<span class="color-gold">true</span> - <em>событие</em> <u>будет перехвачено</u> при <strong>погружении</strong>.</span>
 							</span>
 						</li>
 						<li class="section__list-item">
@@ -786,7 +800,9 @@
 					</li>
 					<li class="section__list-item">
 						<span class="color-pink">event</span>.<span class="color-aqua">target</span> —
-						<em>элемент</em>, на котором <u>было вызвано</u> <em>событие</em>;
+						<span class="color-pink">самый глубокий элемент</span>, который <u>вызывает</u>
+						<em>событие</em> (<em>целевым элементом</em>), в <u>процессе всплытия</u> <em>он</em>
+						<u>неизменен</u>;
 					</li>
 					<li class="section__list-item">
 						<span class="color-pink">event</span>.<span class="color-aqua">target.value</span> —
@@ -829,10 +845,14 @@
 				</code>
 				<h3 class="section__subtitle section__subtitle_small">Предотвращение поведения по умолчанию</h3>
 				<div class="section__text-block">
-					<p><u>Нажатие</u> на <em>кнопку</em>, имеющую <span class="color-aqua">type</span> =
-						<span class="color-gold">submit</span>, <u>приведёт к отправке</u> <em>формы</em>, но что если
-						мы <u>не хотим этого делать</u>? Для этого у <em>события</em> в <em>браузере</em> есть
-						<u>специальный метод</u> — <span class="color-red">preventDefault</span>().
+					<p><em>Действия браузера по умолчанию</em> <u>можно отменить</u>, если мы хотим <u>обработать</u>
+						<em>событие</em> исключительно <u>при помощи</u> <em>JavaScript</em>, <u>для этого есть</u>
+						<span class="color-red">специальный метод</span>
+						<span class="color-pink">event</span>.<span class="color-red">preventDefault</span>( ).
+					</p>
+					<p><u>Например</u>, <u>нажатие</u> на <em>кнопку</em>, имеющую <span class="color-aqua">type</span>
+						= <span class="color-gold">submit</span>, <u>приведёт к отправке</u> <em>формы</em>, но что если
+						мы <u>не хотим этого делать</u>?
 					</p>
 				</div>
 				<code class="section__code">
@@ -855,11 +875,36 @@
 					</span>
 					<span class="section__code-row">});</span>
 				</code>
+				<p><span class="color-red">Метод</span>
+					<span class="color-pink">elem</span>.<span class="color-red">closest</span>
+					(<span class="color-gold">selector</span>) <u>возвращает</u> <em>ближайшего предка</em>,
+					<u>соответствующего</u> <em>селектору</em>.
+				</p>
+				<p><strong>Делегирование событий</strong> - один из самых полезных приёмов <u>для работы</u> с
+					<strong>DOM</strong>, если <u>есть</u> <em>много элементов</em>, <u>обработка</u>
+					<em>которых</em> <u>очень схожа</u>. <u>Алгоритм</u>:
+				</p>
+				<ol class="section__list">
+					<li><u>Вешаем</u> <span class="color-red">обработчик</span> на <em>контейнер</em>.</li>
+					<li>В <span class="color-red">обработчике</span> <u>проверяем</u> <em>исходный элемент</em>
+						<span class="color-pink">event</span>.<span class="color-red">target</span>.
+					</li>
+					<li>Если <em>событие</em> <u>произошло внутри</u> нужного нам <em>элемента</em>, то
+						<u>обрабатываем</u> <em>его</em>.
+					</li>
+				</ol>
+				<p><strong>Делегирование событий</strong>: - <u>упрощает</u> <em>процесс инициализации</em> и
+					<u>экономит</u> <em>память</em>: <u>не нужно вешать</u>
+					<span class="color-red">много обработчиков</span>, - <u>меньше</u> <em>кода</em>:
+					<u>при добавлении</u> и <u>удалении</u> <em>элементов</em> <u>не нужно ставить</u> или
+					<u>снимать</u> <span class="color-red">обработчики</span>, - <u>удобство изменений</u>
+					<strong>DOM</strong>: <u>можно массово добавлять</u> или <u>удалять</u> <em>элементы</em>
+					<u>путём изменения</u> <span class="color-aqua">innerHTML</span> и <em>ему подобных</em>.
+				</p>
 			</section>
 
 			<section class="section" id="ascent-dive">
-				<h2 class="section__subtitle">Всплытие / Погружение</h2>
-				<h3 class="section__subtitle section__subtitle_small">Всплытие</h3>
+				<h3 class="section__subtitle">Всплытие / Погружение</h3>
 				<div class="section__text-block">
 					<p><u>При наступлении</u> <em>события</em> <span class="color-red">обработчики</span>
 						<u>сначала срабатывают</u> <em>на самом элементе</em>, <u>затем</u> на
@@ -881,35 +926,1128 @@
 					<p>Если на <em>элементе</em> <span class="color-red">несколько обработчиков</span>, иногда
 						<u>требуется</u> не только <u>перехватить</u> <em>всплытие</em>, но и <u>прекратить работу</u>
 						<span class="color-red">остальных обработчиков</span> для <em>этого элемента</em>. Для этого
-						<u>используется</u> <span class="color-red">метод</span>
+						<u>используется</u> <span class="color-red">метод</span> <span class="color-pink">event</span>.
 						<span class="color-red">stopImmediatePropagation</span>( ).
 					</p>
 					<p><u>!!! Не прекращайте</u> <em>всплытие</em> <u>без причины</u>. <u>Причина</u> при этом
 						<u>должна быть оправданной</u>. <u>Прекращение</u> <em>всплытия</em> <u>может создавать</u>
 						<em>неожиданные проблемы</em>, <em>которые</em> <u>потом приходится обходить</u>. <u>Перед</u>
-						<em>всплытием</em> <u>происходит</u> <em>«погружение»</em>, (изучим в будущем).
+						<em>всплытием</em> <u>происходит</u> <em>«погружение»</em>.
 					</p>
+					<p>Cтадия <strong>погружения</strong> <u>используется очень редко</u>, обычно <em>события</em>
+						<u>обрабатываются во время</u> <strong>всплытия</strong>.
+					</p>
+					<p>Стандарт DOM Events описывает 3 фазы прохода события:</p>
+					<ol class="section__list">
+						<li class="section__list-item">
+							<em>Фаза погружения</em> – <em>событие</em> <u>сначала идёт сверху вниз</u>.
+						</li>
+						<li class="section__list-item">
+							<em>Фаза цели</em> – <em>событие</em> <u>достигло</u> <em>целевого элемента</em>.
+						</li>
+						<li class="section__list-item">
+							<em>Фаза всплытия</em> – <em>событие</em> <u>начинает <em>всплывать</em></u>.
+						</li>
+					</ol>
 				</div>
 			</section>
 
 			<section class="section" id="mouse">
 				<h3 class="section__subtitle">Cобытия мыши</h3>
+				<ul class="section__list">
+					<li class="section__list-item"><span class="color-aqua">click</span> – происходит, когда
+						<u>кликнули</u> на <em>элемент</em> <u>левой кнопкой мыши</u> (на устройствах с сенсорными
+						экранами оно происходит при касании). <u>Вызывает</u> <em>несколько событий</em> над
+						<em>одним элементом</em>: <u>сначала</u> <span class="color-aqua">mousedown</span>, а
+						<u>затем</u> <span class="color-aqua">mouseup</span>.
+					</li>
+					<li class="section__list-item"><span class="color-aqua">mouseover</span> /
+						<span class="color-aqua">mouseout</span> – когда <u>мышь наводится</u> на <em>элемент</em> /
+						<u>покидает</u> <em>элемент</em>.
+					</li>
+					<li class="section__list-item"><span class="color-aqua">mousedown</span> /
+						<span class="color-aqua">mouseup</span> – когда <u>нажали</u> / <u>отжали кнопку мыши</u> на
+						<em>элементе</em>.
+					</li>
+					<li class="section__list-item"><span class="color-aqua">mousemove</span> –
+						<u>при каждом движении мыши</u> над <em>элементом</em>.
+					</li>
+					<li class="section__list-item"><span class="color-aqua">dblclick</span> –
+						<u>вызывается двойным кликом</u> на <em>элементе</em>.
+					</li>
+					<li class="section__list-item"><span class="color-aqua">contextmenu</span> – происходит, когда
+						<u>кликнули</u> на <em>элемент</em> <u>правой кнопкой мыши</u>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><em>События</em>, связанные с <em>кликом</em>, <u>всегда имеют</u> <em>свойство</em>
+						<span class="color-aqua">button</span>, <em>которое</em> <u>позволяет получить</u>
+						<em>конкретную кнопку мыши</em> (<em>Левая кнопка</em> - <span class="color-gold">0</span>,
+						<em>Средняя кнопка</em> - <span class="color-gold">1</span>, <em>Правая кнопка</em> -
+						<span class="color-gold">2</span>, <em>Кнопка X1</em> (назад) -
+						<span class="color-gold">3</span>, <span class="color-gold">Кнопка X2</span> (вперёд) -
+						<span class="color-gold">4</span>).
+					</p>
+					<p><u>Не следует использовать</u> <span class="color-aqua">устаревшее свойство</span>
+						<span class="color-pink">event</span>.<span class="color-aqua">which</span>
+					</p>
+					<p>Все <em>события мыши</em> <u>включают в себя</u> информацию о
+						<em>нажатых клавишах-модификаторах</em>. <em>Они</em> <u>равны</u>
+						<span class="color-gold">true</span>, если <u>во время</u> <em>события</em> <u>была нажата</u>
+						<em>соответствующая клавиша</em>.
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-pink">event</span>.<span class="color-aqua">shiftKey</span>:
+							<u>нажата</u> клавиша <em>Shift</em>
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">event</span>.<span class="color-aqua">altKey</span>: <u>нажата</u>
+							клавиша <em>Alt</em> (или <em>Opt</em> для Mac)
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">event</span>.<span class="color-aqua">ctrlKey</span>: <u>нажата</u>
+							клавиша <em>Ctrl</em>
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">event</span>.<span class="color-aqua">metaKey</span>: <u>нажата</u>
+							клавиша <em>Cmd</em> для Mac
+						</li>
+					</ul>
+					<p>Если мы хотим, чтобы <em>пользователям</em> <em>всех операционных систем</em> <u>было удобно</u>,
+						то <u>вместе</u> с <span class="color-aqua">ctrlKey</span> нам <u>нужно проверять</u>
+						<span class="color-aqua">metaKey</span>. <span class="color-red">if</span>
+						(<span class="color-pink">event</span>.<span class="color-aqua">ctrlKey</span> ||
+						<span class="color-pink">event</span>.<span class="color-aqua">metaKey</span>)
+					</p>
+					<p><em>Все события мыши</em> <u>имеют</u> <em>координаты</em> <u>двух видов</u>:</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<u>Относительно <em>окна</em></u>:
+							<span class="color-pink">event</span>.<span class="color-aaqua">clientX</span> и
+							<span class="color-pink">event</span>.<span class="color-aqua">clientY</span>.
+						</li>
+						<li class="section__list-item">
+							<u>Относительно <em>документа</em></u>:
+							<span class="color-pink">event</span>.<span class="color-aqua">pageX</span> и
+							<span class="color-pink">event</span>.<span class="color-aqua">pageY</span>.
+						</li>
+					</ul>
+					<p>Чтобы <u>запретить выделение</u> <em>текста</em>, <u>нужно отменить</u>
+						<em>действие браузера по умолчанию</em> <u>при</u> <em>событии</em>
+						<span class="color-aqua">mousedown</span>. <em>Текст</em> по-прежнему <u>можно выделить</u>,
+						если <u>начать выделение</u> <em>не на самом тексте</em>, а <u>до</u> <em>него</em> или
+						<u>после</u>.
+					</p>
+					<p>Чтобы <u>отключить выделение</u> <em>содержимого страницы</em>
+						<u>для защиты от копирования</u>, то мы <u>можем использовать</u> <em>событие</em>:
+						<span class="color-pink">event</span>.<span class="color-aqua">oncopy</span>. Пользователь
+						<u>имеет доступ</u> к <em>HTML-коду</em> страницы и <u>может взять</u> <em>текст</em> оттуда.
+					</p>
+					<p><span class="color-pink">event</span>.<span class="color-aqua">mouseover</span> и
+						<span class="color-pink">event</span>.<span class="color-aqua">mouseout</span> <u>имеют</u>
+						<em>свойство</em> <span class="color-aqua">relatedTarget</span>
+					</p>
+					<p><u>Для</u> <span class="color-pink">event</span>.<span class="color-aqua">mouseover</span>:</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-pink">event</span>.<span class="color-aqua">target</span> – это
+							<em>элемент</em>, <u>на который</u> <em>курсор</em> <u>перешёл</u>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">event</span>.<span class="color-aqua">relatedTarget</span> – это
+							<em>элемент</em>, <u>с которого</u> <em>курсор</em> <u>ушёл</u> (relatedTarget → target).
+						</li>
+					</ul>
+					<p>Для <span class="color-pink">event</span>.<span class="color-aqua">mouseout</span>
+						<u>наоборот</u>:
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-pink">event</span>.<span class="color-aqua">target</span> – это
+							<em>элемент</em>, <u>с которого</u> <em>курсор</em> <u>ушёл</u>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-pink">event</span>.<span class="color-aqua">relatedTarget</span> – это
+							<em>элемент</em>, <u>на который</u> <em>курсор</em> <u>перешёл</u> (target → relatedTarget).
+						</li>
+					</ul>
+					<p><em>Свойство</em> <span class="color-aqua">relatedTarget</span> <u>может быть</u>
+						<span class="color-gold">null</span>. Это означает, что <em>указатель мыши</em>
+						<u>перешёл не</u> с <em>другого элемента</em>, а <u>из-за пределов</u> <em>окна браузера</em>.
+						Или <u>ушёл за пределы</u> <em>окна</em>.
+					</p>
+					<p>События <span class="color-aqua">mouseenter</span> / <span class="color-aqua">mouseleave</span>
+						<u>не всплывают</u>, мы <u>не можем делегировать</u> <em>их</em>.
+					</p>
+				</div>
 			</section>
 
 			<section class="section" id="Drag-n-Drop">
 				<h3 class="section__subtitle">Drag'n'Drop с событиями мыши</h3>
+				<div class="section__text-block">
+					<p><strong>Drag and Drop</strong> — <u>комбинация</u> <span class="color-red">методов</span> и
+						<span class="color-red">обработчиков</span> <u>для реализации переноса</u>
+						<span class="color-pink">элементов</span> на <em>странице</em> <u>с помощью</u>
+						<em>зажатой кнопки мыши</em>. <strong>Drag'n'Drop</strong> <u>состоит из нескольких этапов</u>:
+					</p>
+				</div>
+				<ol class="section__list">
+					<li class="section__list-item">
+						<u>Повесить</u> <span class="color-red">обработчик</span>
+						<span class="color-aqua">mousedown</span> на <span class="color-pink">элемент</span>, который
+						хотим перетаскивать. <u>Срабатывает при нажатии</u> <em>кнопки мыши</em> на
+						<span class="color-pink">элемент</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-red">Обработчик</span> <u>должен вешать</u> <em>событие</em>
+						<span class="color-aqua">mousemove</span> на <em>курсор</em>, чтобы <U>следить</U> за
+						<em>ним</em>. <em>Cобытие</em>, которое <u>срабатывает на перемещение</u> <em>курсора</em>.
+						<u>После активации на нажатие</u> <em>кнопки мыши</em>, мы <u>начинаем следить</u> за этим
+						<em>событием</em> и <u>перемещать</u> <span class="color-pink">элемент</span> <u>на столько</u>
+						же <em>пикселей</em>, <u>на сколько перемещается</u> <em>курсор мыши</em>.
+					</li>
+					<li class="section__list-item">
+						Если <u>сработал</u> <span class="color-aqua">mousedown</span>, то считаем, что
+						<u>перенос начался</u>, и теперь <u>меняем</u> <em>координаты</em>
+						<span class="color-pink">элемента</span> <u>в соответствии</u> с <em>координатами курсора</em>.
+					</li>
+					<li class="section__list-item">
+						Также <u>вешаем</u> <span class="color-red">обработчик</span>
+						<span class="color-aqua">mouseup</span>, который <u>будет всё отменять</u>. <em>Cобытие</em>,
+						которое <u>срабатывает на отпускание</u> <em>кнопки мыши</em>. Это сигнал к
+						<u>завершению наблюдения</u> за <em>событием</em> <span class="color-aqua">mousemove</span> и
+						<u>снятию</u> <span class="color-red">всех обработчиков</span> <u>для перемещения</u>
+						<span class="color-pink">элемента</span>.
+					</li>
+					<li class="section__list-item">
+						<u>Когда сработал</u> <span class="color-aqua">mouseup</span>, <u>оставляем</u>
+						<em>координаты</em> <span class="color-pink">элемента</span> и <u>снимаем</u>
+						<span class="color-red">все обработчики</span>, <u>кроме</u>
+						<span class="color-aqua">mousedown</span>.
+					</li>
+				</ol>
+				<div class="section__text-block">
+					<p><em>Браузер</em> <u>имеет</u> <em>свой собственный Drag'n'Drop</em>, который
+						<u>вступает в конфликт</u> с <em>нашим</em>, <em>его</em> <u>нужно отключить</u>.
+					</p>
+					<p><strong>Drag'n'Drop</strong> <u>может быть реализован</u> на <em>touch-события</em> (для
+						сенсорных экранов телефонов). <u>Комбинируются</u> <em>события</em> так же, только
+						<u>называются</u> соответственно: <span class="color-aqua">touchstart</span>,
+						<span class="color-aqua">touchmove</span>, <span class="color-aqua">touchend</span>.
+					</p>
+					<p><strong>Drag'n'Drop</strong> <u>применяется</u> в разных областях: <em>Трекер задач</em> ,
+						<em>Конструкторы сайтов, диаграмм</em>, <em>онлайн-рисовалки</em>,
+						<em>Тесты на соотношение слов</em> на образовательных платформах.
+					</p>
+					<p>В современном стандарте <em>HTML5</em> <u>есть поддержка</u> <strong>Drag'n'Drop</strong>
+						<u>при помощи</u> <em>специальных событий</em>. Но у <em>них</em> <u>есть ряд ограничений</u>,
+						поэтому <u>на практике используют</u> <strong>Drag'n'Drop</strong> на основе
+						<em>событий мыши</em>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">square</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'.square'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">square</span>.<span class="color-red">ondragstart</span> = () => 
+						<span class="color-gold">false</span>; <span class="section__code-comment">// - 
+						<u>отключаем</u> <em>дефолтный Drag'n'Drop</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// <span class="color-red">Функция</span> 
+						<u>для получения</u> <em>координат</em> <span class="color-pink">элемента</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-blue">getCoords</span> = 
+						(<span class="color-pink">elem</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">box</span> = 
+						<span class="color-pink">elem</span>.<span class="color-red">getBoundingClientRect</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">return</span> {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">top</span>: 
+						<span class="color-pink">box</span>.<span class="color-aqua">top</span> + 
+						<span class="color-aqua">pageYOffset</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">left</span>: 
+						<span class="color-pink">box</span>.<span class="color-aqua">left</span> + 
+						<span class="color-aqua">pageXOffset</span>
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">/* <u>Основной механизм</u> <em>Drag'n'Drop</em> */</span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Этап 1</u>. <u>Вешаем</u> 
+						<span class="color-red">обработчик</span> на <span class="color-aqua">mousedown</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">square</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'mousedown'</span>, (<span class="color-pink">e</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Этап 2</u>. <u>Вычисляем</u> 
+						<em>начальные координаты положения</em> <span class="color-pink">элемента</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">coords</span> = 
+						<span class="color-blue">getCoords</span>(<span class="color-pink">square</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">shiftX</span> = 
+						<span class="color-pink">e</span>.<span class="color-aqua">pageX</span> - 
+						<span class="color-pink">coords</span>.<span class="color-aqua">left</span>;
+					</span> 
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">shiftY</span> = 
+						<span class="color-pink">e</span>.<span class="color-aqua">pageY</span> - 
+						<span class="color-pink">coords</span>.<span class="color-aqua">top</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Этап 3</u>. <u>Подготовка к переносу</u></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-blue">moveAt</span> = 
+						(<span class="color-pink">e</span>) => { <span class="section__code-comment">// - 
+						<u>cоздаем</u> <span class="color-red">функцию</span> <u>для изменения</u> <em>стилей</em> и <u>перемещения</u> <span class="color-pink">элемента</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">square</span>.<span class="color-pink">style</span>.<span class="color-aqua">left</span> = 
+						<span class="color-pink">e</span>.<span class="color-aqua">pageX</span> - 
+						<span class="color-pink">shiftX</span> + <span class="color-gold">'px'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">square</span>.<span class="color-pink">style</span>.<span class="color-aqua">top</span> = 
+						<span class="color-pink">e</span>.<span class="color-aqua">pageY</span> - 
+						<span class="color-pink">shiftY</span> + <span class="color-gold">'px'</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-blue">theEnd</span> = () => { 
+						<span class="section__code-comment">// - <u>cоздаем</u> <span class="color-red">функцию</span> <u>для удаления</u> <span class="color-red">всех обработчиков</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">removeEventListener</span>(<span class="color-aqua">'mousemove'</span>, <span class="color-blue">moveAt</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">removeEventListener</span>(<span class="color-aqua">'mouseup'</span>, <span class="color-blue">theEnd</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">square</span>.<span class="color-pink">style</span>.<span class="color-aqua">position</span> = <span class="color-gold">'absolute'</span>; 
+						<span class="section__code-comment">// - <u>чтобы перенос работал</u>, <u>делаем</u> 
+						<span class="color-pink">элемент</span> <span class="color-gold">absolute</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">moveAt</span>(<span class="color-pink">e</span>); 
+						<span class="section__code-comment">// - <u>cтавим</u> 
+						<span class="color-gold">первые значения переноса</span> на <em>точке нахождения</em> 
+						<span class="color-pink">элемента</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">square</span>.<span class="color-pink">style</span>.<span class="color-aqua">zIndex</span> = <span class="color-gold">1000</span>; 
+						<span class="section__code-comment">// - <u>делаем</u> над 
+						<span class="color-pink">другими элементами</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Этап 4</u>. <u>Двигаем</u> 
+						<span class="color-pink">элемент</span>.</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'mousemove'</span>, <span class="color-blue">moveAt</span>); 
+						<span class="section__code-comment">// - <u>при изменении</u> <em>положения мыши</em> <u>меняем</u> <em>координаты</em> <span class="color-pink">квадрата</span></span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'mouseup'</span>, <span class="color-blue">theEnd</span>); 
+						<span class="section__code-comment">// - когда <u>отпускаем</u> <em>мышь</em> - 
+						<u><em>все</em> удаляем</u></span>
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<div class="section__text-block">
+					<p>На этой основе можно сделать многое. На <span class="color-aqua">mouseup</span> –
+						<u>по-разному завершать перенос</u>: <u>изменять</u> <em>данные</em>, <u>перемещать</u>
+						<em>элементы</em>. <u>Можно подсвечивать</u> <em>элементы</em>, пока <em>мышь</em>
+						<u>«пролетает» над</u> <em>ними</em>. <u>Можно ограничить перетаскивание</u>
+						<em>определённой областью</em> или <em>направлением</em> и т.д.
+					</p>
+					<p><u>Пример</u> с поиском потенциальных целей переноса:</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment">// потенциальная цель переноса, над которой мы пролетаем прямо сейчас</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">currentDroppable</span> = 
+						<span class="color-gold">null</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-blue">onmousedown</span> = 
+						<span class="color-red">function</span>(<span class="color-pink">event</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">shiftX</span> = 
+						<span class="color-pink">event</span>.<span class="color-aqua">clientX</span> - 
+						<span class="color-pink">element</span>.<span class="color-red">getBoundingClientRect</span>().<span class="color-aqua">left</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">shiftY</span> = 
+						<span class="color-pink">event</span>.<span class="color-aqua">clientY</span> - 
+						<span class="color-pink">element</span>.<span class="color-red">getBoundingClientRect</span>().<span class="color-aqua">top</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-pink">style</span>.<span class="color-aqua">position</span> = <span class="color-gold">'absolute'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-pink">style</span>.<span class="color-aqua">zIndex</span> = <span class="color-gold">1000</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-aqua">body</span>.<span class="color-red">append</span>(<span class="color-pink">element</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">moveAt</span>
+						(<span class="color-pink">event</span>.<span class="color-aqua">pageX</span>, 
+						<span class="color-pink">event</span>.<span class="color-aqua">pageY</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">moveAt</span>
+						(<span class="color-pink">pageX</span>, <span class="color-pink">pageY</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-pink">style</span>.<span class="color-aqua">left</span> = <span class="color-pink">pageX</span> - 
+						<span class="color-pink">shiftX</span> + <span class="color-gold">'px'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-pink">style</span>.<span class="color-aqua">top</span> = <span class="color-pink">pageY</span> - 
+						<span class="color-pink">shiftY</span> + <span class="color-gold">'px'</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">onMouseMove</span>(<span class="color-pink">event</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">moveAt</span>(<span class="color-pink">event</span>.<span class="color-aqua">pageX</span>, <span class="color-pink">event</span>.<span class="color-aqua">pageY</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-aqua">hidden</span> = 
+						<span class="color-gold">true</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">elemBelow</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">elementFromPoint</span>(<span class="color-pink">event</span>.<span class="color-aqua">clientX</span>, 
+						<span class="color-pink">event</span>.<span class="color-aqua">clientY</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-aqua">hidden</span> = 
+						<span class="color-gold">false</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (!<span class="color-pink">elemBelow</span>) 
+						<span class="color-red">return</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">droppableBelow</span> = 
+						<span class="color-pink">elemBelow</span>.<span class="color-red">closest</span>(<span class="color-gold">'.droppable'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">currentDroppable</span> != 
+						<span class="color-pink">droppableBelow</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">currentDroppable</span>) { 
+						<span class="section__code-comment">// - <u>получим</u> <span class="color-gold">null</span> если мы <u>были не над</u> <span class="color-gold">droppable</span> <u>до</u> этого <em>события</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// (например, над пустым пространством)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">leaveDroppable</span>
+						(<span class="color-pink">currentDroppable</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">currentDroppable</span> = 
+						<span class="color-pink">droppableBelow</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> (<span class="color-pink">currentDroppable</span>) { 
+						<span class="section__code-comment">// - <u>вернет</u> <span class="color-gold">null</span> если мы <u>не над</u> <span class="color-gold">droppable</span> сейчас, <u>во время</u> этого <em>события</em></span>
+					</span>
+					<span class="section__code-row">
+						<span class="section__code-comment">// (например, только что покинули droppable)</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">enterDroppable</span>
+						(<span class="color-gold">currentDroppable</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">addEventListener</span>(<span class="color-aqua">'mousemove'</span>, <span class="color-blue">onMouseMove</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-gold">element</span>.<span class="color-blue">onmouseup</span> = 
+						<span class="color-red">function</span>() {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">removeEventListener</span>(<span class="color-aqua">'mousemove'</span>, <span class="color-blue">onMouseMove</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-blue">onmouseup</span> = 
+						<span class="color-gold">null</span>;
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">enterDroppable</span>(<span class="color-pink">elem</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">elem</span>.<span class="color-pink">style</span>.<span class="color-aqua">background</span> = <span class="color-gold">'pink'</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> 
+						<span class="color-blue">leaveDroppable</span>(<span class="color-pink">elem</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">elem</span>.<span class="color-pink">style</span>.<span class="color-aqua">background</span> = <span class="color-gold">''</span>;
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">element</span>.<span class="color-blue">ondragstart</span> = () => <span class="color-gold">false</span>;
+					</span>
+				</code>
 			</section>
 
 			<section class="section" id="keyboard">
 				<h3 class="section__subtitle">Клавиатура: keydown и keyup</h3>
+				<div class="section__text-block">
+					<p><em>Событие</em> <span class="color-pink">elem</span>.<span class="color-aqua">keydown</span>
+						происходит <u>при нажатии</u> <em>клавиши</em>, а
+						<span class="color-pink">elem</span>.<span class="color-aqua">keyup</span> –
+						<u>при отпускании</u> <em>клавиши</em>.
+					</p>
+					<p><em>Свойство</em> <span class="color-pink">event</span>.<span class="color-aqua">key</span>
+						(<span class="color-gold">z</span>) <span class="color-pink">объекта события</span>
+						<u>позволяет получить</u> <em>символ</em>, а <span class="color-aqua">свойство</span>
+						<span class="color-pink">event</span>.<span class="color-aqua">code</span>
+						(<span class="color-gold">KeyZ</span>) – <em>«физический код клавиши»</em>. Если
+						<em>клавиша</em> <u>не</u> <em>буквенно-цифровая</em>, <span class="color-gold">значение</span>
+						<span class="color-aqua">свойства</span>
+						<span class="color-pink">event</span>.<span class="color-aqua">key</span>
+						(<span class="color-gold">F1</span>) <u>примерно тоже</u>,
+						что и у <span class="color-pink">event</span>.<span class="color-aqua">code</span>
+						(<span class="color-gold">F1</span>).
+					</p>
+					<p><span class="color-pink">event</span>.<span class="color-aqua">code</span>
+						<u>точно указывает</u>, какая именно <em>клавиша</em> <u>нажата</u>,
+						<span class="color-pink">event</span>.<span class="color-aqua">key</span> <u>сообщает</u> о
+						<u>«смысле»</u> <em>клавиши</em>: <em>что</em> вообще <u>было нажато</u>. Имеет смысл
+						<u>проверять</u> <span class="color-pink">event</span>.<span class="color-aqua">code</span>,
+						ведь <em>его</em> <span class="color-gold">значение</span> <u>всегда одно и тоже</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">document</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-gold">'keydown'</span>, 
+						<span class="color-red">function</span>(<span class="color-pink">event</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">if</span> 
+						(<span class="color-pink">event</span>.<span class="color-aqua">code</span> == 
+						<span class="color-gold">'KeyZ'</span> && 
+						(<span class="color-pink">event</span>.<span class="color-aqua">ctrlKey</span> || 
+						<span class="color-pink">event</span>.<span class="color-aqua">metaKey</span>)) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(<span class="color-gold">'Отменить!'</span>)
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<div class="section__text-block">
+					<p><u>При долгом нажатии</u> <em>клавиши</em> <u>возникает автоповтор</u>:
+						<span class="color-aqua">keydown</span> <u>срабатывает снова и снова</u>, и
+						<u>когда отпускают</u> <em>клавишу</em>, то <u>отрабатывает</u>
+						<span class="color-aqua">keyup</span>. Ситуация, когда <u>много</u>
+						<span class="color-aqua">keydownи</span> <u>один</u> <span class="color-aqua">keyup</span>,
+						абсолютно <u>нормальна</u>. <u>Для</u> <em>событий</em>, <u>вызванных автоповтором</u>, у
+						<span class="color-pink">объекта события</span> <span class="color-aqua">свойство</span>
+						<span class="color-pink">event</span>.<span class="color-aqua">repeat</span> <u>равно</u>
+						<span class="color-gold">true</span>.
+					</p>
+				</div>
 			</section>
 
 			<section class="section" id="pointer">
 				<h3 class="section__subtitle">События указателя</h3>
+				<div class="section__text-block">
+					<p><u>Для каждого</u> <em>mouse-события</em> <u>есть соответствующее</u> <em>pointer-событие</em>,
+						<em>которое</em> <u>играет аналогичную роль</u>. Также <u>есть</u>
+						<em>3 дополнительных события указателя</em>, у <em>которых</em>
+						<u>нет соответствующего аналога</u> <em>mouse-события</em>.
+					</p>
+					<p>Мы <u>можем заменить</u> <em>события mouse</em>... <u>на аналогичные</u> <em>pointer</em>... в
+						<em>коде</em> и быть уверенными, что с <em>мышью</em> по-прежнему
+						<u>всё будет работать нормально</u>.
+					</p>
+				</div>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="./img/events-image.png" alt="events">
+				</div>
+				<div class="section__text-block">
+					<p>События указателя содержат те же свойства, что и события мыши, например clientX/Y, target и т.п.,
+						и несколько дополнительных:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-aqua">pointerId</span> – <em>уникальный идентификатор указателя</em>,
+						<u>вызвавшего</u> <em>событие</em>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">pointerType</span> – <em>тип указывающего устройства</em>.
+						<u>Должен быть</u> <span class="color-gold">строкой</span> <u>с одним из</u>
+						<psan class="color-gold">значений</psan>: <span class="color-gold">«mouse»</span>,
+						<span class="color-gold">«pen»</span> или <span class="color-gold">«touch»</span>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">isPrimary</span> – <u>равно</u> <span class="color-gold">true</span>
+						<u>для</u> <em>основного указателя</em> (первый палец в мульти-тач).
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><em>События указателя</em> <u>позволяют обрабатывать</u> <em>мульти-тач</em>
+						(возможность касаться сразу нескольких мест на телефоне или планшете или выполнять специальные
+						жесты.) <u>с помощью</u> <em>свойств</em> <span class="color-aqua">pointerId</span> и
+						<span class="color-aqua">isPrimary</span>.
+					</p>
+					<p>Когда пользователь касается сенсорного экрана в одном месте, а затем в другом:</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<u>При касании первым пальцем</u>: <u>происходит</u> <em>событие</em>
+							<span class="color-aqua">pointerdown</span> со <em>свойством</em>
+							<span class="color-aqua">isPrimary</span> = <span class="color-gold">true</span> и некоторым
+							<span class="color-aqua">pointerId</span>.
+						</li>
+						<li class="section__list-item">
+							<u>При касании вторым и последующими пальцами</u> (<u>при остающемся первом</u>):
+							<u>происходит</u> <em>событие</em> <span class="color-aqua">pointerdown</span> со
+							<em>свойством</em> <span class="color-aqua">isPrimary</span> =
+							<span class="color-gold">false</span> и <u>уникальным</u>
+							<span class="color-aqua">pointerId</span> <u>для каждого касания</u>.
+						</li>
+					</ul>
+					<p><span class="color-aqua">pointerId</span> <u>присваивается</u> не на всё устройство, а
+						<u>для каждого касающегося пальца</u>. <u>Если коснуться</u> <em>экрана</em>
+						<u>5 пальцами одновременно</u>, <u>получим</u> <em>5 событий</em>
+						<span class="color-aqua">pointerdown</span>, <em>каждое</em> <u>со своими</u>
+						<em>координатами</em> и <u>индивидуальным</u> <span class="color-aqua">pointerId</span>.
+					</p>
+					<p><em>События</em>, <u>связанные с первым пальцем</u>, <u>всегда содержат</u> <em>свойство</em>
+						<span class="color-aqua">isPrimary</span> = <span class="color-gold">true</span>
+					</p>
+					<p>Мы <u>можем отслеживать несколько касающихся <em>экрана</em> пальцев</u>, <u>используя</u> их
+						<span class="color-aqua">pointerId</span>. Когда <em>пользователь</em> <u>перемещает</u>, а
+						<u>затем убирает палец</u>, <u>получаем</u> <em>события</em>
+						<span class="color-aqua">pointermove</span> и <span class="color-aqua">pointerup</span>
+						<u>с тем же</u> <span class="color-aqua">pointerId</span>, что и <u>при</u> <em>событии</em>
+						<span class="color-aqua">pointerdown</span>.
+					</p>
+					<p><u>Предотвращайте</u> <em>действие браузера по умолчанию</em>, чтобы <u>избежать</u>
+						события <span class="color-aqua">pointercancel</span>, <u>когда</u> <em>текущее действие</em> с
+						<em>указателем</em> <u>прерывается</u>, и <em>события указателя</em>
+						<u>больше не генерируются</u>. Нужно сделать две вещи:
+					</p>
+				</div>
+				<ol class="section__list">
+					<li class="section__list-item">
+						<u>Предотвратить запуск</u> встроенного <strong>drag'n'drop</strong> <u>для</u>
+						<em>событий мыши</em>:
+						<span class="color-pink">element</span>.<span class="color-blue">ondragstart</span> = () =>
+						<span class="color-gold">false</span>
+					</li>
+					<li class="section__list-item">
+						<u>Для</u> <em>устройств с сенсорным экраном</em>: <u>добавить</u> в <em>CSS</em>
+						<span class="color-aqua">свойство</span> .<span class="color-pink">element</span> {
+						<span class="color-aqua">touch-action</span>: <span class="color-gold">none</span> }.
+					</li>
+				</ol>
 			</section>
 
 			<section class="section" id="scrolling">
 				<h3 class="section__subtitle">Прокрутка</h3>
+				<div class="section__text-block">
+					<p><em>Событие прокрутки</em> <span class="color-aqua">scroll</span>
+						<u>позволяет реагировать на прокрутку</u> <em>страницы</em> или <em>элемента</em>. Есть много
+						хороших вещей, которые при этом <u>можно сделать</u>.
+					</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<u>Показать</u> / <u>скрыть</u> <em>дополнительные элементы управления</em> или
+							<em>информацию</em>, основываясь на том, <u>в какой части документа находится</u>
+							<em>пользователь</em>.
+						</li>
+						<li class="section__list-item">
+							<u>Подгрузить</u> <em>данные</em>, когда <em>пользователь</em> <u>прокручивает</u>
+							<em>страницу</em> <u>вниз до конца</u>.
+						</li>
+					</ul>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="section__code-comment"><span class="color-red">функция</span> 
+							<u>для отображения</u> <em>текущей прокрутки</em>:</span>
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">window</span>.<span class="color-red">addEventListener</span>(<span class="color-aqua">'scroll'</span>, <span class="color-red">function</span>() {
+						</span>
+						<span class="section__code-row">
+							<span class="color-pink">document</span>.<span class="color-red">getElementById</span>(<span class="color-gold">'showScroll'</span>).<span class="color-aqua">innerHTML</span> = <span class="color-aqua">pageYOffset</span> + <span class="color-gold">'px'</span>;
+						</span>
+						<span class="section__code-row">});</span>
+					</code>
+					<p><u>Способов инициировать прокрутку много</u>, поэтому <u>более надёжный способ</u> –
+						<u>использовать</u> <em>CSS</em>, <em>свойство</em> <span class="color-aqua">overflow</span>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="event-source">
+				<h3 class="section__subtitle">Сетевые запросы: Event Source, WebSocket</h3>
+				<div class="section__text-block">
+					<p>Иногда в <em>приложениях</em> требуется <u>постоянно держать открытым</u> <em>канал данных</em>.
+						В схеме <em>request</em> / <em>response</em> <em>инициатором</em> <u>выступает</u>
+						<em>клиент</em>. <em>Сервер</em> <u>не может отправить</u> <em>данные</em> <em>клиенту</em>
+						<u>без инициативы со стороны</u> <em>клиента</em>. <u>Для реализации</u> различных
+						<em>приложений</em> (<u>например</u>, <em>чат</em> или <em>система серверных уведомлений</em>)
+						необходимо, чтобы <em>сервер</em> <u>мог отправлять</u> <em>данные</em> <em>клиенту</em>
+						<u>без запроса с его стороны</u>. <u>Для этого существует</u> несколько <em>инструментов</em>.
+					</p>
+				</div>
+				<h3 class="section__subtitle section__subtitle_small">EventSource. Реализация и применение</h3>
+				<div class="section__text-block">
+					<p></p>
+					<p>Интерфейс <strong>EventSource</strong> <u>используется для получения</u>
+						<em>серверных событий</em> (<em>Server-sent events</em>). <strong>EventSource</strong>
+						<u>устанавливает соединение</u> с <em>сервером</em> по <em>HTTP</em> и <u>получает</u>
+						<em>события</em> <u>в формате</u> <em>text/event-stream</em> <u>без закрытия соединения</u>.
+						<u>Схема работы следующая</u>:
+					</p>
+				</div>
+				<ol class="section__list">
+					<li class="section__list-item">
+						<u>Открывается</u> <em>канал передачи данных</em>;
+					</li>
+					<li class="section__list-item">
+						<em>Соединение</em> <u>висит открытым</u>. <em>Сервер</em> <u>может отправлять</u>
+						<em>события</em> <u>без</u> <em>дополнительных запросов</em> со стороны <em>клиента</em>;
+					</li>
+					<li class="section__list-item">
+						<em>Канал передачи данных</em> <u>закрывается</u> или <em>клиентом</em>, или <em>сервером</em>.
+					</li>
+				</ol>
+				<div class="section__text-block">
+					<p><u>После установки</u> <strong>EventSource-соединения</strong> по <em>этому каналу</em>
+						<u>отправлять</u> сообщения <em>клиенту</em> <u>может только</u> <em>сервер</em>.
+						<em>Клиент</em> <u>может отправить</u> <em>данные</em>
+						<u>только в момент установки соединения</u>.
+					</p>
+					<p><strong>EventSource</strong> <u>используется</u> в случаях, когда <em>клиенту</em>
+						<u>нет необходимости постоянно отправлять</u> <em>данные</em> на <em>сервер</em>, но
+						<u>необходимо часто получать</u> <em>их</em>. Это <u>могут быть</u> <em>графики</em>,
+						обновляемые в реальном времени, <u>слежение за отправкой</u> <em>уведомлений</em> с
+						<em>сервера</em> и прочее.
+					</p>
+					<p><strong>EventSource</strong> <u>более простой способ</u> <em>коммуникации с сервером</em>, чем
+						<strong>WebSocket</strong>. Многим <em>приложениям</em> <u>не требуется</u> вся мощь
+						<strong>WebSocket</strong>. Если нам <u>нужно получать</u> <em>поток данных</em> с
+						<em>сервера</em> – с этим легко <u>справится</u> <strong>EventSource</strong>.
+					</p>
+					<p><strong>EventSource</strong> <u>поддерживает</u> <em>автоматическое переподключение</em>
+						<u>при потере</u> <em>соединения</em>, которое, <u>используя</u> <strong>WebSocket</strong>, нам
+						бы <u>пришлось реализовывать самим</u>. Кроме того, <u>используется</u> <em>HTTP</em>, а
+						<u>не</u> <em>новый протокол</em>.
+					</p>
+					<p>После того как <em>соединение</em> окончательно <u>закрыто</u>, <u>переоткрыть</u> <em>его</em>
+						уже <u>нельзя</u>. Если <u>необходимо снова подключиться</u>, просто <u>создайте</u>
+						<em>новый</em> <strong>EventSource</strong>.
+					</p>
+					<p><em>Метод</em> <span class="color-pink">eventSource</span>.<span class="color-red">close</span>
+						( ) - <u>закрывает</u> <em>соединение</em>.
+					</p>
+					<p>События:</p>
+					<ul class="section__list">
+						<li class="section__list-item">
+							<span class="color-aqua">message</span> - <em>сообщение</em> <u>получено</u>,
+							<em>переданные данные</em> <u>записаны</u> в
+							<span class="color-pink">event</span>.<span class="color-aqua">data</span>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-aqua">open</span> - <em>cоединение</em> <u>установлено</u>.
+						</li>
+						<li class="section__list-item">
+							<span class="color-aqua">error</span> -<u> в случае ошибки</u>, включая как
+							<u>потерю</u> <em>соединения</em>, так и <em>другие ошибки</em>.
+						</li>
+					</ul>
+					<p><span class="color-aqua">Свойство</span>
+						<span class="color-pink">eventSource</span>.<span class="color-aqua">readyState</span>
+						<u>проверяет</u> <em>статус подключения</em>.
+					</p>
+					<p>Чтобы <u>начать слушать</u> <em>пользовательские события</em>, <u>нужно использовать</u>
+						<span class="color-pink">eventSource</span>.<span class="color-red">addEventListener</span>( )
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-pink">eventSource</span>.<span class="color-red">addEventListener</span>(<span class="color-aqua">'join'</span>, <span class="color-pink">event</span> => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>
+						(`${<span class="color-pink">event</span>.<span class="color-aqua">data</span>} 
+						<span class="color-gold">зашёл</span>`);
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-pink">eventSource</span>.<span class="color-red">addEventListener</span>(<span class="color-aqua">'message'</span>, <span class="color-pink">event</span> => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>(`<span class="color-gold">Сказал:</span> 
+						${<span class="color-pink">event</span>.<span class="color-aqua">data</span>}`);
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-pink">eventSource</span>.<span class="color-red">addEventListener</span>(<span class="color-aqua">'leave'</span>, <span class="color-pink">event</span> => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">alert</span>
+						(`${<span class="color-pink">event</span>.<span class="color-aqua">data</span>} 
+						<span class="color-gold">вышел</span>`);
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+
+				<div class="section__text-block">
+					<p><u>Формат</u> <em>ответа сервера:</em></p>
+					<p><em>Сервер</em> <u>посылает</u> <em>сообщения</em>, <u>разделённые</u>
+						<em>двойным переносом строки</em> <span class="color-gold">\n\n</span>.
+					</p>
+					<p><em>Сообщение</em> <u>состоит</u> из <span class="color-aqua">следующих полей</span>:</p>
+					<p><span class="color-aqua">data</span>: – <em>тело сообщения</em>,
+						<span class="color-aqua">несколько data</span> <u>подряд</u> <u>интерпретируются</u> как
+						<em>одно сообщение</em>, <u>разделённое</u> <em>переносами строк</em>
+						<span class="color-gold">\n</span>.
+					</p>
+					<p><span class="color-aqua">id</span>: – <u>обновляет</u> <em>свойство</em>
+						<span class="color-aqua">lastEventId</span>, <u>отправляемое</u> в
+						<em>Last-Event-ID</em> <u>при переподключении</u>.
+					</p>
+					<p><span class="color-aqua">retry</span>: – рекомендованная <em>задержка</em>
+						<u>перед переподключением</u> в <em>миллисекундах</em>. <u>Не может быть установлена</u> с
+						помощью <em>JavaScript</em>.
+					</p>
+					<p><span class="color-aqua">event</span>: – <em>имя пользовательского события</em>,
+						<u>должно быть указано перед</u> <span class="color-aqua">data</span>:
+					</p>
+					<p><em>Сообщение</em> <u>может включать</u> <span class="color-aqua">одно</span> или
+						<span class="color-aqua">несколько этих полей</span> <u>в любом порядке</u>, но
+						<span class="color-aqua">id</span> обычно <u>ставят в конце</u>.
+					</p>
+				</div>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Открытие</u> <em>соединения</em> <u>на стороне</u> <em>клиента</em>:</span>
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">eventSource</span> = 
+						<span class="color-red">new</span> 
+						<span class="color-pink">EventSource</span>(<span class="color-gold">'/url/'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">eventSource</span>.<span class="color-aqua">onmessage</span> = 
+						(<span class="color-pink">event</span>) => { // - <u>подписка на получение</u> <em>данных</em> с <em>сервера</em>.
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">console.log</span>
+						(<span class="color-pink">JSON</span>.<span class="color-red">parse</span>
+						(<span class="color-pink">event</span>.<span class="color-aqua">data</span>))
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="section__code-comment"><u>Поддержка</u> <em>открытого соединения</em>
+						<u>на стороне</u> <em>сервера</em> (<u>пример</u> с <em>express.js</em>):</span>
+					</span>
+					<span class="section__code-row">
+						.<span class="color-red">get</span>(<span class="color-gold">'/url/'</span>, 
+						(<span class="color-pink">req</span>, <span class="color-pink">res</span>) => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">res</span>.<span class="color-red">writeHead</span>
+						(<span class="color-gold">200</span>, {
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">"Content-Type"</span>: 
+						<span class="color-gold">"text/event-stream"</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">"Connection"</span>: <span class="color-gold">"keep-alive"</span>,
+					</span>
+					<span class="section__code-row">
+						<span class="color-aqua">"Cache-Control"</span>: <span class="color-gold">"no-cache"</span>
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-pink">res</span>.<span class="color-red">write</span>
+						('<span class="color-aqua">data</span>: 
+						<span class="color-gold">"открытие соединения"\n\n</span>');
+					</span>
+					<span class="section__code-row">})</span>
+				</code>
+				<h3 class="section__subtitle section__subtitle_small">WebSocket</h3>
+				<div class="section__text-block">
+					<p><strong>WebSocket</strong> <u>позволяет открыть</u>
+						<em>постоянное двунаправленное сетевое соединение</em> <u>между</u> <em>браузером</em>
+						пользователя и <em>сервером</em>. <u>С помощью</u> <strong>его</strong> <em>API</em> вы
+						<u>можете отправить</u> <em>сообщение</em> на <em>сервер</em> и <u>получить</u>
+						<em>ответ</em> <u>без выполнения</u> <em>HTTP-запроса</em>, причём <em>этот процесс</em>
+						<u>будет событийно-управляемым</u>. <strong>WebSocket</strong> <u>используют для</u>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						Реализации <em>чата</em>;
+					</li>
+					<li class="section__list-item">
+						<em>Онлайн-редакторов</em> (текста, кода, графических и так далее);
+					</li>
+					<li class="section__list-item">
+						Различных <em>инструментов банковской сферы</em>;
+					</li>
+					<li class="section__list-item">
+						Всего, что <u>требует постоянного получения</u> <em>информации</em> с <em>сервера</em>.
+					</li>
+				</ul>
+				<div class="section__text-block">
+					<p><u>Работа</u> с <strong>WebSocket</strong> в <em>браузере</em> <u>представлена</u>
+						<em>классом</em> <span class="color-pink">WebSocket</span>. <u>Для открытия</u>
+						<strong>WebSocket-соединения</strong> <u>необходимо создать</u> <em>экземпляр класса</em>
+						<span class="color-pink">WebSocket</span>.
+					</p>
+					<p>Когда <span class="color-red">new</span>
+						<span class="color-pink">WebSocket</span>(<span class="color-gold">url</span>) <u>создан</u>,
+						<em>он</em> тут же <em>сам</em> <u>начинает устанавливать</u> <em>соединение</em>.
+						<em>Браузер</em>, при помощи <em>специальных заголовков</em>, <u>спрашивает</u>
+						<em>сервер</em>: «Ты поддерживаешь <em>Websocket</em>?» и если <em>сервер</em> <u>отвечает</u>
+						«да», <em>они</em> <u>начинают работать</u> по <em>протоколу</em> <strong>WebSocket</strong>,
+						который уже <u>не является</u> <strong>HTTP</strong>.
+					</p>
+					<code class="section__code">
+						<span class="section__code-row">
+							<span class="color-red">const</span> <span class="color-pink">websocket</span> = 
+							<span class="color-red">new</span> <span class="color-pink">WebSocket</span>
+							(<span class="color-gold">'wss://echo.websocket.org/'</span>);
+						</span>
+					</code>
+					<p><u>Как только создан</u> <em>объект</em> <span class="color-pink">WebSocket</span>, мы
+						<u>должны слушать</u> <em>его события</em>. <u>Есть</u> <em>4 события слежения</em> за
+						<strong>websocket-соединением</strong>, а также <span class="color-red">методы</span>:
+					</p>
+				</div>
+				<ul class="section__list">
+					<li class="section__list-item">
+						<span class="color-aqua">open</span> — <u>срабатывает</u>, когда <em>соединение</em>
+						<u>готово отсылать</u> и <u>принимать</u> <em>данные</em>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">close</span> — <u>срабатывает</u>, когда <em>соединение</em>
+						<u>закрывается</u>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">message</span> — <em>событие</em>, <u>обрабатывающее</u>
+						<em>все получаемые сообщения</em>;
+					</li>
+					<li class="section__list-item">
+						<span class="color-aqua">error</span> — <u>срабатывает</u>, когда <u>происходит ошибка</u>
+						<em>соединения</em>.
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">websocket</span>.<span class="color-red">send</span>
+						(<span class="color-pink">message</span>) — <u>отправка</u> <em>данных</em> по
+						<em>WebSocket-соединению</em> (<em>текст</em> <u>всегда поступает в виде</u>
+						<span class="color-gold">строки</span>);
+					</li>
+					<li class="section__list-item">
+						<span class="color-pink">websocket</span>.<span class="color-red">close</span>( ) —
+						<u>закрытие</u> <em>соединения</em>.
+					</li>
+					<li class="section__list-item">
+						Чтобы <u>получить состояние</u> <em>соединения</em>, <u>существует</u>
+						<span class="color-aqua">свойство</span>
+						<span class="color-pink">socket</span>.<span class="color-aqua">readyState</span> со
+						<span class="color-gold">значениями</span> <u>от</u> <span class="color-gold">0</span>
+						<u>до</u> <span class="color-gold">3</span>.
+					</li>
+				</ul>
+				<code class="section__code">
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">wsUri</span> = 
+						<span class="color-gold">'wss://echo.websocket.org/'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">output</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">getElementById</span>
+						(<span class="color-gold">'output'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btnOpen</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'.j-btn-open'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btnClose</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'.j-btn-close'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">btnSend</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">querySelector</span>
+						(<span class="color-gold">'.j-btn-send'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">websocket</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">function</span> <span class="color-blue">writeToScreen</span>
+						(<span class="color-pink">message</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">let</span> <span class="color-pink">pre</span> = 
+						<span class="color-pink">document</span>.<span class="color-red">createElement</span>
+						(<span class="color-gold">'p'</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">pre</span>.<span class="color-pink">style</span>.<span class="color-aqua">wordWrap</span> = <span class="color-gold">'break-word'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">pre</span>.<span class="color-aqua">innerHTML</span> = 
+						<span class="color-pink">message</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">output</span>.<span class="color-red">appendChild</span>
+						(<span class="color-pink">pre</span>);
+					</span>
+					<span class="section__code-row">}</span>
+					<span class="section__code-row">
+						<span class="color-pink">btnOpen</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'click'</span>, () => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">websocket</span> = <span class="color-red">new</span> 
+						<span class="color-pink">WebSocket</span>(<span class="color-pink">wsUri</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">websocket</span>.<span class="color-blue">onopen</span> = 
+						<span class="color-red">function</span>(<span class="color-pink">evt</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeToScreen</span>(<span class="color-gold">'CONNECTED'</span>);
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">websocket</span>.<span class="color-blue">onclose</span> = 
+						<span class="color-red">function</span>(<span class="color-pink">evt</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeToScreen</span>(<span class="color-gold">'DISCONNECTED'</span>);
+					</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">websocket</span>.<span class="color-blue">onmessage</span> = 
+						<span class="color-red">function</span>(<span class="color-pink">evt</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeToScreen</span>(
+					</span>
+					<span class="section__code-row">
+						'<span class="color-red">span</span> 
+						<span class="color-gold">style="color: blue;">RESPONSE: '</span> + 
+						<span class="color-pink">evt</span>.<span class="color-aqua">data</span>+'<span class="color-red">/span</span>'
+					</span>
+					<span class="section__code-row">);</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">
+						<span class="color-pink">websocket</span>.<span class="color-blue">onerror</span> = 
+						<span class="color-red">function</span>(<span class="color-pink">evt</span>) {
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeToScreen</span>(
+					</span>
+					<span class="section__code-row">
+						'<span class="color-red">span</span> 
+						<span class="color-gold">style="color: red;">ERROR:</span><span class="color-red">/span</span> ' + <span class="color-pink">evt</span>.<span class="color-aqua">data</span>
+					</span>
+					<span class="section__code-row">);</span>
+					<span class="section__code-row">};</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-pink">btnClose</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'click'</span>, () => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">websocket</span>.<span class="color-red">close</span>();
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">websocket</span> = <span class="color-gold">null</span>;
+					</span>
+					<span class="section__code-row">});</span>
+					<span class="section__code-row">
+						<span class="color-pink">btnSend</span>.<span class="color-red">addEventListener</span>
+						(<span class="color-aqua">'click'</span>, () => {
+					</span>
+					<span class="section__code-row">
+						<span class="color-red">const</span> <span class="color-pink">message</span> = 
+						<span class="color-gold">'Test message'</span>;
+					</span>
+					<span class="section__code-row">
+						<span class="color-blue">writeToScreen</span>(<span class="color-gold">'SENT: '</span> + 
+						<span class="color-pink">message</span>);
+					</span>
+					<span class="section__code-row">
+						<span class="color-pink">websocket</span>.<span class="color-red">send</span>
+						(<span class="color-pink">message</span>);
+					</span>
+					<span class="section__code-row">});</span>
+				</code>
+				<div class="section__text-block">
+					<p><strong>WebSocket</strong> сам по себе <u>не содержит</u> такие
+						<span class="color-red">функции</span>, как <em>переподключение при обрыве соединения</em>,
+						<em>аутентификацию пользователей</em> и другие механизмы высокого уровня. <u>Для этого есть</u>
+						<em>клиентские и серверные библиотеки</em>, а также <u>можно реализовать</u> <em>это</em>
+						<u>вручную</u>.
+					</p>
+					<p>Пример чата:</p>
+				</div>
+				<div class="section__image section__image_medium-2">
+					<img class="img-adaptive" src="./img/WebSocket.png" alt="websocket">
+				</div>
+				<div class="section__image section__image_medium">
+					<img class="img-adaptive" src="./img/WebSocket-2.png" alt="websocket">
+				</div>
 			</section>
 
 			<nav class="content__navigation">
