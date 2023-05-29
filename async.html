@@ -656,7 +656,7 @@
 					<p><strong>XML</strong> (<em>расширяемый язык разметки</em>) - <u>поддерживает хранение</u>
 						<en>сложных структур данных</en>. <em>Язык</em> <u>называется</u> <em>расширяемым</em>,
 						поскольку он <u>не фиксирует</u> <em>разметку</em>, используемую в документах: каждый
-						<em>разработчик</em> <u>может создать</u> <em>любую разметку</em> c в соответствии с
+						<em>разработчик</em> <u>может создать</u> <em>любую разметку</em> в соответствии с
 						потребностями конкретной области.
 					</p>
 					<p><u>Для работы</u> с <em>XML</em> в <em>JavaScript</em> <u>имеется</u> <em>класс</em>
@@ -719,7 +719,7 @@
 							<span class="color-pink">объект JS</span>.
 						</li>
 					</ul>
-					<p><u>Подробнее о работе</u> с <span class="color-gold">JSON</span> в написано
+					<p><u>Подробнее о работе</u> с <span class="color-gold">JSON</span> написано в
 						<a class="section__link" href="./map-set-json.html#json">этой главе</a>
 					</p>
 				</div>
@@ -1485,8 +1485,8 @@
 					</p>
 					<p><u>Для создания</u> <span class="color-pink">promise</span> <u>используется</u>
 						<em>класс-конструктор</em> <span class="color-pink">Promise</span>, который <u>принимает</u>
-						<span class="color-red">callback-функцию</span> с <em>двумя входными параметрами</em>: <span
-							class="color-pink">resolve</span> и <span class="color-pink">reject</span>.
+						<span class="color-red">callback-функцию</span> с <em>двумя входными параметрами</em>:
+						<span class="color-red">resolve</span> и <span class="color-red">reject</span>.
 					</p>
 					<p>!<u>ВАЖНО</u>. <u>После выполнения</u> <span class="color-pink">вашего promise</span>
 						(неважно, <u>успешно</u> или <u>нет</u>), <span class="color-pink">он</span>
@@ -2360,7 +2360,7 @@
 						<span class="color-red">return</span> 
 						<span class="color-pink">response</span>.<span class="color-red">json</span>(); 
 						<span class="section__code-comment">// - <u>происходит приведение</u> <em>ответа</em> к 
-						<span class="color-gold">JSON</span> виду (как и с <em>XHR</em>).</span>})
+						<span class="color-gold">JSON</span> виду.</span>})
 					</span>
 					<span class="section__code-row">
 						.<span class="color-red">then</span>((<span class="color-pink">data</span>) => { 
@@ -2423,7 +2423,7 @@
 						<span class="color-red">fetch</span>(<span class="color-pink">url</span>, 
 						[<span class="color-pink">options</span>]); <span class="section__code-comment">// - 
 						<span class="color-pink">url</span> - <em>URL</em> <u>для отправки</u> <em>запроса</em>. 
-						<span class="color-pink">options</span> – <em>дополнительные параметры</em>: <em>метод</em>, <em>заголовки</em> и т.д.</span>
+						<span class="color-pink">options</span> – <em>объект настроек</em>.</span>
 					</span>
 					<span class="section__code-row">
 						<span class="section__code-comment"><u>Без</u> <span class="color-pink">options</span> это <em>простой GET-запрос</em>, <u>скачивающий</u> <em>содержимое</em> <u>по адресу</u> 
@@ -2459,7 +2459,8 @@
 						<span class="color-pink">promise</span>, <u>для доступа</u> к <en>телу ответа</en>
 						<u>в различных форматах</u>:
 						<span class="color-pink">response</span>.<span class="color-red">text</span>( ),
-						<span class="color-pink">response</span>.json( ), ... Мы <u>можем выбрать <em>только один</em>
+						<span class="color-pink">response</span>.json( ), ... Мы <u>можем
+							выбрать <em>только один</em>
 						</u> <span class="color-red">метод чтения ответа</span>.
 					</p>
 					<p><em>Заголовки ответа</em> <u>хранятся</u> в
@@ -2537,8 +2538,9 @@
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">const</span> <span class="color-pink">result</span> = 
-						<span class="color-pink">response</span>.json(); <span class="section__code-comment">// - <u>превращаем</u> <span class="color-pink">объект</span> в 
-						<span class="color-gold">JSON</span>.</span>
+						<span class="color-pink">response</span>.<span class="color-red">json</span>(); 
+						<span class="section__code-comment">// - <u>превращаем</u> 
+						<span class="color-pink">объект</span> в <span class="color-gold">JSON</span>.</span>
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">console.log</span>(<span class="color-gold">'result'</span>, 
@@ -2629,7 +2631,7 @@
 				<code class="section__code">
 					<span class="section__code-row">
 						<span class="color-pink">btn</span>.<span class="color-red">addEventListener</span>
-						(<span class="color-gold">'click'</span>, () => {
+						(<span class="color-aqua">'click'</span>, () => {
 					</span>
 					<span class="section__code-row">
 						<span class="color-red">const</span> <span class="color-pink">options</span> = { 
@@ -2649,10 +2651,10 @@
 						<span class="color-aqua">title</span>: <span class="color-gold">'foo'</span>,
 					</span>
 					<span class="section__code-row">
-						<span class="color-aqua">body</span>: <span class="color-blue">'bar'</span>,
+						<span class="color-aqua">body</span>: <span class="color-gold">'bar'</span>,
 					</span>
 					<span class="section__code-row">
-						<span class="color-aqua">userId</span>: <span class="color-aqua">1</span>
+						<span class="color-aqua">userId</span>: <span class="color-gold">1</span>
 					</span>
 					<span class="section__code-row">}),</span>
 					<span class="section__code-row">

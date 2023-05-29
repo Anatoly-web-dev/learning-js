@@ -1,0 +1,109 @@
+@import url(./nullstyle.css);
+
+.content {
+	background-color: rgb(69, 62, 62);
+	padding: 50px 15px;
+	display: grid;
+	grid-template-columns: minmax(auto, 1200px);
+	justify-content: center;
+	align-content: start;
+	min-height: 100vh;
+}
+
+.section {
+	border: 1px dotted #ffffff;
+	padding: 20px;
+	margin: 0 0 30px;
+}
+
+.accordeon {
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+.accordeon__title {
+	min-height: 35px;
+	position: relative;
+	text-align: center;
+	font-size: 22px;
+	letter-spacing: 1px;
+	line-height: 35px;
+	background-color: rgb(237, 237, 126);
+	cursor: pointer;
+	transition: 0.3s linear 0s;
+}
+
+.accordeon__title:hover {
+	background-color: rgb(236, 238, 96);
+	transition: 0.4s linear 0s;
+}
+
+.accordeon__title::before,
+.accordeon__title::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	background-color: #63c525;
+}
+
+.accordeon__title::before {
+	right: 19px;
+	width: 2px;
+	height: 20px;
+	margin: -10px 0 0 0;
+}
+
+.accordeon__title.active::before {
+	transform: rotate(90deg);
+	z-index: 2;
+	background-color: rgb(255, 22, 34);
+}
+
+.accordeon__title::after {
+	right: 10px;
+	width: 20px;
+	height: 2px;
+	margin: -1px 0 0 0;
+}
+
+.accordeon__text-block {
+	padding: 0 10px;
+	position: relative;
+	visibility: hidden;
+	z-index: -1;
+	transform: translate(0, -50px);
+	background-color: #e7e7e7;
+	opacity: 0;
+	max-height: 0;
+	transition: all 0.3s linear 0s, opacity 0.2s linear 0s, max-height 0.1s linear;
+}
+
+.accordeon__text-block.active {
+	max-height: 1000px;
+	padding: 20px 10px 10px;
+	visibility: visible;
+	overflow: hidden;
+	z-index: 2;
+	opacity: 1;
+	transform: translate(0, 0);
+	transition: all 0.3s linear 0s, opacity 0.35s linear 0.15s;
+}
+
+.accordeon__text-block p {
+	margin: 0 0 15px;
+	line-height: 23px;
+}
+
+.accordeon__text-block p:last-child {
+	margin: 0;
+}
+
+.screen-size__title {
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+
+.screen-size-info {
+	color: #63c525;
+}

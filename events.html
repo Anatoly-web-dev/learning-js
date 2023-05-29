@@ -801,7 +801,7 @@
 					<li class="section__list-item">
 						<span class="color-pink">event</span>.<span class="color-aqua">target</span> —
 						<span class="color-pink">самый глубокий элемент</span>, который <u>вызывает</u>
-						<em>событие</em> (<em>целевым элементом</em>), в <u>процессе всплытия</u> <em>он</em>
+						<em>событие</em> (<em>целевой элемент</em>), в <u>процессе всплытия</u> <em>он</em>
 						<u>неизменен</u>;
 					</li>
 					<li class="section__list-item">
@@ -875,15 +875,17 @@
 					</span>
 					<span class="section__code-row">});</span>
 				</code>
-				<p><span class="color-red">Метод</span>
-					<span class="color-pink">elem</span>.<span class="color-red">closest</span>
-					(<span class="color-gold">selector</span>) <u>возвращает</u> <em>ближайшего предка</em>,
-					<u>соответствующего</u> <em>селектору</em>.
-				</p>
-				<p><strong>Делегирование событий</strong> - один из самых полезных приёмов <u>для работы</u> с
-					<strong>DOM</strong>, если <u>есть</u> <em>много элементов</em>, <u>обработка</u>
-					<em>которых</em> <u>очень схожа</u>. <u>Алгоритм</u>:
-				</p>
+				<div class="section__text-block">
+					<p><span class="color-red">Метод</span>
+						<span class="color-pink">elem</span>.<span class="color-red">closest</span>
+						(<span class="color-gold">selector</span>) <u>возвращает</u> <em>ближайшего предка</em>,
+						<u>соответствующего</u> <em>селектору</em>.
+					</p>
+					<p><strong>Делегирование событий</strong> - один из самых полезных приёмов <u>для работы</u> с
+						<strong>DOM</strong>, если <u>есть</u> <em>много элементов</em>, <u>обработка</u>
+						<em>которых</em> <u>очень схожа</u>. <u>Алгоритм</u>:
+					</p>
+				</div>
 				<ol class="section__list">
 					<li><u>Вешаем</u> <span class="color-red">обработчик</span> на <em>контейнер</em>.</li>
 					<li>В <span class="color-red">обработчике</span> <u>проверяем</u> <em>исходный элемент</em>
@@ -937,19 +939,20 @@
 					<p>Cтадия <strong>погружения</strong> <u>используется очень редко</u>, обычно <em>события</em>
 						<u>обрабатываются во время</u> <strong>всплытия</strong>.
 					</p>
-					<p>Стандарт DOM Events описывает 3 фазы прохода события:</p>
-					<ol class="section__list">
-						<li class="section__list-item">
-							<em>Фаза погружения</em> – <em>событие</em> <u>сначала идёт сверху вниз</u>.
-						</li>
-						<li class="section__list-item">
-							<em>Фаза цели</em> – <em>событие</em> <u>достигло</u> <em>целевого элемента</em>.
-						</li>
-						<li class="section__list-item">
-							<em>Фаза всплытия</em> – <em>событие</em> <u>начинает <em>всплывать</em></u>.
-						</li>
-					</ol>
+					<p>Стандарт <em>DOM Events</em> <u>описывает</u> <u>3 фазы прохода</u> <em>события</em>:</p>
 				</div>
+				<ol class="section__list">
+					<li class="section__list-item">
+						<em>Фаза погружения</em> – <em>событие</em> <u>сначала идёт сверху вниз</u>.
+					</li>
+					<li class="section__list-item">
+						<em>Фаза цели</em> – <em>событие</em> <u>достигло</u>
+						<span class="color-pink">целевого элемента</span>.
+					</li>
+					<li class="section__list-item">
+						<em>Фаза всплытия</em> – <em>событие</em> <u>начинает <em>всплывать</em></u>.
+					</li>
+				</ol>
 			</section>
 
 			<section class="section" id="mouse">
@@ -985,7 +988,7 @@
 						<em>конкретную кнопку мыши</em> (<em>Левая кнопка</em> - <span class="color-gold">0</span>,
 						<em>Средняя кнопка</em> - <span class="color-gold">1</span>, <em>Правая кнопка</em> -
 						<span class="color-gold">2</span>, <em>Кнопка X1</em> (назад) -
-						<span class="color-gold">3</span>, <span class="color-gold">Кнопка X2</span> (вперёд) -
+						<span class="color-gold">3</span>, <em>Кнопка X2</em> (вперёд) -
 						<span class="color-gold">4</span>).
 					</p>
 					<p><u>Не следует использовать</u> <span class="color-aqua">устаревшее свойство</span>
@@ -1485,7 +1488,7 @@
 						<span class="color-aqua">keydown</span> <u>срабатывает снова и снова</u>, и
 						<u>когда отпускают</u> <em>клавишу</em>, то <u>отрабатывает</u>
 						<span class="color-aqua">keyup</span>. Ситуация, когда <u>много</u>
-						<span class="color-aqua">keydownи</span> <u>один</u> <span class="color-aqua">keyup</span>,
+						<span class="color-aqua">keydown</span> и <u>один</u> <span class="color-aqua">keyup</span>,
 						абсолютно <u>нормальна</u>. <u>Для</u> <em>событий</em>, <u>вызванных автоповтором</u>, у
 						<span class="color-pink">объекта события</span> <span class="color-aqua">свойство</span>
 						<span class="color-pink">event</span>.<span class="color-aqua">repeat</span> <u>равно</u>
@@ -1741,7 +1744,6 @@
 					</span>
 					<span class="section__code-row">});</span>
 				</code>
-
 				<div class="section__text-block">
 					<p><u>Формат</u> <em>ответа сервера:</em></p>
 					<p><em>Сервер</em> <u>посылает</u> <em>сообщения</em>, <u>разделённые</u>
